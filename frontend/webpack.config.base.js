@@ -68,7 +68,18 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|mp3|mpe?g)$/,
         type : 'asset',
       },  */
-
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/', // chemin de sortie pour les polices
+            },
+          },
+        ],
+      },
       // in html file, emits files in output directory
       // and replace the src with the final path (to deal with svg, img...)
       {

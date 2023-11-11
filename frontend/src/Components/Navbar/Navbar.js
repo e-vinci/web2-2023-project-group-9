@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import { Navbar as BootstrapNavbar } from 'bootstrap';
+// import d'une image
+import logoPage from '../../img/logoPage.png';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -10,41 +10,44 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
+
+  // Création de l'élément image pour le logo
+  const logo = document.createElement('img');
+  logo.src = logoPage; // Mettez à jour le chemin ici
+  logo.classList.add('logoPage');
+
+  // Création de la balise 'a' pour le lien du logo
+  const logoLink = document.createElement('a');
+  logoLink.href = '#';
+  logoLink.appendChild(logo);
+
+  // Ajout du logo avant la balise 'nav'
+  navbarWrapper.appendChild(logoLink);
+
+  // Ajout du reste de la barre de navigation
   const navbar = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/game">Game</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>    
-              <li>
-                <a class="nav-link" href="#" data-uri="/login">Se connecter</a>
-              </li>                    
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <nav>
+      <div class="navLinks">
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Combattants</a></li>
+          <li><a href="#">Arenes</a></li>
+          <li><a href="#" data-uri="/login">Se Connecter</a></li>
+        </ul>
+      </div>
+      <ul id="icons">
+        <!-- Assumez que vous avez des éléments à l'intérieur de l'élément avec l'id "icons" -->
+      </ul>
+    </nav>
   `;
-  navbarWrapper.innerHTML = navbar;
+
+  navbarWrapper.innerHTML += navbar;
+
+  // Ajout de l'écouteur d'événements pour le clic sur l'élément avec l'id "icons"
+  const icons = document.querySelector('#icons');
+  icons.addEventListener('click', () => {
+    navbarWrapper.classList.toggle("active");
+  });
 };
 
 export default Navbar;
