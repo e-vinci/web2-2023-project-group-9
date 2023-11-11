@@ -9,7 +9,7 @@ const LoginPage = () => {
 
   function renderLoginPage() {
     const formLoginPage = `
-    <div class="container">
+    <div id="containerLoginPage">
         <div id="containerForm">
             <form action="#" method="post">
                 <label for="pseudo">Pseudo / Email :</label>

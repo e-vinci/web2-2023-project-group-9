@@ -5,10 +5,11 @@ body {
     background: url(../img/zyro-image.png);
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
-
-.container {
+/* login page style */
+#containerLoginPage {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,13 +31,15 @@ h1 {
     color: #333;
 }
 
-label {
+#containerForm label {
+    display: block;
     margin-bottom: 5px;
+    text-align: left;
     color: #ffffff;
 }
 
-input[type="text"],
-input[type="password"] {
+#containerForm input[type="text"],
+#containerForm input[type="password"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
@@ -44,7 +47,7 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
-input[type="submit"] {
+#containerForm input[type="submit"] {
     background-color: black;
     color: #fff;
     padding: 10px 20px;
@@ -54,20 +57,21 @@ input[type="submit"] {
     width: 35%;
 }
 
-input[type="submit"]:hover {
+#containerForm input[type="submit"]:hover {
     background-color: rgb(168, 3, 3);
 }
 
-#paragrapheLogin {
+#containerForm #paragrapheLogin {
     display: block;
     color: #ffffff;
     margin-top: 20px;
+    text-align: left;
 }
 
-a {
+#containerForm a {
     text-decoration: none;
 }
 
-a:hover {
+#containerForm a:hover {
     text-decoration: underline;
 }
