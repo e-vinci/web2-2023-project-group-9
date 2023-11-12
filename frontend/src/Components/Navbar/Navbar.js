@@ -1,5 +1,6 @@
 // import d'une image
 import logoPage from '../../img/logoPage.png';
+import Navigate from '../Router/Navigate';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -29,7 +30,7 @@ const Navbar = () => {
     <nav>
       <div class="navLinks">
         <ul>
-          <li><a href="#">Accueil</a></li>
+          <li><a href="#" data-uri="/" id="home">Accueil</a></li>
           <li><a href="#">Combattants</a></li>
           <li><a href="#">Arenes</a></li>
           <li><a href="#" data-uri="/login">Se Connecter</a></li>
@@ -48,6 +49,13 @@ const Navbar = () => {
   icons.addEventListener('click', () => {
     navbarWrapper.classList.toggle("active");
   });
+
+  // Ajout de l'ecouteur d'evenement pour le clic du lien vers la page d'accueil 
+  const home = document.querySelector("#home");
+  home.addEventListener("click", (e) => {
+    e.preventDefault();
+    Navigate('/');
+  })
 };
 
 export default Navbar;
