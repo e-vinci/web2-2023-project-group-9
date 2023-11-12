@@ -20,6 +20,9 @@ const Navbar = () => {
   // Création de la balise 'a' pour le lien du logo
   const logoLink = document.createElement('a');
   logoLink.href = '#';
+  // Ajout du logo comme lien vers l'acceuil
+  logoLink.dataset.uri = '/';
+  logoLink.id = "home"
   logoLink.appendChild(logo);
 
   // Ajout du logo avant la balise 'nav'
@@ -36,9 +39,7 @@ const Navbar = () => {
           <li><a href="#" data-uri="/login">Se Connecter</a></li>
         </ul>
       </div>
-      <ul id="icons">
-        <!-- Assumez que vous avez des éléments à l'intérieur de l'élément avec l'id "icons" -->
-      </ul>
+      <div id="icons"></div>
     </nav>
   `;
 
@@ -55,7 +56,16 @@ const Navbar = () => {
   home.addEventListener("click", (e) => {
     e.preventDefault();
     Navigate('/');
-  })
+  });
+
+  const links = document.querySelectorAll('nav li');
+
+  links.forEach((link) =>{
+    link.addEventListener('click', () =>{
+      navbarWrapper.classList.remove("active");
+    });
+  });
+
 };
 
 export default Navbar;
