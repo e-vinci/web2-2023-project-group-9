@@ -58,6 +58,7 @@ const Navbar = () => {
     Navigate('/');
   });
 
+
   const links = document.querySelectorAll('nav li');
 
   links.forEach((link) =>{
