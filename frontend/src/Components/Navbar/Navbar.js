@@ -36,7 +36,7 @@ const Navbar = () => {
           <li><a href="#">Combattants</a></li>
           <li><a href="#">Arenes</a></li>
           <li><a href="#" data-uri="/login">Se Connecter</a></li>
-          <li><a href="#">S'inscrire</a></li>
+          <li><a href="#" data-uri="/register">S'inscrire</a></li>
         </ul>
       </div>
       <div id="icons"></div>
