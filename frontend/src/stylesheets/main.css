@@ -17,6 +17,19 @@ body {
     background-repeat: no-repeat;  
 }
 
+
+/* Sohaib */
+/* Page d'acceuil */
+main{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#h1Acceuil{
+    width: 50%;
+}
+
 /* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
 @font-face{
     font-family: 'MK TITLE';
@@ -62,7 +75,7 @@ ul {
     position: absolute;
     margin: 0;
     left: 50%;
-    top: 30%;
+    top: 40%;
     transform: translate(-50%, -50%);
 }
 
@@ -135,6 +148,7 @@ h1 {
     box-sizing: border-box;
     background-color: rgb(0, 0, 0);
     z-index: 1000;
+    margin-bottom: 50px;
 }
 
 #navbarWrapper a{
@@ -164,7 +178,7 @@ h1 {
 @media screen and (max-width : 700px){
     #navbarWrapper{
         display: block;
-        height: 50px;
+        height: 100px;
     }
 
     #navbarWrapper .navLinks ul li{
@@ -231,14 +245,10 @@ h1 {
     }
 }
 
-
-/* régler le menu ouvrant avec le formulaire de connection */
-@media screen and (max-width : 700px){
+@media screen and (max-width : 650px){
     #containerLoginPage{
-        top: 0;
-        transition: 0.25s;
+        margin-top: 50px;
         position: relative;
-        padding-left: 5px;
-        padding-right: 5px;
+        width: 100%;
     }
 }
