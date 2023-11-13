@@ -135,6 +135,7 @@ h1 {
     box-sizing: border-box;
     background-color: rgb(0, 0, 0);
     z-index: 1000;
+    margin-bottom: 50px;
 }
 
 #navbarWrapper a{
@@ -235,7 +236,7 @@ h1 {
 /* régler le menu ouvrant avec le formulaire de connection */
 @media screen and (max-width : 700px){
     #containerLoginPage{
-        top: 0;
+        top: 50px;
         transition: 0.25s;
         position: relative;
         padding-left: 5px;
