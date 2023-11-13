@@ -24,10 +24,18 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 #h1Acceuil{
     width: 50%;
+}
+
+.slogan{
+    background-color: black;
+    color: white;
+    font-size: 3.5vw; 
+    padding: 0px 10px 0px 10px;
 }
 
 /* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/

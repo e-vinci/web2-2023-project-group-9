@@ -11,8 +11,16 @@ const HomePage = () => {
   titre.src = titrePage;
   titre.id = 'h1Acceuil';
 
+  // Créez une élément pour notre slogan;
+  const slogan = document.createElement('p');
+  slogan.textContent = 'taper vite pour taper fort';
+  slogan.classList.add('slogan');
+
+  // Création de l'animation avec typerwritter
+
   // Ajoutez l'élément img à l'élément main
   main.appendChild(titre);
+  main.appendChild(slogan);
 };
 
 export default HomePage;
