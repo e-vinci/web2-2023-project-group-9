@@ -165,7 +165,7 @@ h1 {
 @media screen and (max-width : 700px){
     #navbarWrapper{
         display: block;
-        height: 50px;
+        height: 25px;
     }
 
     #navbarWrapper .navLinks ul li{
@@ -234,12 +234,18 @@ h1 {
 
 
 /* régler le menu ouvrant avec le formulaire de connection */
-@media screen and (max-width : 700px){
+@media screen and ( max-width : 700px){
     #containerLoginPage{
-        top: 50px;
+        top: 0px;
         transition: 0.25s;
         position: relative;
         padding-left: 5px;
         padding-right: 5px;
+    }
+}
+
+@media screen and ( max-width : 530px){
+    #containerLoginPage{
+        top: 100px;
     }
 }
