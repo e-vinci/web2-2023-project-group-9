@@ -11,6 +11,8 @@ const HomePage = () => {
   titre.src = titrePage;
   titre.id = 'h1Acceuil';
 
+  // Créez un élément pour le slogan
+
   // Ajoutez l'élément img à l'élément main
   main.appendChild(titre);
 };
