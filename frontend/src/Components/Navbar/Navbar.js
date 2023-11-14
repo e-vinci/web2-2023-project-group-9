@@ -1,6 +1,5 @@
 // import d'une image
 import logoPage from '../../img/logoPage.png';
-import Navigate from '../Router/Navigate';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -49,13 +48,6 @@ const Navbar = () => {
   const icons = document.querySelector('#icons');
   icons.addEventListener('click', () => {
     navbarWrapper.classList.toggle("active");
-  });
-
-  // Ajout de l'ecouteur d'evenement pour le clic du lien vers la page d'accueil 
-  const home = document.querySelector("#home");
-  home.addEventListener("click", (e) => {
-    e.preventDefault();
-    Navigate('/');
   });
 
   const links = document.querySelectorAll('nav li');
