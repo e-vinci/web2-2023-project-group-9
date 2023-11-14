@@ -1,77 +1,318 @@
-/* body style for every page */ 
-body {
-    padding: 0;
-    margin: 0;
-    background: url(../img/backgroundSite.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+/* Reset CSS de base */
+
+/* Supprime les marges et les espacements par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  color: #0000007b;
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/backgroundSite.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Sohaib */
+/* Page d'acceuil */
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#h1Acceuil {
+  width: 50%;
+}
+
+.slogan {
+  background-color: black;
+  color: white;
+  font-size: 3.5vw;
+  padding: 0px 10px 0px 10px;
+}
+
+/* button Acceuil */
+#inscription {
+  position: absolute;
+  width: 20vw;
+  height: 10%;
+  border-radius: 8px;
+  border: 3px solid #fffcfc;
+  background: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 10%;
+  left: 5%;
+}
+
+#demo {
+  position: absolute;
+  width: 20vw;
+  height: 10%;
+  border-radius: 8px;
+  border: 3px solid #fffcfc;
+  background: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 10%;
+  left: 35%;
+}
+
+.pboutton{
+  position: absolute;
+  margin-top: 1vw;
+  font-size: 30pt;
+}
+div img {
+  width: 112pt;
+}
+
+@media screen and (max-width: 640px) {
+    .pboutton{
+        font-size: 22pt;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .pboutton{
+        font-size: 25pt;
+    }
+}
+
+/* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
+@font-face {
+  font-family: 'MK TITLE';
+  src: url('../fonts/MKtitle.ttf') format('truetype');
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'MK TITLE', sans-serif;
+}
+
+/* Annule la liste des éléments de liste */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Rétablit la taille de police par défaut */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+
+/* Réinitialise d'autres styles */
+/* Annule les puces par défaut des listes non ordonnées */
+ul {
+  list-style-type: none;
+}
+
+/* Karim */
 /* login page style */
 #containerLoginPage {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  margin: 0;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
 }
 
 #containerForm {
-    background-color: black;
-    padding: 20px;
-    border: 1px solid #ffffff;
-    align-items: center;
-    text-align: center;
-    height: 47%;
-    width: 40%;
+  background-color: black;
+  margin-top: 0;
+  padding: 50px;
+  border: 1px solid #ffffff;
+  align-items: center;
+  text-align: center;
+  margin-top: 50%;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
+  text-align: center;
+  color: #333;
 }
 
 #containerForm label {
-    display: block;
-    margin-bottom: 5px;
-    text-align: left;
-    color: #ffffff;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #ffffff;
 }
 
-#containerForm input[type="text"],
-#containerForm input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
+#containerForm input[type='text'],
+#containerForm input[type='password'] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
-#containerForm input[type="submit"] {
-    background-color: black;
-    color: #fff;
-    padding: 10px 20px;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-    font-size: 16px;
-    width: 35%;
+#containerForm input[type='submit'] {
+  background-color: black;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-#containerForm input[type="submit"]:hover {
-    background-color: rgb(168, 3, 3);
+#containerForm input[type='submit']:hover {
+  background-color: rgb(168, 3, 3);
 }
 
 #containerForm #paragrapheLogin {
-    display: block;
-    color: #ffffff;
-    margin-top: 20px;
-    text-align: left;
+  display: block;
+  color: #ffffff;
+  text-align: left;
 }
 
 #containerForm a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #containerForm a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Sohaib */
+/* NAVBAR */
+#navbarWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+  margin-bottom: 50px;
+}
+
+#navbarWrapper a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 90%;
+}
+
+#navbarWrapper .logoPage {
+  width: 7em;
+  position: relative;
+  margin-left: 60%;
+}
+
+#navbarWrapper .navLinks ul {
+  display: flex;
+}
+
+#navbarWrapper .navLinks ul li {
+  margin: 0 25px;
+}
+
+#icons {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  #navbarWrapper {
+    display: block;
+    height: 100px;
+  }
+
+  #navbarWrapper .navLinks ul li {
+    margin: 0;
+  }
+
+  .navLinks ul {
+    top: 5em;
+    position: absolute;
+    display: flex;
+    line-height: 100px;
+    flex-direction: column;
+    height: 88vh;
+    left: -100%;
+    width: 100%;
+    background: rgb(124, 1, 1);
+    padding: 0;
+    text-align: center;
+    transition: 0.25s;
+    z-index: 1000;
+  }
+
+  .navLinks ul li a {
+    display: block; /* Faire en sorte que le lien soit un bloc pour couvrir l'ensemble de l'élément li */
+    width: 100%; /* Étendre le lien sur toute la largeur de l'élément li */
+    height: 100%; /* Étendre le lien sur toute la hauteur de l'élément li */
+  }
+
+  .navLinks ul li:hover {
+    background: rgba(79, 1, 1, 0.429);
+    padding-left: 20px;
+    cursor: pointer;
+  }
+  #navbarWrapper .logoPage {
+    margin: 40px 0;
+    width: 7em;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #icons {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+
+  #icons:before {
+    content: '\2630';
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+  }
+
+  .active #icons::before {
+    content: '\2716';
+    font-size: 30px;
+  }
+
+  #navbarWrapper.active ul {
+    left: 0;
+  }
+
+  #inscription,
+  #demo{
+    top: 40%;
+    width: 30%;
+  }
+
+  #demo{
+    left: 60%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #containerLoginPage {
+    margin-top: 50px;
+    position: relative;
+    width: 100%;
+  }
 }
