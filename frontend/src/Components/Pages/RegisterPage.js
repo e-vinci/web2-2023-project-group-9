@@ -34,7 +34,7 @@ const RegisterPage = () => {
                 <label class="form-check-label" for="checkRGPD">en soumettant ce formulaire, j'accepte que Mortal Keyboard utilise mes données dans le strict cadre de nos services tout en respectant le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016R0679&from=FR">RGPD</a></label>
             </div>
             <br>
-            <input type="submit" value="Inscription">
+            <input type="submit" value="Inscription" id="submitRegister">
             <div id="error-message"></div>
         </form>
     </div>
