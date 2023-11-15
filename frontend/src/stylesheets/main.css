@@ -71,6 +71,7 @@ main {
   position: absolute;
   margin-top: 1vw;
   font-size: 30pt;
+  cursor: pointer;
 }
 div img {
   width: 112pt;
