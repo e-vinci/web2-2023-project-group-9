@@ -1,11 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import { clearPage, renderPageTitle } from '../../utils/render';
+import Navigate from '../Router/Navigate';
 
 const LoginPage = () => {
   clearPage();
 
   const main = document.querySelector('main');
   main.innerHTML = renderLoginPage();
+
+  // eslint-disable-next-line camelcase
+  const link_to_registerPage = document.querySelector("#paragrapheLogin a");
+  // eslint-disable-next-line camelcase
+  link_to_registerPage.addEventListener("click", (e) => {
+    e.preventDefault();
+    Navigate('/register');
+  });
 
   function renderLoginPage() {
     const formLoginPage = `
@@ -27,6 +36,7 @@ const LoginPage = () => {
 
     return formLoginPage;
   };
+
 };
 
 export default LoginPage;
