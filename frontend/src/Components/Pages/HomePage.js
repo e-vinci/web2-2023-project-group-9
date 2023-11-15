@@ -1,7 +1,9 @@
+/* eslint-disable camelcase */
 import titrePage from '../../img/titrePageAcceuil.png';
 import decorBouton from '../../img/imgButton.png';
 
 import { clearPage } from '../../utils/render';
+import Navigate from '../Router/Navigate';
 
 const HomePage = () => {
   clearPage();
@@ -33,7 +35,7 @@ const HomePage = () => {
   main.innerHTML += `
   <section>
     <div id="inscription">
-      <p class="pboutton">S'inscrire</p>
+      <p class="pboutton" id="link_to_registerPage">S'inscrire</p>
       ${imgInscription.outerHTML}
     </div>
     <div id="demo">
@@ -42,6 +44,14 @@ const HomePage = () => {
     </div>
   </section>
 `;
-};
+
+const link_to_registerPage = document.querySelector('#link_to_registerPage');
+  
+link_to_registerPage.addEventListener('click', (e) => {
+  e.preventDefault();
+  Navigate('/register');
+});
+
+}
 
 export default HomePage;
