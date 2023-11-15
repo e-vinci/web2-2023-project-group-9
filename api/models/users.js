@@ -14,6 +14,7 @@ const defaultUsers = [
   {
     id: 1,
     username: 'admin',
+    email: 'admin@admin.com',
     password: bcrypt.hashSync('admin', saltRounds),
   },
 ];
@@ -39,11 +40,11 @@ async function login(username, password) {
   return authenticatedUser;
 }
 
-async function register(username, password) {
+async function register(username, email, password) {
   const userFound = readOneUserFromUsername(username);
   if (userFound) return undefined;
 
-  await createOneUser(username, password);
+  await createOneUser(username, email, password);
 
   const token = jwt.sign(
     { username }, // session data added to the payload (payload : part 2 of a JWT)
@@ -53,6 +54,8 @@ async function register(username, password) {
 
   const authenticatedUser = {
     username,
+    // eslint-disable-next-line no-undef
+    email,
     token,
   };
 
@@ -67,7 +70,7 @@ function readOneUserFromUsername(username) {
   return users[indexOfUserFound];
 }
 
-async function createOneUser(username, password) {
+async function createOneUser(username, email, password) {
   const users = parse(jsonDbPath, defaultUsers);
 
   const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -75,6 +78,7 @@ async function createOneUser(username, password) {
   const createdUser = {
     id: getNextId(),
     username,
+    email,
     password: hashedPassword,
   };
 
