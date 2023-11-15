@@ -26,13 +26,13 @@ main {
 }
 
 #h1Acceuil {
-  width: 50%;
+  width: 60%;
 }
 
 .slogan {
   background-color: black;
   color: white;
-  font-size: 3.5vw;
+  font-size: 4vw;
   padding: 0px 10px 0px 10px;
 }
 
@@ -50,6 +50,12 @@ main {
   align-items: center;
   bottom: 10%;
   left: 5%;
+}
+
+#inscription:hover,
+#demo:hover{
+  cursor: pointer;
+  transform: scale(1.04);
 }
 
 #demo {
@@ -72,20 +78,22 @@ main {
   margin-top: 1vw;
   font-size: 30pt;
   cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
 div img {
-  width: 112pt;
+  width: 109pt;
 }
 
 @media screen and (max-width: 640px) {
     .pboutton{
-        font-size: 22pt;
+        font-size: 21pt;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .pboutton{
-        font-size: 25pt;
+        font-size: 23pt;
     }
 }
 
