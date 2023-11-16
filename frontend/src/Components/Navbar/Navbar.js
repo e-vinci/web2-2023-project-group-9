@@ -16,16 +16,7 @@ const Navbar = () => {
   logo.src = logoPage; // Mettez à jour le chemin ici
   logo.classList.add('logoPage');
 
-  // Création de la balise 'a' pour le lien du logo
-  const logoLink = document.createElement('a');
-  logoLink.href = '#';
-  // Ajout du logo comme lien vers l'acceuil
-  logoLink.dataset.uri = '/';
-  logoLink.id = "home"
-  logoLink.appendChild(logo);
-
-  // Ajout du logo avant la balise 'nav'
-  navbarWrapper.appendChild(logoLink);
+  navbarWrapper.appendChild(logo)
 
   // Ajout du reste de la barre de navigation
   const navbar = `

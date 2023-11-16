@@ -1,3 +1,4 @@
+import Typewriter from 'typewriter-effect/dist/core';
 /* eslint-disable camelcase */
 import titrePage from '../../img/titrePageAcceuil.png';
 import decorBouton from '../../img/imgButton.png';
@@ -16,21 +17,22 @@ const HomePage = () => {
 
   // Créez une élément pour notre slogan;
   const slogan = document.createElement('p');
-  slogan.textContent = 'taper vite pour taper fort';
   slogan.classList.add('slogan');
 
   // Création de l'animation avec typerwritter
+  const typewriter = new Typewriter(slogan, {
+    loop: false,
+    delay: 55,
+  });
 
+  // Utilisez la méthode `typeString` pour configurer l'animation
+  typewriter.typeString('taper vite pour taper fort').start();
   // Créez des éléments img pour les images des boutons
   const imgInscription = document.createElement('img');
   imgInscription.src = decorBouton;
 
   const imgDemo = document.createElement('img');
   imgDemo.src = decorBouton;
-
-  // Ajout titre et slogan
-  main.appendChild(titre);
-  main.appendChild(slogan);
 
   main.innerHTML += `
   <section>
@@ -45,13 +47,16 @@ const HomePage = () => {
   </section>
 `;
 
-const link_to_registerPage = document.querySelector('#link_to_registerPage');
-  
-link_to_registerPage.addEventListener('click', (e) => {
-  e.preventDefault();
-  Navigate('/register');
-});
+  const link_to_registerPage = document.querySelector('#link_to_registerPage');
 
-}
+  link_to_registerPage.addEventListener('click', (e) => {
+    e.preventDefault();
+    Navigate('/register');
+  });
+
+  // Ajout titre et slogan
+  main.appendChild(titre);
+  main.appendChild(slogan);
+};
 
 export default HomePage;

@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'animejs'
 import './stylesheets/main.css';
 
 import Navbar from './Components/Navbar/Navbar';
