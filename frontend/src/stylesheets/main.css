@@ -224,7 +224,7 @@ h1 {
 #navbarWrapper .logoPage {
   width: 7em;
   position: relative;
-  margin-left: 60%;
+  margin-left: 5%;
 }
 
 #navbarWrapper .navLinks ul {
@@ -279,9 +279,11 @@ h1 {
   #navbarWrapper .logoPage {
     margin: 40px 0;
     width: 7em;
-    position: relative;
-    left: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%; /* Déplace l'image vers la droite de 50% du conteneur parent */
     transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   #icons {
