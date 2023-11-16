@@ -1,3 +1,4 @@
+
 import Typewriter from 'typewriter-effect/dist/core';
 /* eslint-disable camelcase */
 import titrePage from '../../img/titrePageAcceuil.png';
