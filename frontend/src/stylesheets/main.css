@@ -26,13 +26,13 @@ main {
 }
 
 #h1Acceuil {
-  width: 50%;
+  width: 60%;
 }
 
 .slogan {
   background-color: black;
   color: white;
-  font-size: 3.5vw;
+  font-size: 4vw;
   padding: 0px 10px 0px 10px;
 }
 
@@ -50,6 +50,12 @@ main {
   align-items: center;
   bottom: 10%;
   left: 5%;
+}
+
+#inscription:hover,
+#demo:hover{
+  cursor: pointer;
+  transform: scale(1.04);
 }
 
 #demo {
@@ -71,20 +77,23 @@ main {
   position: absolute;
   margin-top: 1vw;
   font-size: 30pt;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
 div img {
-  width: 112pt;
+  width: 109pt;
 }
 
 @media screen and (max-width: 640px) {
     .pboutton{
-        font-size: 22pt;
+        font-size: 21pt;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .pboutton{
-        font-size: 25pt;
+        font-size: 23pt;
     }
 }
 
@@ -215,7 +224,7 @@ h1 {
 #navbarWrapper .logoPage {
   width: 7em;
   position: relative;
-  margin-left: 60%;
+  margin-left: 5%;
 }
 
 #navbarWrapper .navLinks ul {
@@ -270,9 +279,11 @@ h1 {
   #navbarWrapper .logoPage {
     margin: 40px 0;
     width: 7em;
-    position: relative;
-    left: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%; /* Déplace l'image vers la droite de 50% du conteneur parent */
     transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   #icons {
