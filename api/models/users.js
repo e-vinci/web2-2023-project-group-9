@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
 
-const jwtSecret = 'ilovemypizza!';
+const jwtSecret = 'MortalKeyboard';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 
 const saltRounds = 10;
@@ -42,6 +42,7 @@ async function login(username, password) {
 
 async function register(username, email, password) {
   const userFound = readOneUserFromUsername(username);
+
   if (userFound) return undefined;
 
   await createOneUser(username, email, password);

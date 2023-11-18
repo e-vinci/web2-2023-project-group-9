@@ -29,15 +29,6 @@ Content-Type: application/json
     "password":"manager"
 }
 
-### Create the manager user
-POST {{baseUrl}}/auths/register
-Content-Type: application/json
-
-{
-    "username":"Karim2003",
-    "email":"Karim.naviaux@student.vinci.be",
-    "password":"karim2003"
-}
 
 ### Login the manager user
 POST {{baseUrl}}/auths/login

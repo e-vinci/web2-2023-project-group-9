@@ -201,6 +201,10 @@ h1 {
   text-decoration: underline;
 }
 
+.phrase_error {
+  color: rgb(168, 3, 3);
+}
+
 /* Sohaib */
 /* NAVBAR */
 #navbarWrapper {
