@@ -3,11 +3,17 @@ import validator from 'validator';
 
 function checkUserName(username) {
   let error = '';
+  
+  if(username.length === 0){
+    error = 'Remplissez le champ pseudo !';
+    return error;
+  }
+
   if (!validator.isAlphanumeric(username)) {
     error = 'Votre pseudo ne peut contenir que des lettres et des chiffres';
     return error;
   }
-  
+
   if(username.length > 12) {
     error = 'Votre pseudo est trop long';
     return error;
@@ -23,6 +29,12 @@ function checkUserName(username) {
 
 function checkEmail(email) {
   let error = '';
+
+  if(email.length === 0){
+    error = 'Remplissez le champ email !'
+    return error;
+  }
+
   if (!validator.isEmail(email)) {
     error = 'Votre email est invalide';
     return error;
@@ -33,6 +45,12 @@ function checkEmail(email) {
 
 function checkPassword(password) {
   let error = '';
+
+  if(password.length === 0){
+    error = 'Remplissez le champ password !';
+    return error;
+  }
+
   if (
     !validator.isStrongPassword(password, {
       minLength: 8,

@@ -66,11 +66,6 @@ async function addOneUser(e) {
   const usernameError = checkUserName(username);
   const passwordError = checkPassword(password);
 
-  if(!term){
-    phraseError.textContent = "Acceptez les termes !"
-    return;
-  }
-
   if (usernameError) {
     phraseError.textContent = usernameError;
     return;
@@ -86,7 +81,11 @@ async function addOneUser(e) {
     return;
   }
 
-
+  if(!term){
+    phraseError.textContent = "Acceptez les termes !"
+    return;
+  }
+  
   const options = {
     method: 'POST',
     body: JSON.stringify({
