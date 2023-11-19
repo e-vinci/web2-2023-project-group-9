@@ -11,6 +11,7 @@ const HomePage = () => {
   clearPage();
   const main = document.querySelector('main');
 
+
   // Créez un élément img
   const titre = document.createElement('img');
   titre.src = titrePage;
@@ -27,7 +28,8 @@ const HomePage = () => {
   });
 
   // Utilisez la méthode `typeString` pour configurer l'animation
-  typewriter.typeString('taper vite pour taper fort').start();
+  typewriter.typeString('<i>taper vite pour taper fort<i>').start();
+  
   // Créez des éléments img pour les images des boutons
   const imgInscription = document.createElement('img');
   imgInscription.src = decorBouton;
@@ -36,7 +38,9 @@ const HomePage = () => {
   imgDemo.src = decorBouton;
 
   main.innerHTML += `
-  <section>
+  <section id = "mainContent">
+  </section>
+  <section id ="buttonSection">
     <div id="inscription">
       <p class="pboutton" id="link_to_registerPage">S'inscrire</p>
       ${imgInscription.outerHTML}
@@ -55,9 +59,10 @@ const HomePage = () => {
     Navigate('/register');
   });
 
-  // Ajout titre et slogan
-  main.appendChild(titre);
-  main.appendChild(slogan);
+  const mainContent = document.querySelector('#mainContent');
+
+  mainContent.appendChild(titre);
+  mainContent.appendChild(slogan);
 };
 
 export default HomePage;

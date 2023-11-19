@@ -21,8 +21,19 @@ body {
 main {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: flex-end;
+  min-height: 75vh;
+  position: relative; 
+}
+
+#mainContent{
+  margin-top: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
 }
 
 #h1Acceuil {
@@ -34,13 +45,21 @@ main {
   color: white;
   font-size: 4vw;
   padding: 0px 10px 0px 10px;
+  display: inline-block;
+  width: max-content;
+}
+
+#buttonSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
 }
 
 /* button Acceuil */
 #inscription {
-  position: absolute;
+  position: relative;
   width: 20vw;
-  height: 10%;
   border-radius: 8px;
   border: 3px solid #fffcfc;
   background: #000000;
@@ -48,8 +67,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 10%;
-  left: 5%;
+  margin-left: 20px;
 }
 
 #inscription:hover,
@@ -59,9 +77,8 @@ main {
 }
 
 #demo {
-  position: absolute;
+  position: relative;
   width: 20vw;
-  height: 10%;
   border-radius: 8px;
   border: 3px solid #fffcfc;
   background: #000000;
@@ -69,8 +86,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 10%;
-  left: 35%;
+  margin-left: 60px;
 }
 
 .pboutton{
@@ -216,7 +232,6 @@ h1 {
   box-sizing: border-box;
   background-color: rgb(0, 0, 0);
   z-index: 1000;
-  margin-bottom: 50px;
 }
 
 #navbarWrapper a {
@@ -315,14 +330,29 @@ h1 {
     left: 0;
   }
 
-  #inscription,
-  #demo{
-    top: 40%;
-    width: 30%;
+  #buttonSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
 
-  #demo{
-    left: 60%;
+  #inscription {
+    width: 200vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #inscription:hover,
+  #demo:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+  }
+  
+  #demo {
+    width: 200vw;
+    align-items: center;
+    margin-right: 20px;
   }
 }
 
