@@ -14,7 +14,7 @@ function checkUserName(username) {
     return error;
   }
 
-  if(username.length > 12) {
+  if(username.length > 15) {
     error = 'Votre pseudo est trop long';
     return error;
   }
