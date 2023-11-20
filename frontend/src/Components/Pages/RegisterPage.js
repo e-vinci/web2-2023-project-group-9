@@ -106,7 +106,7 @@ async function addOneUser(e) {
   const newUser = await response.json(); // json() returns a promise => we wait for the data
 
   // eslint-disable-next-line no-console
-  console.log('New pizza added : ', newUser);
+  console.log('New user added : ', newUser);
 
   Navigate('/login');
 }
