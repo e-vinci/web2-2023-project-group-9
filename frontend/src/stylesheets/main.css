@@ -8,7 +8,7 @@
 }
 
 body {
-  color: #0000007b;
+  background-color: #000000;
   height: 100vh;
   width: 100%;
   background-image: url(../img/backgroundSite.jpg);
@@ -21,8 +21,20 @@ body {
 main {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: flex-end;
+  min-height: 75vh;
+  position: relative; 
+}
+
+#mainContent{
+  margin-top: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  height: 75vh;
 }
 
 #h1Acceuil {
@@ -34,13 +46,23 @@ main {
   color: white;
   font-size: 4vw;
   padding: 0px 10px 0px 10px;
+  display: inline-block;
+  width: max-content;
+}
+
+#buttonSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  margin-bottom: 50px;
+  margin-top: -50px;
 }
 
 /* button Acceuil */
 #inscription {
-  position: absolute;
+  position: relative;
   width: 20vw;
-  height: 10%;
   border-radius: 8px;
   border: 3px solid #fffcfc;
   background: #000000;
@@ -48,8 +70,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 10%;
-  left: 5%;
+  margin-left: 20px;
 }
 
 #inscription:hover,
@@ -59,9 +80,8 @@ main {
 }
 
 #demo {
-  position: absolute;
+  position: relative;
   width: 20vw;
-  height: 10%;
   border-radius: 8px;
   border: 3px solid #fffcfc;
   background: #000000;
@@ -69,8 +89,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 10%;
-  left: 35%;
+  margin-left: 60px;
 }
 
 .pboutton{
@@ -97,6 +116,122 @@ div img {
     }
 }
 
+/* Sohaib */
+/* section 2 */
+#mainMiddleContent{
+  height: 100vh;
+  width: 98vw;
+}
+
+#sectionTwoAcceuil{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 98vw;
+  height: 100vh;
+  position: relative;
+}
+
+.broly {
+  z-index: 3;
+  margin-left: -200px;
+}
+
+.venom {
+  z-index: 2;
+  margin-left: -250px;
+}
+
+.chunLi {
+  z-index: 1;
+  margin-left: -200px;
+}
+
+.captainA {
+  z-index: 0;
+  margin-left: -220px;
+}
+
+.chunLi:hover,
+.captainA:hover {
+  margin-left: 0;
+  transition: 2s;
+}
+
+.broly:hover{
+  margin-left: -10px;
+  transition: 2s;
+}
+
+.venom:hover{
+  margin-left: -20px;
+  transition: 2s;
+}
+
+#chunLi,
+#broly,
+#venom,
+#captainA{
+  position: absolute;
+  margin-bottom: 200px;
+  z-index: 1000; /* Position absolue pour superposer les div sur les images */
+}
+
+#broly{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
+  bottom: 0;
+  left: 100px;
+  background-position: '-2006px 0px';
+  visibility: hidden;
+}
+
+#venom{
+  height: 280px;
+  width: 230px;
+  background: url(../assets/sprite1_Venom.png);
+  left: 380px;
+  bottom: 0;
+  visibility: hidden;
+}
+
+#chunLi{
+  height: 101px;
+  width: 93px;
+  background: url(../assets/sprite1_ChunLi.png);
+  transform: scale(2);
+  left: 625px;
+  bottom: 50px;
+  visibility: hidden;
+}
+
+#captainA{
+  height: 200px;
+  width: 147px;
+  background: url(../assets/sprite1_CaptainAmerica.png);
+  left: 850px;
+  bottom: 25px;
+  transform: scale(1.5);
+  visibility: hidden;
+}
+
+.textSectionMain{
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  padding: 2%;
+}
+
+.titreSectionMain{
+  font-size: 3vw;
+}
+
+.phraseSectionMain{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5vw;
+}
 /* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
 @font-face {
   font-family: 'MK TITLE';
@@ -216,7 +351,6 @@ h1 {
   box-sizing: border-box;
   background-color: rgb(0, 0, 0);
   z-index: 1000;
-  margin-bottom: 50px;
 }
 
 #navbarWrapper a {
@@ -315,14 +449,29 @@ h1 {
     left: 0;
   }
 
-  #inscription,
-  #demo{
-    top: 40%;
-    width: 30%;
+  #buttonSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
 
-  #demo{
-    left: 60%;
+  #inscription {
+    width: 200vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #inscription:hover,
+  #demo:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+  }
+  
+  #demo {
+    width: 200vw;
+    align-items: center;
+    margin-right: 20px;
   }
 }
 
