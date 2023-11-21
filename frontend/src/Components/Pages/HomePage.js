@@ -76,6 +76,12 @@ const HomePage = () => {
       <div id="chunLi"></div>
       <div id="captainA"></div>
     </section>
+    <div></div>
+    <section id="mainMiddleContent">
+    <div class="textSectionMain">
+    <p class="titreSectionMain">Des arenes </br> A couper </br> Le souffle</p>
+    </div>
+    </section>
   </section>
 `;
 
