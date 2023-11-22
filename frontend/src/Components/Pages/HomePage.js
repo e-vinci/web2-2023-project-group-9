@@ -4,15 +4,23 @@
 import anime from 'animejs';
 import Typewriter from 'typewriter-effect/dist/core';
 /* eslint-disable camelcase */
-import titrePage from '../../img/titrePageAcceuil.png';
-import decorBouton from '../../img/imgButton.png';
-import imgBroly from '../../img/imgBroly.jpg';
-import imgVenom from '../../img/imgVenom.jpg';
-import imgChunLi from '../../img/imgChunLi.jpg';
-import imgCaptainA from '../../img/imgCaptainA.jpg';
+import titrePage from '../../img/ImageAcceuil/titrePageAcceuil.png';
+import decorBouton from '../../img/BaseDuSite/imgButton.png';
+import imgBroly from '../../img/ImageAcceuil/imgBroly.jpg';
+import imgVenom from '../../img/ImageAcceuil/imgVenom.jpg';
+import imgChunLi from '../../img/ImageAcceuil/imgChunLi.jpg';
+import imgCaptainA from '../../img/ImageAcceuil/imgCaptainA.jpg';
+
+import imgArene1 from '../../img/ImageAcceuil/arene1.gif';
+import imgArene2 from '../../img/ImageAcceuil/arene2.gif';
+import imgArene3 from '../../img/ImageAcceuil/arene3.gif';
+import imgArene4 from '../../img/ImageAcceuil/arene4.gif';
 
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
+
+const imgSection1 = {imgBroly,imgVenom,imgChunLi,imgCaptainA};
+const imgSection2 = {imgArene1,imgArene2,imgArene3,imgArene4};
 
 const HomePage = () => {
   clearPage();
@@ -58,10 +66,10 @@ const HomePage = () => {
   </section>
   <section id = "mainMiddleContent">
     <section id="sectionTwoAcceuil">
-    <img src="${imgBroly}" alt="" class="broly">
-    <img src="${imgVenom}" alt="" class="venom">
-    <img src="${imgChunLi}" alt="" class="chunLi">
-    <img src="${imgCaptainA}" alt="" class="captainA">
+    <img src="${imgSection1.imgBroly}" alt="" class="broly">
+    <img src="${imgSection1.imgVenom}" alt="" class="venom">
+    <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
+    <img src="${imgSection1.imgCaptainA}" alt="" class="captainA">
     <div class="textSectionMain">
     <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
     <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
@@ -76,11 +84,18 @@ const HomePage = () => {
       <div id="chunLi"></div>
       <div id="captainA"></div>
     </section>
-    <div></div>
     <section id="mainMiddleContent">
-    <div class="textSectionMain">
-    <p class="titreSectionMain">Des arenes </br> A couper </br> Le souffle</p>
-    </div>
+      <section id="sectionTwoAcceuil">
+        <div class="textSectionMain2">
+        <p class="titreSectionMain">Des arenes </br> A couper </br> Le souffle</p>
+        <p class="phraseSectionMain">Une variété qui offre une expérience de combat unique à chaque affrontement. 
+        Plongez-vous dans tout type de décor, il y en a pour tout le monde !</p>
+        </div>
+        <img src="${imgSection2.imgArene1}" alt="" class="arene1">
+        <img src="${imgSection2.imgArene2}" alt="" class="arene2">
+        <img src="${imgSection2.imgArene3}" alt="" class="arene3">
+        <img src="${imgSection2.imgArene4}" alt="" class="arene4">
+      </section>
     </section>
   </section>
 `;
