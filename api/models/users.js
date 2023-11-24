@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
 
-const jwtSecret = 'ilovemypizza!';
+const jwtSecret = 'MortalKeyboard';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 
 const saltRounds = 10;
@@ -14,6 +14,7 @@ const defaultUsers = [
   {
     id: 1,
     username: 'admin',
+    email: 'admin@admin.com',
     password: bcrypt.hashSync('admin', saltRounds),
   },
 ];
@@ -39,11 +40,12 @@ async function login(username, password) {
   return authenticatedUser;
 }
 
-async function register(username, password) {
+async function register(username, email, password) {
   const userFound = readOneUserFromUsername(username);
+
   if (userFound) return undefined;
 
-  await createOneUser(username, password);
+  await createOneUser(username, email, password);
 
   const token = jwt.sign(
     { username }, // session data added to the payload (payload : part 2 of a JWT)
@@ -53,6 +55,8 @@ async function register(username, password) {
 
   const authenticatedUser = {
     username,
+    // eslint-disable-next-line no-undef
+    email,
     token,
   };
 
@@ -67,7 +71,7 @@ function readOneUserFromUsername(username) {
   return users[indexOfUserFound];
 }
 
-async function createOneUser(username, password) {
+async function createOneUser(username, email, password) {
   const users = parse(jsonDbPath, defaultUsers);
 
   const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -75,6 +79,7 @@ async function createOneUser(username, password) {
   const createdUser = {
     id: getNextId(),
     username,
+    email,
     password: hashedPassword,
   };
 

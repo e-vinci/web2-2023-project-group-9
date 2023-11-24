@@ -11,28 +11,26 @@ import logoPage from '../../img/logoPage.png';
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
 
-  // Création de l'élément image pour le logo
-  const logo = document.createElement('img');
-  logo.src = logoPage; // Mettez à jour le chemin ici
+  // Création de l'élément lien pour le logo
+  const logo = document.createElement('a');
+  logo.href = '#';
   logo.classList.add('logoPage');
-
-  // Création de la balise 'a' pour le lien du logo
-  const logoLink = document.createElement('a');
-  logoLink.href = '#';
-  // Ajout du logo comme lien vers l'acceuil
+  // Création de l'élément image pour le logo
+  const logoLink = document.createElement('img');
+  logoLink.src = logoPage;
+  logoLink.classList.add('logoPage');
   logoLink.dataset.uri = '/';
-  logoLink.id = "home"
-  logoLink.appendChild(logo);
-
-  // Ajout du logo avant la balise 'nav'
-  navbarWrapper.appendChild(logoLink);
+  // Ajouter l'image au lien
+  logo.appendChild(logoLink);
+  // Ajouter le lien avec le logo à la barre de navigation
+  navbarWrapper.appendChild(logo);
 
   // Ajout du reste de la barre de navigation
   const navbar = `
     <nav>
       <div class="navLinks">
         <ul>
-          <li><a href="#" data-uri="/" id="home">Accueil</a></li>
+          <li><a href="#" data-uri="/">Accueil</a></li>
           <li><a href="#">Combattants</a></li>
           <li><a href="#">Arenes</a></li>
           <li><a href="#" data-uri="/login">Se Connecter</a></li>
@@ -57,7 +55,6 @@ const Navbar = () => {
       navbarWrapper.classList.remove("active");
     });
   });
-
 };
 
 export default Navbar;
