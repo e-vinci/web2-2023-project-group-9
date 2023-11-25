@@ -1,4 +1,3 @@
-import '../../stylesheets/main.css';
 import anime from 'animejs';
 import { clearPage } from '../../utils/render';
 
@@ -9,8 +8,6 @@ function importAll(r) {
 
 const images = importAll(require.context('../../img/PortraitFighters', false, /\.(png|jpe?g|gif|svg)$/));
 
-const brolySurPlace = document.querySelector('#brolySurPlace');
-
 const FightersPage = () => {
   clearPage();
   const main = document.querySelector('main');
@@ -18,13 +15,12 @@ const FightersPage = () => {
   const mainContainer = document.createElement('div');
   mainContainer.classList.add('main-container');
 
-  images.forEach((imagePath) => {
-
-    main.innerHTML += 
+  main.innerHTML += 
     `<section id="spriteAcceuil">
-    <div id="brolySurPlace">
-    </div></section>`
+    <div id="brolySurPlace"></div>
+    </section>`;
 
+  images.forEach((imagePath) => {
     const button = document.createElement('button');
     const img = document.createElement('img');
     img.src = imagePath;
@@ -41,7 +37,7 @@ const FightersPage = () => {
  /* const venom = document.querySelector('#venom');
   const chunLi = document.querySelector('#chunLi');
   const captainA = document.querySelector('#captainA'); */
-
+  const brolySurPlace = document.querySelector('#brolySurPlace');
   createAnimation(brolySurPlace, '-2006px 0px', 'steps(10)', 1500);
 
 /* createAnimation(venom, '-3940px 0px', 'steps(17)', 1500);

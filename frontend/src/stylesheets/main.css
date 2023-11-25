@@ -518,11 +518,9 @@ h1 {
   height: 280px;
   width: 206px;
   background: url(../assets/sprite1_Broly.png);
-  bottom: 0;
-  left: 1200px;
+  top: 10%;
   /* visibility: hidden; */
   position: absolute;
-  margin-bottom: 400px;
   z-index: 1000; /* Position absolue pour superposer les div sur les images */
   
 }
