@@ -69,8 +69,8 @@ const HomePage = () => {
     <section id="sectionTwoAcceuil">
       <img src="${imgSection1.imgBroly}" alt="" class="broly">
       <img src="${imgSection1.imgVenom}" alt="" class="venom">
-      <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
       <img src="${imgSection1.imgCaptainA}" alt="" class="captainA">
+      <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
       <div class="textSectionMain">
       <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
       <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
@@ -78,6 +78,12 @@ const HomePage = () => {
       Parmi une vaste galerie de combattants, 
       chacun affiche un style de frappe singulier, des compétences spéciales uniques et des histoires qui les distinguent.</p>
       </div>
+      <section id="spriteAccueil">
+      <div id="brolyAccueil"></div>
+      <div id="venomAccueil"></div>
+      <div id="captainAAccueil"></div>
+      <div id="chunLiAccueil"></div>
+    </section>
     </section>
   </section>
 `;
@@ -103,7 +109,7 @@ const HomePage = () => {
   createAnimation(chunLi, '-1302px 0px', 'steps(14)', 1500);
   createAnimation(captainA, '-441px 0px', 'steps(3)', 1500);
   const img = document.querySelectorAll('#sectionTwoAcceuil>img');
-  const animation = document.querySelectorAll('#spriteAcceuil>div');
+  const animation = document.querySelectorAll('#spriteAccueil>div');
 
   function createAnimation(target, startPosition, easing, duration) {
     return anime({

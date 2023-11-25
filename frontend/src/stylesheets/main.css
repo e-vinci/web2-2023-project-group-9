@@ -165,97 +165,41 @@ div img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  width: 100%;
   height: 100vh;
+  background-color: #000000;
+}
+
+.broly,.venom,.captainA,.chunLi{
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  margin-left: -30%;
 }
 
 .broly {
   z-index: 3;
-  margin-left: -40%;
 }
 
 .venom {
   z-index: 2;
-  margin-left: -40%;
-}
-
-.chunLi {
-  z-index: 1;
-  margin-left: -40%;
 }
 
 .captainA {
+  z-index: 1;
+}
+
+.chunLi {
   z-index: 0;
-  margin-left: -40%;
 }
 
-.chunLi:hover,
-.captainA:hover {
-  margin-left: 0;
-  transition: 2s;
-}
-
-.broly:hover {
-  margin-left: -10px;
-  transition: 2s;
-}
-
-.venom:hover {
-  margin-left: -20px;
-  transition: 2s;
-}
-
-#chunLi,
-#broly,
-#venom,
-#captainA {
-  position: absolute;
-  margin-bottom: 200px;
-  z-index: 1000; /* Position absolue pour superposer les div sur les images */
-}
-
-#broly {
-  height: 280px;
-  width: 206px;
-  background: url(../assets/sprite1_Broly.png);
-  bottom: 0;
-  left: 100px;
-  background-position: '-2006px 0px';
-  visibility: hidden;
-}
-
-#venom {
-  height: 280px;
-  width: 230px;
-  background: url(../assets/sprite1_Venom.png);
-  left: 290px;
-  bottom: 0;
-  visibility: hidden;
-}
-
-#chunLi {
-  height: 101px;
-  width: 93px;
-  background: url(../assets/sprite1_ChunLi.png);
-  transform: scale(2);
-  left: 580px;
-  bottom: 50px;
-  visibility: hidden;
-}
-
-#captainA {
-  height: 200px;
-  width: 147px;
-  background: url(../assets/sprite1_CaptainAmerica.png);
-  left: 800px;
-  bottom: 25px;
-  transform: scale(1.5);
-  visibility: hidden;
+.broly:hover, .venom:hover, .captainA:hover, .chunLi:hover {
+  margin-left: -10%;
+  transition: 1s;
 }
 
 .textSectionMain {
   background-color: black;
   color: white;
-  width: 100vw;
   height: 100vh;
   padding: 2%;
 }
