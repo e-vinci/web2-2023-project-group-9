@@ -158,37 +158,34 @@ div img {
 /* Sohaib */
 /* section 2 */
 #mainMiddleContent {
-  height: 100vh;
-  background-color: white;
+  
 }
 
 #sectionTwoAcceuil {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 98vw;
   height: 100vh;
-  position: relative;
 }
 
 .broly {
   z-index: 3;
-  margin-left: -200px;
+  margin-left: -40%;
 }
 
 .venom {
   z-index: 2;
-  margin-left: -170px;
+  margin-left: -40%;
 }
 
 .chunLi {
   z-index: 1;
-  margin-left: -170px;
+  margin-left: -40%;
 }
 
 .captainA {
   z-index: 0;
-  margin-left: -170px;
+  margin-left: -40%;
 }
 
 .chunLi:hover,

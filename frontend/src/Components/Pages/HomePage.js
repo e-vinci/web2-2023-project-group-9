@@ -6,10 +6,10 @@ import Typewriter from 'typewriter-effect/dist/core';
 /* eslint-disable camelcase */
 import titrePage from '../../img/ImageAcceuil/titrePageAcceuil.png';
 import decorBouton from '../../img/BaseDuSite/imgButton.png';
-import imgBroly from '../../img/ImageAcceuil/imgBroly.jpg';
-import imgVenom from '../../img/ImageAcceuil/imgVenom.jpg';
-import imgChunLi from '../../img/ImageAcceuil/imgChunLi.jpg';
-import imgCaptainA from '../../img/ImageAcceuil/imgCaptainA.jpg';
+import imgBroly from '../../img/ImageAcceuil/broly.jpg';
+import imgVenom from '../../img/ImageAcceuil/venom.jpg';
+import imgChunLi from '../../img/ImageAcceuil/chunLi.jpg';
+import imgCaptainA from '../../img/ImageAcceuil/captainA.jpg';
 
 import imgArene1 from '../../img/ImageAcceuil/arene1.gif';
 import imgArene2 from '../../img/ImageAcceuil/arene2.gif';
@@ -66,6 +66,19 @@ const HomePage = () => {
   </section>
   </section>
   <section id = "mainMiddleContent">
+    <section id="sectionTwoAcceuil">
+      <img src="${imgSection1.imgBroly}" alt="" class="broly">
+      <img src="${imgSection1.imgVenom}" alt="" class="venom">
+      <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
+      <img src="${imgSection1.imgCaptainA}" alt="" class="captainA">
+      <div class="textSectionMain">
+      <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
+      <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
+      peuplé de personnages captivants et diversifiés. 
+      Parmi une vaste galerie de combattants, 
+      chacun affiche un style de frappe singulier, des compétences spéciales uniques et des histoires qui les distinguent.</p>
+      </div>
+    </section>
   </section>
 `;
 
