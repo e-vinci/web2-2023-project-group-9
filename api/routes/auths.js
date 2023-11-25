@@ -1,5 +1,6 @@
 const express = require('express');
 const { register, login } = require('../models/users');
+const { checkUserName, checkEmail, checkPassword } = require('../utils/validator');
 
 const router = express.Router();
 
@@ -10,6 +11,14 @@ router.post('/register', async (req, res) => {
   const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
 
   if (!username || !email || !password) return res.sendStatus(400); // 400 Bad Request
+
+  const validateEmail = checkEmail(email);
+  const validateUserName = checkUserName(username);
+  const validatePassword = checkPassword(password);
+
+  if (!validateUserName.isValid) return res.status(400).send(validateUserName.error);
+  if (!validateEmail.isValid) return res.status(400).send(validateEmail.error);
+  if (!validatePassword.isValid) return res.status(400).send(validatePassword.error);
 
   const authenticatedUser = await register(username, email, password);
 
