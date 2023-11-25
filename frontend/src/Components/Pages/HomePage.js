@@ -19,8 +19,8 @@ import imgArene4 from '../../img/ImageAcceuil/arene4.gif';
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
-const imgSection1 = {imgBroly,imgVenom,imgChunLi,imgCaptainA};
-const imgSection2 = {imgArene1,imgArene2,imgArene3,imgArene4};
+const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
+const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4 };
 
 const HomePage = () => {
   clearPage();
@@ -53,7 +53,7 @@ const HomePage = () => {
 
   main.innerHTML += `
   <section id = "mainContent">
-  </section>
+  <section id = "titleOfMain"></section>
   <section id ="buttonSection">
     <div id="inscription">
       <p class="pboutton" id="link_to_registerPage">S'inscrire</p>
@@ -64,39 +64,8 @@ const HomePage = () => {
       ${imgDemo.outerHTML}
     </div>
   </section>
+  </section>
   <section id = "mainMiddleContent">
-    <section id="sectionTwoAcceuil">
-    <img src="${imgSection1.imgBroly}" alt="" class="broly">
-    <img src="${imgSection1.imgVenom}" alt="" class="venom">
-    <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
-    <img src="${imgSection1.imgCaptainA}" alt="" class="captainA">
-    <div class="textSectionMain">
-    <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
-    <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
-    peuplé de personnages captivants et diversifiés. 
-    Parmi une vaste galerie de combattants, 
-    chacun affiche un style de frappe singulier, des compétences spéciales uniques et des histoires qui les distinguent.</p>
-    </div>
-    </section>
-    <section id="spriteAcceuil">
-      <div id="broly"></div>
-      <div id="venom"></div>
-      <div id="chunLi"></div>
-      <div id="captainA"></div>
-    </section>
-    <section id="mainMiddleContent">
-      <section id="sectionTwoAcceuil">
-        <div class="textSectionMain2">
-        <p class="titreSectionMain">Des arenes </br> A couper </br> Le souffle</p>
-        <p class="phraseSectionMain">Une variété qui offre une expérience de combat unique à chaque affrontement. 
-        Plongez-vous dans tout type de décor, il y en a pour tout le monde !</p>
-        </div>
-        <img src="${imgSection2.imgArene1}" alt="" class="arene1">
-        <img src="${imgSection2.imgArene2}" alt="" class="arene2">
-        <img src="${imgSection2.imgArene3}" alt="" class="arene3">
-        <img src="${imgSection2.imgArene4}" alt="" class="arene4">
-      </section>
-    </section>
   </section>
 `;
 
@@ -107,10 +76,10 @@ const HomePage = () => {
     Navigate('/register');
   });
 
-  const mainContent = document.querySelector('#mainContent');
+  const titleOfMain = document.querySelector('#titleOfMain');
 
-  mainContent.appendChild(titre);
-  mainContent.appendChild(slogan);
+  titleOfMain.appendChild(titre);
+  titleOfMain.appendChild(slogan);
 
   const broly = document.querySelector('#broly');
   const venom = document.querySelector('#venom');
