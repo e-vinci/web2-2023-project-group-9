@@ -512,17 +512,17 @@ h1 {
  justify-content: center; /* Aligner le contenu horizontalement au centre */
 }
 
-/* styles dans main.css */
-.sprite-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
-.sprite-sheet {
-  /* Ajoutez les styles nécessaires pour le sprite sheet */
-  /* Par exemple, définissez la largeur, la hauteur, etc. */
-  width: 200px;
-  height: 200px;
+
+#brolySurPlace{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
+  bottom: 0;
+  left: 1200px;
+  /* visibility: hidden; */
+  position: absolute;
+  margin-bottom: 400px;
+  z-index: 1000; /* Position absolue pour superposer les div sur les images */
+  
 }
