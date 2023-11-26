@@ -1,5 +1,5 @@
 // import d'une image
-import logoPage from '../../img/logoPage.png';
+import logoPage from '../../img/BaseDuSite/logoPage.png';
 
 /**
  * Render the Navbar which is styled by using Bootstrap

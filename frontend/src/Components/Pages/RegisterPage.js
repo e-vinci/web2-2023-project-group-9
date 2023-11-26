@@ -21,7 +21,9 @@ const RegisterPage = () => {
   submit_register.addEventListener('click', addOneUser);
 
   function renderRegisterPage() {
-    const formRegisterPage = `<div id="containerLoginPage">
+    const formRegisterPage = `
+    <section id = "mainContent">
+    <div id="containerLoginPage">
     <div id="containerForm">
         <form method="post">
             <label for="pseudo">Pseudo :</label>
@@ -37,16 +39,17 @@ const RegisterPage = () => {
             <br>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="checkRGPD" />
-                <label class="form-check-label" for="checkRGPD">en soumettant ce formulaire, j'accepte que Mortal Keyboard utilise mes données dans le strict cadre de nos services tout en respectant le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016R0679&from=FR">RGPD</a></label>
+                <label class="form-check-label" for="checkRGPD">en soumettant ce formulaire, j'accepte que Mortal Keyboard utilise mes donnees dans le strict cadre de nos services tout en respectant le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016R0679&from=FR">RGPD</a></label>
             </div>
             <br>
             <input type="submit" value="Inscription" id="submitRegister">
             <div id="error-message"></div>
-        </form>
-        <br>
+        </form><br>
         <div class="phrase_error"></div>
+        </div>
     </div>
-</div>`;
+    </section>
+    `;
 
     return formRegisterPage;
   }
@@ -81,11 +84,11 @@ async function addOneUser(e) {
     return;
   }
 
-  if(!term){
-    phraseError.textContent = "Acceptez les termes !"
+  if (!term) {
+    phraseError.textContent = 'Acceptez les termes !';
     return;
   }
-  
+
   const options = {
     method: 'POST',
     body: JSON.stringify({

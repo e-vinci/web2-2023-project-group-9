@@ -4,15 +4,23 @@
 import anime from 'animejs';
 import Typewriter from 'typewriter-effect/dist/core';
 /* eslint-disable camelcase */
-import titrePage from '../../img/titrePageAcceuil.png';
-import decorBouton from '../../img/imgButton.png';
-import imgBroly from '../../img/imgBroly.jpg';
-import imgVenom from '../../img/imgVenom.jpg';
-import imgChunLi from '../../img/imgChunLi.jpg';
-import imgCaptainA from '../../img/imgCaptainA.jpg';
+import titrePage from '../../img/ImageAcceuil/titrePageAcceuil.png';
+import decorBouton from '../../img/BaseDuSite/imgButton.png';
+import imgBroly from '../../img/ImageAcceuil/broly.jpg';
+import imgVenom from '../../img/ImageAcceuil/venom.jpg';
+import imgChunLi from '../../img/ImageAcceuil/chunLi.jpg';
+import imgCaptainA from '../../img/ImageAcceuil/captainA.jpg';
+
+import imgArene1 from '../../img/ImageAcceuil/arene1.gif';
+import imgArene2 from '../../img/ImageAcceuil/arene2.gif';
+import imgArene3 from '../../img/ImageAcceuil/arene3.gif';
+import imgArene4 from '../../img/ImageAcceuil/arene4.gif';
 
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
+
+const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
+const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4 };
 
 const HomePage = () => {
   clearPage();
@@ -45,7 +53,7 @@ const HomePage = () => {
 
   main.innerHTML += `
   <section id = "mainContent">
-  </section>
+  <section id = "titleOfMain"></section>
   <section id ="buttonSection">
     <div id="inscription">
       <p class="pboutton" id="link_to_registerPage">S'inscrire</p>
@@ -56,25 +64,24 @@ const HomePage = () => {
       ${imgDemo.outerHTML}
     </div>
   </section>
+  </section>
   <section id = "mainMiddleContent">
     <section id="sectionTwoAcceuil">
-    <img src="${imgBroly}" alt="" class="broly">
-    <img src="${imgVenom}" alt="" class="venom">
-    <img src="${imgChunLi}" alt="" class="chunLi">
-    <img src="${imgCaptainA}" alt="" class="captainA">
-    <div class="textSectionMain">
-    <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
-    <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
-    peuplé de personnages captivants et diversifiés. 
-    Parmi une vaste galerie de combattants, 
-    chacun affiche un style de frappe singulier, des compétences spéciales uniques et des histoires qui les distinguent.</p>
-    </div>
-    </section>
-    <section id="spriteAcceuil">
-      <div id="broly"></div>
-      <div id="venom"></div>
-      <div id="chunLi"></div>
-      <div id="captainA"></div>
+      <img src="${imgSection1.imgBroly}" alt="" class="broly">
+      <img src="${imgSection1.imgVenom}" alt="" class="venom">
+      <img src="${imgSection1.imgCaptainA}" alt="" class="captainA">
+      <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
+      <div class="textSectionMain">
+      <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
+      <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
+      peuplé de personnages captivants et diversifiés. 
+      Parmi une vaste galerie de combattants, 
+      chacun affiche un style de frappe singulier, des compétences spéciales uniques et des histoires qui les distinguent.</p>
+      <section id="spriteAccueil"><div id="broly"></div></section>
+      <section id="spriteAccueil"><div id="venom"></div></section>
+      <section id="spriteAccueil"><div id="captainA"></div></section>
+      <section id="spriteAccueil"><div id="chunLi"></div></section>
+      </div>
     </section>
   </section>
 `;
@@ -86,10 +93,10 @@ const HomePage = () => {
     Navigate('/register');
   });
 
-  const mainContent = document.querySelector('#mainContent');
+  const titleOfMain = document.querySelector('#titleOfMain');
 
-  mainContent.appendChild(titre);
-  mainContent.appendChild(slogan);
+  titleOfMain.appendChild(titre);
+  titleOfMain.appendChild(slogan);
 
   const broly = document.querySelector('#broly');
   const venom = document.querySelector('#venom');
@@ -100,7 +107,9 @@ const HomePage = () => {
   createAnimation(chunLi, '-1302px 0px', 'steps(14)', 1500);
   createAnimation(captainA, '-441px 0px', 'steps(3)', 1500);
   const img = document.querySelectorAll('#sectionTwoAcceuil>img');
-  const animation = document.querySelectorAll('#spriteAcceuil>div');
+  const animation = document.querySelectorAll('#spriteAccueil>div');
+  const spriteAccueil = document.querySelectorAll('#spriteAccueil');
+  const sectionTwoAcceuil = document.querySelector('#sectionTwoAcceuil');
 
   function createAnimation(target, startPosition, easing, duration) {
     return anime({
@@ -116,7 +125,11 @@ const HomePage = () => {
     let timeoutId; // Variable pour stocker l'ID du timer
 
     image.addEventListener('mouseover', () => {
-      image.style.filter = 'brightness(60%)';
+      document.querySelector('.phraseSectionMain').style.display = 'none'
+      sectionTwoAcceuil.style.width = '100%'
+      spriteAccueil.forEach((div) =>{
+        div.style.display = 'block'
+      })
       timeoutId = setTimeout(() => {
         animationImg(image);
       }, 1000);
@@ -126,7 +139,12 @@ const HomePage = () => {
       clearTimeout(timeoutId);
       image.style.filter = 'brightness(100%)';
       image.style.transition = '1s';
+      sectionTwoAcceuil.style.width = '80%'
       hideAnimations();
+      spriteAccueil.forEach((div) =>{
+        div.style.display = 'none'
+      })
+      document.querySelector('.phraseSectionMain').style.display = 'block';
     });
   });
 

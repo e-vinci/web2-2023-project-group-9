@@ -9,15 +9,16 @@ const LoginPage = () => {
   main.innerHTML = renderLoginPage();
 
   // eslint-disable-next-line camelcase
-  const link_to_registerPage = document.querySelector("#paragrapheLogin a");
+  const link_to_registerPage = document.querySelector('#paragrapheLogin a');
   // eslint-disable-next-line camelcase
-  link_to_registerPage.addEventListener("click", (e) => {
+  link_to_registerPage.addEventListener('click', (e) => {
     e.preventDefault();
     Navigate('/register');
   });
 
   function renderLoginPage() {
     const formLoginPage = `
+    <section id = "mainContent">
     <div id="containerLoginPage">
         <div id="containerForm">
             <form action="#" method="post">
@@ -32,11 +33,12 @@ const LoginPage = () => {
                 <input type="submit" value="Se connecter">
             </form> 
         </div> 
-    </div>`;
+    </div>
+    </section>
+    `;
 
     return formLoginPage;
-  };
-
+  }
 };
 
 export default LoginPage;
