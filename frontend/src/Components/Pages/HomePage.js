@@ -125,6 +125,7 @@ const HomePage = () => {
     let timeoutId; // Variable pour stocker l'ID du timer
 
     image.addEventListener('mouseover', () => {
+      image.style.filter = 'brightness(50%)';
       document.querySelector('.phraseSectionMain').style.display = 'none'
       sectionTwoAcceuil.style.width = '100%'
       spriteAccueil.forEach((div) =>{
