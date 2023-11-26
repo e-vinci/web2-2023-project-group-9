@@ -11,6 +11,7 @@ import imgVenom from '../../img/imgVenom.jpg';
 import imgChunLi from '../../img/imgChunLi.jpg';
 import imgCaptainA from '../../img/imgCaptainA.jpg';
 
+
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 

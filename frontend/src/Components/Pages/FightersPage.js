@@ -1,61 +1,70 @@
-import anime from 'animejs';
+// import anime from 'animejs';
+
+import arena from '../../img/Arena/areneDBZ.png';
+import brolyPortrait from '../../img/PortraitFighters/Broly.png';
+import venomPortrait from '../../img/PortraitFighters/Venom.png';
+import chunLiPortrait from '../../img/PortraitFighters/Chun li.png';
+import spiderManPortrait from '../../img/PortraitFighters/Spider man.png';
+import captainAmerica from '../../img/PortraitFighters/Captain america.png';
+import gokuPortrait from '../../img/PortraitFighters/Goku.png';
+import gohanPortrait from '../../img/PortraitFighters/Gohan.png';
+
 import { clearPage } from '../../utils/render';
 
 
-function importAll(r) {
-  return r.keys().map(r);
-}
-
-const images = importAll(require.context('../../img/PortraitFighters', false, /\.(png|jpe?g|gif|svg)$/));
 
 const FightersPage = () => {
   clearPage();
   const main = document.querySelector('main');
-
   const mainContainer = document.createElement('div');
   mainContainer.classList.add('main-container');
 
   main.innerHTML += 
-    `<section id="spriteAcceuil">
-    <div id="brolySurPlace"></div>
+    `<section class="main-container">
+    <img src="${brolyPortrait}" alt="" >
+    <img src="${venomPortrait}" alt="" >
+    <img src="${spiderManPortrait}" alt="" >
+    <img src="${chunLiPortrait}" alt="" >
+    <img src="${captainAmerica}" alt="" >
+    <img src="${gokuPortrait}" alt="" >
+    <img src="${gohanPortrait}" alt="" >
+  </section>
+
+
+    
+    
+    
+    
+    <section id="spriteAcceuil">
+      <div id="broly"></div>
+      <div id="venom"></div>
+      <div id="chunLi"></div>
+      <div id="captainA"></div>
+    <img src="${arena}" alt="" class="arena">
     </section>`;
 
-  images.forEach((imagePath) => {
-    const button = document.createElement('button');
-    const img = document.createElement('img');
-    img.src = imagePath;
-    img.classList.add('fighter-image');
-    button.appendChild(img);
-
-    mainContainer.appendChild(button);
-  });
+  
 
   main.appendChild(mainContainer);
-
- // const Broly = document.querySelector('#brolySurPlace');
 
  /* const venom = document.querySelector('#venom');
   const chunLi = document.querySelector('#chunLi');
   const captainA = document.querySelector('#captainA'); */
-  const brolySurPlace = document.querySelector('#brolySurPlace');
-  createAnimation(brolySurPlace, '-2006px 0px', 'steps(10)', 1500);
 
+ // const brolySurPlace = document.querySelector('#brolySurPlace');
+ // const arenaElement = document.querySelector('.arena');
+
+  // Fonction pour animer le sprite sheet de Broly
+ // createAnimation(brolySurPlace, '-2006px 0px', 'steps(10)', 1500);
 /* createAnimation(venom, '-3940px 0px', 'steps(17)', 1500);
   createAnimation(chunLi, '-1302px 0px', 'steps(14)', 1500);
   createAnimation(captainA, '-441px 0px', 'steps(3)', 1500); */
 
-/* function animateSpriteSheet() {
-    const spriteSheet = '../../img/spritesheets/BrolySurPlace.png'; // Chemin vers le sprite sheet
-    const spriteSheetImage = new Image();
-    spriteSheetImage.src = spriteSheet;
-
-    spriteSheetImage.onload = () => {
-      spriteSheetImage.classList.add('sprite-sheet'); // Ajoute la classe 'sprite-sheet' à l'image
-
-      // Affiche le sprite sheet avec la classe ajoutée
-      main.appendChild(spriteSheetImage);
-    };
-  } */
+ /* function animateBrolySpriteSheet() {
+    createAnimation(brolySurPlace, '-2006px 0px', 'steps(10)', 1500);
+    // Affichage de l'arène
+    arenaElement.style.display = 'block';
+  } 
 
   function createAnimation(target, startPosition, easing, duration) {
     return anime({
@@ -65,23 +74,7 @@ const FightersPage = () => {
       duration,
       loop: true,
     });
-  }
-
- /* function animationImg(nomImg) {
-    animation.forEach((animeElement) => {
-      if (nomImg.className === animeElement.id) {
-        animeElement.style.visibility = 'visible';
-      }
-    });
-  }
-
-  function hideAnimations() {
-    animation.forEach((a) => {
-      a.style.visibility = 'hidden';
-    });
-  }
-
-*/
-};
+  } */
+}; 
 
 export default FightersPage;

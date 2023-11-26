@@ -518,9 +518,21 @@ h1 {
   height: 280px;
   width: 206px;
   background: url(../assets/sprite1_Broly.png);
-  top: 10%;
+  top: 42%;
+  left: 46%;
   /* visibility: hidden; */
   position: absolute;
   z-index: 1000; /* Position absolue pour superposer les div sur les images */
-  
+  display: none;
+}
+
+.arena{
+  height: 772px;
+  width: 1450px;
+  position: absolute;
+  top: 1%;
+  left: 22%;
+  z-index: 900;
+  background: url(../img/Arena/areneDBZ.png);
+ display: none;
 }
