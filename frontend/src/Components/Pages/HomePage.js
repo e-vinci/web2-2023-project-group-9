@@ -116,7 +116,7 @@ const HomePage = () => {
     let timeoutId; // Variable pour stocker l'ID du timer
 
     image.addEventListener('mouseover', () => {
-      image.style.filter = 'brightness(50%)';
+      image.style.filter = 'brightness(60%)';
       timeoutId = setTimeout(() => {
         animationImg(image);
       }, 1000);
