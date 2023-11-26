@@ -489,20 +489,69 @@ h1 {
 /* ------------------- MOHAMED ----------------------*/
 
 /* styles dans main.css */
-.fighter-image {
+
+
+.brolyDBZ{
   width: 150px;
   height: 150px;
-  margin: 5px; /* Ajoute une marge de 5px autour de chaque image */
-  /* Ajoutez d'autres styles selon vos besoins */
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+
 }
+
+.venomSP{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+
+}
+
+.spiderMan{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+
+}
+
+.chunLiTK{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+
+}
+
+.captainAmerica{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+
+}
+
+.goku{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+}
+
+.gohan{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
+
+}
+
 
 .main-container {
   display: flex;
   flex-wrap: nowrap; /* Empêche le passage à la ligne des éléments */
   overflow-x: auto; /* Ajoute un défilement horizontal si les images débordent de la largeur */
   gap: 10px; /* Ajoute un espacement entre les images */
-
-
  /* Ajout de styles pour placer le contenu au bas de la page et au centre horizontalement */
  position: absolute;
  bottom: 0;
@@ -520,7 +569,6 @@ h1 {
   background: url(../assets/sprite1_Broly.png);
   top: 42%;
   left: 46%;
-  /* visibility: hidden; */
   position: absolute;
   z-index: 1000; /* Position absolue pour superposer les div sur les images */
   display: none;
@@ -534,5 +582,59 @@ h1 {
   left: 22%;
   z-index: 900;
   background: url(../img/Arena/areneDBZ.png);
- display: none;
+}
+
+#brolyDBZ{
+  height: 280px;
+  width: 206px;
+  position: absolute;
+  z-index: 1000;
+  background: url(../assets/sprite1_Broly.png);
+  bottom: 0;
+  left: 100px;
+  background-position: '-2006px 0px';
+  display: none;
+  margin-left: 50px; /* Déplace l'image vers la droite */
+  margin-top: -500px;
+}
+
+#venomSP{
+  position: absolute;
+  height: 280px;
+  width: 230px;
+  background: url(../assets/sprite1_Venom.png);
+  left: 380px;
+  bottom: 0;
+  display: none;
+  margin-left: 50px; /* Déplace l'image vers la droite */
+  margin-top: -500px;
+  z-index: 1000;
+}
+
+#chunLiTK{
+  height: 101px;
+  width: 93px;
+  position: absolute;
+  background: url(../assets/sprite1_ChunLi.png);
+  transform: scale(2);
+  left: 625px;
+  bottom: 50px;
+  display: none;
+  margin-left: 50px; /* Déplace l'image vers la droite */
+  margin-top: -400px; /* Déplace l'image vers le bas */
+  z-index: 1000;
+}
+
+#captainAmerica{
+  position: absolute;
+  height: 200px;
+  width: 147px;
+  background: url(../assets/sprite1_CaptainAmerica.png);
+  left: 850px;
+  bottom: 25px;
+  transform: scale(1.5);
+  display: none;
+  margin-left: 50px; /* Déplace l'image vers la droite */
+  margin-top: -400px;
+  z-index: 1000;
 }
