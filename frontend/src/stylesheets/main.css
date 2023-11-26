@@ -184,18 +184,22 @@ div img {
 
 .broly {
   z-index: 3;
+  object-fit: cover;
 }
 
 .venom {
   z-index: 2;
+  object-fit: cover;
 }
 
 .captainA {
   z-index: 1;
+  object-fit: cover;
 }
 
 .chunLi {
   z-index: 0;
+  object-fit: cover;
 }
 
 .broly:hover, .venom:hover, .captainA:hover, .chunLi:hover {
