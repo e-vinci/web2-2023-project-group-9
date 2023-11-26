@@ -43,7 +43,6 @@ const RegisterPage = () => {
             </div>
             <br>
             <input type="submit" value="Inscription" id="submitRegister">
-            <div id="error-message"></div>
         </form><br>
         <div class="phrase_error"></div>
         </div>
