@@ -16,6 +16,10 @@ const LoginPage = () => {
     Navigate('/register');
   });
 
+  const btnConnection = document.querySelector('#btn_connection');
+
+  btnConnection.addEventListener('click', onLogin);
+
   function renderLoginPage() {
     const formLoginPage = `
     <section id = "mainContent">
@@ -30,8 +34,10 @@ const LoginPage = () => {
                 <br>
                 <p id="paragrapheLogin">Si vous n'avez pas de compte,<a href="#"> Inscrivez-vous</a></p>
                 <br>
-                <input type="submit" value="Se connecter">
-            </form> 
+                <input type="submit" value="Se connecter" id="btn_connection">
+            </form>
+            <br>
+            <div class="phrase_error"></div> 
         </div> 
     </div>
     </section>
@@ -40,5 +46,19 @@ const LoginPage = () => {
     return formLoginPage;
   }
 };
+function onLogin(e) {
+  e.preventDefault();
 
+  const username = document.querySelector('#pseudo').value;
+  const password = document.querySelector('#motdepasse').value;
+
+  const phraseError = document.querySelector('.phrase_error');
+
+  if (password.length === 0 || username.length === 0) {
+    console.log('okk');
+    phraseError.textContent = 'Remplissez tous les champs';
+  }
+
+    // YOUR CODE, Youssef
+}
 export default LoginPage;
