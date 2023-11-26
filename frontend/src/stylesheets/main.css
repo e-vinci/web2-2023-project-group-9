@@ -18,6 +18,7 @@ input,
 select,
 textarea {
   font-family: 'MK TITLE', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Annule la liste des éléments de liste */
@@ -161,16 +162,22 @@ div img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 80%;
+  max-width: 95%;
   height: 100vh;
   background-color: #000000;
   transition: 1.5s;
 }
 
-.broly,.venom,.captainA,.chunLi{
+.broly, .venom, .captainA, .chunLi {
+  max-width: 50%;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   margin-left: -30%;
+}
+
+/* Exemple d'utilisation des unités de vue en largeur (vw) pour spécifier la taille de l'image */
+.broly img, .venom img, .captainA img, .chunLi img { 
+  height: auto;
 }
 
 .broly {
