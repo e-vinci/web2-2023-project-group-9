@@ -161,7 +161,7 @@ div img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 100%;
+  width: 80%;
   height: 100vh;
   background-color: #000000;
   transition: 1.5s;
@@ -200,6 +200,7 @@ div img {
   margin-top: 10%;
   z-index: 1000;
   background-color: wheat;
+  display: none;
 }
 
 #broly {
