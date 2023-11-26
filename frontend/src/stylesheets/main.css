@@ -433,3 +433,47 @@ h1 {
     border: none;
   }
 }
+
+
+
+
+/* ------------------- MOHAMED ----------------------*/
+
+/* styles dans main.css */
+.fighter-image {
+  width: 150px;
+  height: 150px;
+  margin: 5px; /* Ajoute une marge de 5px autour de chaque image */
+  /* Ajoutez d'autres styles selon vos besoins */
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: nowrap; /* Empêche le passage à la ligne des éléments */
+  overflow-x: auto; /* Ajoute un défilement horizontal si les images débordent de la largeur */
+  gap: 10px; /* Ajoute un espacement entre les images */
+
+
+ /* Ajout de styles pour placer le contenu au bas de la page et au centre horizontalement */
+ position: absolute;
+ bottom: 0;
+ left: 50%; /* Déplacer le conteneur à 50% de la largeur de son parent */
+ transform: translateX(-50%); /* Corriger la position pour le centrer */
+ width: 100%;
+ justify-content: center; /* Aligner le contenu horizontalement au centre */
+}
+
+
+
+#brolySurPlace{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
+  bottom: 0;
+  left: 1200px;
+  /* visibility: hidden; */
+  position: absolute;
+  margin-bottom: 400px;
+  z-index: 1000; /* Position absolue pour superposer les div sur les images */
+  
+}

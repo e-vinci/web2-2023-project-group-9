@@ -31,7 +31,7 @@ const Navbar = () => {
       <div class="navLinks">
         <ul>
           <li><a href="#" data-uri="/">Accueil</a></li>
-          <li><a href="#">Combattants</a></li>
+          <li><a href="#" data-uri="/fighters">Combattants</a></li>
           <li><a href="#">Arenes</a></li>
           <li><a href="#" data-uri="/login">Se Connecter</a></li>
         </ul>
