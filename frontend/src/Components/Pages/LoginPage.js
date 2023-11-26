@@ -55,7 +55,6 @@ function onLogin(e) {
   const phraseError = document.querySelector('.phrase_error');
 
   if (password.length === 0 || username.length === 0) {
-    console.log('okk');
     phraseError.textContent = 'Remplissez tous les champs';
   }
 
