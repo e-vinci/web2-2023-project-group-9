@@ -127,7 +127,7 @@ const HomePage = () => {
     image.addEventListener('mouseover', () => {
       image.style.filter = 'brightness(50%)';
       document.querySelector('.phraseSectionMain').style.display = 'none'
-      sectionTwoAcceuil.style.width = '100%'
+      sectionTwoAcceuil.style.maxWidth = '70%'
       spriteAccueil.forEach((div) =>{
         div.style.display = 'block'
       })
@@ -140,7 +140,7 @@ const HomePage = () => {
       clearTimeout(timeoutId);
       image.style.filter = 'brightness(100%)';
       image.style.transition = '1s';
-      sectionTwoAcceuil.style.width = '80%'
+      sectionTwoAcceuil.style.maxWidth = '95%'
       hideAnimations();
       spriteAccueil.forEach((div) =>{
         div.style.display = 'none'
