@@ -140,7 +140,7 @@ const HomePage = () => {
       clearTimeout(timeoutId);
       image.style.filter = 'brightness(100%)';
       image.style.transition = '1s';
-      sectionTwoAcceuil.style.maxWidth = '95%'
+      sectionTwoAcceuil.style.maxWidth = '85%'
       hideAnimations();
       spriteAccueil.forEach((div) =>{
         div.style.display = 'none'

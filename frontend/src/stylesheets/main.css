@@ -164,7 +164,7 @@ div img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  max-width: 95%;
+  max-width: 85%;
   height: 100vh;
   background-color: #000000;
   transition: 1.5s;
@@ -265,6 +265,8 @@ div img {
   font-size: 1.5vw;
 }
 
+/* Sohaib */
+/* section 2 Acceuil */
 .textSectionMain2 {
   background-color: black;
   color: white;
@@ -272,9 +274,6 @@ div img {
   height: 100vh;
   padding: 2%;
 }
-
-/* Sohaib */
-/* section 2 Acceuil */
 
 /* Karim */
 /* login page style */
