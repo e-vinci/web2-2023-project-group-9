@@ -77,13 +77,11 @@ const HomePage = () => {
       peuplé de personnages captivants et diversifiés. 
       Parmi une vaste galerie de combattants, 
       chacun affiche un style de frappe singulier, des compétences spéciales uniques et des histoires qui les distinguent.</p>
+      <section id="spriteAccueil"><div id="broly"></div></section>
+      <section id="spriteAccueil"><div id="venom"></div></section>
+      <section id="spriteAccueil"><div id="captainA"></div></section>
+      <section id="spriteAccueil"><div id="chunLi"></div></section>
       </div>
-      <section id="spriteAccueil">
-      <div id="brolyAccueil"></div>
-      <div id="venomAccueil"></div>
-      <div id="captainAAccueil"></div>
-      <div id="chunLiAccueil"></div>
-    </section>
     </section>
   </section>
 `;
@@ -110,6 +108,8 @@ const HomePage = () => {
   createAnimation(captainA, '-441px 0px', 'steps(3)', 1500);
   const img = document.querySelectorAll('#sectionTwoAcceuil>img');
   const animation = document.querySelectorAll('#spriteAccueil>div');
+  const spriteAccueil = document.querySelectorAll('#spriteAccueil');
+  const sectionTwoAcceuil = document.querySelector('#sectionTwoAcceuil');
 
   function createAnimation(target, startPosition, easing, duration) {
     return anime({
@@ -126,6 +126,11 @@ const HomePage = () => {
 
     image.addEventListener('mouseover', () => {
       image.style.filter = 'brightness(50%)';
+      document.querySelector('.phraseSectionMain').style.display = 'none'
+      sectionTwoAcceuil.style.width = '100%'
+      spriteAccueil.forEach((div) =>{
+        div.style.display = 'block'
+      })
       timeoutId = setTimeout(() => {
         animationImg(image);
       }, 1000);
@@ -135,7 +140,12 @@ const HomePage = () => {
       clearTimeout(timeoutId);
       image.style.filter = 'brightness(100%)';
       image.style.transition = '1s';
+      sectionTwoAcceuil.style.width = '80%'
       hideAnimations();
+      spriteAccueil.forEach((div) =>{
+        div.style.display = 'none'
+      })
+      document.querySelector('.phraseSectionMain').style.display = 'block';
     });
   });
 

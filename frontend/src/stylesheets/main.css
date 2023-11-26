@@ -164,6 +164,7 @@ div img {
   width: 100%;
   height: 100vh;
   background-color: #000000;
+  transition: 1.5s;
 }
 
 .broly,.venom,.captainA,.chunLi{
@@ -191,6 +192,51 @@ div img {
 .broly:hover, .venom:hover, .captainA:hover, .chunLi:hover {
   margin-left: -10%;
   transition: 1s;
+}
+
+#spriteAccueil {
+  height: max-content;
+  align-items: center;
+  margin-top: 10%;
+  z-index: 1000;
+  background-color: wheat;
+}
+
+#broly {
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
+  visibility: hidden;
+}
+
+#venom {
+  height: 280px;
+  width: 230px;
+  background: url(../assets/sprite1_Venom.png);
+  visibility: hidden;
+}
+
+#chunLi {
+  height: 101px;
+  width: 93px;
+  background: url(../assets/sprite1_ChunLi.png);
+  transform: scale(2);
+  visibility: hidden;
+  margin-top: 5%;
+}
+
+#captainA {
+  height: 200px;
+  width: 147px;
+  background: url(../assets/sprite1_CaptainAmerica.png);
+  transform: scale(2);
+  visibility: hidden;
+  margin-top: 5%;
+}
+
+#broly,#chunLi,#captainA,#venom{
+  position: absolute;
+  margin-left: 5%;
 }
 
 .textSectionMain {
