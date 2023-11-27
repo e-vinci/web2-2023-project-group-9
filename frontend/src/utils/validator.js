@@ -67,4 +67,15 @@ function checkPassword(password) {
   return null;
 }
 
-export { checkUserName, checkPassword, checkEmail };
+function checkInformationsBeforeLogin(data){
+  let error = '';
+
+  if(!validator.isAlphanumeric(data.username) || data.username.length <= 1 || data.password.length <= 1) {
+    error = 'Remplissez les champs !'
+    return error;
+  }
+
+  return error;
+}
+
+export { checkUserName, checkPassword, checkEmail, checkInformationsBeforeLogin };
