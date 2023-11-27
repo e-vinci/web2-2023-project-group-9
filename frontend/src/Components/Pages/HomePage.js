@@ -131,8 +131,7 @@ const HomePage = () => {
     </div>
     <div class="right">
     <p>A Propos De Nous</p>
-    <p class="linkFooter">Assistance technique</p>
-    <p class="linkFooter">Politique de confidentialité</p> 
+    <p class="linkFooter">Notre équipe de développement </p>
     </div>
     </div>
     </section>
