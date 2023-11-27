@@ -551,7 +551,7 @@ h1 {
   display: flex;
   flex-wrap: nowrap; /* Empêche le passage à la ligne des éléments */
   overflow-x: auto; /* Ajoute un défilement horizontal si les images débordent de la largeur */
-  gap: 10px; /* Ajoute un espacement entre les images */
+  gap: 5px; /* Ajoute un espacement entre les images */
  /* Ajout de styles pour placer le contenu au bas de la page et au centre horizontalement */
  position: absolute;
  bottom: 0;
@@ -582,6 +582,7 @@ h1 {
   left: 22%;
   z-index: 900;
   background: url(../img/Arena/areneDBZ.png);
+  visibility: hidden;
 }
 
 #brolyDBZ{

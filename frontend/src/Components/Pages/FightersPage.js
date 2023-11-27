@@ -1,5 +1,4 @@
- import anime from 'animejs';
-
+import anime from 'animejs';
 import arena from '../../img/Arena/areneDBZ.png';
 import brolyPortrait from '../../img/PortraitFighters/Broly.png';
 import venomPortrait from '../../img/PortraitFighters/Venom.png';
@@ -8,7 +7,6 @@ import spiderManPortrait from '../../img/PortraitFighters/Spider man.png';
 import captainAmerica from '../../img/PortraitFighters/Captain america.png';
 import gokuPortrait from '../../img/PortraitFighters/Goku.png';
 import gohanPortrait from '../../img/PortraitFighters/Gohan.png';
-
 import { clearPage } from '../../utils/render';
 
 
@@ -21,8 +19,6 @@ const FightersPage = () => {
 
   main.innerHTML += 
     `<section class="main-container">
-
-
     <button style="background-image: url('${brolyPortrait}')" class="brolyDBZ"></button>
     <button style="background-image: url('${venomPortrait}')" class="venomSP"></button>
     <button style="background-image: url('${spiderManPortrait}')" class="spiderMan"></button>
@@ -30,7 +26,6 @@ const FightersPage = () => {
     <button style="background-image: url('${captainAmerica}')" class="captainAmerica"></button>
     <button style="background-image: url('${gokuPortrait}')" class="goku"></button>
     <button style="background-image: url('${gohanPortrait}')" class="gohan"></button>
-    
   </section>
 
     
@@ -63,8 +58,22 @@ const FightersPage = () => {
   const img = document.querySelectorAll('.main-container>button');
   const animation = document.querySelectorAll('#sprite>div');
 
+  function createAnimation(target, startPosition, easing, duration) {
+    return anime({
+      targets: target,
+      backgroundPosition: startPosition,
+      easing,
+      duration,
+      loop: true,
+    });
+  }
+
+
   img.forEach((image) => {
     image.addEventListener('click', () => {
+      console.log(
+        'ici'
+      )
      animationImg(image);
     });
   });
@@ -73,6 +82,9 @@ const FightersPage = () => {
     // eslint-disable-next-line no-shadow
     animation.forEach((anime) => {
       if (nomImg.className === anime.id) {
+        console.log(
+          'là bas'
+        )
         // eslint-disable-next-line no-param-reassign
         anime.style.display = 'block';
         // eslint-disable-next-line no-param-reassign
@@ -102,19 +114,6 @@ const FightersPage = () => {
       });
     });
   } 
-
-
-
-  function createAnimation(target, startPosition, easing, duration) {
-    return anime({
-      targets: target,
-      backgroundPosition: startPosition,
-      easing,
-      duration,
-      loop: true,
-    });
-  }
-
 
 
  /* const venom = document.querySelector('#venom');
