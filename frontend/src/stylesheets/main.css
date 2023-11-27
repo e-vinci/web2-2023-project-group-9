@@ -1,5 +1,4 @@
 /* Reset CSS de base */
-
 /* Supprime les marges et les espacements par défaut */
 * {
   margin: 0;
@@ -7,38 +6,90 @@
   box-sizing: border-box;
 }
 
+/* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
+@font-face {
+  font-family: 'MK TITLE';
+  src: url('../fonts/MKtitle.ttf') format('truetype');
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'MK TITLE', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Annule la liste des éléments de liste */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Réinitialise d'autres styles */
+/* Annule les puces par défaut des listes non ordonnées */
+ul {
+  list-style-type: none;
+}
 body {
   background-color: #000000;
-  height: 100vh;
-  width: 100%;
-  background-image: url(../img/backgroundSite.jpg);
-  background-size: cover;
+  background-image: url(../img/BaseDuSite/backgroundSite.jpg);
+  max-width: 100%;
+  height: auto;
   background-repeat: no-repeat;
 }
 
 /* Sohaib */
-/* Page d'acceuil */
-main {
+/* NAVBAR */
+#navbarWrapper {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 75vh;
-  position: relative; 
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
 }
 
-#mainContent{
-  margin-top: 20px;
+#navbarWrapper a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 100%;
+}
+
+#navbarWrapper .logoPage {
+  position: relative;
+  margin-left: 5%;
+  width: 8em;
+}
+
+#navbarWrapper .navLinks ul {
+  display: flex;
+}
+
+#navbarWrapper .navLinks ul li {
+  margin: 0 25px;
+}
+
+#icons {
+  display: none;
+}
+
+/* Sohaib */
+/* Page d'acceuil */
+#mainContent {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#titleOfMain {
   align-items: center;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  height: 75vh;
 }
 
 #h1Acceuil {
-  width: 60%;
+  max-width: 60%;
 }
 
 .slogan {
@@ -52,17 +103,17 @@ main {
 
 #buttonSection {
   display: flex;
-  flex-direction: row;
-  justify-content: left;
-  width: 100%;
-  margin-bottom: 50px;
-  margin-top: -50px;
+  position: relative;
+  top: 30%;
+  width: 75vw;
+  margin-left: 15vw;
+  justify-content: space-between;
 }
 
 /* button Acceuil */
 #inscription {
   position: relative;
-  width: 20vw;
+  width: 25vw;
   border-radius: 8px;
   border: 3px solid #fffcfc;
   background: #000000;
@@ -70,18 +121,19 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
+  transition: 0.5s;
 }
 
 #inscription:hover,
-#demo:hover{
+#demo:hover {
   cursor: pointer;
-  transform: scale(1.04);
+  transform: scale(1.15);
+  transition: 0.5s;
 }
 
 #demo {
   position: relative;
-  width: 20vw;
+  width: 25vw;
   border-radius: 8px;
   border: 3px solid #fffcfc;
   background: #000000;
@@ -89,203 +141,185 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 60px;
+  transition: 0.5s;
 }
 
-.pboutton{
+.pboutton {
   position: absolute;
-  margin-top: 1vw;
-  font-size: 30pt;
+  font-size: 4vw;
   cursor: pointer;
-  width: 100%;
+  max-width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: auto;
   text-align: center;
 }
 div img {
-  width: 109pt;
-}
-
-@media screen and (max-width: 640px) {
-    .pboutton{
-        font-size: 21pt;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .pboutton{
-        font-size: 23pt;
-    }
+  width: 120pt;
 }
 
 /* Sohaib */
 /* section 2 */
 #mainMiddleContent{
-  height: 100vh;
-  width: 98vw;
+  background-color: #000000;
 }
-
-#sectionTwoAcceuil{
+#sectionTwoAcceuil {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 98vw;
+  max-width: 85%;
   height: 100vh;
-  position: relative;
+  background-color: #000000;
+  transition: 1.5s;
+}
+
+.broly, .venom, .captainA, .chunLi {
+  max-width: 50%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  margin-left: -28%;
+}
+
+/* Exemple d'utilisation des unités de vue en largeur (vw) pour spécifier la taille de l'image */
+.broly img, .venom img, .captainA img, .chunLi img { 
+  height: auto;
 }
 
 .broly {
   z-index: 3;
-  margin-left: -200px;
+  object-fit: cover;
 }
 
 .venom {
   z-index: 2;
-  margin-left: -250px;
-}
-
-.chunLi {
-  z-index: 1;
-  margin-left: -200px;
+  object-fit: cover;
 }
 
 .captainA {
+  z-index: 1;
+  object-fit: cover;
+}
+
+.chunLi {
   z-index: 0;
-  margin-left: -220px;
+  object-fit: cover;
 }
 
-.chunLi:hover,
-.captainA:hover {
-  margin-left: 0;
-  transition: 2s;
+.broly:hover, .venom:hover, .captainA:hover, .chunLi:hover {
+  margin-left: -10%;
+  transition: 1s;
 }
 
-.broly:hover{
-  margin-left: -10px;
-  transition: 2s;
+#spriteAccueil {
+  height: max-content;
+  align-items: center;
+  margin-top: 10%;
+  max-width: 100%;
+  z-index: 1000;
+  background-color: wheat;
+  display: none;
 }
 
-.venom:hover{
-  margin-left: -20px;
-  transition: 2s;
-}
-
-#chunLi,
-#broly,
-#venom,
-#captainA{
-  position: absolute;
-  margin-bottom: 200px;
-  z-index: 1000; /* Position absolue pour superposer les div sur les images */
-}
-
-#broly{
+#broly {
   height: 280px;
   width: 206px;
   background: url(../assets/sprite1_Broly.png);
-  bottom: 0;
-  left: 100px;
-  background-position: '-2006px 0px';
   visibility: hidden;
 }
 
-#venom{
+#venom {
   height: 280px;
   width: 230px;
   background: url(../assets/sprite1_Venom.png);
-  left: 380px;
-  bottom: 0;
   visibility: hidden;
 }
 
-#chunLi{
+#chunLi {
   height: 101px;
   width: 93px;
   background: url(../assets/sprite1_ChunLi.png);
   transform: scale(2);
-  left: 625px;
-  bottom: 50px;
   visibility: hidden;
+  margin-top: 5%;
 }
 
-#captainA{
+#captainA {
   height: 200px;
   width: 147px;
   background: url(../assets/sprite1_CaptainAmerica.png);
-  left: 850px;
-  bottom: 25px;
-  transform: scale(1.5);
+  transform: scale(2);
   visibility: hidden;
+  margin-top: 5%;
 }
 
-.textSectionMain{
+#broly,#chunLi,#captainA,#venom{
+  position: absolute;
+  margin-left: 5%;
+}
+
+.textSectionMain {
   background-color: black;
   color: white;
-  width: 100vw;
   height: 100vh;
   padding: 2%;
 }
 
-.titreSectionMain{
+.titreSectionMain {
   font-size: 3vw;
 }
 
-.phraseSectionMain{
+.phraseSectionMain {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5vw;
 }
-/* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
-@font-face {
-  font-family: 'MK TITLE';
-  src: url('../fonts/MKtitle.ttf') format('truetype');
+
+/* Sohaib */
+/* section 3 */
+#sectionTreeAcceuil{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: flex-start;
+  background-color: #000000;
+  transition: 1.5s;
 }
 
-body,
-button,
-input,
-select,
-textarea {
-  font-family: 'MK TITLE', sans-serif;
+.textSectionMain2{
+  background-color: black;
+  color: white;
+  width: 25vw;
+  padding: 2%;
 }
 
-/* Annule la liste des éléments de liste */
-ul,
-ol {
-  list-style: none;
+#areneAccueil{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
 }
 
-/* Rétablit la taille de police par défaut */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 1em;
+.arene{
+  width: 25vw;
 }
-
-/* Réinitialise d'autres styles */
-/* Annule les puces par défaut des listes non ordonnées */
-ul {
-  list-style-type: none;
-}
-
 /* Karim */
 /* login page style */
 #containerLoginPage {
-  position: absolute;
-  margin: 0;
-  left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
 }
 
 #containerForm {
-  background-color: black;
-  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
+  backdrop-filter: blur(10px);
   padding: 50px;
-  border: 1px solid #ffffff;
-  align-items: center;
+  border: none;
+  border-radius: 10px;
   text-align: center;
-  margin-top: 50%;
+  width: 60%;
 }
 
 h1 {
@@ -305,7 +339,7 @@ h1 {
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   box-sizing: border-box;
 }
 
@@ -340,43 +374,6 @@ h1 {
   color: rgb(168, 3, 3);
 }
 
-/* Sohaib */
-/* NAVBAR */
-#navbarWrapper {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: rgb(0, 0, 0);
-  z-index: 1000;
-}
-
-#navbarWrapper a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 90%;
-}
-
-#navbarWrapper .logoPage {
-  width: 7em;
-  position: relative;
-  margin-left: 5%;
-}
-
-#navbarWrapper .navLinks ul {
-  display: flex;
-}
-
-#navbarWrapper .navLinks ul li {
-  margin: 0 25px;
-}
-
-#icons {
-  display: none;
-}
-
 @media screen and (max-width: 700px) {
   #navbarWrapper {
     display: block;
@@ -393,7 +390,7 @@ h1 {
     display: flex;
     line-height: 100px;
     flex-direction: column;
-    height: 88vh;
+    height: 100vh;
     left: -100%;
     width: 100%;
     background: rgb(124, 1, 1);
@@ -412,12 +409,11 @@ h1 {
     transform: translate(-50%, -50%);
     z-index: 1;
   }
-  
 
   .navLinks ul li a {
     display: block; /* Faire en sorte que le lien soit un bloc pour couvrir l'ensemble de l'élément li */
-    width: 100%; /* Étendre le lien sur toute la largeur de l'élément li */
-    height: 100%; /* Étendre le lien sur toute la hauteur de l'élément li */
+    max-width: 100%; /* Étendre le lien sur toute la largeur de l'élément li */
+    height: auto; /* Étendre le lien sur toute la hauteur de l'élément li */
   }
 
   .navLinks ul li:hover {
@@ -449,37 +445,28 @@ h1 {
     left: 0;
   }
 
-  #buttonSection {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-
-  #inscription {
-    width: 200vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #inscription:hover,
-  #demo:hover{
-    cursor: pointer;
-    transform: scale(1.04);
-  }
-  
-  #demo {
-    width: 200vw;
-    align-items: center;
-    margin-right: 20px;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  #containerLoginPage {
-    margin-top: 50px;
+  #titleOfMain {
     position: relative;
+    top: 25%;
+  }
+
+  #buttonSection {
+    top: 55%;
+  }
+
+  div img {
+    width: 85pt;
+  }
+
+  #containerForm {
     width: 100%;
+    height: 100vh;
+    position: relative;
+    top: 15%;
+  }
+
+  #containerForm {
+    border: none;
   }
 }
 

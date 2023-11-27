@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { clearPage, renderPageTitle } from '../../utils/render';
+import { checkInformationsBeforeLogin } from '../../utils/validator';
 import Navigate from '../Router/Navigate';
 
 const LoginPage = () => {
@@ -9,15 +10,20 @@ const LoginPage = () => {
   main.innerHTML = renderLoginPage();
 
   // eslint-disable-next-line camelcase
-  const link_to_registerPage = document.querySelector("#paragrapheLogin a");
+  const link_to_registerPage = document.querySelector('#paragrapheLogin a');
   // eslint-disable-next-line camelcase
-  link_to_registerPage.addEventListener("click", (e) => {
+  link_to_registerPage.addEventListener('click', (e) => {
     e.preventDefault();
     Navigate('/register');
   });
 
+  const btnConnection = document.querySelector('#btn_connection');
+
+  btnConnection.addEventListener('click', onLogin);
+
   function renderLoginPage() {
     const formLoginPage = `
+    <section id = "mainContent">
     <div id="containerLoginPage">
         <div id="containerForm">
             <form action="#" method="post">
@@ -29,14 +35,33 @@ const LoginPage = () => {
                 <br>
                 <p id="paragrapheLogin">Si vous n'avez pas de compte,<a href="#"> Inscrivez-vous</a></p>
                 <br>
-                <input type="submit" value="Se connecter">
-            </form> 
+                <input type="submit" value="Se connecter" id="btn_connection">
+            </form>
+            <br>
+            <div class="phrase_error"></div> 
         </div> 
-    </div>`;
+    </div>
+    </section>
+    `;
 
     return formLoginPage;
-  };
-
+  }
 };
+function onLogin(e) {
+  e.preventDefault();
 
+  const username = document.querySelector('#pseudo').value;
+  const password = document.querySelector('#motdepasse').value;
+
+  const phraseError = document.querySelector('.phrase_error');
+
+  const data = {
+    username,
+    password
+  }
+
+  phraseError.textContent = checkInformationsBeforeLogin(data);
+
+    // YOUR CODE, Youssef
+}
 export default LoginPage;
