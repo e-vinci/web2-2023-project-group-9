@@ -15,12 +15,17 @@ import imgArene1 from '../../img/ImageAcceuil/arene1.gif';
 import imgArene2 from '../../img/ImageAcceuil/arene2.gif';
 import imgArene3 from '../../img/ImageAcceuil/arene3.gif';
 import imgArene4 from '../../img/ImageAcceuil/arene4.gif';
+import imgArene5 from '../../img/ImageAcceuil/arene5.gif';
+import imgArene6 from '../../img/ImageAcceuil/arene6.gif';
+import imgArene7 from '../../img/ImageAcceuil/arene7.gif';
+import imgArene8 from '../../img/ImageAcceuil/arene8.gif';
+import imgArene9 from '../../img/ImageAcceuil/arene9.gif';
 
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
 const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
-const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4 };
+const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4, imgArene5, imgArene6, imgArene7, imgArene8, imgArene9};
 
 const HomePage = () => {
   clearPage();
@@ -83,6 +88,26 @@ const HomePage = () => {
       <section id="spriteAccueil"><div id="chunLi"></div></section>
       </div>
     </section>
+    <section id="sectionTreeAcceuil">
+    <div class="textSectionMain2">
+    <p class="titreSectionMain">Des arenes </br> A couper </br> Le soufFle</p>
+    <p class="phraseSectionMain">Une variété qui offre une expérience de combat unique à chaque affrontement. 
+    Plongez-vous dans tout type de décor, il y en a pour tout le monde !</p>
+    </div>
+    <div id="areneAccueil">
+    <img src="${imgSection2.imgArene1}" alt="" class="arene">
+    <img src="${imgSection2.imgArene2}" alt="" class="arene">
+    <img src="${imgSection2.imgArene3}" alt="" class="arene">
+    <img src="${imgSection2.imgArene4}" alt="" class="arene">
+    <img src="${imgSection2.imgArene5}" alt="" class="arene">
+    <img src="${imgSection2.imgArene6}" alt="" class="arene">
+    <img src="${imgSection2.imgArene7}" alt="" class="arene">
+    <img src="${imgSection2.imgArene8}" alt="" class="arene">
+    <img src="${imgSection2.imgArene9}" alt="" class="arene">
+    </div>
+    </section>
+    <section id="sectionTreeAcceuil">
+    </section>
   </section>
 `;
 
@@ -110,6 +135,7 @@ const HomePage = () => {
   const animation = document.querySelectorAll('#spriteAccueil>div');
   const spriteAccueil = document.querySelectorAll('#spriteAccueil');
   const sectionTwoAcceuil = document.querySelector('#sectionTwoAcceuil');
+  const areneAcceuil = document.querySelectorAll('#areneAccueil .arene');
 
   function createAnimation(target, startPosition, easing, duration) {
     return anime({
@@ -162,6 +188,51 @@ const HomePage = () => {
       a.style.visibility = 'hidden';
     });
   }
+
+  areneAcceuil.forEach((i) => {
+    i.addEventListener('mouseover', () => {
+      anime({
+        targets: i,
+        scale: 1.2,
+        opacity: 2, // Assurez-vous que l'opacité de l'image survolée est complètement visible
+        easing: 'easeInOutQuad',
+      });
+  
+      // Anime les autres images pour les flouter
+      areneAcceuil.forEach((otherImage) => {
+        if (otherImage !== i) {
+          anime({
+            targets: otherImage,
+            scale: 1,
+            opacity: 0.5,
+            filter: 'blur(5px)', 
+            easing: 'easeInQuad',
+          });
+        }
+      });
+    });
+  
+    i.addEventListener('mouseout', () => {
+      anime({
+        targets: i,
+        scale: 1,
+        opacity: 1,
+        easing: 'easeInQuad',
+      });
+  
+      areneAcceuil.forEach((otherImage) => {
+        if (otherImage !== i) {
+          anime({
+            targets: otherImage,
+            scale: 1,
+            opacity: 1,
+            filter: 'blur(0px)',
+            easing: 'easeInOutQuad',
+          });
+        }
+      });
+    });
+  });
 };
 
 export default HomePage;

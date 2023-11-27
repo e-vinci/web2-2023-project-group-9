@@ -160,6 +160,9 @@ div img {
 
 /* Sohaib */
 /* section 2 */
+#mainMiddleContent{
+  background-color: #000000;
+}
 #sectionTwoAcceuil {
   display: flex;
   flex-direction: row;
@@ -174,7 +177,7 @@ div img {
   max-width: 50%;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
-  margin-left: -30%;
+  margin-left: -28%;
 }
 
 /* Exemple d'utilisation des unités de vue en largeur (vw) pour spécifier la taille de l'image */
@@ -207,6 +210,7 @@ div img {
   height: max-content;
   align-items: center;
   margin-top: 10%;
+  max-width: 100%;
   z-index: 1000;
   background-color: wheat;
   display: none;
@@ -266,15 +270,34 @@ div img {
 }
 
 /* Sohaib */
-/* section 2 Acceuil */
-.textSectionMain2 {
+/* section 3 */
+#sectionTreeAcceuil{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: flex-start;
+  background-color: #000000;
+  transition: 1.5s;
+}
+
+.textSectionMain2{
   background-color: black;
   color: white;
-  width: 100vw;
-  height: 100vh;
+  width: 25vw;
   padding: 2%;
 }
 
+#areneAccueil{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+.arene{
+  width: 25vw;
+}
 /* Karim */
 /* login page style */
 #containerLoginPage {
