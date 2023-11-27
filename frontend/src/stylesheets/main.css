@@ -322,6 +322,42 @@ div img {
   font-size: 4vw;
 }
 
+
+#sectionForOneAcceuil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+#sectionForTwoAcceuil{
+  background-color: white;
+  width: 100vw;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  padding: 2%;
+  height: 50vh;
+}
+
+.logoFooter{
+  width: 5vw;
+}
+
+.titreFooter{
+  width: 20vw;
+}
+
+#infoFooter{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  font: 1vw;
+  justify-content: space-around;
+}
+
+.linkFooter{
+  font: 1vw sans-serif;
+}
 /* Karim */
 /* login page style */
 #containerLoginPage {
@@ -518,8 +554,6 @@ h1 {
  width: 100%;
  justify-content: center; /* Aligner le contenu horizontalement au centre */
 }
-
-
 
 #brolySurPlace{
   height: 280px;

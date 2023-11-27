@@ -21,11 +21,15 @@ import imgArene7 from '../../img/ImageAcceuil/arene7.gif';
 import imgArene8 from '../../img/ImageAcceuil/arene8.gif';
 import imgArene9 from '../../img/ImageAcceuil/arene9.gif';
 
+import logoFooter from '../../img/BaseDuSite/logoSite.png';
+
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
 const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
 const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4, imgArene5, imgArene6, imgArene7, imgArene8, imgArene9};
+
+const titreFooter = titrePage
 
 const HomePage = () => {
   clearPage();
@@ -109,11 +113,29 @@ const HomePage = () => {
     </div>
     </section>
     <section id="sectionForAcceuil">
-    <p class="titreSectionMain3">Qu'attendez vous pour nous rejoindre,</br> a vos claviers, pret ? </p>
-    <div id="demo">
-      <p class="pboutton">Demo</p>
-      ${imgDemo.outerHTML}
+    <section id="sectionForOneAcceuil">
+      <p class="titreSectionMain3">Qu'attendez vous pour nous rejoindre,</br> a vos claviers, pret ? </p>
+      <div id="demo">
+        <p class="pboutton">Demo</p>
+        ${imgDemo.outerHTML}
+      </div>
+    </section>
+    <section id="sectionForTwoAcceuil">
+    <img src="${logoFooter}" alt="" class="logoFooter">
+    <img src="${titreFooter}" alt="" class="titreFooter">
+    <div id="infoFooter">
+    <div class="left">
+    <p>Information complementaires</p>
+    <p class="linkFooter">Assistance technique</p>
+    <p class="linkFooter">Politique de confidentialité</p> 
     </div>
+    <div class="right">
+    <p>A Propos De Nous</p>
+    <p class="linkFooter">Assistance technique</p>
+    <p class="linkFooter">Politique de confidentialité</p> 
+    </div>
+    </div>
+    </section>
     </section>
   </section>
 `;
@@ -200,7 +222,7 @@ const HomePage = () => {
     i.addEventListener('mouseover', () => {
       anime({
         targets: i,
-        scale: 1.2,
+        scale: 1.1,
         opacity: 2, // Assurez-vous que l'opacité de l'image survolée est complètement visible
         easing: 'easeInOutQuad',
       });
