@@ -302,6 +302,26 @@ div img {
 .arene{
   width: 25vw;
 }
+/* Sohaib */
+/* section 4 */
+#sectionForAcceuil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+  transition: 1.5s;
+}
+
+.titreSectionMain3{
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100vw;
+  padding: 2%;
+  font-size: 4vw;
+}
+
 /* Karim */
 /* login page style */
 #containerLoginPage {

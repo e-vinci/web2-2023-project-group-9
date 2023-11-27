@@ -108,7 +108,12 @@ const HomePage = () => {
     <img src="${imgSection2.imgArene9}" alt="" class="arene">
     </div>
     </section>
-    <section id="sectionTreeAcceuil">
+    <section id="sectionForAcceuil">
+    <p class="titreSectionMain3">Qu'attendez vous pour nous rejoindre,</br> a vos claviers, pret ? </p>
+    <div id="demo">
+      <p class="pboutton">Demo</p>
+      ${imgDemo.outerHTML}
+    </div>
     </section>
   </section>
 `;
@@ -161,7 +166,7 @@ const HomePage = () => {
       })
       timeoutId = setTimeout(() => {
         animationImg(image);
-      }, 1000);
+      }, 500);
     });
 
     image.addEventListener('mouseout', () => {
