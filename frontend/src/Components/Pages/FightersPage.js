@@ -71,9 +71,6 @@ const FightersPage = () => {
 
   img.forEach((image) => {
     image.addEventListener('click', () => {
-      console.log(
-        'ici'
-      )
      animationImg(image);
     });
   });
@@ -82,9 +79,6 @@ const FightersPage = () => {
     // eslint-disable-next-line no-shadow
     animation.forEach((anime) => {
       if (nomImg.className === anime.id) {
-        console.log(
-          'là bas'
-        )
         // eslint-disable-next-line no-param-reassign
         anime.style.display = 'block';
         // eslint-disable-next-line no-param-reassign
