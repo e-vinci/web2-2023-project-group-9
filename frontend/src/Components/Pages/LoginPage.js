@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { clearPage, renderPageTitle } from '../../utils/render';
+import { checkInformationsBeforeLogin } from '../../utils/validator';
 import Navigate from '../Router/Navigate';
 
 const LoginPage = () => {
@@ -54,9 +55,12 @@ function onLogin(e) {
 
   const phraseError = document.querySelector('.phrase_error');
 
-  if (password.length === 0 || username.length === 0) {
-    phraseError.textContent = 'Remplissez tous les champs';
+  const data = {
+    username,
+    password
   }
+
+  phraseError.textContent = checkInformationsBeforeLogin(data);
 
     // YOUR CODE, Youssef
 }
