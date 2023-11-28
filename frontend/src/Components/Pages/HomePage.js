@@ -21,12 +21,15 @@ import imgArene7 from '../../img/ImageAcceuil/arene7.gif';
 import imgArene8 from '../../img/ImageAcceuil/arene8.gif';
 import imgArene9 from '../../img/ImageAcceuil/arene9.gif';
 
+import logoFooter from '../../img/BaseDuSite/logoSite.png';
 
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
 const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
 const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4, imgArene5, imgArene6, imgArene7, imgArene8, imgArene9};
+
+const titreFooter = titrePage
 
 const HomePage = () => {
   clearPage();
@@ -36,6 +39,8 @@ const HomePage = () => {
   const titre = document.createElement('img');
   titre.src = titrePage;
   titre.id = 'h1Acceuil';
+
+  // Créez un élément pour le slogan
 
   // Créez une élément pour notre slogan;
   const slogan = document.createElement('p');
@@ -107,7 +112,29 @@ const HomePage = () => {
     <img src="${imgSection2.imgArene9}" alt="" class="arene">
     </div>
     </section>
-    <section id="sectionTreeAcceuil">
+    <section id="sectionForAcceuil">
+    <section id="sectionForOneAcceuil">
+      <p class="titreSectionMain3">Qu'attendez vous pour nous rejoindre,</br> a vos claviers, pret ? </p>
+      <div id="demo">
+        <p class="pboutton">Demo</p>
+        ${imgDemo.outerHTML}
+      </div>
+    </section>
+    <section id="sectionForTwoAcceuil">
+    <img src="${logoFooter}" alt="" class="logoFooter">
+    <img src="${titreFooter}" alt="" class="titreFooter">
+    <div id="infoFooter">
+    <div class="left">
+    <p>Information complementaires</p>
+    <p class="linkFooter">Assistance technique</p>
+    <p class="linkFooter">Politique de confidentialité</p> 
+    </div>
+    <div class="right">
+    <p>A Propos De Nous</p>
+    <p class="linkFooter">Notre équipe de développement </p>
+    </div>
+    </div>
+    </section>
     </section>
   </section>
 `;
@@ -160,7 +187,7 @@ const HomePage = () => {
       })
       timeoutId = setTimeout(() => {
         animationImg(image);
-      }, 1000);
+      }, 500);
     });
 
     image.addEventListener('mouseout', () => {
@@ -194,7 +221,7 @@ const HomePage = () => {
     i.addEventListener('mouseover', () => {
       anime({
         targets: i,
-        scale: 1.2,
+        scale: 1.1,
         opacity: 2, // Assurez-vous que l'opacité de l'image survolée est complètement visible
         easing: 'easeInOutQuad',
       });
