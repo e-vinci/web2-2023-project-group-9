@@ -9,8 +9,6 @@ import gokuPortrait from '../../img/PortraitFighters/Goku.png';
 import gohanPortrait from '../../img/PortraitFighters/Gohan.png';
 import { clearPage } from '../../utils/render';
 
-
-
 const FightersPage = () => {
   clearPage();
   const main = document.querySelector('main');
