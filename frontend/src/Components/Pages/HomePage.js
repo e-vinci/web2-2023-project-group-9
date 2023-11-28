@@ -27,9 +27,19 @@ import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
 const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
-const imgSection2 = { imgArene1, imgArene2, imgArene3, imgArene4, imgArene5, imgArene6, imgArene7, imgArene8, imgArene9};
+const imgSection2 = {
+  imgArene1,
+  imgArene2,
+  imgArene3,
+  imgArene4,
+  imgArene5,
+  imgArene6,
+  imgArene7,
+  imgArene8,
+  imgArene9,
+};
 
-const titreFooter = titrePage
+const titreFooter = titrePage;
 
 const HomePage = () => {
   clearPage();
@@ -139,6 +149,16 @@ const HomePage = () => {
   </section>
 `;
 
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    // eslint-disable-next-line func-names
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
+  });
   const link_to_registerPage = document.querySelector('#link_to_registerPage');
 
   link_to_registerPage.addEventListener('click', (e) => {
@@ -180,11 +200,11 @@ const HomePage = () => {
 
     image.addEventListener('mouseover', () => {
       image.style.filter = 'brightness(50%)';
-      document.querySelector('.phraseSectionMain').style.display = 'none'
-      sectionTwoAcceuil.style.maxWidth = '70%'
-      spriteAccueil.forEach((div) =>{
-        div.style.display = 'block'
-      })
+      document.querySelector('.phraseSectionMain').style.display = 'none';
+      sectionTwoAcceuil.style.maxWidth = '70%';
+      spriteAccueil.forEach((div) => {
+        div.style.display = 'block';
+      });
       timeoutId = setTimeout(() => {
         animationImg(image);
       }, 500);
@@ -194,11 +214,11 @@ const HomePage = () => {
       clearTimeout(timeoutId);
       image.style.filter = 'brightness(100%)';
       image.style.transition = '1s';
-      sectionTwoAcceuil.style.maxWidth = '85%'
+      sectionTwoAcceuil.style.maxWidth = '85%';
       hideAnimations();
-      spriteAccueil.forEach((div) =>{
-        div.style.display = 'none'
-      })
+      spriteAccueil.forEach((div) => {
+        div.style.display = 'none';
+      });
       document.querySelector('.phraseSectionMain').style.display = 'block';
     });
   });
@@ -224,9 +244,9 @@ const HomePage = () => {
         scale: 1.1,
         opacity: 2, // Assurez-vous que l'opacité de l'image survolée est complètement visible
         easing: 'easeInOutQuad',
-        duration: 200
+        duration: 200,
       });
-  
+
       // Anime les autres images pour les flouter
       areneAcceuil.forEach((otherImage) => {
         if (otherImage !== i) {
@@ -234,14 +254,14 @@ const HomePage = () => {
             targets: otherImage,
             scale: 1,
             opacity: 0.5,
-            filter: 'blur(5px)', 
+            filter: 'blur(5px)',
             easing: 'easeInQuad',
             duration: 200,
           });
         }
       });
     });
-  
+
     i.addEventListener('mouseout', () => {
       anime({
         targets: i,
@@ -250,7 +270,7 @@ const HomePage = () => {
         easing: 'easeInQuad',
         duration: 200,
       });
-  
+
       areneAcceuil.forEach((otherImage) => {
         if (otherImage !== i) {
           anime({

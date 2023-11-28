@@ -31,9 +31,9 @@ const Navbar = () => {
       <div class="navLinks">
         <ul>
           <li><a href="#" data-uri="/">Accueil</a></li>
-          <li><a href="#" data-uri="/fighters">Combattants</a></li>
-          <li><a href="#">Arenes</a></li>
-          <li><a href="#" data-uri="/login">Se Connecter</a></li>
+          <li><a href="#mainMiddleContent">Combattants</a></li>
+          <li><a href="#sectionTreeAcceuil">Arenes</a></li>
+          <li><a data-uri="/login">Se Connecter</a></li>
         </ul>
       </div>
       <div id="icons"></div>

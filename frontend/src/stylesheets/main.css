@@ -41,6 +41,7 @@ select,
 textarea {
   font-family: 'MK TITLE', sans-serif;
   overflow-x: hidden;
+  behavior: smooth;
 }
 
 /* Annule la liste des éléments de liste */
