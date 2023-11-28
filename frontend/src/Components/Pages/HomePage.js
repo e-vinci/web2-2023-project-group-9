@@ -224,6 +224,7 @@ const HomePage = () => {
         scale: 1.1,
         opacity: 2, // Assurez-vous que l'opacité de l'image survolée est complètement visible
         easing: 'easeInOutQuad',
+        duration: 200
       });
   
       // Anime les autres images pour les flouter
@@ -235,6 +236,7 @@ const HomePage = () => {
             opacity: 0.5,
             filter: 'blur(5px)', 
             easing: 'easeInQuad',
+            duration: 200,
           });
         }
       });
@@ -246,6 +248,7 @@ const HomePage = () => {
         scale: 1,
         opacity: 1,
         easing: 'easeInQuad',
+        duration: 200,
       });
   
       areneAcceuil.forEach((otherImage) => {
@@ -256,6 +259,7 @@ const HomePage = () => {
             opacity: 1,
             filter: 'blur(0px)',
             easing: 'easeInOutQuad',
+            duration: 200,
           });
         }
       });
