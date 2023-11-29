@@ -4,6 +4,12 @@ import Navigate from '../Router/Navigate';
 import { checkEmail, checkPassword, checkUserName } from '../../utils/validator';
 import Navbar from '../Navbar/Navbar';
 
+
+/* eslint-disable import/order */
+/* eslint-disable import/no-extraneous-dependencies */
+import { driver } from 'driver.js';
+import 'driver.js/dist/driver.css';
+
 const RegisterPage = () => {
   clearPage();
   Navbar();
@@ -53,22 +59,42 @@ const RegisterPage = () => {
     `;
 
     return formRegisterPage;
-  }
+  };
+
+  const password = document.querySelector('#motdepasse');
+
+  password.addEventListener('focus',  () => {
+    const driverObj = driver({
+      popoverClass: "driverjs-theme",
+      stagePadding: 0,
+      onDestroyed: () => {
+        document?.activeElement?.blur();
+      }
+    });
+    driverObj.highlight({
+      element: password,
+      popover : {
+        title: "Condition pour valider votre mot de passe :",
+        description: "- Il faut que votre mot de passe aie une taille de 8 caractères minimum.<br>- Il faut au minimum 1 majuscule dans votre mot de passe.<br>- Il faut au minimum 2 minuscules dans votre mot de passe.<br>- Il faut au minimum 2 nombres dans votre mot de passe.<br>- Il faut au minimum un caractére spécial.",
+        side: 'right'
+      }
+    });        
+  })
 };
 
 async function addOneUser(e) {
   e.preventDefault();
 
-  const username = document.querySelector('#pseudo').value;
-  const email = document.querySelector('#mail').value;
-  const password = document.querySelector('#motdepasse').value;
+  const username = document.querySelector('#pseudo');
+  const email = document.querySelector('#mail');
+  const password = document.querySelector('#motdepasse');
   const term = document.querySelector('#checkRGPD').checked;
 
   const phraseError = document.querySelector('.phrase_error');
 
-  const emailError = checkEmail(email);
-  const usernameError = checkUserName(username);
-  const passwordError = checkPassword(password);
+  const emailError = checkEmail(email.value);
+  const usernameError = checkUserName(username.value);
+  const passwordError = checkPassword(password.value);
 
   if (usernameError) {
     phraseError.textContent = usernameError;
