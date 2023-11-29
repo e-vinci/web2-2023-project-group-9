@@ -727,3 +727,79 @@ h1 {
   margin-top: -400px;
   z-index: 1000;
 }
+
+/* demo page */
+#arene-demo{
+  background-image: url(../img/Arena/areneDBZ.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+
+#vs{
+  position: relative;
+  margin: auto;
+  display: grid;
+  width: 10%;
+}
+
+
+#phrase-demo{
+  background-color: #000000a3;
+  padding: 50px 50px 50px 50px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: inline;
+  font-family: "Calisto MT", sans-serif;
+  color: white;
+  font-size: 24px;
+}
+
+.green{
+  color: green;
+}
+
+/*DEBUT POUR ANIMER les personnages */
+#charactere-player-1-demo{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/sprite1_Venom.png);
+  position: absolute;
+  bottom: 0;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  left: 0;
+  animation: transform1 1.5s steps(17) 0.99 forwards;
+}
+
+@keyframes transform1{
+  0%{
+      background-position: 0px;
+  }
+  100%{
+      background-position: -3940px;
+  }
+}
+
+#charactere-player-2-demo{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5%;
+  margin-right: 20%;
+  animation: transform2 1.5s steps(10) 0.98 forwards;
+}
+
+@keyframes transform2{
+  0%{
+      background-position: 0px;
+  }
+  100%{
+      background-position: -2006px;
+  }
+}

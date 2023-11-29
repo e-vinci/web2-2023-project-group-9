@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import anime from 'animejs';
 import Typewriter from 'typewriter-effect/dist/core';
+
 /* eslint-disable camelcase */
 import titrePage from '../../img/ImageAcceuil/titrePageAcceuil.png';
 import decorBouton from '../../img/BaseDuSite/imgButton.png';
@@ -83,7 +85,7 @@ const HomePage = () => {
       ${imgInscription.outerHTML}
     </div>
     <div id="demo">
-      <p class="pboutton">Demo</p>
+      <p class="pboutton" id="link_to_demoPage">Demo</p>
       ${imgDemo.outerHTML}
     </div>
   </section>
@@ -95,7 +97,7 @@ const HomePage = () => {
       <img src="${imgSection1.imgCaptainA}" alt="" class="captainA">
       <img src="${imgSection1.imgChunLi}" alt="" class="chunLi">
       <div class="textSectionMain">
-      <p class="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
+      <p class="titreSectionMain" id="titreSectionMain">Decouvrez </br> Des Combattants </br> Iconiques</p>
       <p class="phraseSectionMain">Un univers où la frappe rapide est l'arme ultime, 
       peuplé de personnages captivants et diversifiés. 
       Parmi une vaste galerie de combattants, 
@@ -169,6 +171,12 @@ const HomePage = () => {
     Navigate('/register');
   });
 
+  const link_to_demoPage = document.querySelector("#link_to_demoPage");
+
+  link_to_demoPage.addEventListener('click', (e) => {
+    e.preventDefault();
+    Navigate('/demo')
+  })
   const titleOfMain = document.querySelector('#titleOfMain');
 
   titleOfMain.appendChild(titre);
