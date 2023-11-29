@@ -6,6 +6,7 @@ import FightersPage from '../Pages/FightersPage';
 import FightersSelect from '../Pages/FightersSelect';
 import ArenaSelect from '../Pages/ArenaSelect';
 import GamePage from '../Pages/GamePage';
+import DemoGame from '../Pages/DemoGamePage';
 
 
 const routes = {
@@ -16,6 +17,7 @@ const routes = {
   '/fighters' : FightersPage,
   '/fightersSelect' : FightersSelect,
   '/arenaSelect' : ArenaSelect,
+  '/demo' : DemoGame,
   '/game' : GamePage
 };
 
