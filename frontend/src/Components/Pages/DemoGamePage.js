@@ -23,21 +23,21 @@ const DemoGame = () => {
     </div>
     `;
 
+  const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
+  const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
+
+  createAnimation(charactereOfPlayer2, '-2006px 0px', 'steps(10)', 1500);
+  createAnimation(charactereOfPlayer1, '-3940px 0px', 'steps(17)', 1500);
+
   function createAnimation(target, startPosition, easing, duration) {
     return anime({
       targets: target,
       backgroundPosition: startPosition,
       easing,
       duration,
-      loop: true,
+      loop: false,
     });
   }
-
-  const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
-  const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
-
-  createAnimation(charactereOfPlayer2, '-2006px 0px', 'steps(10)', 1500);
-  createAnimation(charactereOfPlayer1, '-3940px 0px', 'steps(17)', 1500);
 
   const d = driver({
     showProgress: true,
