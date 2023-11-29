@@ -27,6 +27,16 @@
   transition: 1s ease-in-out;
 }
 
+/* Handle de la scrollbar (le curseur) pour Gecko */
+* {
+  scrollbar-color: rgb(124, 1, 1) #000000;
+}
+
+/* Handle de la scrollbar (le curseur) pour Gecko lorsqu'il est hover */
+* {
+  scrollbar-color: rgb(73, 1, 1) #000000;
+}
+
 
 /* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
 @font-face {
@@ -41,13 +51,17 @@ select,
 textarea {
   font-family: 'MK TITLE', sans-serif;
   overflow-x: hidden;
-  behavior: smooth;
 }
 
 /* Annule la liste des éléments de liste */
 ul,
 ol {
   list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
 }
 
 /* Réinitialise d'autres styles */
@@ -103,7 +117,7 @@ body {
 #mainContent {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 81.6vh;
 }
 
 #titleOfMain {
@@ -388,11 +402,16 @@ div img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
   width: 100%;
 }
 
+#containerLoginPage a{
+  color: blue;
+}
+
 #containerForm {
+  top: 0;
   background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
   backdrop-filter: blur(10px);
   padding: 50px;
@@ -421,6 +440,7 @@ h1 {
   margin-bottom: 15px;
   border: 1px solid #ffffff;
   box-sizing: border-box;
+  font: 1em arial sans-serif;
 }
 
 #containerForm input[type='submit'] {
@@ -455,6 +475,9 @@ h1 {
 }
 
 @media screen and (max-width: 700px) {
+  #mainContent{
+    height: 100vh;
+  }
   #navbarWrapper {
     display: block;
     height: 100px;

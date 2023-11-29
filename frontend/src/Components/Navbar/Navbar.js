@@ -13,7 +13,7 @@ const Navbar = () => {
 
   // Création de l'élément lien pour le logo
   const logo = document.createElement('a');
-  logo.href = '#';
+  logo.href = '';
   logo.classList.add('logoPage');
   // Création de l'élément image pour le logo
   const logoLink = document.createElement('img');
@@ -30,10 +30,10 @@ const Navbar = () => {
     <nav>
       <div class="navLinks">
         <ul>
-          <li><a data-uri="/">Accueil</a></li>
+          <li><a href="" data-uri="/">Accueil</a></li>
           <li><a href="#mainMiddleContent">Combattants</a></li>
           <li><a href="#sectionTreeAcceuil">Arenes</a></li>
-          <li><a data-uri="/login">Se Connecter</a></li>
+          <li><a href="" data-uri="/login">Se Connecter</a></li>
         </ul>
       </div>
       <div id="icons"></div>

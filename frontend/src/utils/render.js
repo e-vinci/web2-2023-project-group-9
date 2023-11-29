@@ -1,4 +1,6 @@
 const clearPage = () => {
+  const navbar = document.querySelector('#navbarWrapper')
+  navbar.innerHTML = '';
   const main = document.querySelector('main');
   main.innerHTML = '';
 };

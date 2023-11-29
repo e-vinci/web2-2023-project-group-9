@@ -25,6 +25,7 @@ import logoFooter from '../../img/BaseDuSite/logoSite.png';
 
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
+import Navbar from '../Navbar/Navbar';
 
 const imgSection1 = { imgBroly, imgVenom, imgChunLi, imgCaptainA };
 const imgSection2 = {
@@ -43,6 +44,7 @@ const titreFooter = titrePage;
 
 const HomePage = () => {
   clearPage();
+  Navbar();
   const main = document.querySelector('main');
 
   // Créez un élément img
@@ -136,12 +138,12 @@ const HomePage = () => {
     <div id="infoFooter">
     <div class="left">
     <p>Information complementaires</p>
-    <p class="linkFooter">Assistance technique</p>
-    <p class="linkFooter">Politique de confidentialité</p> 
+    <a href=""><p class="linkFooter">Assistance technique</p></a>
+    <a href=""><p class="linkFooter">Politique de confidentialité</p></a> 
     </div>
     <div class="right">
     <p>A Propos De Nous</p>
-    <p class="linkFooter">Notre équipe de développement </p>
+    <a href=""><p class="linkFooter">Notre équipe de développement</p></a>
     </div>
     </div>
     </section>
@@ -159,6 +161,7 @@ const HomePage = () => {
       });
     });
   });
+
   const link_to_registerPage = document.querySelector('#link_to_registerPage');
 
   link_to_registerPage.addEventListener('click', (e) => {
