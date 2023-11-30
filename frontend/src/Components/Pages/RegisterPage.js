@@ -85,16 +85,16 @@ const RegisterPage = () => {
 async function addOneUser(e) {
   e.preventDefault();
 
-  const username = document.querySelector('#pseudo');
-  const email = document.querySelector('#mail');
-  const password = document.querySelector('#motdepasse');
+  const username = document.querySelector('#pseudo').value;
+  const email = document.querySelector('#mail').value;
+  const password = document.querySelector('#motdepasse').value;
   const term = document.querySelector('#checkRGPD').checked;
 
   const phraseError = document.querySelector('.phrase_error');
 
-  const emailError = checkEmail(email.value);
-  const usernameError = checkUserName(username.value);
-  const passwordError = checkPassword(password.value);
+  const emailError = checkEmail(email);
+  const usernameError = checkUserName(username);
+  const passwordError = checkPassword(password);
 
   if (usernameError) {
     phraseError.textContent = usernameError;
