@@ -26,7 +26,7 @@ Content-Type: application/json
 {
     "username":"manager123",
     "email":"manager@manager.com",
-    "password":"Manager."
+    "password":"Manager.2003"
 }
 
 

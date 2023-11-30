@@ -2,11 +2,9 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 import { checkInformationsBeforeLogin } from '../../utils/validator';
 import Navigate from '../Router/Navigate';
-import Navbar from '../Navbar/Navbar';
 
 const LoginPage = () => {
   clearPage();
-  Navbar();
   const main = document.querySelector('main');
   main.innerHTML = renderLoginPage();
 

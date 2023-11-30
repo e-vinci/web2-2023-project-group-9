@@ -1,9 +1,14 @@
 const clearPage = () => {
-  const navbar = document.querySelector('#navbarWrapper')
-  navbar.innerHTML = '';
   const main = document.querySelector('main');
   main.innerHTML = '';
 };
+
+const clearAllPage = () =>{
+  const navbar = document.querySelector('#navbarWrapper');
+  navbar.style.display = 'none';
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+}
 
 const renderPageTitle = (title) => {
   if (!title) return;
@@ -13,4 +18,4 @@ const renderPageTitle = (title) => {
   main.appendChild(pageTitle);
 };
 
-export { clearPage, renderPageTitle };
+export { clearPage, renderPageTitle, clearAllPage };
