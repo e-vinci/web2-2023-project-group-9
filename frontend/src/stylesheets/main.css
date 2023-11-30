@@ -1056,3 +1056,12 @@ h1 {
   background-color: rgba(124, 1, 1, 0.558);
   color: white;
 }
+
+.driver-popover.driverjs-theme button {
+  border: none;
+  border-radius: 5px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn{
+  color: white;
+}
