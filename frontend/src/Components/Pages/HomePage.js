@@ -84,7 +84,7 @@ const HomePage = () => {
       ${imgInscription.outerHTML}
     </div>
     <div id="demo">
-      <p class="pboutton" id="link_to_demoPage">Demo</p>
+      <p class="pboutton link_to_demoPage">Demo</p>
       ${imgDemo.outerHTML}
     </div>
   </section>
@@ -129,7 +129,7 @@ const HomePage = () => {
     <section id="sectionForOneAcceuil">
       <p class="titreSectionMain3">Qu'attendez vous pour nous rejoindre,</br> a vos claviers, pret ? </p>
       <div id="demo">
-        <p class="pboutton">Demo</p>
+        <p class="pboutton link_to_demoPage">Demo</p>
         ${imgDemo.outerHTML}
       </div>
     </section>
@@ -170,12 +170,15 @@ const HomePage = () => {
     Navigate('/register');
   });
 
-  const link_to_demoPage = document.querySelector("#link_to_demoPage");
+  const links_to_demoPage = document.querySelectorAll(".link_to_demoPage");
 
-  link_to_demoPage.addEventListener('click', (e) => {
-    e.preventDefault();
-    Navigate('/demo')
+  links_to_demoPage.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      Navigate('/demo')
+    })
   })
+
   const titleOfMain = document.querySelector('#titleOfMain');
 
   titleOfMain.appendChild(titre);
