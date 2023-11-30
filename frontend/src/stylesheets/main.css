@@ -845,17 +845,17 @@ h1 {
   right: 0;
   margin-bottom: 5%;
   margin-right: 20%;
-  animation: transform2 1.5s steps(10) 0.98 forwards;
+  /* animation: transform2 1.5s steps(10) 0.98 forwards; */
 }
 
-@keyframes transform2{
+/* @keyframes transform2{
   0%{
       background-position: 0px;
   }
   100%{
       background-position: -2006px;
   }
-}
+} */
 
 /* game */
 

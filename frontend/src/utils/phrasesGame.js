@@ -9,7 +9,7 @@
 
             const result = await response.json();
 
-            console.log('JSON result:', result); // Ajoutez cette ligne pour déboguer
+            // console.log('JSON result:', result); // Ajoutez cette ligne pour déboguer
 
             const phrasesArray = result.phrases;
 
@@ -19,11 +19,11 @@
 
             const phraseAleatoire = phrasesArray[Math.floor(Math.random() * phrasesArray.length)];
 
-            console.log('Random phrase:', phraseAleatoire); // Ajoutez cette ligne pour déboguer
+            // console.log('Random phrase:', phraseAleatoire); // Ajoutez cette ligne pour déboguer
 
             return phraseAleatoire;
         } catch (error) {
-            console.error('Error in getPhraseRandom:', error);
+            // console.error('Error in getPhraseRandom:', error);
             return 'Erreur : Impossible de récupérer la phrase.';
         }
     };
