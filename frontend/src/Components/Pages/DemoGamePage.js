@@ -4,7 +4,7 @@
 // import 'driver.js/dist/driver.css';
 import anime from 'animejs';
 // import Navigate from '../Router/Navigate';
-import { clearPage } from '../../utils/render';
+import { clearAllPage } from '../../utils/render';
 
 import backgroundDemo from '../../img/Arena/arene4.gif';
 import vsFight from '../../img/Arena/vsFight.png';
@@ -13,9 +13,7 @@ import vsFight from '../../img/Arena/vsFight.png';
 // import 'driver.js/dist/driver.css';
 
 const DemoGame = () => {
-  clearPage();
-  const navbar = document.querySelector('#navbarWrapper');
-  navbar.style.display = 'none';
+  clearAllPage();
   const main = document.querySelector('main');
   main.style.backgroundImage = `url(${backgroundDemo})`;
   main.style.backgroundSize = 'cover';
@@ -23,7 +21,8 @@ const DemoGame = () => {
   main.innerHTML = `
     <div id="arene-demo">
         <section id="headGame">
-          <div class="home"></div>
+          <div class="home"><i class="fas fa-home" style="font-size: 50px; color: white;"></i>
+          </div>
           <div class="lifeBarContainerLeft">
               <div class="lifeBarLeftGreen"></div>
               <div class="lifeBarLeftRed"></div>
@@ -41,24 +40,42 @@ const DemoGame = () => {
         <div id="charactere-player-1-demo"></div>
         <div id="charactere-player-2-demo"></div>
     </div>
+    <div id="phrase-demo"><p id="phrase-attribue-demo">La victoire est pour moi!</p></div>
     `;
-  // <div id="phrase-demo"><p id="phrase-attribue-demo">La victoire est pour moi!</p></div>
-
+  // 
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
 
-  createAnimation(charactereOfPlayer2, '-2006px 0px', 'steps(10)', 1500);
-  createAnimation(charactereOfPlayer1, '-3940px 0px', 'steps(17)', 1500);
+  charactereOfPlayer1.classList.add('transformVenom');
+  charactereOfPlayer2.classList.add('transformBroly')
 
-  function createAnimation(target, startPosition, easing, duration) {
+  transformation(charactereOfPlayer2, 1500);
+  transformation(charactereOfPlayer1, 1500);
+
+  function transformation(target, duration) {
     return anime({
       targets: target,
-      backgroundPosition: startPosition,
-      easing,
+      loop: true,
       duration,
-      loop: false,
     });
   }
+  // charactereOfPlayer2.classList.remove('transformBroly');
+  // charactereOfPlayer2.classList.add('moveBroly');
+
+  // shift(charactereOfPlayer2,1500);
+
+  // function shift(target,duration) {
+  //     return anime({
+  //         targets: target,
+  //         translateX: {
+  //           value: '-=600px', // changez cette valeur pour contrôler la distance de déplacement
+  //           duration,
+  //         },
+  //         easing : 'linear',
+  //         loop: false,
+  //     });
+  // }
+
 
   // const d = driver({
   //   showProgress: true,
