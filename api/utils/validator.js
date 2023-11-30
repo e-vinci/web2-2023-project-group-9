@@ -69,7 +69,7 @@ function checkPassword(password) {
       minSymbols: 1,
     })
   ) {
-    error = "L'email n'est pas assez fort";
+    error = "Le mot de passe n'est pas assez fort";
     isValid = false;
     return { error, isValid };
   }

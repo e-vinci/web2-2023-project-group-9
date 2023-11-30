@@ -79,6 +79,7 @@ const DemoGame = () => {
 
   // const d = driver({
   //   showProgress: true,
+  //   popoverClass: "driverjs-theme",
   //   steps: [
   //     {
   //       element: '#arene-demo',
