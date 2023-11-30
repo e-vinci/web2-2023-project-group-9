@@ -1,7 +1,7 @@
-import { clearPage } from '../../utils/render';
+import { clearAllPage } from '../../utils/render';
 
 const FightersSelect  = () =>{
-    clearPage();
+    clearAllPage();
 };
 
 export default FightersSelect;

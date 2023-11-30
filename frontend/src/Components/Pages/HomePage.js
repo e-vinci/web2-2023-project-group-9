@@ -46,7 +46,6 @@ const titreFooter = titrePage;
 
 const HomePage = () => {
   clearPage();
-  Navbar();
   const main = document.querySelector('main');
 
   // Créez un élément img

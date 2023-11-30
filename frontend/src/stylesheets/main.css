@@ -737,12 +737,15 @@ h1 {
   display: flex;
   justify-content: space-around;
 }
-
-.home::before{
-  position: absolute;
-}
 .home{
   position: absolute;
+  top: 6%;
+  left: 2%;
+}
+
+.home:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .lifeBarContainerLeft,.lifeBarContainerRight {
@@ -826,37 +829,68 @@ h1 {
 
 /*DEBUT POUR ANIMER les personnages */
 #charactere-player-1-demo{
-  height: 280px;
-  width: 231px;
-  background: url(../assets/sprite1_Venom.png);
   position: absolute;
   bottom: 0;
   margin-left: 20%;
   margin-bottom: 5%;
   left: 0;
 }
-
 #charactere-player-2-demo{
-  height: 280px;
-  width: 206px;
-  background: url(../assets/sprite1_Broly.png);
   position: absolute;
   bottom: 0;
   right: 0;
   margin-bottom: 5%;
   margin-right: 20%;
-  /* animation: transform2 1.5s steps(10) 0.98 forwards; */
 }
 
-/* @keyframes transform2{
+.transformVenom{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/sprite1_Venom.png);
+  animation: transform1 1.5s steps(17) 0.99 forwards;
+}
+
+@keyframes transform1{
+  0%{
+      background-position: 0px;
+  }
+  100%{
+      background-position: -3940px;
+  }
+}
+
+.transformBroly{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
+  animation: transform2 1.5s steps(10) 0.99 forwards;
+}
+
+
+@keyframes transform2{
   0%{
       background-position: 0px;
   }
   100%{
       background-position: -2006px;
   }
-} */
+}
 
+.moveBroly{
+  height: 159px;
+  width: 175px;
+  background: url(../assets/spriteBrolySeDeplace.png);
+  animation: moveBroly 1.5s steps(3) 0.99 forwards;
+}
+
+@keyframes moveBroly {
+  0%{
+    background-position: 0px;;
+  }
+  100%{
+    background-position: -525px;
+  }
+}
 /* game */
 
 .areneGame{

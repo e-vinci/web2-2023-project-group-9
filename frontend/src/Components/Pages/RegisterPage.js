@@ -2,7 +2,6 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 import { checkEmail, checkPassword, checkUserName } from '../../utils/validator';
-import Navbar from '../Navbar/Navbar';
 
 
 /* eslint-disable import/order */
@@ -12,7 +11,6 @@ import 'driver.js/dist/driver.css';
 
 const RegisterPage = () => {
   clearPage();
-  Navbar();
 
   const main = document.querySelector('main');
   main.innerHTML = renderRegisterPage();
