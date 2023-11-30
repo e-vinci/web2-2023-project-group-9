@@ -803,3 +803,197 @@ h1 {
       background-position: -2006px;
   }
 }
+
+/* game */
+
+.areneGame{
+  background-image: url(../img/Arena/areneDBZ.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+#player1 {
+  width: 246px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Broly.png);
+  animation: sprite-animation-4 0.8s steps(4) infinite;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+  border: 5px solid black;
+}
+
+#player1_attack {
+  width: 267px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Broly.png);
+  animation: sprite-animation-3 1.5s steps(9) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_blesse {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Broly.png);
+  animation: sprite-animation-5 1.2s steps(4) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_seReleve {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Broly.png);
+  animation: sprite-animation-6 1.2s steps(7) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_mort{
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Broly.png);
+  animation: sprite-animation-7 1.2s steps(4) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_life {
+  border: 1px solid black;
+  height: 30px;
+  width: 100px;
+  float: right;
+  margin-top: 200px;
+  margin-right: 250px;
+  background-color: green;
+}
+
+#player2 {
+  width: 246px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Venom.png);
+  animation: sprite-animation-4 0.8s steps(4) infinite;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+  border: 5px solid black;
+}
+
+#player2_attack {
+  width: 267px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Venom.png);
+  animation: sprite-animation-3 1.5s steps(9) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_blesse {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Venom.png);
+  animation: sprite-animation-5 1.2s steps(4) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_seReleve {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Venom.png);
+  animation: sprite-animation-6 1.2s steps(7) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_mort{
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/sprite1_Venom.png);
+  animation: sprite-animation-7 1.2s steps(6) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_life {
+  border: 1px solid black;
+  height: 30px;
+  width: 100px;
+  float: left;
+  margin-top: 200px;
+  margin-left: 250px;
+  background-color: green;
+}
+
+#phrase_block {
+  border: 1px solid black;
+}
+
+@keyframes transform {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2125px;
+  }
+}
+
+@keyframes sprite-animation-4 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1004px 0;
+  }
+}
+
+@keyframes sprite-animation-3 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2678px 0;
+  }
+}
+
+@keyframes sprite-animation-5 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1190px 0;
+  }
+}
+
+@keyframes sprite-animation-6 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2389px 0;
+  }
+}
+
+@keyframes sprite-animation-7 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2389px 0;
+  }
+}
