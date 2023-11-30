@@ -9,6 +9,9 @@ import { clearPage } from '../../utils/render';
 import backgroundDemo from '../../img/Arena/arene4.gif';
 import vsFight from '../../img/Arena/vsFight.png';
 
+// import {driver} from 'driver.js';
+// import 'driver.js/dist/driver.css';
+
 const DemoGame = () => {
   clearPage();
   const navbar = document.querySelector('#navbarWrapper');
