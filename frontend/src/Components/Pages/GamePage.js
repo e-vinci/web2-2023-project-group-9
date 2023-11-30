@@ -179,10 +179,10 @@ function reduceLife() {
   }
   if (players.player1Life <= 0) {
     avatarOfPlayer1.setAttribute('id', 'player1_mort');
-    console.log("Player 2 wins!");
+    // console.log("Player 2 wins!");
   } else if (players.player2Life <= 0) {
     avatarOfPlayer2.setAttribute('id', 'player2_mort');
-    console.log("Player 1 wins!");
+    // console.log("Player 1 wins!");
   }
   gamePreparationTimerData.isPreparationTime = true;
   document.addEventListener("keydown", handleKeyboardInput);
@@ -257,7 +257,7 @@ function startPreparationTimer() {
 async function switchText() {
   textGameData.phrase = await getPhraseRandom();
 
-  console.log(textGameData.phrase);
+  // console.log(textGameData.phrase);
   phraseBlock.innerHTML = textGameData.phrase
     .split("")
     .map((letter) => `<span>${letter}</span>`)
