@@ -8,7 +8,6 @@ import { clearAllPage } from '../../utils/render';
 
 import backgroundDemo from '../../img/Arena/arene4.gif';
 import vsFight from '../../img/Arena/vsFight.png';
-
 // import {driver} from 'driver.js';
 // import 'driver.js/dist/driver.css';
 
@@ -19,6 +18,19 @@ const DemoGame = () => {
   main.style.backgroundSize = 'cover';
   main.style.height = '100vh';
   main.innerHTML = `
+    <div id="menu">
+    <div id="menuGame">
+      <i class="fas fa-times" aria-hidden="true" style="font-size: 50px";></i>
+      <p class='titreMenu'>Menu</p>
+      <p class='link'>
+        <ul>
+          <a href="" data-uri="/"><li>Recommencer</li></a>
+          <a href="" data-uri="/"><li>Continuer Partie</li></a>
+          <a href="" data-uri="/"><li>Quitter</li></a>
+        </ul>
+      </p>
+    </div>
+    </div>
     <div id="arene-demo">
         <section id="headGame">
           <div class="home"><i class="fas fa-home" style="font-size: 50px; color: white;"></i>
@@ -42,7 +54,21 @@ const DemoGame = () => {
     </div>
     <div id="phrase-demo"><p id="phrase-attribue-demo">La victoire est pour moi!</p></div>
     `;
-  // 
+  
+  const menu = document.querySelector('.home');
+  const menuOpen = document.querySelector('#menu');
+  menu.addEventListener('click',(e)=>{
+    e.preventDefault();
+    menuOpen.style.top = '0%';
+  })
+
+  const menuFerme = document.querySelector('.fa-times');
+  menuFerme.addEventListener('click',(e)=>{
+    e.preventDefault();
+    menuOpen.style.top = '-100%'
+  })
+
+
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
 
