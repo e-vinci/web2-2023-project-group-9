@@ -8,5 +8,8 @@ POST {{baseUrl}}/game/addPhrase
 Content-Type: application/json
 
 {
-    "je m'appelle karim"
+    "phrase" : "la victoire est mienne !"
 }
+
+### remove phrase
+DELETE {{baseUrl}}/game/deletePhrase/26
