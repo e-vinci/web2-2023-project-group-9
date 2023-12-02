@@ -395,6 +395,32 @@ div img {
 .linkFooter{
   font: 1vw sans-serif;
 }
+
+#section_btn_scrollup{
+  visibility: hidden;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+#btn_scrollup{
+  background-color: rgba(124, 1, 1, 0.558);
+  border: none;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  width: 50px;
+  height: 50px;
+  transition: 1.5s solid ease-in-out;
+}
+
+#btn_scrollup svg path{
+  color: white;
+}
+
+#btn_scrollup:hover{
+  background-color:rgb(124, 1, 1) ;
+}
+
 /* Karim */
 /* login page style */
 #containerLoginPage {

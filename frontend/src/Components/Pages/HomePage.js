@@ -150,7 +150,26 @@ const HomePage = () => {
     </section>
     </section>
   </section>
+  <section id="section_btn_scrollup">
+    <button id="btn_scrollup"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="m-1 text-black dark:text-white"><path d="M17 13L12 18L7 13M12 6L12 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg> </button> 
+  </section>
 `;
+
+  const sectionBtnScrollup = document.querySelector('#section_btn_scrollup');
+  const btnScrollup = document.querySelector('#btn_scrollup');
+  const valueOfScrollDown = 743.2;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= valueOfScrollDown) {
+      sectionBtnScrollup.style.visibility = 'visible';
+      btnScrollup.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo(0, 0);
+      });
+    } else {
+      sectionBtnScrollup.style.visibility = 'hidden';
+    }
+  });
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     // eslint-disable-next-line func-names
@@ -170,14 +189,14 @@ const HomePage = () => {
     Navigate('/register');
   });
 
-  const links_to_demoPage = document.querySelectorAll(".link_to_demoPage");
+  const links_to_demoPage = document.querySelectorAll('.link_to_demoPage');
 
   links_to_demoPage.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      Navigate('/demo')
-    })
-  })
+      Navigate('/demo');
+    });
+  });
 
   const titleOfMain = document.querySelector('#titleOfMain');
 
