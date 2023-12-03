@@ -1,10 +1,14 @@
+const navbar = document.querySelector('#navbarWrapper');
+
 const clearPage = () => {
+  if(navbar.style.display === 'none'){
+    navbar.style.display = 'flex';
+  }
   const main = document.querySelector('main');
   main.innerHTML = '';
 };
 
 const clearAllPage = () =>{
-  const navbar = document.querySelector('#navbarWrapper');
   navbar.style.display = 'none';
   const main = document.querySelector('main');
   main.innerHTML = '';
