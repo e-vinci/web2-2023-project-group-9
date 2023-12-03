@@ -2,25 +2,55 @@ import { clearAllPage } from '../../utils/render';
 // eslint-disable-next-line import/named
 import { getPhraseRandom } from '../../utils/phrasesGame';
 
+import backgroundDemo from '../../img/Arena/arene4.gif';
+import vsFight from '../../img/Arena/vsFight.png';
+
 const GamePage = async () => {
   clearAllPage();
 
-  document.body.classList.add('areneGame');
-
   const main = document.querySelector('main');
+  main.style.backgroundImage = `url(${backgroundDemo})`;
+  main.style.backgroundSize = 'cover';
+  main.style.height = '100vh';
   main.innerHTML = `
-    <div id="container">
-      <div id="player1_life"></div>
-      <div id="player1"></div>
-  
-      <div id="player2_life"></div>
-      <div id="player2"></div>
-  
-      <div id="timer"></div>
-      <div id="phrase_block"></div>
-    </div>`;
+    <div id="menu">
+      <div id="menuGame">
+        <i class="fas fa-times" aria-hidden="true" style="font-size: 50px;"></i>
+        <p class='titreMenu'>Menu</p>
+        <p class='link'>
+          <ul>
+            <a href="" data-uri="/"><li>Recommencer</li></a>
+            <a href="" data-uri="/"><li>Continuer Partie</li></a>
+            <a href="" data-uri="/"><li>Quitter</li></a>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div id="arene-demo">
+      <section id="headGame">
+        <div class="home"><i class="fas fa-home" style="font-size: 50px; color: white;"></i></div>
+        <div class="lifeBarContainerLeft">
+          <div class="lifeBarLeftGreen"></div>
+          <div class="lifeBarLeftRed"></div>
+        </div>
+        <div class='timeLeft'>00:00</div>
+        <div>
+          <img src='${vsFight}' class='vs'></img>
+        </div>
+        <div class='timeRight'>00:00</div>
+        <div class="lifeBarContainerRight">
+          <div class="lifeBarRightGreen"></div>
+          <div class="lifeBarRightRed"></div>
+        </div>
+      </section>
+      <div id="charactere-player-1-demo"></div>
+      <div id="charactere-player-2-demo"></div>
+    </div>
+    <div id="phrase-game"><p id="phrase-attribue-game"></p></div>
+  `;
 
-  const phraseBlock = document.querySelector('#phrase_block');
+  const phraseBlock = document.querySelector('#phrase-attribue-game');
+  const phraseBlockBlock = document.querySelector("#phrase-game");
 
   const textGameData = {
     letterIndex: 0,
@@ -39,14 +69,16 @@ const GamePage = async () => {
     isRoundOver: false,
   };
 
-  const avatarOfPlayer1 = document.querySelector('#player1');
-  const avatarOfPlayer2 = document.querySelector('#player2');
-  const player1LifeDisplay = document.querySelector('#player1_life');
-  const player2LifeDisplay = document.querySelector('#player2_life');
-  player1LifeDisplay.innerText = players.player1Life;
-  player2LifeDisplay.innerText = players.player2Life;
+  const avatarOfPlayer1 = document.querySelector('#charactere-player-1-demo');
+  const avatarOfPlayer2 = document.querySelector('#charactere-player-2-demo');
+  avatarOfPlayer1.classList.add('transformVenom');
+  avatarOfPlayer2.classList.add('transformBroly');
 
-  const timerDisplay = document.querySelector('#timer');
+  const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
+  const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
+
+  const timerDisplayLeft = document.querySelector('.timeLeft');
+  const timerDisplayRight = document.querySelector('.timeRight');
 
   const gameTimerData = {
     timer: null,
@@ -99,18 +131,26 @@ const GamePage = async () => {
 
       gamePreparationTimerData.isPreparationTime = true;
       gamePreparationTimerData.preparationCountDown = 5;
-      timerDisplay.textContent = gamePreparationTimerData.preparationCountDown;
 
-      // Empêcher la saisie du joueur suivant pendant la préparation
+      if(players.currentPlayer === 1){
+        timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
+      }else{
+        timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
+      }
+
       document.removeEventListener('keydown', handleKeyboardInput);
 
       startPreparationTimer();
 
       setTimeout(() => {
         gamePreparationTimerData.isPreparationTime = false;
-        timerDisplay.textContent = gameTimerData.countDown;
+        if(players.currentPlayer === 1){
+          timerDisplayLeft.textContent = gameTimerData.countDown;
+        }else{
+          timerDisplayRight.textContent = gameTimerData.countDown;
+        }
         document.addEventListener('keydown', handleKeyboardInput);
-      }, 5000); // Délai de 5 secondes
+      }, 5000);
     } else {
       // eslint-disable-next-line no-plusplus
       textGameData.letterIndex++;
@@ -134,12 +174,25 @@ const GamePage = async () => {
   async function updatePlayersAndCheckGameOver() {
     players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;
     gameTimerData.countDown = 20;
-    timerDisplay.textContent = gameTimerData.countDown;
+
+    if(players.currentPlayer === 1){
+      timerDisplayLeft.textContent = gameTimerData.countDown;
+    }else{
+      timerDisplayRight.textContent = gameTimerData.countDown;
+    }
+
+    if(players.currentPlayer === 1){
+      phraseBlock.style.marginLeft = "0%";
+    }else{
+      phraseBlock.style.marginLeft = "70%";
+    }
+
     await switchText();
   }
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
+      phraseBlockBlock.style.visibility = "hidden";
       avatarOfPlayer2.setAttribute('id', 'player2_attack');
       setTimeout(() => {
         avatarOfPlayer1.setAttribute('id', 'player1_blesse');
@@ -152,11 +205,12 @@ const GamePage = async () => {
         }, 1000);
       }, 2000);
       setTimeout(() => {
-        players.player1Life -= 10;
-        player1LifeDisplay.innerText = players.player1Life;
-        player1LifeDisplay.style.width = `${players.player1Life}px`;
+        players.player1Life -= 5;
+        player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
+        phraseBlockBlock.style.visibility = "visible";
       }, 1000);
     } else if (players.player1Time < players.player2Time) {
+      phraseBlockBlock.style.visibility = "hidden";
       avatarOfPlayer1.setAttribute('id', 'player1_attack');
       setTimeout(() => {
         avatarOfPlayer2.setAttribute('id', 'player2_blesse');
@@ -169,9 +223,9 @@ const GamePage = async () => {
         }, 1000);
       }, 2000);
       setTimeout(() => {
-        players.player2Life -= 10;
-        player2LifeDisplay.innerText = players.player2Life;
-        player2LifeDisplay.style.width = `${players.player2Life}px`;
+        players.player2Life -= 5;
+        player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
+        phraseBlockBlock.style.visibility = "visible";
       }, 1000);
     }
     if (players.player1Life <= 0) {
@@ -203,7 +257,12 @@ const GamePage = async () => {
         }
         // eslint-disable-next-line no-plusplus
         gameTimerData.countDown--;
-        timerDisplay.textContent = gameTimerData.countDown;
+
+        if(players.currentPlayer === 1){
+          timerDisplayLeft.textContent = gameTimerData.countDown;
+        }else{
+          timerDisplayRight.textContent = gameTimerData.countDown;
+        }
       } else {
         handleTimerFinish();
       }
@@ -213,7 +272,12 @@ const GamePage = async () => {
   function handleTimerFinish() {
     clearInterval(gameTimerData.timer);
     gameTimerData.isRunning = false;
-    timerDisplay.textContent = "Time's up";
+
+    if(players.currentPlayer === 1){
+      timerDisplayLeft.textContent = "Time is up";
+    }else{
+      timerDisplayRight.textContent = "Time is up";
+    }
 
     if (!players.isRoundOver) {
       textGameData.letterIndex = 0;
@@ -230,22 +294,37 @@ const GamePage = async () => {
     }
   }
 
-  // Fonction pour démarrer le compte à rebours de préparation
   function startPreparationTimer() {
     gamePreparationTimerData.isPreparationTime = true;
     gamePreparationTimerData.preparationCountDown = 5;
-    timerDisplay.textContent = gamePreparationTimerData.preparationCountDown;
+
+    if(players.currentPlayer === 1){
+      timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
+    }else{
+      timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
+    }
 
     const preparationInterval = setInterval(() => {
       // eslint-disable-next-line no-plusplus
       gamePreparationTimerData.preparationCountDown--;
-      timerDisplay.textContent = gamePreparationTimerData.preparationCountDown;
+
+      if(players.currentPlayer === 1){
+        timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
+      }else{
+        timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
+      }
 
       if (gamePreparationTimerData.preparationCountDown <= 0) {
         clearInterval(preparationInterval);
         gamePreparationTimerData.isPreparationTime = false;
-        startTimer(); // Commencez le timer du jeu après la préparation
-        timerDisplay.textContent = gameTimerData.countDown;
+        startTimer();
+
+        if(players.currentPlayer === 1){
+          timerDisplayLeft.textContent = gameTimerData.countDown;
+        }else{
+          timerDisplayRight.textContent = gameTimerData.countDown;
+        }
+
         document.addEventListener('keydown', handleKeyboardInput);
       }
     }, 1000);
@@ -253,8 +332,6 @@ const GamePage = async () => {
 
   async function switchText() {
     textGameData.phrase = await getPhraseRandom();
-
-    // console.log(textGameData.phrase);
     phraseBlock.innerHTML = textGameData.phrase
       .split('')
       .map((letter) => `<span>${letter}</span>`)
