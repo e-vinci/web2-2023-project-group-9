@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:3000
+
+### read phrases 
+GET {{baseUrl}}/game
+
+### add phrase 
+POST {{baseUrl}}/game/addPhrase
+Content-Type: application/json
+
+{
+    "phrase" : "la victoire est mienne !"
+}
+
+### remove phrase
+DELETE {{baseUrl}}/game/deletePhrase/26
