@@ -80,6 +80,13 @@ const RegisterPage = () => {
   })
 };
 
+/**
+ * Asynchronously adds a new user by sending a POST request to the server.
+ *
+ * @param {Event} e - The submit event triggering the form submission.
+ * 
+ * @returns {Promise<void>} A Promise that resolves after the user is added successfully.
+ */
 async function addOneUser(e) {
   e.preventDefault();
 

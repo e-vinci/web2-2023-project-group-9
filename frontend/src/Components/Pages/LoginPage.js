@@ -46,6 +46,14 @@ const LoginPage = () => {
     return formLoginPage;
   }
 };
+
+/**
+ * Handles the login process when the login form is submitted.
+ *
+ * @param {Event} e - The submit event triggering the form submission.
+ * 
+ * @returns {void} This function does not have a direct return value.
+ */
 function onLogin(e) {
   e.preventDefault();
 
