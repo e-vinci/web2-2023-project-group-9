@@ -70,40 +70,6 @@ const DemoGame = () => {
 
   let times = document.querySelectorAll('.timeLeft, .timeRight');
 
-  function loadingPage(){
-  const loading = document.querySelector('#loading')
-  loading.style.display = 'flex';
-  const valueLoading = document.querySelector('#loading p');
-  let currentValue = parseInt(valueLoading.innerHTML, 10);
-  let intervalID = setInterval(() => {
-    if (currentValue !== 0) {
-      currentValue -= 1;
-      valueLoading.innerHTML = currentValue;
-      if (currentValue === 0) {
-        valueLoading.innerHTML = 'FIGHT !';
-      }
-    } else {
-      clearInterval(intervalID);
-      loading.style.display = 'none';
-      valueLoading.innerHTML = '3';
-      setTimeout(() =>{
-        charactereOfPlayer1.classList.add('transformVenom');
-        charactereOfPlayer2.classList.add('transformBroly');
-      },200);
-    }
-  }, 1000)};
-
-  transformation(charactereOfPlayer2, 1500);
-  transformation(charactereOfPlayer1, 1500);
-
-  function transformation(target, duration) {
-    return anime({
-      targets: target,
-      loop: true,
-      duration,
-    });
-  }
-
   document.querySelector('#restartLink').addEventListener('click', (e) => {
     e.preventDefault(); 
     menuOpen.style.top = '-100%';
@@ -138,6 +104,41 @@ const DemoGame = () => {
     e.preventDefault();
     menuOpen.style.top = '-100%';
   });
+
+  function loadingPage(){
+  const loading = document.querySelector('#loading')
+  loading.style.display = 'flex';
+  const valueLoading = document.querySelector('#loading p');
+  let currentValue = parseInt(valueLoading.innerHTML, 10);
+  let intervalID = setInterval(() => {
+    if (currentValue !== 0) {
+      currentValue -= 1;
+      valueLoading.innerHTML = currentValue;
+      if (currentValue === 0) {
+        valueLoading.innerHTML = 'FIGHT !';
+      }
+    } else {
+      clearInterval(intervalID);
+      loading.style.display = 'none';
+      valueLoading.innerHTML = '3';
+      setTimeout(() =>{
+        charactereOfPlayer1.classList.add('transformVenom');
+        charactereOfPlayer2.classList.add('transformBroly');
+      },200);
+    }
+  }, 500)};
+
+  transformation(charactereOfPlayer2, 1500);
+  transformation(charactereOfPlayer1, 1500);
+
+  function transformation(target, duration) {
+    return anime({
+      targets: target,
+      loop: true,
+      duration,
+    });
+  }
+
   // charactereOfPlayer2.classList.remove('transformBroly');
   // charactereOfPlayer2.classList.add('moveBroly');
 
