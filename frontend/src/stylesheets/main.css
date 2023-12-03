@@ -754,6 +754,26 @@ h1 {
 }
 
 /* demo page */
+
+#loading{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000d7;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+#loading p{
+  color: rgb(255, 255, 0); /* Couleur du texte */
+  text-shadow: 3px 3px 0 red, /* Contour rouge */ 
+               -3px 3px 0 red;
+  font-size: 100px; /* Taille du texte */
+}
 #arene-demo{
   padding: 50px;
   height: 100vh;
@@ -780,7 +800,7 @@ h1 {
   width: 30%;
   height: 25px;
   background-color: #000000; 
-  border: 4px solid #000000; 
+  border: 8px solid #000000; 
   border-radius: 10px; 
   box-sizing:content-box; 
 }
@@ -788,14 +808,13 @@ h1 {
 .lifeBarLeftRed {
   flex: 0%;/* Les points de vie restant ceux- en dessous du vert */
   background-color: red;
-  border-radius: 10px;
 }
 
 .lifeBarLeftGreen {
   flex: 100%; /* sert à controler les points de vie perdues */
   background-color: rgb(0, 255, 0);
-  border-radius: 10px;
 }
+
 .timeLeft::before, .timeRight::before{
   content: "\1F550";
 }
@@ -805,7 +824,7 @@ h1 {
   color: white;
   border-radius: 10px;
   width: 10%;
-  top: 12.5%;
+  top: 14%;
   left: 26%;
   font-size: 1.3em;
   position: absolute;
@@ -817,16 +836,15 @@ h1 {
   left: 64%;
 }
 
-.lifeBarRightRed{
-  flex: 0%;/* Les points de vie restant ceux- en dessous du vert */
-  background-color: red;
-  border-radius: 10px;
+.lifeBarRightGreen{
+  flex: 100%;/* Les points de vie restant ceux- en dessous du vert */
+  background-color: rgb(0, 255, 0);
 }
 
-.lifeBarRightGreen{
-  flex: 100%; /* sert à controler les points de vie perdues */
-  background-color: rgb(0, 255, 0);
-  border-radius: 10px;
+
+.lifeBarRightRed{
+  flex: 0%; /* sert à controler les points de vie perdues */
+  background-color: red;
 }
 
 
@@ -875,7 +893,6 @@ h1 {
   justify-content: center;
   border-radius: 10px;
   line-height: 100px;
-  background-color: black;
 }
 
 #menuGame p{
@@ -887,12 +904,16 @@ h1 {
 #menuGame ul{
   padding: 0px;
   background: rgb(124, 1, 1);
+  background-image: linear-gradient(45deg, transparent 50%, #000000 80%);
+  border-radius: 10px;
 }
 
 #menuGame ul li:hover {
   background: rgba(79, 1, 1, 0.429);
+  border-radius: 10px;
   padding-left: 20px;
   cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 15%, #000000 50%);
 }
 
 #menuGame ul li{
@@ -935,6 +956,9 @@ h1 {
   margin-left: 20%;
   margin-bottom: 5%;
   left: 0;
+  height: 280px;
+  width: 231px;
+  background: url(../assets/sprite1_Venom.png);
 }
 #charactere-player-2-demo{
   position: absolute;
@@ -942,6 +966,9 @@ h1 {
   right: 0;
   margin-bottom: 5%;
   margin-right: 20%;
+  height: 280px;
+  width: 206px;
+  background: url(../assets/sprite1_Broly.png);
 }
 
 .transformVenom{
