@@ -24,9 +24,9 @@ const GamePage = async () => {
         <p class='titreMenu'>Menu</p>
         <p class='link'>
           <ul>
-            <a href="" data-uri="/"><li>Recommencer</li></a>
-            <a href="" data-uri="/"><li>Continuer Partie</li></a>
-            <a href="" data-uri="/"><li>Quitter</li></a>
+            <a href="" data-uri="/" id="restartLink"><li>Recommencer</li></a>
+            <a href="" data-uri="/" id="continueGame"><li>Continuer Partie</li></a>
+            <a href="" data-uri="/" id="accueilLink"><li>Quitter</li></a>
           </ul>
         </p>
       </div>
