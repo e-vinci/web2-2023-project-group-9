@@ -1,6 +1,8 @@
+import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 // eslint-disable-next-line import/named
 import { getPhraseRandom } from '../../utils/phrasesGame';
+import Navigate from '../Router/Navigate';
 
 import backgroundDemo from '../../img/Arena/arene4.gif';
 import vsFight from '../../img/Arena/vsFight.png';
@@ -13,6 +15,9 @@ const GamePage = async () => {
   main.style.backgroundSize = 'cover';
   main.style.height = '100vh';
   main.innerHTML = `
+  <div id="loading">
+  <p>3</p>
+</div>
     <div id="menu">
       <div id="menuGame">
         <i class="fas fa-times" aria-hidden="true" style="font-size: 50px;"></i>
@@ -49,8 +54,88 @@ const GamePage = async () => {
     <div id="phrase-game"><p id="phrase-attribue-game"></p></div>
   `;
 
+  loadingPage();
+
+  const avatarOfPlayer1 = document.querySelector('#charactere-player-1-demo');
+  const avatarOfPlayer2 = document.querySelector('#charactere-player-2-demo');
+  
+  const menuOpen = document.querySelector('#menu');
+
+  const times = document.querySelectorAll('.timeLeft, .timeRight');
+
+  function loadingPage(){
+  const loading = document.querySelector('#loading')
+  loading.style.display = 'flex';
+  const valueLoading = document.querySelector('#loading p');
+  let currentValue = parseInt(valueLoading.innerHTML, 10);
+  const intervalID = setInterval(() => {
+    if (currentValue !== 0) {
+      currentValue -= 1;
+      valueLoading.innerHTML = currentValue;
+      if (currentValue === 0) {
+        valueLoading.innerHTML = 'FIGHT !';
+      }
+    } else {
+      clearInterval(intervalID);
+      loading.style.display = 'none';
+      valueLoading.innerHTML = '3';
+      setTimeout(() =>{
+        avatarOfPlayer1.classList.add('transformVenom');
+        avatarOfPlayer2.classList.add('transformBroly');
+      },200);
+    }
+  }, 1000)};
+
+  transformation(avatarOfPlayer2, 1500);
+  transformation(avatarOfPlayer1, 1500);
+
+  function transformation(target, duration) {
+    return anime({
+      targets: target,
+      loop: true,
+      duration,
+    });
+  }
+
+ const restarLink = document.querySelector('#restartLink')
+  restarLink.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    menuOpen.style.top = '-100%';
+    setTimeout(() =>{
+      avatarOfPlayer1.classList.remove('transformVenom');
+      avatarOfPlayer2.classList.remove('transformBroly');
+      times.forEach((t) =>{
+        // eslint-disable-next-line no-param-reassign
+        t.innerHTML = '00:00'
+      })
+      loadingPage();
+    },500);
+  });
+
+  document.querySelector('#accueilLink').addEventListener('click',(e)=>{
+    e.preventDefault();
+    Navigate('/');
+  })
+
+  document.querySelector('#continueGame').addEventListener('click',(e) =>{
+    e.preventDefault();
+    menuOpen.style.top = '-100%';
+  })
+
+  const menu = document.querySelector('.home');
+  menu.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOpen.style.top = '0%';
+  });
+
+  const menuFerme = document.querySelector('.fa-times');
+  menuFerme.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOpen.style.top = '-100%';
+  });
+
   const phraseBlock = document.querySelector('#phrase-attribue-game');
-  const phraseBlockBlock = document.querySelector("#phrase-game");
+  const phraseBlockBlock = document.querySelector('#phrase-game');
 
   const textGameData = {
     letterIndex: 0,
@@ -68,11 +153,6 @@ const GamePage = async () => {
     roundCount: 0,
     isRoundOver: false,
   };
-
-  const avatarOfPlayer1 = document.querySelector('#charactere-player-1-demo');
-  const avatarOfPlayer2 = document.querySelector('#charactere-player-2-demo');
-  avatarOfPlayer1.classList.add('transformVenom');
-  avatarOfPlayer2.classList.add('transformBroly');
 
   const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
   const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
@@ -132,9 +212,9 @@ const GamePage = async () => {
       gamePreparationTimerData.isPreparationTime = true;
       gamePreparationTimerData.preparationCountDown = 5;
 
-      if(players.currentPlayer === 1){
+      if (players.currentPlayer === 1) {
         timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
-      }else{
+      } else {
         timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
       }
 
@@ -144,9 +224,9 @@ const GamePage = async () => {
 
       setTimeout(() => {
         gamePreparationTimerData.isPreparationTime = false;
-        if(players.currentPlayer === 1){
+        if (players.currentPlayer === 1) {
           timerDisplayLeft.textContent = gameTimerData.countDown;
-        }else{
+        } else {
           timerDisplayRight.textContent = gameTimerData.countDown;
         }
         document.addEventListener('keydown', handleKeyboardInput);
@@ -175,16 +255,16 @@ const GamePage = async () => {
     players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;
     gameTimerData.countDown = 20;
 
-    if(players.currentPlayer === 1){
+    if (players.currentPlayer === 1) {
       timerDisplayLeft.textContent = gameTimerData.countDown;
-    }else{
+    } else {
       timerDisplayRight.textContent = gameTimerData.countDown;
     }
 
-    if(players.currentPlayer === 1){
-      phraseBlock.style.marginLeft = "0%";
-    }else{
-      phraseBlock.style.marginLeft = "70%";
+    if (players.currentPlayer === 1) {
+      phraseBlock.style.marginLeft = '0%';
+    } else {
+      phraseBlock.style.marginLeft = '70%';
     }
 
     await switchText();
@@ -192,7 +272,7 @@ const GamePage = async () => {
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
-      phraseBlockBlock.style.visibility = "hidden";
+      phraseBlockBlock.style.visibility = 'hidden';
       avatarOfPlayer2.setAttribute('id', 'player2_attack');
       setTimeout(() => {
         avatarOfPlayer1.setAttribute('id', 'player1_blesse');
@@ -207,10 +287,10 @@ const GamePage = async () => {
       setTimeout(() => {
         players.player1Life -= 5;
         player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
-        phraseBlockBlock.style.visibility = "visible";
+        phraseBlockBlock.style.visibility = 'visible';
       }, 1000);
     } else if (players.player1Time < players.player2Time) {
-      phraseBlockBlock.style.visibility = "hidden";
+      phraseBlockBlock.style.visibility = 'hidden';
       avatarOfPlayer1.setAttribute('id', 'player1_attack');
       setTimeout(() => {
         avatarOfPlayer2.setAttribute('id', 'player2_blesse');
@@ -225,7 +305,7 @@ const GamePage = async () => {
       setTimeout(() => {
         players.player2Life -= 5;
         player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
-        phraseBlockBlock.style.visibility = "visible";
+        phraseBlockBlock.style.visibility = 'visible';
       }, 1000);
     }
     if (players.player1Life <= 0) {
@@ -258,9 +338,9 @@ const GamePage = async () => {
         // eslint-disable-next-line no-plusplus
         gameTimerData.countDown--;
 
-        if(players.currentPlayer === 1){
+        if (players.currentPlayer === 1) {
           timerDisplayLeft.textContent = gameTimerData.countDown;
-        }else{
+        } else {
           timerDisplayRight.textContent = gameTimerData.countDown;
         }
       } else {
@@ -273,10 +353,10 @@ const GamePage = async () => {
     clearInterval(gameTimerData.timer);
     gameTimerData.isRunning = false;
 
-    if(players.currentPlayer === 1){
-      timerDisplayLeft.textContent = "Time is up";
-    }else{
-      timerDisplayRight.textContent = "Time is up";
+    if (players.currentPlayer === 1) {
+      timerDisplayLeft.textContent = 'Time is up';
+    } else {
+      timerDisplayRight.textContent = 'Time is up';
     }
 
     if (!players.isRoundOver) {
@@ -298,9 +378,9 @@ const GamePage = async () => {
     gamePreparationTimerData.isPreparationTime = true;
     gamePreparationTimerData.preparationCountDown = 5;
 
-    if(players.currentPlayer === 1){
+    if (players.currentPlayer === 1) {
       timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
-    }else{
+    } else {
       timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
     }
 
@@ -308,9 +388,9 @@ const GamePage = async () => {
       // eslint-disable-next-line no-plusplus
       gamePreparationTimerData.preparationCountDown--;
 
-      if(players.currentPlayer === 1){
+      if (players.currentPlayer === 1) {
         timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
-      }else{
+      } else {
         timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
       }
 
@@ -319,9 +399,9 @@ const GamePage = async () => {
         gamePreparationTimerData.isPreparationTime = false;
         startTimer();
 
-        if(players.currentPlayer === 1){
+        if (players.currentPlayer === 1) {
           timerDisplayLeft.textContent = gameTimerData.countDown;
-        }else{
+        } else {
           timerDisplayRight.textContent = gameTimerData.countDown;
         }
 
@@ -337,6 +417,7 @@ const GamePage = async () => {
       .map((letter) => `<span>${letter}</span>`)
       .join('');
   }
+  
 };
 
 export default GamePage;
