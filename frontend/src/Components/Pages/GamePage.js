@@ -4,7 +4,7 @@ import { clearAllPage } from '../../utils/render';
 import { getPhraseRandom } from '../../utils/phrasesGame';
 import Navigate from '../Router/Navigate';
 
-import backgroundDemo from '../../img/Arena/arene4.gif';
+import backgroundDemo from '../../img/Arena/arene6.gif';
 import vsFight from '../../img/Arena/vsFight.png';
 
 const GamePage = async () => {
@@ -155,7 +155,9 @@ const GamePage = async () => {
   };
 
   const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
+  const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
   const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
+  const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
 
   const timerDisplayLeft = document.querySelector('.timeLeft');
   const timerDisplayRight = document.querySelector('.timeRight');
@@ -285,8 +287,12 @@ const GamePage = async () => {
         }, 1000);
       }, 2000);
       setTimeout(() => {
-        players.player1Life -= 5;
+        players.player1Life -= 10;
+        let player1LifeRed = 0
+        player1LifeRed += 10;
+        console.log(player1LifeRed);
         player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
+        player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
         phraseBlockBlock.style.visibility = 'visible';
       }, 1000);
     } else if (players.player1Time < players.player2Time) {
@@ -303,8 +309,12 @@ const GamePage = async () => {
         }, 1000);
       }, 2000);
       setTimeout(() => {
-        players.player2Life -= 5;
-        player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
+        players.player2Life -= 10;
+        let player2LifeRed = 0
+        player2LifeRed += 10;
+        console.log(player2LifeRed);
+        player2LifeGreenDisplay.style.flex = `${player2LifeRed}%`;
+        player2LifeRedDisplay.style.flex = `${players.player2Life}%`;
         phraseBlockBlock.style.visibility = 'visible';
       }, 1000);
     }

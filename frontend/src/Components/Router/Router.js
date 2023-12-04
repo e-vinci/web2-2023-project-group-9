@@ -1,5 +1,7 @@
+// Router.js
 import { removePathPrefix, usePathPrefix } from '../../utils/path-prefix';
 import routes from './routes';
+import Navbar from '../Navbar/Navbar';
 
 const Router = () => {
   onFrontendLoad();
@@ -20,6 +22,7 @@ function onNavBarClick() {
 
       componentToRender();
       window.history.pushState({}, '', usePathPrefix(uri));
+      Navbar(); // Mettez à jour la barre de navigation après avoir changé le chemin
     }
   });
 }
@@ -29,6 +32,7 @@ function onHistoryChange() {
     const uri = removePathPrefix(window.location.pathname);
     const componentToRender = routes[uri];
     componentToRender();
+    Navbar(); // Mettez à jour la barre de navigation après avoir changé le chemin
   });
 }
 
@@ -39,6 +43,7 @@ function onFrontendLoad() {
     if (!componentToRender) throw Error(`The ${uri} ressource does not exist.`);
 
     componentToRender();
+    Navbar(); // Mettez à jour la barre de navigation après le chargement de la page
   });
 }
 

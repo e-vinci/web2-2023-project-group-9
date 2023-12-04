@@ -752,13 +752,13 @@ h1 {
   left: 64%;
 }
 
-.lifeBarRightGreen{
+.lifeBarRightRed{
   flex: 100%;/* Les points de vie restant ceux- en dessous du vert */
   background-color: rgb(0, 255, 0);
 }
 
 
-.lifeBarRightRed{
+.lifeBarRightGreen{
   flex: 0%; /* sert à controler les points de vie perdues */
   background-color: red;
 }
