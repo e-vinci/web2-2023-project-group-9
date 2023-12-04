@@ -13,19 +13,25 @@ function onNavBarClick() {
   const navbarWrapper = document.querySelector('#navbarWrapper');
 
   navbarWrapper.addEventListener('click', (e) => {
-    e.preventDefault();
     const navBarItemClicked = e.target;
     const uri = navBarItemClicked?.dataset?.uri;
-    if (uri) {
-      const componentToRender = routes[uri];
-      if (!componentToRender) throw Error(`The ${uri} ressource does not exist.`);
 
-      componentToRender();
-      window.history.pushState({}, '', usePathPrefix(uri));
-      Navbar(); // Mettez à jour la barre de navigation après avoir changé le chemin
+    // Ignore les clics sur les liens internes
+    if (!uri || uri.startsWith('#')) {
+      return;
     }
+
+    e.preventDefault();
+
+    const componentToRender = routes[uri];
+    if (!componentToRender) throw Error(`The ${uri} ressource does not exist.`);
+
+    componentToRender();
+    window.history.pushState({}, '', usePathPrefix(uri));
+    Navbar(); // Mettez à jour la barre de navigation après avoir changé le chemin
   });
 }
+
 
 function onHistoryChange() {
   window.addEventListener('popstate', () => {
