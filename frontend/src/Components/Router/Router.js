@@ -28,7 +28,7 @@ function onNavBarClick() {
 
     componentToRender();
     window.history.pushState({}, '', usePathPrefix(uri));
-    Navbar(); // Mettez à jour la barre de navigation après avoir changé le chemin
+    Navbar();  
   });
 }
 
@@ -38,7 +38,9 @@ function onHistoryChange() {
     const uri = removePathPrefix(window.location.pathname);
     const componentToRender = routes[uri];
     componentToRender();
-    Navbar(); // Mettez à jour la barre de navigation après avoir changé le chemin
+    document.addEventListener('DOMContentLoaded', () => {
+      Navbar();
+    });
   });
 }
 
@@ -49,7 +51,7 @@ function onFrontendLoad() {
     if (!componentToRender) throw Error(`The ${uri} ressource does not exist.`);
 
     componentToRender();
-    Navbar(); // Mettez à jour la barre de navigation après le chargement de la page
+    Navbar();
   });
 }
 
