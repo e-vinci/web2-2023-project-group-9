@@ -112,7 +112,7 @@ body {
 #mainContent {
   display: flex;
   flex-direction: column;
-  height: 81.6vh;
+  height: 83vh;
   background-image: url(../img/BaseDuSite/backgroundSite.jpg);
   max-width: 100%;
   background-repeat: no-repeat;
