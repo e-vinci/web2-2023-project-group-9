@@ -4,6 +4,7 @@ const clearPage = () => {
   if(navbar.style.display === 'none'){
     navbar.style.display = 'flex';
   }
+  navbar.style.position = 'relative';
   const main = document.querySelector('main')
   main.style.backgroundImage = 'none';
   main.style.height = '0';

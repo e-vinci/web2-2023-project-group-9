@@ -1,5 +1,5 @@
-import anime from 'animejs';
-import arena from '../../img/Arena/areneDBZ.png';
+
+// import arena from '../../img/Arena/areneDBZ.png';
 import brolyPortrait from '../../img/PortraitFighters/Broly.png';
 import venomPortrait from '../../img/PortraitFighters/Venom.png';
 import chunLiPortrait from '../../img/PortraitFighters/Chun li.png';
@@ -7,16 +7,28 @@ import spiderManPortrait from '../../img/PortraitFighters/Spider man.png';
 import captainAmerica from '../../img/PortraitFighters/Captain america.png';
 import gokuPortrait from '../../img/PortraitFighters/Goku.png';
 import gohanPortrait from '../../img/PortraitFighters/Gohan.png';
+import arenaDbz from '../../img/MyFighters/arenaDbz.jpg';
+import arenaCh from '../../img/MyFighters/arenaCh.jpg';
+import arenaNy from '../../img/MyFighters/arenaNy.jpg';
+import arenaCa from '../../img/MyFighters/arenaCa.jpg';
+
+
+import backgroundFighters  from '../../img/BaseDuSite/backgroundFighters.jpg';
+
 import { clearPage } from '../../utils/render';
 
 const FightersPage = () => {
   clearPage();
+  const header = document.querySelector('#navbarWrapper');
+  header.style.position = 'absolute';
   const main = document.querySelector('main');
   const mainContainer = document.createElement('div');
   mainContainer.classList.add('main-container');
-
-  main.innerHTML += 
-    `<section class="main-container">
+  main.style.backgroundImage = `url(${backgroundFighters})`;
+  main.style.backgroundSize = 'cover';
+  main.style.height = '100vh';
+  main.appendChild(mainContainer);
+  mainContainer.innerHTML = `
     <button style="background-image: url('${brolyPortrait}')" class="brolyDBZ"></button>
     <button style="background-image: url('${venomPortrait}')" class="venomSP"></button>
     <button style="background-image: url('${spiderManPortrait}')" class="spiderMan"></button>
@@ -24,89 +36,41 @@ const FightersPage = () => {
     <button style="background-image: url('${captainAmerica}')" class="captainAmerica"></button>
     <button style="background-image: url('${gokuPortrait}')" class="goku"></button>
     <button style="background-image: url('${gohanPortrait}')" class="gohan"></button>
-  </section>
 
-    
-    <section id="sprite">
-      <div id="brolyDBZ"></div>
-      <div id="venomSP"></div>
-      <div id="chunLiTK"></div>
-      <div id="captainAmerica"></div>
-      <div id="goku"></div>
-      <div id="gohan"></div>
-      <div id="spiderMan"></div>
-    
-    </section>
     <section id="arena">
-    <img src="${arena}" alt="" class="arena">
-    </section>   `;
+      <div></div>
+    </section>
+  `;
+  const arena = document.querySelector('#arena');
+  const sprite = document.querySelector('#arena div');
+  const buttons = document.querySelectorAll('button');
 
-  main.appendChild(mainContainer);
-
-  const broly = document.querySelector('#brolyDBZ');
-  const venom = document.querySelector('#venomSP');
-  const chunLi = document.querySelector('#chunLiTK');
-  const captainA = document.querySelector('#captainAmerica');
-
-  createAnimation(broly, '-2006px 0px', 'steps(10)', 1500);
-  createAnimation(venom, '-3940px 0px', 'steps(17)', 1500);
-  createAnimation(chunLi, '-1302px 0px', 'steps(14)', 1500);
-  createAnimation(captainA, '-441px 0px', 'steps(3)', 1500);
-
-  const img = document.querySelectorAll('.main-container>button');
-  const animation = document.querySelectorAll('#sprite>div');
-
-  function createAnimation(target, startPosition, easing, duration) {
-    return anime({
-      targets: target,
-      backgroundPosition: startPosition,
-      easing,
-      duration,
-      loop: true,
-    });
-  }
-
-
-  img.forEach((image) => {
-    image.addEventListener('click', () => {
-     animationImg(image);
-    });
+  buttons.forEach((button) =>{
+    if(button.className === 'brolyDBZ' || button.className === 'goku' || button.className === 'gohan'){
+      button.addEventListener('click', ()=>{
+        arena.style.backgroundImage = `url(${arenaDbz})`;
+        sprite.id = button.className // comme ça l'id du sprite il prend la classeName de l'image vu que dans le css les sprite c dans une idée qui est égale à la classeName des images  
+      })
+    }
+    if(button.className === 'venomSP' || button.className === 'spiderMan'){
+      button.addEventListener('click', ()=>{
+        arena.style.backgroundImage = `url(${arenaNy})`;
+        sprite.id = button.className
+      })
+    }
+    if(button.className === 'chunLiTK'){
+      button.addEventListener('click', ()=>{
+        arena.style.backgroundImage = `url(${arenaCh})`;
+        sprite.id = button.className
+      })
+    }
+    if(button.className === 'captainAmerica'){
+      button.addEventListener('click', ()=>{
+        arena.style.backgroundImage = `url(${arenaCa})`;
+        sprite.id = button.className
+      })
+    }
   });
-
-  function animationImg(nomImg) {
-    // eslint-disable-next-line no-shadow
-    animation.forEach((anime) => {
-      if (nomImg.className === anime.id) {
-        // eslint-disable-next-line no-param-reassign
-        anime.style.display = 'block';
-        // eslint-disable-next-line no-param-reassign
-        anime.style.backgroundPosition = '50px' ;
-      }
-    });
-    img.forEach((image) => {
-      image.addEventListener('click', () => {
-       animationImgHidden(image);
-      });
-    });
-  }
-
-  
-
-  function animationImgHidden(nomImg) {
-    // eslint-disable-next-line no-shadow
-    animation.forEach((anime) => {
-      if (nomImg.className === anime.id) {
-        // eslint-disable-next-line no-param-reassign
-        anime.style.display = 'none';
-      }
-    });
-    img.forEach((image) => {
-      image.addEventListener('click', () => {
-       animationImg(image);
-      });
-    });
-  } 
-
 
  /* const venom = document.querySelector('#venom');
   const chunLi = document.querySelector('#chunLi');

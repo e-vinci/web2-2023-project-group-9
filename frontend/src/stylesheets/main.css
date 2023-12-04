@@ -79,9 +79,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(0, 0, 0);
-  z-index: 1000;
-  cursor: pointer;
+  background-color: #00000000;
+  width: 100%;
 }
 
 #navbarWrapper a {
@@ -606,151 +605,68 @@ h1 {
 /* styles dans main.css */
 
 
-.brolyDBZ{
+.brolyDBZ, .venomSP, .spiderMan, .chunLiTK, .captainAmerica, .goku, .gohan{
   width: 150px;
   height: 150px;
   margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-
-}
-
-.venomSP{
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-
-}
-
-.spiderMan{
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-
-}
-
-.chunLiTK{
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-
-}
-
-.captainAmerica{
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-
-}
-
-.goku{
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-}
-
-.gohan{
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  background-size: cover; /* Adapter la taille de l'image pour remplir complètement le bouton */
-
+  background-size: cover; 
 }
 
 
 .main-container {
   display: flex;
-  flex-wrap: nowrap; /* Empêche le passage à la ligne des éléments */
-  overflow-x: auto; /* Ajoute un défilement horizontal si les images débordent de la largeur */
-  gap: 5px; /* Ajoute un espacement entre les images */
- /* Ajout de styles pour placer le contenu au bas de la page et au centre horizontalement */
- position: absolute;
- bottom: 0;
- left: 50%; /* Déplacer le conteneur à 50% de la largeur de son parent */
- transform: translateX(-50%); /* Corriger la position pour le centrer */
- width: 100%;
- justify-content: center; /* Aligner le contenu horizontalement au centre */
-}
-
-#brolySurPlace{
-  height: 280px;
-  width: 206px;
-  background: url(../assets/sprite1_Broly.png);
-  top: 42%;
-  left: 46%;
+  flex-wrap: nowrap; 
+  gap: 5px; 
   position: absolute;
-  z-index: 1000; /* Position absolue pour superposer les div sur les images */
-  display: none;
+  bottom: 0;
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 100%;
+  justify-content: center;
 }
 
-.arena{
-  height: 772px;
-  width: 1450px;
+#arena{
   position: absolute;
-  top: 1%;
-  left: 22%;
-  z-index: 900;
-  background: url(../img/Arena/areneDBZ.png);
-  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 135%;
+  background-size: cover;
+  background-position: bottom;
+  align-items: center;
+  width: 1000px;
+  height: 350px;
 }
-
 #brolyDBZ{
   height: 280px;
   width: 206px;
-  position: absolute;
-  z-index: 1000;
   background: url(../assets/sprite1_Broly.png);
-  bottom: 0;
-  left: 100px;
-  background-position: '-2006px 0px';
-  display: none;
-  margin-left: 50px; /* Déplace l'image vers la droite */
-  margin-top: -500px;
 }
 
 #venomSP{
-  position: absolute;
   height: 280px;
   width: 230px;
   background: url(../assets/sprite1_Venom.png);
-  left: 380px;
-  bottom: 0;
-  display: none;
-  margin-left: 50px; /* Déplace l'image vers la droite */
-  margin-top: -500px;
-  z-index: 1000;
+  position: relative;
+  bottom: -30px;
 }
 
 #chunLiTK{
   height: 101px;
   width: 93px;
-  position: absolute;
+  position: relative;
+  bottom: -75px;
   background: url(../assets/sprite1_ChunLi.png);
   transform: scale(2);
-  left: 625px;
-  bottom: 50px;
-  display: none;
-  margin-left: 50px; /* Déplace l'image vers la droite */
-  margin-top: -400px; /* Déplace l'image vers le bas */
-  z-index: 1000;
 }
 
 #captainAmerica{
-  position: absolute;
   height: 200px;
   width: 147px;
+  position: relative;
+  bottom: -75px;
   background: url(../assets/sprite1_CaptainAmerica.png);
-  left: 850px;
-  bottom: 25px;
   transform: scale(1.5);
-  display: none;
-  margin-left: 50px; /* Déplace l'image vers la droite */
-  margin-top: -400px;
-  z-index: 1000;
 }
 
 /* demo page */
@@ -883,7 +799,7 @@ h1 {
   justify-content: center;
   align-items: center;
   top: -100%;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 #menuGame{
