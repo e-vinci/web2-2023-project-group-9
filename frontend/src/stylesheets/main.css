@@ -847,7 +847,7 @@ h1 {
 
 .fa-times{
   position: absolute;
-  top: 20%;
+  top: 23%;
   left: 60%;
   cursor: pointer;
 }
@@ -872,9 +872,6 @@ h1 {
   margin-left: 20%;
   margin-bottom: 5%;
   left: 0;
-  height: 280px;
-  width: 231px;
-  background: url(../assets/sprite1_Venom.png);
 }
 #charactere-player-2-demo{
   position: absolute;
@@ -882,9 +879,6 @@ h1 {
   right: 0;
   margin-bottom: 5%;
   margin-right: 20%;
-  height: 280px;
-  width: 206px;
-  background: url(../assets/sprite1_Broly.png);
 }
 
 .transformVenom{
