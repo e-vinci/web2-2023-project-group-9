@@ -11,6 +11,7 @@ const Router = () => {
 
 function onNavBarClick() {
   const navbarWrapper = document.querySelector('#navbarWrapper');
+  
 
   navbarWrapper.addEventListener('click', (e) => {
     const navBarItemClicked = e.target;
@@ -38,9 +39,7 @@ function onHistoryChange() {
     const uri = removePathPrefix(window.location.pathname);
     const componentToRender = routes[uri];
     componentToRender();
-    document.addEventListener('DOMContentLoaded', () => {
-      Navbar();
-    });
+    Navbar()
   });
 }
 
