@@ -7,6 +7,7 @@ import FightersSelect from '../Pages/FightersSelect';
 import ArenaSelect from '../Pages/ArenaSelect';
 import GamePage from '../Pages/GamePage';
 import DemoGame from '../Pages/DemoGamePage';
+import AdminPage from '../Pages/AdminPage';
 
 
 const routes = {
@@ -18,7 +19,8 @@ const routes = {
   '/fightersSelect' : FightersSelect,
   '/arenaSelect' : ArenaSelect,
   '/demo' : DemoGame,
-  '/game' : GamePage
+  '/game' : GamePage,
+  '/admin' : AdminPage
 };
 
 export default routes;
