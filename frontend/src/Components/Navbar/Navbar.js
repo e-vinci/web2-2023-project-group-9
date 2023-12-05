@@ -29,19 +29,7 @@ const Navbar = () => {
   let navbar = ``;
 
   // Ajout du reste de la barre de navigation
-  if(window.location.pathname === '/') {
-    navbar = `  <nav>
-    <div class="navLinks">
-      <ul>
-        <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="#mainMiddleContent">Combattants</a></li>
-        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
-        <li><a href="" data-uri="/login">Se Connecter</a></li>
-      </ul>
-    </div>
-    <div id="icons"></div>
-  </nav>`;
-  }else if (window.location.pathname === '/login'){
+  if (window.location.pathname === '/login'){
     navbar = `
     <nav>
       <div class="navLinks">
@@ -64,6 +52,18 @@ const Navbar = () => {
       <div id="icons"></div>
     </nav>
   `;
+  } else {
+    navbar = `  <nav>
+    <div class="navLinks">
+      <ul>
+        <li><a href="" data-uri="/">Accueil</a></li>
+        <li><a href="#mainMiddleContent">Combattants</a></li>
+        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
+        <li><a href="" data-uri="/login">Se Connecter</a></li>
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
   }
 
   navbarWrapper.innerHTML += navbar;
