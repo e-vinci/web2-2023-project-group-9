@@ -37,7 +37,6 @@
   scrollbar-color: rgb(73, 1, 1) #000000;
 }
 
-
 /* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
 @font-face {
   font-family: 'MK TITLE';
@@ -59,7 +58,7 @@ ol {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: #000;
 }
@@ -196,7 +195,7 @@ div img {
 
 /* Sohaib */
 /* section 2 */
-#mainMiddleContent{
+#mainMiddleContent {
   background-color: #000000;
 }
 #sectionTwoAcceuil {
@@ -209,7 +208,10 @@ div img {
   transition: 1.5s;
 }
 
-.broly, .venom, .captainA, .chunLi {
+.broly,
+.venom,
+.captainA,
+.chunLi {
   max-width: 50%;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
@@ -217,7 +219,10 @@ div img {
 }
 
 /* Exemple d'utilisation des unités de vue en largeur (vw) pour spécifier la taille de l'image */
-.broly img, .venom img, .captainA img, .chunLi img { 
+.broly img,
+.venom img,
+.captainA img,
+.chunLi img {
   height: auto;
 }
 
@@ -241,7 +246,10 @@ div img {
   object-fit: cover;
 }
 
-.broly:hover, .venom:hover, .captainA:hover, .chunLi:hover {
+.broly:hover,
+.venom:hover,
+.captainA:hover,
+.chunLi:hover {
   margin-left: -10%;
   transition: 1s;
 }
@@ -288,7 +296,10 @@ div img {
   margin-top: 5%;
 }
 
-#broly,#chunLi,#captainA,#venom{
+#broly,
+#chunLi,
+#captainA,
+#venom {
   position: absolute;
   margin-left: 5%;
 }
@@ -311,7 +322,7 @@ div img {
 
 /* Sohaib */
 /* section 3 */
-#sectionTreeAcceuil{
+#sectionTreeAcceuil {
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -320,14 +331,14 @@ div img {
   transition: 1.5s;
 }
 
-.textSectionMain2{
+.textSectionMain2 {
   background-color: black;
   color: white;
   width: 25vw;
   padding: 2%;
 }
 
-#areneAccueil{
+#areneAccueil {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
@@ -335,12 +346,12 @@ div img {
   margin-bottom: 1.5%;
 }
 
-.arene{
+.arene {
   width: 25vw;
 }
 /* Sohaib */
 /* section 4 */
-#sectionForAcceuil{
+#sectionForAcceuil {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -349,7 +360,7 @@ div img {
   transition: 1.5s;
 }
 
-.titreSectionMain3{
+.titreSectionMain3 {
   background-color: black;
   color: white;
   text-align: center;
@@ -358,15 +369,14 @@ div img {
   font-size: 4vw;
 }
 
-
-#sectionForOneAcceuil{
+#sectionForOneAcceuil {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 50vh;
 }
 
-#sectionForTwoAcceuil{
+#sectionForTwoAcceuil {
   background-color: white;
   width: 100vw;
   margin-top: 5%;
@@ -375,15 +385,15 @@ div img {
   height: 50vh;
 }
 
-.logoFooter{
+.logoFooter {
   width: 5vw;
 }
 
-.titreFooter{
+.titreFooter {
   width: 20vw;
 }
 
-#infoFooter{
+#infoFooter {
   width: 100%;
   height: 70%;
   display: flex;
@@ -391,18 +401,18 @@ div img {
   justify-content: space-around;
 }
 
-.linkFooter{
+.linkFooter {
   font: 1vw sans-serif;
 }
 
-#section_btn_scrollup{
+#section_btn_scrollup {
   visibility: hidden;
   position: fixed;
   bottom: 10px;
   right: 10px;
 }
 
-#btn_scrollup{
+#btn_scrollup {
   background-color: rgba(124, 1, 1, 0.558);
   border: none;
   border-radius: 50%;
@@ -412,12 +422,12 @@ div img {
   transition: 1.5s solid ease-in-out;
 }
 
-#btn_scrollup svg path{
+#btn_scrollup svg path {
   color: white;
 }
 
-#btn_scrollup:hover{
-  background-color:rgb(124, 1, 1) ;
+#btn_scrollup:hover {
+  background-color: rgb(124, 1, 1);
 }
 
 /* Karim */
@@ -430,7 +440,7 @@ div img {
   width: 100%;
 }
 
-#containerLoginPage a{
+#containerLoginPage a {
   color: blue;
 }
 
@@ -450,15 +460,15 @@ h1 {
   color: #333;
 }
 
-#containerForm label {
+label {
   display: block;
   margin-bottom: 5px;
   text-align: left;
   color: #ffffff;
 }
 
-#containerForm input[type='text'],
-#containerForm input[type='password'] {
+input[type='text'],
+input[type='password'] {
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
@@ -467,7 +477,7 @@ h1 {
   font: 1em arial sans-serif;
 }
 
-#containerForm input[type='submit'] {
+input[type='submit'] {
   background-color: black;
   color: #fff;
   padding: 10px 10px 10px 10px;
@@ -476,7 +486,7 @@ h1 {
   font-size: 16px;
 }
 
-#containerForm input[type='submit']:hover {
+input[type='submit']:hover {
   background: rgb(124, 1, 1);
 }
 
@@ -499,7 +509,7 @@ h1 {
 }
 
 @media screen and (max-width: 700px) {
-  #mainContent{
+  #mainContent {
     height: 100vh;
   }
   #navbarWrapper {
@@ -597,35 +607,36 @@ h1 {
   }
 }
 
-
-
-
 /* ------------------- MOHAMED ----------------------*/
 
 /* styles dans main.css */
 
-
-.brolyDBZ, .venomSP, .spiderMan, .chunLiTK, .captainAmerica, .goku, .gohan{
+.brolyDBZ,
+.venomSP,
+.spiderMan,
+.chunLiTK,
+.captainAmerica,
+.goku,
+.gohan {
   width: 150px;
   height: 150px;
   margin: 5px;
-  background-size: cover; 
+  background-size: cover;
 }
-
 
 .main-container {
   display: flex;
-  flex-wrap: nowrap; 
-  gap: 5px; 
+  flex-wrap: nowrap;
+  gap: 5px;
   position: absolute;
   bottom: 0;
-  left: 50%; 
-  transform: translateX(-50%); 
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   justify-content: center;
 }
 
-#arena{
+#arena {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -637,13 +648,13 @@ h1 {
   width: 1000px;
   height: 350px;
 }
-#brolyDBZ{
+#brolyDBZ {
   height: 280px;
   width: 206px;
   background: url(../assets/sprite1_Broly.png);
 }
 
-#venomSP{
+#venomSP {
   height: 280px;
   width: 230px;
   background: url(../assets/sprite1_Venom.png);
@@ -651,7 +662,7 @@ h1 {
   bottom: -30px;
 }
 
-#chunLiTK{
+#chunLiTK {
   height: 101px;
   width: 93px;
   position: relative;
@@ -660,7 +671,7 @@ h1 {
   transform: scale(2);
 }
 
-#captainAmerica{
+#captainAmerica {
   height: 200px;
   width: 147px;
   position: relative;
@@ -671,7 +682,7 @@ h1 {
 
 /* demo page */
 
-#loading{
+#loading {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -684,45 +695,45 @@ h1 {
   display: none;
 }
 
-#loading p{
+#loading p {
   color: rgb(255, 255, 0); /* Couleur du texte */
-  text-shadow: 3px 3px 0 red, /* Contour rouge */ 
-               -3px 3px 0 red;
+  text-shadow: 3px 3px 0 red, /* Contour rouge */ -3px 3px 0 red;
   font-size: 100px; /* Taille du texte */
 }
-#arene-demo{
+#arene-demo {
   padding: 50px;
   height: 100vh;
 }
 
-#headGame{
+#headGame {
   display: flex;
   justify-content: space-around;
 }
-.home{
+.home {
   position: absolute;
   top: 6%;
   left: 2%;
 }
 
-.home:hover{
+.home:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.lifeBarContainerLeft,.lifeBarContainerRight {
+.lifeBarContainerLeft,
+.lifeBarContainerRight {
   display: flex;
   align-items: stretch;
   width: 30%;
   height: 25px;
-  background-color: #000000; 
-  border: 8px solid #000000; 
-  border-radius: 10px; 
-  box-sizing:content-box; 
+  background-color: #000000;
+  border: 8px solid #000000;
+  border-radius: 10px;
+  box-sizing: content-box;
 }
 
 .lifeBarLeftRed {
-  flex: 0%;/* Les points de vie restant ceux- en dessous du vert */
+  flex: 0%; /* Les points de vie restant ceux- en dessous du vert */
   background-color: red;
 }
 
@@ -731,10 +742,12 @@ h1 {
   background-color: rgb(0, 255, 0);
 }
 
-.timeLeft::before, .timeRight::before{
-  content: "\1F550";
+.timeLeft::before,
+.timeRight::before {
+  content: '\1F550';
 }
-.timeLeft, .timeRight{
+.timeLeft,
+.timeRight {
   background-color: #0000007a;
   border: 4px solid #ffffff;
   color: white;
@@ -748,46 +761,43 @@ h1 {
   justify-content: center;
 }
 
-.timeRight{
+.timeRight {
   left: 64%;
 }
 
-.lifeBarRightRed{
-  flex: 100%;/* Les points de vie restant ceux- en dessous du vert */
+.lifeBarRightRed {
+  flex: 100%; /* Les points de vie restant ceux- en dessous du vert */
   background-color: rgb(0, 255, 0);
 }
 
-
-.lifeBarRightGreen{
+.lifeBarRightGreen {
   flex: 0%; /* sert à controler les points de vie perdues */
   background-color: red;
 }
 
-
-.vs{
+.vs {
   position: relative;
   top: -30%;
   width: 125px;
 }
 
-
-#phrase-demo{
+#phrase-demo {
   background-color: #000000a3;
   padding: 50px 50px 50px 50px;
   position: absolute;
   top: 50%;
   width: 100%;
   display: inline;
-  font-family: "Calisto MT", sans-serif;
+  font-family: 'Calisto MT', sans-serif;
   color: white;
   font-size: 24px;
 }
 
-.green{
+.green {
   color: green;
 }
 
-#menu{
+#menu {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -802,7 +812,7 @@ h1 {
   transition: 0.5s;
 }
 
-#menuGame{
+#menuGame {
   width: 30%;
   display: block;
   align-items: center;
@@ -811,13 +821,13 @@ h1 {
   line-height: 100px;
 }
 
-#menuGame p{
+#menuGame p {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-#menuGame ul{
+#menuGame ul {
   padding: 0px;
   background: rgb(124, 1, 1);
   background-image: linear-gradient(45deg, transparent 50%, #000000 80%);
@@ -832,20 +842,19 @@ h1 {
   background-image: linear-gradient(45deg, transparent 15%, #000000 50%);
 }
 
-#menuGame ul li{
+#menuGame ul li {
   padding-left: 10px;
 }
-#menuGame a{
+#menuGame a {
   color: rgb(246, 243, 243);
   width: 100%;
 }
 
-
-.titreMenu{
+.titreMenu {
   font-size: 2em;
 }
 
-.fa-times{
+.fa-times {
   position: absolute;
   top: 23%;
   left: 60%;
@@ -853,27 +862,27 @@ h1 {
 }
 
 @media screen and (max-width: 800px) {
-  #menu{
+  #menu {
     background-color: #00000095;
   }
-  #menuGame{
+  #menuGame {
     width: 100%;
-    background-color:rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
   }
-  #menuGame ul{
+  #menuGame ul {
     background-color: 0;
   }
 }
 
 /*DEBUT POUR ANIMER les personnages */
-#charactere-player-1-demo{
+#charactere-player-1-demo {
   position: absolute;
   bottom: 0;
   margin-left: 20%;
   margin-bottom: 5%;
   left: 0;
 }
-#charactere-player-2-demo{
+#charactere-player-2-demo {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -881,40 +890,39 @@ h1 {
   margin-right: 20%;
 }
 
-.transformVenom{
+.transformVenom {
   height: 280px;
   width: 231px;
   background: url(../assets/sprite1_Venom.png);
   animation: transform1 1.5s steps(17) 0.99 forwards;
 }
 
-@keyframes transform1{
-  0%{
-      background-position: 0px;
+@keyframes transform1 {
+  0% {
+    background-position: 0px;
   }
-  100%{
-      background-position: -3940px;
+  100% {
+    background-position: -3940px;
   }
 }
 
-.transformBroly{
+.transformBroly {
   height: 280px;
   width: 206px;
   background: url(../assets/sprite1_Broly.png);
   animation: transform2 1.5s steps(10) 0.99 forwards;
 }
 
-
-@keyframes transform2{
-  0%{
-      background-position: 0px;
+@keyframes transform2 {
+  0% {
+    background-position: 0px;
   }
-  100%{
-      background-position: -2006px;
+  100% {
+    background-position: -2006px;
   }
 }
 
-.moveBroly{
+.moveBroly {
   height: 159px;
   width: 175px;
   background: url(../assets/spriteBrolySeDeplace.png);
@@ -922,10 +930,10 @@ h1 {
 }
 
 @keyframes moveBroly {
-  0%{
-    background-position: 0px;;
+  0% {
+    background-position: 0px;
   }
-  100%{
+  100% {
     background-position: -525px;
   }
 }
@@ -938,14 +946,14 @@ h1 {
   height: 100vh;
 } */
 
-#phrase-game{
+#phrase-game {
   background-color: #000000a3;
   padding: 50px 50px 50px 50px;
   position: absolute;
   top: 50%;
   width: 100%;
   display: inline;
-  font-family: "Calisto MT", sans-serif;
+  font-family: 'Calisto MT', sans-serif;
   color: white;
   font-size: 24px;
 }
@@ -991,7 +999,7 @@ h1 {
   top: 300px;
 }
 
-#player1_mort{
+#player1_mort {
   width: 300px;
   height: 280px;
   background-image: url(../assets/sprite1_Broly.png);
@@ -1000,7 +1008,6 @@ h1 {
   right: 300px;
   top: 300px;
 }
-
 
 #player2 {
   width: 246px;
@@ -1047,7 +1054,7 @@ h1 {
   transform: scaleX(-1);
 }
 
-#player2_mort{
+#player2_mort {
   width: 300px;
   height: 280px;
   background-image: url(../assets/sprite1_Venom.png);
@@ -1057,8 +1064,6 @@ h1 {
   top: 300px;
   transform: scaleX(-1);
 }
-
-
 
 @keyframes transform {
   0% {
@@ -1125,6 +1130,31 @@ h1 {
   border-radius: 5px;
 }
 
-.driver-popover.driverjs-theme .driver-popover-close-btn{
+.driver-popover.driverjs-theme .driver-popover-close-btn {
   color: white;
 }
+
+#container-admin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+
+}
+
+#container-form-add-remove-phrase {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  width: 60%;
+}
+#container-form-add-remove-phrase h3 {
+  text-align: center;
+  color: #ffffff;
+}
+
