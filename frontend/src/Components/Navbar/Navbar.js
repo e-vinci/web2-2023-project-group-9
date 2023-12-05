@@ -11,6 +11,7 @@ import logoPage from '../../img/BaseDuSite/logoPage.png';
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
 
+  navbarWrapper.innerHTML = '';
   // Création de l'élément lien pour le logo
   const logo = document.createElement('a');
   logo.href = '';
@@ -25,8 +26,11 @@ const Navbar = () => {
   // Ajouter le lien avec le logo à la barre de navigation
   navbarWrapper.appendChild(logo);
 
+  let navbar = ``;
+
   // Ajout du reste de la barre de navigation
-  const navbar = `
+  if(window.location.pathname === '/'){
+    navbar = `
     <nav>
       <div class="navLinks">
         <ul>
@@ -39,6 +43,30 @@ const Navbar = () => {
       <div id="icons"></div>
     </nav>
   `;
+  }else if (window.location.pathname === '/login'){
+    navbar = `
+    <nav>
+      <div class="navLinks">
+        <ul>
+          <li><a href="" data-uri="/">Accueil</a></li>
+        </ul>
+      </div>
+      <div id="icons"></div>
+    </nav>
+  `;
+  }else if (window.location.pathname === '/register'){
+    navbar = `
+    <nav>
+      <div class="navLinks">
+        <ul>
+          <li><a href="" data-uri="/">Accueil</a></li>
+          <li><a href="" data-uri="/login">Se Connecter</a></li>
+        </ul>
+      </div>
+      <div id="icons"></div>
+    </nav>
+  `;
+  }
 
   navbarWrapper.innerHTML += navbar;
 

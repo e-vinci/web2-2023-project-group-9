@@ -55,7 +55,6 @@ async function register(username, email, password) {
 
   const authenticatedUser = {
     username,
-    // eslint-disable-next-line no-undef
     email,
     token,
   };
