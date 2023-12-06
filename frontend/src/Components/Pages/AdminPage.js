@@ -6,35 +6,29 @@ const AdminPage = () => {
 
   const main = document.querySelector('main');
   main.innerHTML = `
-    <section id="mainContent">
-        <div id="container-admin-page">
-            <div id="container-form-add-remove-phrase">
-            <h3> Gerer les phrases <h3>
-            <br>
-                <form method="POST" > 
-                    <label for="add-phrase">La phrase a ajouter : </label>
-                    <input type="text" id="add-phrase" name="add-phrase">
-                    <br>
-                    <input type="submit" value="Ajouter phrase" id="btnAddPhrase">
-                </form>
-                <br>
-                <form method="POST">
-                    <label for="remove-phrase">La phrase a supprimer : </label>
-                    <input type="text" id="remove-phrase" name="remove-phrase">
-                    <br>
-                    <input type="submit" value="supprimer phrase" id="btnRemovePhrase">
-                </form>
-                <br>
-                <div class="phrase_error"></div>
-            </div>
-        </div>
-        // <div id="container-form-add-remove-arene">
-        //     <form> 
-                
-        //     </form>
-        // </div>
-        <div>
-    <section>`;
+  <section class="mainContent">
+    <div id="container-admin-page">
+      <div id="container-form-add-remove-phrase">
+        <h3> Gerer les phrases <h3>
+        <br>
+        <form method="POST" > 
+          <label for="add-phrase">La phrase a ajouter : </label>
+          <input type="text" id="add-phrase" name="add-phrase">
+          <br>
+          <input type="submit" value="Ajouter phrase" id="btnAddPhrase">
+        </form>
+        <br>
+        <form method="POST">
+          <label for="remove-phrase">La phrase a supprimer : </label>
+          <input type="text" id="remove-phrase" name="remove-phrase">
+          <br>
+          <input type="submit" value="supprimer phrase" id="btnRemovePhrase">
+        </form>
+        <br>
+        <div class="phrase_error"></div>
+      </div>
+    </div>
+  <section>`;
 
   const btnAddPhrase = document.querySelector('#btnAddPhrase');
   btnAddPhrase.addEventListener('click', addOnePhrase);

@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   function renderLoginPage() {
     const formLoginPage = `
-    <section id = "mainContent">
+    <section class = "mainContent">
     <div id="containerLoginPage">
         <div id="containerForm">
             <form action="#" method="post">

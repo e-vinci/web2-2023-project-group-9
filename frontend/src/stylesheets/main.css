@@ -108,7 +108,7 @@ body {
 
 /* Sohaib */
 /* Page d'acceuil */
-#mainContent {
+.mainContent {
   display: flex;
   flex-direction: column;
   height: 83vh;

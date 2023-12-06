@@ -28,7 +28,7 @@ const RegisterPage = () => {
 
   function renderRegisterPage() {
     const formRegisterPage = `
-    <section id = "mainContent">
+    <section class = "mainContent">
     <div id="containerLoginPage">
     <div id="containerForm">
         <form method="post">
