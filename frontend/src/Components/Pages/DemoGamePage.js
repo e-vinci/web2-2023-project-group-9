@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-const */
@@ -61,7 +62,7 @@ const DemoGame = () => {
       <div id="charactere-player-1-demo"></div>
       <div id="charactere-player-2-demo"></div>
   </div>
-  <div id="phrase-demo"><p id="phrase-attribue-demo">La victoire est pour moi!</p></div>`;
+  <div id="phrase-demo"><p id="phrase-attribue-demo"></p></div>`;
   loadingPage();
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
@@ -71,27 +72,27 @@ const DemoGame = () => {
   let times = document.querySelectorAll('.timeLeft, .timeRight');
 
   document.querySelector('#restartLink').addEventListener('click', (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     menuOpen.style.top = '-100%';
-    setTimeout(() =>{
+    setTimeout(() => {
       charactereOfPlayer1.classList.remove('transformVenom');
       charactereOfPlayer2.classList.remove('transformBroly');
-      times.forEach((t) =>{
-        t.innerHTML = '00:00'
-      })
+      times.forEach((t) => {
+        t.innerHTML = '00:00';
+      });
       loadingPage();
-    },500);
+    }, 500);
   });
 
-  document.querySelector('#accueilLink').addEventListener('click',(e)=>{
+  document.querySelector('#accueilLink').addEventListener('click', (e) => {
     e.preventDefault();
     Navigate('/');
-  })
+  });
 
-  document.querySelector('#continueGame').addEventListener('click',(e) =>{
+  document.querySelector('#continueGame').addEventListener('click', (e) => {
     e.preventDefault();
     menuOpen.style.top = '-100%';
-  })
+  });
 
   const menu = document.querySelector('.home');
   menu.addEventListener('click', (e) => {
@@ -105,29 +106,30 @@ const DemoGame = () => {
     menuOpen.style.top = '-100%';
   });
 
-  function loadingPage(){
-  const loading = document.querySelector('#loading')
-  loading.style.display = 'flex';
-  const valueLoading = document.querySelector('#loading p');
-  let currentValue = parseInt(valueLoading.innerHTML, 10);
-  let intervalID = setInterval(() => {
-    if (currentValue !== 0) {
-      currentValue -= 1;
-      valueLoading.innerHTML = currentValue;
-      if (currentValue === 0) {
-        valueLoading.innerHTML = 'FIGHT !';
+  function loadingPage() {
+    const loading = document.querySelector('#loading');
+    loading.style.display = 'flex';
+    const valueLoading = document.querySelector('#loading p');
+    let currentValue = parseInt(valueLoading.innerHTML, 10);
+    let intervalID = setInterval(() => {
+      if (currentValue !== 0) {
+        currentValue -= 1;
+        valueLoading.innerHTML = currentValue;
+        if (currentValue === 0) {
+          valueLoading.innerHTML = 'FIGHT !';
+        }
+      } else {
+        clearInterval(intervalID);
+        loading.style.display = 'none';
+        valueLoading.innerHTML = '3';
+        setTimeout(() => {
+          charactereOfPlayer1.classList.add('transformVenom');
+          charactereOfPlayer2.classList.add('transformBroly');
+          functionDriver();
+        }, 200);
       }
-    } else {
-      clearInterval(intervalID);
-      loading.style.display = 'none';
-      valueLoading.innerHTML = '3';
-      setTimeout(() =>{
-        charactereOfPlayer1.classList.add('transformVenom');
-        charactereOfPlayer2.classList.add('transformBroly');
-        functionDriver();
-      },200);
-    }
-  }, 500)};
+    }, 500);
+  }
 
   transformation(charactereOfPlayer2, 1500);
   transformation(charactereOfPlayer1, 1500);
@@ -157,18 +159,19 @@ const DemoGame = () => {
   //     });
   // }
 
-  function functionDriver(){
+  function functionDriver() {
     const d = driver({
       showProgress: true,
-      popoverClass: "driverjs-theme",
+      popoverClass: 'driverjs-theme',
       steps: [
         {
           element: '.home',
           popover: {
             title: 'Menu Game',
-            description: 'Menu du jeux qui permettra aux joueurs de continuer, recommencer ou quitter la partie',
-            side: 'bottom'
-          }
+            description:
+              'Menu du jeux qui permettra aux joueurs de continuer, recommencer ou quitter la partie',
+            side: 'bottom',
+          },
         },
         {
           element: '#arene-demo',
@@ -200,25 +203,32 @@ const DemoGame = () => {
           element: '#phrase-attribue-demo',
           popover: {
             title: 'Phrase à écrire pour le joueur 1',
-            description: 'Chaque joueur aura son tour pour écrire la phrase qui lui aura été attribué de manière au hazard'
+            description:
+              'Chaque joueur aura son tour pour écrire la phrase qui lui aura été attribué de manière au hazard',
           },
         },
         {
-          element : '.lifeBarContainerLeft',
+          element: '.lifeBarContainerLeft',
           popover: {
             title: 'Barre de vie du joueur',
-            description: 'A chaque tour le joueur verra sa vie baissée, si'
-          }
+            description: 'A chaque tour le joueur verra sa vie baissée, si',
+          },
         },
         {
           element: '.timeLeft',
           popover: {
-            title: 'Le temps pris pour écrire la phrase est inférieur au temps du joueur 2'
-          }
-        }
+            title: 'Le temps pris pour écrire la phrase est inférieur au temps du joueur 2',
+          },
+        },
+        {
+          element: '#phrase-attribue-demo',
+          popover: {
+            title: 'Phrase à écrire',
+            description: 'A vous de jouer !',
+          },
+        },
       ],
     });
-
     d.drive();
   }
 };
