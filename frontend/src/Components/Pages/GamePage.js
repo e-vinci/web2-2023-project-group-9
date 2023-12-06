@@ -180,9 +180,15 @@ const GamePage = async () => {
 
   function handleKeyboardInput(e) {
     if (!gamePreparationTimerData.isPreparationTime) {
-      const { key } = e;
+      const specialKeys = ["F1", "Enter", "Home", "CapsLock"];
+      const {key} = e;
+      
+      if (specialKeys.includes(key)) {
+        return; // Ignore the special keys
+      }
+      
       const currentLetter = textGameData.phrase[textGameData.letterIndex];
-
+      
       if (key === currentLetter) {
         handleCorrectKey();
       } else {
@@ -190,6 +196,9 @@ const GamePage = async () => {
       }
     }
   }
+  
+  
+  
 
   function handleCorrectKey() {
     const letterSpanTrue = phraseBlock.querySelector(
