@@ -636,50 +636,6 @@ input[type='submit']:hover {
   justify-content: center;
 }
 
-#arena {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 135%;
-  background-size: cover;
-  background-position: bottom;
-  align-items: center;
-  width: 1000px;
-  height: 350px;
-}
-#brolyDBZ {
-  height: 280px;
-  width: 206px;
-  background: url(../assets/sprite1_Broly.png);
-}
-
-#venomSP {
-  height: 280px;
-  width: 230px;
-  background: url(../assets/sprite1_Venom.png);
-  position: relative;
-  bottom: -30px;
-}
-
-#chunLiTK {
-  height: 101px;
-  width: 93px;
-  position: relative;
-  bottom: -75px;
-  background: url(../assets/sprite1_ChunLi.png);
-  transform: scale(2);
-}
-
-#captainAmerica {
-  height: 200px;
-  width: 147px;
-  position: relative;
-  bottom: -75px;
-  background: url(../assets/sprite1_CaptainAmerica.png);
-  transform: scale(1.5);
-}
-
 /* demo page */
 
 #loading {
@@ -886,19 +842,32 @@ input[type='submit']:hover {
 }
 #fightersSelect{
   height: 80vh;
+  display: flex;
+  justify-content: space-between;
 }
 
-#choixJ1{
-  
-}
-.nomCombattant1 {
-  margin-left: -100%;
+#choixJ{
+  display: flex;
+  justify-content: space-between;
 }
 
-.combattant1{
-  margin-left: -100%;
+.wichJ1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background:linear-gradient(to right,white,red,black);
+  transform: skewX(-20deg);
 }
 
+.wichJ2{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background:linear-gradient(to right,white,red,black);
+  transform: skewX(-20deg);
+}
 
 .nomCombattant1{
   color: white;
