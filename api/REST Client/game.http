@@ -17,6 +17,9 @@ Content-Type: application/json
 ### delete suggested phrase
 DELETE {{baseUrl}}/game/deleteSuggestedPhrase/1
 
+### read one suggested phrase
+GET {{baseUrl}}/game/readOneSuggestedPhrase/4
+
 ### add phrase 
 POST {{baseUrl}}/game/addPhrase
 Content-Type: application/json

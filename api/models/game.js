@@ -111,6 +111,15 @@ async function removePhrase(id) {
   return deletedPhrase;
 }
 
+function readOneSuggestedPhrase(id) {
+  const idNumber = parseInt(id, 10);
+  const suggestedPhrasesTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
+  const indexFound = suggestedPhrasesTable.findIndex((phrase) => phrase.id === idNumber);
+  if (indexFound < 0) return undefined;
+
+  return suggestedPhrasesTable[indexFound];
+}
+
 function getNextIdForPhraseTable() {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
   const lastItemIndex = phraseTable?.length !== 0 ? phraseTable.length - 1 : undefined;
@@ -136,4 +145,5 @@ module.exports = {
   addSuggestedPhrase,
   readSuggestedPhrases,
   removeSuggestedPhrase,
+  readOneSuggestedPhrase,
 };

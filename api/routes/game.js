@@ -9,6 +9,7 @@ const {
   addSuggestedPhrase,
   readSuggestedPhrases,
   removeSuggestedPhrase,
+  readOneSuggestedPhrase,
 } = require('../models/game');
 // const { isAdmin } = require('../utils/auths');
 
@@ -20,6 +21,12 @@ router.get('/', async (req, res) => {
 router.get('/readSuggestedPhrases', async (req, res) => {
   const suggestedPhrases = await readSuggestedPhrases();
   res.json(suggestedPhrases);
+});
+
+router.get('/readOneSuggestedPhrase/:id', (req, res) => {
+  const suggestedPhrase = readOneSuggestedPhrase(req.params.id);
+
+  return res.json(suggestedPhrase);
 });
 
 router.post('/addSuggestedPhrase', (req, res) => {
