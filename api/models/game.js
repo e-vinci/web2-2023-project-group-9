@@ -2,7 +2,8 @@ const path = require('node:path');
 
 const { parse, serialize } = require('../utils/json');
 
-const jsonDbPath = path.join(__dirname, '/../data/phrases.json');
+const jsonDbPathForPhrase = path.join(__dirname, '/../data/phrases.json');
+const jsonDbPathForSuggestedPhrase = path.join(__dirname, '/../data/suggestedPhrases.json');
 
 const phrases = [
   { id: 1, phrase: 'C\'est l\'heure de la bataille!' },
@@ -32,29 +33,70 @@ const phrases = [
   { id: 25, phrase: 'Le monde regarde, sois un champion!' },
 ];
 
+const suggestedPhrases = [
+  { id: 1, suggestedPhrase: 'La victoire est mienne !' },
+];
+
 async function readPhrases() {
-  const phrasesTable = parse(jsonDbPath, phrases);
+  const phrasesTable = parse(jsonDbPathForPhrase, phrases);
 
   return phrasesTable;
 }
 
+async function readSuggestedPhrases() {
+  const suggestedPhraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
+
+  return suggestedPhraseTable;
+}
+
+async function removeSuggestedPhrase(id) {
+  const SuggestedphraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
+
+  const parameterId = parseInt(id, 10);
+  const foundPhrase = SuggestedphraseTable.findIndex((phrase) => phrase.id === parameterId);
+  if (foundPhrase < 0) return undefined;
+
+  const deletedSuggestedPhrases = SuggestedphraseTable.splice(foundPhrase, 1);
+  console.table(deletedSuggestedPhrases);
+  const deletedPhrase = deletedSuggestedPhrases[0];
+
+  serialize(jsonDbPathForSuggestedPhrase, SuggestedphraseTable);
+
+  return deletedPhrase;
+}
+
 async function addPhrase(phrase) {
-  const phraseTable = parse(jsonDbPath, phrases);
+  const phraseTable = parse(jsonDbPathForPhrase, phrases);
 
   const newPhrase = {
-    id: getNextId(),
+    id: getNextIdForPhraseTable(),
     phrase,
   };
 
   phraseTable.push(newPhrase);
 
-  serialize(jsonDbPath, phraseTable);
+  serialize(jsonDbPathForPhrase, phraseTable);
 
   return newPhrase;
 }
 
+async function addSuggestedPhrase(suggestedPhrase) {
+  const suggestedPhraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
+
+  const newSuggestedPhrase = {
+    id: getNextIdForSuggestedPhraseTable(),
+    suggestedPhrase,
+  };
+
+  suggestedPhraseTable.push(newSuggestedPhrase);
+
+  serialize(jsonDbPathForSuggestedPhrase, suggestedPhraseTable);
+
+  return newSuggestedPhrase;
+}
+
 async function removePhrase(id) {
-  const phraseTable = parse(jsonDbPath, phrases);
+  const phraseTable = parse(jsonDbPathForPhrase, phrases);
 
   const parameterId = parseInt(id, 10);
   const foundPhrase = phraseTable.findIndex((phrase) => phrase.id === parameterId);
@@ -64,17 +106,34 @@ async function removePhrase(id) {
   console.table(deletedPhrases);
   const deletedPhrase = deletedPhrases[0];
 
-  serialize(jsonDbPath, phraseTable);
+  serialize(jsonDbPathForPhrase, phraseTable);
 
   return deletedPhrase;
 }
 
-function getNextId() {
-  const phraseTable = parse(jsonDbPath, phrases);
+function getNextIdForPhraseTable() {
+  const phraseTable = parse(jsonDbPathForPhrase, phrases);
   const lastItemIndex = phraseTable?.length !== 0 ? phraseTable.length - 1 : undefined;
   if (lastItemIndex === undefined) return 1;
   const lastId = phraseTable[lastItemIndex]?.id;
   const nextId = lastId + 1;
   return nextId;
 }
-module.exports = { readPhrases, addPhrase, removePhrase };
+
+function getNextIdForSuggestedPhraseTable() {
+  const phraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
+  const lastItemIndex = phraseTable?.length !== 0 ? phraseTable.length - 1 : undefined;
+  if (lastItemIndex === undefined) return 1;
+  const lastId = phraseTable[lastItemIndex]?.id;
+  const nextId = lastId + 1;
+  return nextId;
+}
+
+module.exports = {
+  readPhrases,
+  addPhrase,
+  removePhrase,
+  addSuggestedPhrase,
+  readSuggestedPhrases,
+  removeSuggestedPhrase,
+};

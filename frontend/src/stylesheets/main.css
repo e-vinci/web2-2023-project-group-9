@@ -1134,7 +1134,7 @@ input[type='submit']:hover {
   color: white;
 }
 
-#container-admin-page {
+#container-add-suggested-phrase {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1143,7 +1143,7 @@ input[type='submit']:hover {
 
 }
 
-#container-form-add-remove-phrase {
+#container-form-add-suggested-phrase {
   top: 0;
   background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
   backdrop-filter: blur(10px);
@@ -1153,8 +1153,51 @@ input[type='submit']:hover {
   text-align: center;
   width: 60%;
 }
-#container-form-add-remove-phrase h3 {
+
+#container-form-add-suggested-phrase h3 {
   text-align: center;
   color: #ffffff;
+}
+
+#container-suggested-phrases-table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+
+#suggested-phrases-table {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  width: 60%;
+}
+/* Style général du tableau */
+#suggested-phrases-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style des en-têtes de colonnes */
+#suggested-phrases-table th {
+  background-color: rgb(124, 1, 1);
+  color: white;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Style des cellules du tableau */
+#suggested-phrases-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5vw;
+  color: #ddd;
+  
 }
 

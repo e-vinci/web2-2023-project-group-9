@@ -3,6 +3,20 @@
 ### read phrases 
 GET {{baseUrl}}/game
 
+### read suggested phrases
+GET {{baseUrl}}/game/readSuggestedPhrases
+
+### add suggested phrase
+POST {{baseUrl}}/game/addSuggestedPhrase
+Content-Type: application/json
+
+{
+    "phrase" : "Je vais te massacrer !"
+}
+
+### delete suggested phrase
+DELETE {{baseUrl}}/game/deleteSuggestedPhrase/1
+
 ### add phrase 
 POST {{baseUrl}}/game/addPhrase
 Content-Type: application/json
@@ -12,4 +26,4 @@ Content-Type: application/json
 }
 
 ### remove phrase
-DELETE {{baseUrl}}/game/deletePhrase/26
+DELETE {{baseUrl}}/game/deletePhrase/27
