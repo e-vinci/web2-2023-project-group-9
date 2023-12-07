@@ -76,7 +76,7 @@ const HomePage = () => {
   imgDemo.src = decorBouton;
 
   main.innerHTML += `
-  <section id = "mainContent">
+  <section class = "mainContent">
   <section id = "titleOfMain"></section>
   <section id ="buttonSection">
     <div id="inscription">

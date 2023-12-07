@@ -8,6 +8,10 @@ const FightersSelect  = () =>{
     clearAllPage();
     body.style.backgroundImage = `url(${background})`;
     body.style.backgroundSize = 'cover';
+    const main = document.querySelector('main');
+    main.innerHTML = `
+    
+    `;
 };
 
 export default FightersSelect;
