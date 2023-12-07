@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import { clearPage, renderPageTitle } from '../../utils/render';
-import { checkInformationsBeforeLogin } from '../../utils/validator';
+import { clearPage } from '../../utils/render';
+// import { checkInformationsBeforeLogin } from '../../utils/validator';
 import Navigate from '../Router/Navigate';
+
 
 const LoginPage = () => {
   clearPage();
@@ -54,21 +55,45 @@ const LoginPage = () => {
  * 
  * @returns {void} This function does not have a direct return value.
  */
-function onLogin(e) {
+async function onLogin(e) {
   e.preventDefault();
 
-  const username = document.querySelector('#pseudo').value;
+  const user = document.querySelector('#pseudo').value;
   const password = document.querySelector('#motdepasse').value;
 
-  const phraseError = document.querySelector('.phrase_error');
+  // const phraseError = document.querySelector('.phrase_error');
 
-  const data = {
-    username,
-    password
-  }
+  // const data = {
+  //   user,
+  //   password
+  // }
 
-  phraseError.textContent = checkInformationsBeforeLogin(data);
+  // phraseError.textContent = checkInformationsBeforeLogin(data);
 
-    // YOUR CODE, Youssef
+  // YOUR CODE, Youssef
+  // FIXME EST ce que les vérif suivante sont ok ?
+  console.log(user)
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      user,
+      password,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+  };
+
+  const response = await fetch('/api/auths/login', options);
+  if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+
+  const newSession = await response.json();
+  console.log('New user added : ', newSession);
+  
+  Navigate('/');
+
+
 }
+
 export default LoginPage;
