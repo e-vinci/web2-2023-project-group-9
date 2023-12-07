@@ -7,10 +7,10 @@ import spiderManPortrait from '../../img/PortraitFighters/Spider man.png';
 import captainAmerica from '../../img/PortraitFighters/Captain america.png';
 import gokuPortrait from '../../img/PortraitFighters/Goku.png';
 import gohanPortrait from '../../img/PortraitFighters/Gohan.png';
-import arenaDbz from '../../img/MyFighters/arenaDbz.jpg';
-import arenaCh from '../../img/MyFighters/arenaCh.jpg';
-import arenaNy from '../../img/MyFighters/arenaNy.jpg';
-import arenaCa from '../../img/MyFighters/arenaCa.jpg';
+// import arenaDbz from '../../img/MyFighters/arenaDbz.jpg';
+// import arenaCh from '../../img/MyFighters/arenaCh.jpg';
+// import arenaNy from '../../img/MyFighters/arenaNy.jpg';
+// import arenaCa from '../../img/MyFighters/arenaCa.jpg';
 
 
 import backgroundFighters  from '../../img/BaseDuSite/backgroundFighters.jpg';
@@ -41,32 +41,32 @@ const FightersPage = () => {
       <div></div>
     </section>
   `;
-  const arena = document.querySelector('#arena');
+  // const arena = document.querySelector('#arena');
   const sprite = document.querySelector('#arena div');
   const buttons = document.querySelectorAll('button');
 
   buttons.forEach((button) =>{
     if(button.className === 'brolyDBZ' || button.className === 'goku' || button.className === 'gohan'){
       button.addEventListener('click', ()=>{
-        arena.style.backgroundImage = `url(${arenaDbz})`;
+        // arena.style.backgroundImage = `url(${arenaDbz})`;
         sprite.id = button.className // comme ça l'id du sprite il prend la classeName de l'image vu que dans le css les sprite c dans une idée qui est égale à la classeName des images  
       })
     }
     if(button.className === 'venomSP' || button.className === 'spiderMan'){
       button.addEventListener('click', ()=>{
-        arena.style.backgroundImage = `url(${arenaNy})`;
+        // arena.style.backgroundImage = `url(${arenaNy})`;
         sprite.id = button.className
       })
     }
     if(button.className === 'chunLiTK'){
       button.addEventListener('click', ()=>{
-        arena.style.backgroundImage = `url(${arenaCh})`;
+        // arena.style.backgroundImage = `url(${arenaCh})`;
         sprite.id = button.className
       })
     }
     if(button.className === 'captainAmerica'){
       button.addEventListener('click', ()=>{
-        arena.style.backgroundImage = `url(${arenaCa})`;
+        // arena.style.backgroundImage = `url(${arenaCa})`;
         sprite.id = button.className
       })
     }

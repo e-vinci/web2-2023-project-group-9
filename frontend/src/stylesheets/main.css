@@ -874,6 +874,50 @@ input[type='submit']:hover {
   }
 }
 
+/* Fighters Select */
+
+#titleOfFigtersSelect{
+    color: white;
+    font-size: 3em;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#fightersSelect{
+  height: 80vh;
+}
+
+#choixJ1{
+  
+}
+.nomCombattant1 {
+  margin-left: -100%;
+}
+
+.combattant1{
+  margin-left: -100%;
+}
+
+
+.nomCombattant1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+.main-container{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  justify-content: center;
+}
+
 /*DEBUT POUR ANIMER les personnages */
 #charactere-player-1-demo {
   position: absolute;
