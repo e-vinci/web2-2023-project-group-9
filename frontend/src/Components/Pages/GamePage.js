@@ -165,7 +165,7 @@ const GamePage = async () => {
   const gameTimerData = {
     timer: null,
     isRunning: false,
-    countDown: 20,
+    countDown: 20000
   };
 
   const gamePreparationTimerData = {
@@ -180,9 +180,15 @@ const GamePage = async () => {
 
   function handleKeyboardInput(e) {
     if (!gamePreparationTimerData.isPreparationTime) {
-      const { key } = e;
+      const specialKeys = ["F1", "Enter", "Home", "CapsLock"];
+      const {key} = e;
+      
+      if (specialKeys.includes(key)) {
+        return; // Ignore the special keys
+      }
+      
       const currentLetter = textGameData.phrase[textGameData.letterIndex];
-
+      
       if (key === currentLetter) {
         handleCorrectKey();
       } else {
@@ -255,7 +261,7 @@ const GamePage = async () => {
 
   async function updatePlayersAndCheckGameOver() {
     players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;
-    gameTimerData.countDown = 20;
+    gameTimerData.countDown = 20000;
 
     if (players.currentPlayer === 1) {
       timerDisplayLeft.textContent = gameTimerData.countDown;
@@ -338,26 +344,29 @@ const GamePage = async () => {
     if (!gamePreparationTimerData.isPreparationTime) {
       if (gameTimerData.countDown > 0) {
         if (players.currentPlayer === 1) {
-          // eslint-disable-next-line no-plusplus
-          players.player1Time++;
-        }
-        if (players.currentPlayer === 2) {
-          // eslint-disable-next-line no-plusplus
-          players.player2Time++;
-        }
-        // eslint-disable-next-line no-plusplus
-        gameTimerData.countDown--;
-
-        if (players.currentPlayer === 1) {
-          timerDisplayLeft.textContent = gameTimerData.countDown;
+          players.player1Time += 100; // Ajouter 100 millisecondes
         } else {
-          timerDisplayRight.textContent = gameTimerData.countDown;
+          players.player2Time += 100; // Ajouter 100 millisecondes
+        }
+  
+        gameTimerData.countDown -= 100; // Décompter de 100 millisecondes
+  
+        const seconds = Math.floor(gameTimerData.countDown / 1000); // Conversion en secondes
+        const milliseconds = gameTimerData.countDown % 1000; // Partie des millisecondes restantes
+  
+        if (players.currentPlayer === 1) {
+          timerDisplayLeft.textContent = `${seconds}:${String(milliseconds).padStart(3, '0')}`;
+        } else {
+          timerDisplayRight.textContent = `${seconds}:${String(milliseconds).padStart(3, '0')}`;
         }
       } else {
         handleTimerFinish();
       }
     }
   }
+  
+  
+  
 
   function handleTimerFinish() {
     clearInterval(gameTimerData.timer);
@@ -379,7 +388,7 @@ const GamePage = async () => {
 
   function startTimer() {
     if (!gameTimerData.isRunning) {
-      gameTimerData.timer = setInterval(updateTimer, 1000);
+      gameTimerData.timer = setInterval(updateTimer, 100); // Mettre à jour toutes les 100 millisecondes
       gameTimerData.isRunning = true;
     }
   }
