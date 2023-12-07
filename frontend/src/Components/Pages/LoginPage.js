@@ -72,11 +72,14 @@ async function onLogin(e) {
 
   // YOUR CODE, Youssef
   // FIXME EST ce que les vérif suivante sont ok ?
+
+  
   console.log(user)
+  console.log(password)
   const options = {
     method: 'POST',
     body: JSON.stringify({
-      user,
+      username : user,
       password,
     }),
     headers: {
@@ -85,13 +88,21 @@ async function onLogin(e) {
     credentials: 'include',
   };
 
-  const response = await fetch('/api/auths/login', options);
-  if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-
-  const newSession = await response.json();
-  console.log('New user added : ', newSession);
+  try {
+    const response = await fetch('/api/auths/login', options);
+    if (!response.ok) {
+      throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    }
   
-  Navigate('/');
+    const newSession = await response.json();
+    console.log('New user added : ', newSession);
+  
+    // Navigate to the home page or perform other actions on successful login.
+    Navigate('/');
+  } catch (error) {
+    console.error('Login failed:', error);
+    // Handle the error, e.g., display an error message to the user.
+  }
 
 
 }
