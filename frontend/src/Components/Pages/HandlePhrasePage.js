@@ -74,9 +74,8 @@ async function renderHandlePhrase() {
       console.log(`l'id de la phrase ajouté est ${idOfPhrase}`);
 
       removeAddedSuggestedPhrase(idOfPhrase);
-      
-      rowToRemove.remove();
 
+      rowToRemove.remove();
     } catch (error) {
       console.error('Error adding phrase:', error);
     }
