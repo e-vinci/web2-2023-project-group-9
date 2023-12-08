@@ -63,28 +63,31 @@ const GamePage = async () => {
 
   const times = document.querySelectorAll('.timeLeft, .timeRight');
 
-  function loadingPage(){
-  const loading = document.querySelector('#loading')
-  loading.style.display = 'flex';
-  const valueLoading = document.querySelector('#loading p');
-  let currentValue = parseInt(valueLoading.innerHTML, 10);
-  const intervalID = setInterval(() => {
-    if (currentValue !== 0) {
-      currentValue -= 1;
-      valueLoading.innerHTML = currentValue;
-      if (currentValue === 0) {
-        valueLoading.innerHTML = 'FIGHT !';
+  function loadingPage() {
+    const loading = document.querySelector('#loading');
+    loading.style.display = 'flex';
+    const valueLoading = document.querySelector('#loading p');
+    let currentValue = parseInt(valueLoading.innerHTML, 10);
+    const intervalID = setInterval(() => {
+      if (currentValue !== 0) {
+        currentValue -= 1;
+        valueLoading.innerHTML = currentValue;
+        if (currentValue === 0) {
+          valueLoading.innerHTML = 'FIGHT !';
+        }
+      } else {
+        clearInterval(intervalID);
+        loading.style.display = 'none';
+        valueLoading.innerHTML = '3';
+        setTimeout(() => {
+          switchText();
+          startPreparationTimer();
+          avatarOfPlayer1.classList.add('transformVenom');
+          avatarOfPlayer2.classList.add('transformBroly');
+        }, 200);
       }
-    } else {
-      clearInterval(intervalID);
-      loading.style.display = 'none';
-      valueLoading.innerHTML = '3';
-      setTimeout(() =>{
-        avatarOfPlayer1.classList.add('transformVenom');
-        avatarOfPlayer2.classList.add('transformBroly');
-      },200);
-    }
-  }, 1000)};
+    }, 1000);
+  }
 
   transformation(avatarOfPlayer2, 1500);
   transformation(avatarOfPlayer1, 1500);
@@ -172,9 +175,6 @@ const GamePage = async () => {
     isPreparationTime: false,
     preparationCountDown: 5,
   };
-
-  await switchText();
-  startPreparationTimer();
 
   document.addEventListener('keydown', handleKeyboardInput);
 
@@ -365,18 +365,9 @@ const GamePage = async () => {
     }
   }
   
-  
-  
-
   function handleTimerFinish() {
-    clearInterval(gameTimerData.timer);
-    gameTimerData.isRunning = false;
-
-    if (players.currentPlayer === 1) {
-      timerDisplayLeft.textContent = 'Time is up';
-    } else {
-      timerDisplayRight.textContent = 'Time is up';
-    }
+    // clearInterval(gameTimerData.timer);
+    // gameTimerData.isRunning = false;
 
     if (!players.isRoundOver) {
       textGameData.letterIndex = 0;

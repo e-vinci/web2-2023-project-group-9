@@ -1214,3 +1214,48 @@ input[type='submit']:hover {
   
 }
 
+#container-phrases-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%;
+}
+
+#phrases-table {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.558);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 100%; /* Ensure the table does not exceed the container width */
+  overflow: auto; /* Enable horizontal scrolling for the table */
+}
+
+/* Style général du tableau */
+#phrases-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style des en-têtes de colonnes */
+#phrases-table th {
+  background-color: rgb(124, 1, 1);
+  color: white;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Style des cellules du tableau */
+#phrases-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5vw;
+  color: #ddd;
+}
+
+

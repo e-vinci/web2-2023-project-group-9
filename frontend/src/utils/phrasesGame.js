@@ -1,22 +1,18 @@
-    // eslint-disable-next-line import/prefer-default-export, consistent-return
-    export const getPhraseRandom = async () => {
-        try {
+// eslint-disable-next-line import/prefer-default-export, consistent-return
+export const getPhraseRandom = async () => {
+  try {
+    const response = await fetch('/api/game');
 
-        const response = await fetch('/api/game');
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
-        if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    const phrases = await response.json();
 
-        const phrases = await response.json();
+    // console.table(phrases);
 
-        // console.table(phrases);
+    const phraseAleatoire = phrases[Math.floor(Math.random() * phrases.length)];
 
-        const phraseAleatoire = phrases[Math.floor(Math.random() * phrases.length)];
-
-        return phraseAleatoire.phrase;
-
-        }catch(err){
-            // console.error('GamePage::error: ', err);
-        }
-
-    };
-
+    return phraseAleatoire.phrase;
+  } catch (err) {
+    // console.error('GamePage::error: ', err);
+  }
+};

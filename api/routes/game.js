@@ -10,12 +10,18 @@ const {
   readSuggestedPhrases,
   removeSuggestedPhrase,
   readOneSuggestedPhrase,
+  readOnePhrase,
 } = require('../models/game');
 // const { isAdmin } = require('../utils/auths');
 
 router.get('/', async (req, res) => {
   const phrases = await readPhrases();
   res.json(phrases);
+});
+
+router.get('/readOnePhraseFromGame/:id', (req, res) => {
+  const phrase = readOnePhrase(req.params.id);
+  return res.json(phrase);
 });
 
 router.get('/readSuggestedPhrases', async (req, res) => {

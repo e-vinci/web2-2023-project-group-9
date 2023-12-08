@@ -52,8 +52,6 @@ Authorization: {{admin.response.body.token}}
 }
 
 
-
-
 ######### ERROR OPERATION  ###########
 
 ### 1. Create a pizza without a token

@@ -8,6 +8,7 @@ import GamePage from '../Pages/GamePage';
 import DemoGame from '../Pages/DemoGamePage';
 import HandleSuggestedPhrasePage from '../Pages/HandleSuggestedPhrasePage';
 import HandlePhrasePage from '../Pages/HandlePhrasePage';
+import HandlePhraseFromGamePage from '../Pages/HandlePhrasesFromGame';
 
 
 const routes = {
@@ -20,7 +21,8 @@ const routes = {
   '/demo' : DemoGame,
   '/game' : GamePage,
   '/handleSuggestedPhrase' : HandleSuggestedPhrasePage,
-  '/handlePhrase' : HandlePhrasePage
+  '/handlePhrase' : HandlePhrasePage,
+  '/handlePhraseFromGame' : HandlePhraseFromGamePage
 };
 
 export default routes;

@@ -9,7 +9,7 @@ const HandleSuggestedPhrasePage = () => {
   <section class="mainContent">
     <div id="container-add-suggested-phrase">
       <div id="container-form-add-suggested-phrase">
-        <h3> Gerer les phrases <h3>
+        <h3> Proposez des phrases <h3>
         <br>
         <form method="POST" > 
           <label for="add-phrase">La phrase a proposer : </label>

@@ -120,6 +120,15 @@ function readOneSuggestedPhrase(id) {
   return suggestedPhrasesTable[indexFound];
 }
 
+function readOnePhrase(id) {
+  const idNumber = parseInt(id, 10);
+  const phraseTable = parse(jsonDbPathForPhrase, phrases);
+  const indexFound = phraseTable.findIndex((phrase) => phrase.id === idNumber);
+  if (indexFound < 0) return undefined;
+
+  return phraseTable[indexFound];
+}
+
 function getNextIdForPhraseTable() {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
   const lastItemIndex = phraseTable?.length !== 0 ? phraseTable.length - 1 : undefined;
@@ -146,4 +155,5 @@ module.exports = {
   readSuggestedPhrases,
   removeSuggestedPhrase,
   readOneSuggestedPhrase,
+  readOnePhrase,
 };
