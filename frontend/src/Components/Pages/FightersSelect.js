@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
+import Navigate from '../Router/Navigate';
 import brolyPortrait from '../../img/PortraitFighters/Broly.png';
 import venomPortrait from '../../img/PortraitFighters/Venom.png';
 import chunLiPortrait from '../../img/PortraitFighters/Chun li.png';
@@ -18,6 +19,7 @@ import gokuPortrait2 from '../../img/PortraitFighters/gokuP.png';
 import gohanPortrait2 from '../../img/PortraitFighters/gohanP.png';
 import wichFighter from '../../img/PortraitFighters/wichFighter.png'
 import background from '../../img/BaseDuSite/backgroundFightSelect.jpg';
+
 
 const body = document.querySelector('body');
  
@@ -39,7 +41,17 @@ const FightersSelect  = () =>{
     <p class="wichJ2">Joueur 2</p>
     </section>
     </section>
-    <section class="main-container">
+    <section class="main-container" id="main-container1">
+    <button style="background-image: url('${brolyPortrait}')" class="brolyDBZ"></button>
+    <button style="background-image: url('${venomPortrait}')" class="venomSP"></button>
+    <button style="background-image: url('${spiderManPortrait}')" class="spiderMan"></button>
+    <button style="background-image: url('${chunLiPortrait}')" class="chunLiTK"></button>
+    <button style="background-image: url('${captainAmerica}')" class="captainAmerica"></button>
+    <button style="background-image: url('${gokuPortrait}')" class="goku"></button>
+    <button style="background-image: url('${gohanPortrait}')" class="gohan"></button>
+    </section>
+
+    <section class="main-container" id="main-container2" style="display:none;">
     <button style="background-image: url('${brolyPortrait}')" class="brolyDBZ"></button>
     <button style="background-image: url('${venomPortrait}')" class="venomSP"></button>
     <button style="background-image: url('${spiderManPortrait}')" class="spiderMan"></button>
@@ -49,7 +61,8 @@ const FightersSelect  = () =>{
     <button style="background-image: url('${gohanPortrait}')" class="gohan"></button>
     </section>
     `;
-    const buttons = document.querySelectorAll('button');
+    const buttons1 = document.querySelectorAll('#main-container1 button');
+    const buttons2 = document.querySelectorAll('#main-container2 button');
     const img = document.querySelector('.combattant1');
     const nomCombattant1 = document.querySelector('.wichJ1');
     const wich = document.querySelector('.wichChoise1');
@@ -60,7 +73,7 @@ const FightersSelect  = () =>{
     let player1Selected = false;
     function choixJ1(){
         let selectedFighter = null;
-        buttons.forEach((button) => {
+        buttons1.forEach((button) => {
             button.addEventListener("mouseover", () => {
                 wich.style.marginLeft = '-100%';
                 if (button.classList.contains('brolyDBZ')) {
@@ -174,7 +187,11 @@ const FightersSelect  = () =>{
 
     function choixJ2(){
         let selectedFighter = null;
-        buttons.forEach((button) => {
+        const mainContent2 = document.querySelector('#main-container2');
+        mainContent2.style.display = "flex";
+        // const mainContent1 = document.querySelector('#main-container1');
+        // mainContent2.style.display = "none";
+        buttons2.forEach((button) => {
             button.addEventListener("mouseover", () => {
                 wich2.style.marginRight = '-100%';
                 if (button.classList.contains('brolyDBZ')) {
@@ -278,6 +295,7 @@ const FightersSelect  = () =>{
                     }
                     // Réinitialisez la variable pour permettre de choisir un autre combattant
                     selectedFighter = null;
+                    Navigate('/arenaSelect')
                 }else{
                     selectedFighter= button;
                 }
