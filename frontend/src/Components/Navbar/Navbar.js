@@ -70,11 +70,9 @@ const Navbar = () => {
 
   // Ajout de l'écouteur d'événements pour le clic sur l'élément avec l'id "icons"
   console.log(navbarWrapper);
-  document.addEventListener('DOMContentLoaded', () => {
-    const icons = document.querySelector('#icons');
+  const icons = document.querySelector('#icons');
   icons.addEventListener('click', () => {
     navbarWrapper.classList.toggle("active");
-  });
   });
   
 
