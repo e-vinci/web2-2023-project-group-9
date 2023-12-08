@@ -19,21 +19,29 @@ const defaultUsers = [
   },
 ];
 
-async function login(username, password) {
-  const userFound = readOneUserFromUsername(username);
-  if (!userFound) return undefined;
+async function login(user, password) { // TODO : à finir
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let userFound = '';
+
+  if (emailRegex.test(user)) {
+    userFound = readOneUserFromMail(user);
+    if (!userFound) return undefined;
+  } else {
+    userFound = readOneUserFromUsername(user);
+    if (!userFound) return undefined;
+  }
 
   const passwordMatch = await bcrypt.compare(password, userFound.password);
   if (!passwordMatch) return undefined;
 
   const token = jwt.sign(
-    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    { username: user }, // session data added to the payload (payload : part 2 of a JWT)
     jwtSecret, // secret used for the signature (signature part 3 of a JWT)
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
 
   const authenticatedUser = {
-    username,
+    user,
     token,
   };
 
@@ -65,6 +73,14 @@ async function register(username, email, password) {
 function readOneUserFromUsername(username) {
   const users = parse(jsonDbPath, defaultUsers);
   const indexOfUserFound = users.findIndex((user) => user.username === username);
+  if (indexOfUserFound < 0) return undefined;
+
+  return users[indexOfUserFound];
+}
+
+function readOneUserFromMail(email) {
+  const users = parse(jsonDbPath, defaultUsers);
+  const indexOfUserFound = users.findIndex((user) => user.email === email);
   if (indexOfUserFound < 0) return undefined;
 
   return users[indexOfUserFound];
@@ -102,4 +118,5 @@ module.exports = {
   login,
   register,
   readOneUserFromUsername,
+  readOneUserFromMail,
 };
