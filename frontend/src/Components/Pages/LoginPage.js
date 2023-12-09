@@ -2,6 +2,7 @@
 import { clearPage } from '../../utils/render';
 // import { checkInformationsBeforeLogin } from '../../utils/validator';
 import Navigate from '../Router/Navigate';
+import { setAuthenticatedUser } from '../../utils/auths';
 
 
 const LoginPage = () => {
@@ -95,7 +96,8 @@ async function onLogin(e) {
     }
   
     const newSession = await response.json();
-    console.log('New user added : ', newSession);
+    const authenticatedUser = setAuthenticatedUser(newSession);
+    console.log('New user added : ', authenticatedUser);
   
     // Navigate to the home page or perform other actions on successful login.
     Navigate('/');

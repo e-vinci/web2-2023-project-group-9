@@ -5,6 +5,8 @@
 import anime from 'animejs';
 import Typewriter from 'typewriter-effect/dist/core';
 
+import { getAuthenticatedUser, isAuthenticated } from '../../utils/auths';
+
 /* eslint-disable camelcase */
 import titrePage from '../../img/ImageAcceuil/titrePageAcceuil.png';
 import decorBouton from '../../img/BaseDuSite/imgButton.png';
@@ -46,6 +48,10 @@ const titreFooter = titrePage;
 
 const HomePage = () => {
   clearPage();
+
+  const infoUser = getAuthenticatedUser();
+  const isConnected = isAuthenticated();
+
   const main = document.querySelector('main');
 
   // Créez un élément img
@@ -65,8 +71,12 @@ const HomePage = () => {
     delay: 55,
   });
 
-  // Utilisez la méthode `typeString` pour configurer l'animation
-  typewriter.typeString('<i>taper vite pour taper fort<i>').start();
+   // Utilisez la méthode `typeString` pour configurer l'animation
+  if(isConnected && infoUser.user !== 'admin'){
+    typewriter.typeString(`<i>${infoUser.user}, tapez vite pour taper fort<i>`).start();
+  }else{
+    typewriter.typeString('<i>taper vite pour taper fort<i>').start();
+  }
 
   // Créez des éléments img pour les images des boutons
   const imgInscription = document.createElement('img');
@@ -155,6 +165,27 @@ const HomePage = () => {
   </section>
 `;
 
+  
+   
+  console.log(isConnected);
+
+  const containerInscription = document.querySelector('#inscription');
+
+  if(isConnected === true){
+ 
+    containerInscription.innerHTML = `
+    <div id="inscription">
+    <p class="pboutton" id="link_to_gamePage">Jouer</p>
+    ${imgInscription.outerHTML}
+  </div>
+    `;
+    
+    const link_to_gamePage = document.querySelector('#link_to_gamePage');
+    link_to_gamePage.addEventListener('click', () => {
+      Navigate('/game');
+    })
+  }
+
   const sectionBtnScrollup = document.querySelector('#section_btn_scrollup');
   const btnScrollup = document.querySelector('#btn_scrollup');
   const valueOfScrollDown = 743.2;
@@ -182,12 +213,14 @@ const HomePage = () => {
     });
   });
 
-  const link_to_registerPage = document.querySelector('#link_to_registerPage');
+  if(!isConnected) {
+    const link_to_registerPage = document.querySelector('#link_to_registerPage');
 
-  link_to_registerPage.addEventListener('click', (e) => {
-    e.preventDefault();
-    Navigate('/register');
-  });
+    link_to_registerPage.addEventListener('click', (e) => {
+      e.preventDefault();
+      Navigate('/register');
+    });
+  }
 
   const links_to_demoPage = document.querySelectorAll('.link_to_demoPage');
 

@@ -1,15 +1,12 @@
 // import d'une image
 import logoPage from '../../img/BaseDuSite/logoPage.png';
-
-/**
- * Render the Navbar which is styled by using Bootstrap
- * Each item in the Navbar is tightly coupled with the Router configuration :
- * - the URI associated to a page shall be given in the attribute "data-uri" of the Navbar
- * - the router will show the Page associated to this URI when the user click on a nav-link
- */
+import { getAuthenticatedUser, isAuthenticated, clearAuthenticatedUser } from '../../utils/auths';
+import Navigate from '../Router/Navigate';
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
+  const isConnected = isAuthenticated();
+  const infoUser = getAuthenticatedUser();
 
   navbarWrapper.innerHTML = '';
   // Création de l'élément lien pour le logo
@@ -28,30 +25,50 @@ const Navbar = () => {
 
   let navbar = ``;
 
-  // Ajout du reste de la barre de navigation
-  if (window.location.pathname === '/login'){
-    navbar = `
-    <nav>
-      <div class="navLinks">
-        <ul>
-          <li><a href="" data-uri="/">Accueil</a></li>
-        </ul>
-      </div>
-      <div id="icons"></div>
-    </nav>
-  `;
-  }else if (window.location.pathname === '/register'){
-    navbar = `
-    <nav>
-      <div class="navLinks">
-        <ul>
-          <li><a href="" data-uri="/">Accueil</a></li>
-          <li><a href="" data-uri="/login">Se Connecter</a></li>
-        </ul>
-      </div>
-      <div id="icons"></div>
-    </nav>
-  `;
+  if(isConnected && infoUser.user !== 'admin'){
+    navbar = `  <nav>
+    <div class="navLinks">
+      <ul>
+        <li><a href="" data-uri="/">Accueil</a></li>
+        <li><a href="#mainMiddleContent">Mes combattants</a></li>
+        <li><a href="#sectionTreeAcceuil">Mes arenes</a></li>
+        <li><a href="" data-uri="/handleSuggestedPhrase">Proposer des phrases</a></li>
+        <li><a href="" id="btn-log-out"> Se deconnecter<a> </li>
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
+  } else if(isConnected && infoUser.user === 'admin'){
+    navbar = `  <nav>
+    <div class="navLinks">
+      <ul>
+        <li><a href="" data-uri="/">Accueil</a></li>
+        <li><a href="" data-uri="/handlePhraseFromGame">Gerer les phrases du jeu</a></li>
+        <li><a href="" data-uri="/handlePhrase">Gerer les phrases suggerees</a></li>
+        <li><a href="" id="btn-log-out">Se deconnecter<a> </li>
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
+  } else if(window.location.pathname === '/login'){
+    navbar = `  <nav>
+    <div class="navLinks">
+      <ul>
+        <li><a href="" data-uri="/">Accueil</a></li>
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
+  } else if(window.location.pathname === '/register'){
+    navbar = `  <nav>
+    <div class="navLinks">
+      <ul>
+        <li><a href="" data-uri="/">Accueil</a></li>
+        <li><a href="" data-uri="/login">se connecter</a></li>
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
   } else {
     navbar = `  <nav>
     <div class="navLinks">
@@ -59,7 +76,7 @@ const Navbar = () => {
         <li><a href="" data-uri="/">Accueil</a></li>
         <li><a href="#mainMiddleContent">Combattants</a></li>
         <li><a href="#sectionTreeAcceuil">Arenes</a></li>
-        <li><a href="" data-uri="/login">Se Connecter</a></li>
+        <li><a href="" data-uri="/login">se connecter</a></li>
       </ul>
     </div>
     <div id="icons"></div>
@@ -69,20 +86,25 @@ const Navbar = () => {
   navbarWrapper.innerHTML += navbar;
 
   // Ajout de l'écouteur d'événements pour le clic sur l'élément avec l'id "icons"
-  console.log(navbarWrapper);
   const icons = document.querySelector('#icons');
   icons.addEventListener('click', () => {
     navbarWrapper.classList.toggle("active");
   });
-  
 
   const links = document.querySelectorAll('nav li');
-
   links.forEach((link) =>{
     link.addEventListener('click', () =>{
       navbarWrapper.classList.remove("active");
     });
   });
+
+  const btnLogOut = document.querySelector('#btn-log-out');
+  if (btnLogOut) {
+    btnLogOut.addEventListener('click', () => {
+      clearAuthenticatedUser();
+      Navigate('/login');
+    });
+  }
 };
 
 export default Navbar;
