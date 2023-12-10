@@ -30,8 +30,8 @@ const Navbar = () => {
     <div class="navLinks">
       <ul>
         <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="">Mes combattants</a></li>
-        <li><a href="">Mes arenes</a></li>
+        <li><a href="#mainMiddleContent">Combattants</a></li>
+        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
         <li><a href="" data-uri="/handleSuggestedPhrase">Proposer des phrases</a></li>
         <li><a href="" id="btn-log-out"> Se deconnecter<a> </li>
       </ul>
@@ -43,6 +43,8 @@ const Navbar = () => {
     <div class="navLinks">
       <ul>
         <li><a href="" data-uri="/">Accueil</a></li>
+        <li><a href="#mainMiddleContent">Combattants</a></li>
+        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
         <li><a href="" data-uri="/handlePhraseFromGame">Gerer les phrases du jeu</a></li>
         <li><a href="" data-uri="/handlePhrase">Gerer les phrases suggerees</a></li>
         <li><a href="" id="btn-log-out">Se deconnecter<a> </li>
