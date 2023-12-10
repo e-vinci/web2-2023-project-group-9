@@ -13,6 +13,6 @@ export const getPhraseRandom = async () => {
 
     return phraseAleatoire.phrase;
   } catch (err) {
-    // console.error('GamePage::error: ', err);
+    console.error('GamePage::error: ', err);
   }
 };

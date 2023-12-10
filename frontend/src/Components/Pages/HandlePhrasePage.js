@@ -12,7 +12,7 @@ async function renderHandlePhrase() {
 
   if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
-  const suggestedPhraseTable = await response.json(); // Ensure that the data is parsed as JSON
+  const suggestedPhraseTable = await response.json();
 
   console.table(suggestedPhraseTable);
 
@@ -43,7 +43,9 @@ async function renderHandlePhrase() {
     e.preventDefault();
 
     const rowToRemove = e.target.closest('tr');
-    const infophrase = await getPhraseById();
+    const {phraseId} = e.target.dataset; // Récupère l'ID de la phrase depuis le bouton
+
+    const infophrase = await getPhraseById(phraseId);
     const suggestedPhrase = infophrase.phrase;
 
     console.log(`la phrase ajoité est ${suggestedPhrase}`);
@@ -58,7 +60,6 @@ async function renderHandlePhrase() {
       },
     };
 
-    // Move addedPhrase inside the fetch block
     try {
       const response3 = await fetch('/api/game/addPhrase', option);
 
@@ -69,11 +70,7 @@ async function renderHandlePhrase() {
 
       console.log(`new phrase add : ${newPhrase}`);
 
-      const idOfPhrase = infophrase.phraseId;
-
-      console.log(`l'id de la phrase ajouté est ${idOfPhrase}`);
-
-      removeAddedSuggestedPhrase(idOfPhrase);
+      removeAddedSuggestedPhrase(phraseId);
 
       rowToRemove.remove();
     } catch (error) {
@@ -84,7 +81,7 @@ async function renderHandlePhrase() {
   async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
     e.preventDefault();
 
-    const infophrase = await getPhraseById();
+    const {phraseId} = e.target.dataset; // Récupère l'ID de la phrase depuis le bouton
     const rowToRemove = e.target.closest('tr');
 
     const option = {
@@ -96,7 +93,7 @@ async function renderHandlePhrase() {
 
     try {
       const response2 = await fetch(
-        `/api/game/deleteSuggestedPhrase/${infophrase.phraseId}`,
+        `/api/game/deleteSuggestedPhrase/${phraseId}`,
         option,
       );
 
@@ -107,7 +104,6 @@ async function renderHandlePhrase() {
 
       console.log(`phrase removed : ${removedPhrase}`);
 
-      // Remove the row from the table in the DOM
       rowToRemove.remove();
     } catch (error) {
       console.error('Error removing phrase:', error);
@@ -126,10 +122,8 @@ async function renderHandlePhrase() {
     });
   }, 0);
 
-  async function getPhraseById() {
-    const phraseId = document.querySelector('#idPhrase').value;
-
-    const response4 = await fetch(`/api/game/readOneSuggestedPhrase/${phraseId}`);
+  async function getPhraseById(id) {
+    const response4 = await fetch(`/api/game/readOneSuggestedPhrase/${id}`);
 
     if (!response4.ok)
       throw new Error(`fetch error : ${response4.status} : ${response4.statusText}`);
@@ -140,9 +134,9 @@ async function renderHandlePhrase() {
 
     const phrase = informationAboutPhrase.suggestedPhrase;
 
-    console.log(phrase);
+    console.log(`getPhraseById ${phrase.phraseId}`);
 
-    return { phrase, phraseId };
+    return { phrase, phraseId: id };
   }
 
   async function removeAddedSuggestedPhrase(id) {
@@ -172,11 +166,14 @@ function getAllSuggestedPhrase(table) {
   if (Array.isArray(table)) {
     // Check if table is an array
     table.forEach((phrase) => {
-      console.log(phrase); // Log the phrase object
+      console.log(`l'id de la phrase ${phrase.id}`);
       phraseTableLines += `<tr>
-                <td>${phrase.id}<input type="hidden" value="${phrase.id}" id="idPhrase"></td>
+                <td>${phrase.id}</td>
                 <td>${phrase.suggestedPhrase}</td>
-                <td><input type="submit" value="Ajouter" class="btnAddPhrase"> <input type="submit" value="supprimer" class="btnRemovePhrase"></td>
+                <td>
+                  <input type="submit" value="Ajouter" class="btnAddPhrase" data-phrase-id="${phrase.id}">
+                  <input type="submit" value="Supprimer" class="btnRemovePhrase" data-phrase-id="${phrase.id}">
+                </td>
             </tr>`;
     });
   }

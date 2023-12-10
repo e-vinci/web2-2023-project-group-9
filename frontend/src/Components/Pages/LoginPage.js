@@ -4,7 +4,6 @@ import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 import { setAuthenticatedUser } from '../../utils/auths';
 
-
 const LoginPage = () => {
   clearPage();
   const main = document.querySelector('main');
@@ -53,7 +52,7 @@ const LoginPage = () => {
  * Handles the login process when the login form is submitted.
  *
  * @param {Event} e - The submit event triggering the form submission.
- * 
+ *
  * @returns {void} This function does not have a direct return value.
  */
 async function onLogin(e) {
@@ -62,25 +61,12 @@ async function onLogin(e) {
   const user = document.querySelector('#pseudo').value;
   const password = document.querySelector('#motdepasse').value;
 
-  // const phraseError = document.querySelector('.phrase_error');
+  const phraseError = document.querySelector('.phrase_error');
 
-  // const data = {
-  //   user,
-  //   password
-  // }
-
-  // phraseError.textContent = checkInformationsBeforeLogin(data);
-
-  // YOUR CODE, Youssef
-  // FIXME EST ce que les vérif suivante sont ok ?
-
-  
-  console.log(user)
-  console.log(password)
   const options = {
     method: 'POST',
     body: JSON.stringify({
-      username : user,
+      username: user,
       password,
     }),
     headers: {
@@ -94,19 +80,18 @@ async function onLogin(e) {
     if (!response.ok) {
       throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
     }
-  
+
     const newSession = await response.json();
     const authenticatedUser = setAuthenticatedUser(newSession);
     console.log('New user added : ', authenticatedUser);
-  
+
     // Navigate to the home page or perform other actions on successful login.
     Navigate('/');
   } catch (error) {
-    console.error('Login failed:', error);
+    phraseError.textContent = "Pseudo, email ou le mot de passe est invalide";
+    console.error('Login failed:', error.message);
     // Handle the error, e.g., display an error message to the user.
   }
-
-
 }
 
 export default LoginPage;

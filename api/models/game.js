@@ -37,18 +37,33 @@ const suggestedPhrases = [
   { id: 1, suggestedPhrase: 'La victoire est mienne !' },
 ];
 
+/**
+ * Read Phrases from JSON file
+ * @returns {Array} An array representing the parsed content of the 'phrases.json' file.
+ */
 async function readPhrases() {
   const phrasesTable = parse(jsonDbPathForPhrase, phrases);
 
   return phrasesTable;
 }
 
+/**
+ * Read Suggested Phrases from JSON file
+ * @returns {Array} An array representing the parsed content of the 'suggestedPhrases.json' file.
+ */
 async function readSuggestedPhrases() {
   const suggestedPhraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
 
   return suggestedPhraseTable;
 }
 
+/**
+ * Remove a suggested phrase by ID
+ * @param {number} id - The unique identifier of the suggested phrase to be removed.
+ * @returns {Object|undefined} If the suggested phrase with the specified ID is found and removed,
+ *  it returns the deleted suggested phrase object.
+ *  If the ID is not found, it returns undefined.
+ */
 async function removeSuggestedPhrase(id) {
   const SuggestedphraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
 
@@ -65,6 +80,11 @@ async function removeSuggestedPhrase(id) {
   return deletedPhrase;
 }
 
+/**
+ * Add a new phrase
+ * @param {string} phrase - The new phrase to be added.
+ * @returns {Object} The newly added phrase object, including its unique identifier.
+ */
 async function addPhrase(phrase) {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
 
@@ -80,6 +100,11 @@ async function addPhrase(phrase) {
   return newPhrase;
 }
 
+/**
+ * Add a new suggested phrase
+ * @param {string} suggestedPhrase - The new suggested phrase to be added.
+ * @returns {Object} The newly added suggested phrase object, including its unique identifier.
+ */
 async function addSuggestedPhrase(suggestedPhrase) {
   const suggestedPhraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
 
@@ -95,6 +120,12 @@ async function addSuggestedPhrase(suggestedPhrase) {
   return newSuggestedPhrase;
 }
 
+/**
+ * Read a single suggested phrase by ID
+ * @param {number} id - The unique identifier of the suggested phrase to be retrieved.
+ * @returns {Object|undefined} If the suggested phrase with the specified ID is found,
+ * it returns the suggested phrase object. If the ID is not found, it returns undefined.
+ */
 async function removePhrase(id) {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
 
@@ -111,6 +142,12 @@ async function removePhrase(id) {
   return deletedPhrase;
 }
 
+/**
+ * Read a single phrase by ID
+ * @param {number} id - The unique identifier of the phrase to be retrieved.
+ * @returns {Object|undefined} If the phrase with the specified ID is found,
+ * it returns the phrase object. If the ID is not found, it returns undefined.
+ */
 function readOneSuggestedPhrase(id) {
   const idNumber = parseInt(id, 10);
   const suggestedPhrasesTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
@@ -120,6 +157,10 @@ function readOneSuggestedPhrase(id) {
   return suggestedPhrasesTable[indexFound];
 }
 
+/**
+ * Get the next available unique identifier for phrases.
+ * @returns {number} The next available unique identifier for phrases based on the existing data.
+ */
 function readOnePhrase(id) {
   const idNumber = parseInt(id, 10);
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
@@ -129,6 +170,10 @@ function readOnePhrase(id) {
   return phraseTable[indexFound];
 }
 
+/**
+ * Get the next available unique identifier for phrases.
+ * @returns {number} The next available unique identifier for phrases based on the existing data.
+ */
 function getNextIdForPhraseTable() {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
   const lastItemIndex = phraseTable?.length !== 0 ? phraseTable.length - 1 : undefined;
@@ -138,6 +183,11 @@ function getNextIdForPhraseTable() {
   return nextId;
 }
 
+/**
+ * Get the next available unique identifier for suggested phrases.
+ * @returns {number} The next available unique identifier
+ * for suggested phrases based on the existing data.
+ */
 function getNextIdForSuggestedPhraseTable() {
   const phraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
   const lastItemIndex = phraseTable?.length !== 0 ? phraseTable.length - 1 : undefined;

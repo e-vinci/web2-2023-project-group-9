@@ -11,11 +11,20 @@ const clearPage = () => {
   main.innerHTML = '';
 };
 
-const clearAllPage = () =>{
+
+/**
+ * Clear all content on the page.
+ * - Hides the navbar.
+ * - Clears the inner HTML of the main content.
+ */
+const clearAllPage = () => {
+  // Hide the navbar
   navbar.style.display = 'none';
+
+  // Clear the inner HTML of the main content
   const main = document.querySelector('main');
   main.innerHTML = '';
-}
+};
 
 const renderPageTitle = (title) => {
   if (!title) return;

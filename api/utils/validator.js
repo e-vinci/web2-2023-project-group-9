@@ -1,6 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const validator = require('validator');
 
+/**
+ * Check the validity of a username.
+ * @param {string} username - The username to be checked.
+ * @returns {Object} An object containing an error message and a validity flag.
+ * - `error` (string): The error message if any.
+ * - `isValid` (boolean): The validity flag.
+ */
 function checkUserName(username) {
   let error = '';
   let isValid = true;
@@ -32,6 +39,13 @@ function checkUserName(username) {
   return { error, isValid };
 }
 
+/**
+ * Check the validity of an email address.
+ * @param {string} email - The email address to be checked.
+ * @returns {Object} An object containing an error message and a validity flag.
+ * - `error` (string): The error message if any.
+ * - `isValid` (boolean): The validity flag.
+ */
 function checkEmail(email) {
   let error = '';
   let isValid = true;
@@ -43,7 +57,7 @@ function checkEmail(email) {
   }
 
   if (!validator.isEmail(email)) {
-    error = "L'email n'est pas une email";
+    error = "L'email n'est pas une email valide";
     isValid = false;
     return { error, isValid };
   }
@@ -51,6 +65,13 @@ function checkEmail(email) {
   return { error, isValid };
 }
 
+/**
+ * Check the validity of a password.
+ * @param {string} password - The password to be checked.
+ * @returns {Object} An object containing an error message and a validity flag.
+ * - `error` (string): The error message if any.
+ * - `isValid` (boolean): The validity flag.
+ */
 function checkPassword(password) {
   let error = '';
   let isValid = true;
@@ -60,6 +81,7 @@ function checkPassword(password) {
     isValid = false;
     return { error, isValid };
   }
+
   if (
     !validator.isStrongPassword(password, {
       minLength: 8,
@@ -76,4 +98,5 @@ function checkPassword(password) {
 
   return { error, isValid };
 }
+
 module.exports = { checkUserName, checkPassword, checkEmail };
