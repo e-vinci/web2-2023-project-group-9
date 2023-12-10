@@ -62,7 +62,7 @@ const DemoGame = () => {
       <div id="charactere-player-1-demo"></div>
       <div id="charactere-player-2-demo"></div>
   </div>
-  <div id="phrase-demo"><p id="phrase-attribue-demo"></p></div>`;
+  <div id="phrase-demo"><p id="phrase-attribue-demo">Le monde regarde, sois un champion!</p></div>`;
   loadingPage();
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');

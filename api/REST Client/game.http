@@ -32,4 +32,4 @@ Content-Type: application/json
 }
 
 ### remove phrase
-DELETE {{baseUrl}}/game/deletePhrase/27
+DELETE {{baseUrl}}/game/deletePhrase/26

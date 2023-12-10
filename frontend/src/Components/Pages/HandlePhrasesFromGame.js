@@ -47,8 +47,9 @@ setTimeout(() => {
 async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
     e.preventDefault();
 
-    const infophrase = await getPhraseById();
+    const {phraseId} = e.target.dataset;
     const rowToRemove = e.target.closest('tr');
+
 
     const option = {
       method: 'DELETE',
@@ -59,8 +60,8 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
 
     try {
       const response2 = await fetch(
-        `/api/game/deletePhrase/${infophrase.phraseId}`,
-        option,
+        `/api/game/deletePhrase/${phraseId}`,
+        option
       );
 
       if (!response2.ok)
@@ -77,25 +78,6 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
     }
   }
 
-  async function getPhraseById() {
-    const phraseId = document.querySelector('#idPhrase').value;
-
-    const response4 = await fetch(`/api/game/readOnePhraseFromGame/${phraseId}`);
-
-    if (!response4.ok)
-      throw new Error(`fetch error : ${response4.status} : ${response4.statusText}`);
-
-    const informationAboutPhrase = await response4.json();
-
-    console.table(informationAboutPhrase);
-
-    const phraseToken = informationAboutPhrase.phrase;
-
-    console.log(phraseId);
-
-    return { phraseId, phraseToken };
-  }
-
   return html;
 
   function getAllSuggestedPhrase(table) {
@@ -106,9 +88,9 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
       table.forEach((phrase) => {
         console.log(phrase); // Log the phrase object
         phraseTableLines += `<tr>
-                      <td>${phrase.id}<input type="hidden" value="${phrase.id}" id="idPhrase"></td>
+                      <td>${phrase.id}</td>
                       <td>${phrase.phrase}</td>
-                      <td><input type="submit" value="supprimer" class="btnRemovePhrase"></td>
+                      <td><input type="submit" value="supprimer" class="btnRemovePhrase" data-phrase-id=${phrase.id}></td>
                   </tr>`;
       });
     }
