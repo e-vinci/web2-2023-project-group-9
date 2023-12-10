@@ -30,8 +30,8 @@ const Navbar = () => {
     <div class="navLinks">
       <ul>
         <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="#mainMiddleContent">Mes combattants</a></li>
-        <li><a href="#sectionTreeAcceuil">Mes arenes</a></li>
+        <li><a href="">Mes combattants</a></li>
+        <li><a href="">Mes arenes</a></li>
         <li><a href="" data-uri="/handleSuggestedPhrase">Proposer des phrases</a></li>
         <li><a href="" id="btn-log-out"> Se deconnecter<a> </li>
       </ul>
