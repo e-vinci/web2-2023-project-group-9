@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
@@ -217,20 +218,81 @@ const DemoGame = () => {
         {
           element: '.timeLeft',
           popover: {
-            title: 'Le temps pris pour écrire la phrase est inférieur au temps du joueur 2',
+            title: 'Le temps',
+            description: 'pris pour écrire la phrase est inférieur au temps du joueur 2'
           },
         },
         {
-          element: '#phrase-attribue-demo',
-          popover: {
-            title: 'Phrase à écrire',
-            description: 'A vous de jouer !',
-          },
+            element: '#phrase-attribue-demo',
+            popover: {
+              title: 'Phrase à écrire',
+              description: 'A vous de jouer, vous incarnez Venom !',
+            },
         },
       ],
     });
     d.drive();
   }
+
+  let text = document.querySelector('#phrase-attribue-demo');
+  text.innerHTML = "Je m'appelle Sohaib";
+  let contentOfText = text.textContent;
+  let letters = contentOfText.split('');
+
+  text.innerHTML = letters.map((letter) => `<span>${letter}</span>`).join('');
+
+  let currentIndex = 0;
+  let timer;
+  let countdown;
+  let countdownStarted = false;
+
+  const spans = text.querySelectorAll('span');
+  const timeLeft = document.querySelector('.timeLeft');
+
+  function startTimer() {
+    let time = 0;
+    timer = setInterval(() => {
+      time++;
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      timeLeft.textContent = `${minutes.toString().padStart(2, '0')}:${seconds
+        .toString()
+        .padStart(2, '0')}`;
+    }, 1000);
+  }
+
+  function startCountdown() {
+    let count = 3;
+    countdown = setInterval(() => {
+      if (count > 0) {
+        timeLeft.textContent = count.toString();
+        count--;
+      } else {
+        clearInterval(countdown);
+        startTimer();
+      }
+    }, 1000);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (currentIndex < contentOfText.length) {
+      if (e.key.length === 1) {
+        if(!countdown){
+          startCountdown();
+        }
+        let letterSpan = spans[currentIndex];
+        if (e.key === contentOfText[currentIndex]) {
+          letterSpan.style.color = 'green';
+          currentIndex++;
+          if (currentIndex === contentOfText.length) {
+            clearInterval(timer);
+          }
+        } else {
+          letterSpan.style.color = 'red';
+        }
+      }
+    }
+  });
 };
 
 export default DemoGame;
