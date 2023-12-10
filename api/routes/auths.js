@@ -32,7 +32,9 @@ router.post('/login', async (req, res) => {
   const user = req?.body?.username?.length !== 0 ? req.body.username : undefined;
   const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
 
-  if (!user || !password) return res.sendStatus(400); // 400 Bad Reques
+  if (!user || !password) {
+    res.status(400).send('Pseudo, email ou mot de passe invalide'); // 400 Bad Request
+  }
 
   const authenticatedUser = await login(user, password);
 
