@@ -267,14 +267,14 @@ div img {
 #broly {
   height: 280px;
   width: 206px;
-  background: url(../assets/sprite1_Broly.png);
+  background: url(../assets/Broly/sprite1_Broly.png);
   visibility: hidden;
 }
 
 #venom {
   height: 280px;
   width: 230px;
-  background: url(../assets/sprite1_Venom.png);
+  background: url(../assets/Venom/sprite1_venom.png);
   visibility: hidden;
 }
 
@@ -757,7 +757,7 @@ input[type='submit']:hover {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: #0909096e;
+  background-color: #090909c8;
   backdrop-filter: blur(15px);
   color: white;
   z-index: 1;
@@ -765,7 +765,6 @@ input[type='submit']:hover {
   justify-content: center;
   align-items: center;
   top: -100%;
-  transition: 0.5s;
 }
 
 #menuGame {
@@ -778,6 +777,7 @@ input[type='submit']:hover {
 }
 
 #menuGame p {
+  background-color: #000;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -812,7 +812,7 @@ input[type='submit']:hover {
 
 .fa-times {
   position: absolute;
-  top: 23%;
+  top: 20%;
   left: 60%;
   cursor: pointer;
 }
@@ -895,6 +895,12 @@ input[type='submit']:hover {
   margin-bottom: 5%;
   left: 0;
 }
+
+.baseV{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/Venom/sprite1_venom.png);
+}
 #charactere-player-2-demo {
   position: absolute;
   bottom: 0;
@@ -903,10 +909,16 @@ input[type='submit']:hover {
   margin-right: 20%;
 }
 
+.baseB{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/Broly/sprite1_Broly.png);
+}
+
 .transformVenom {
   height: 280px;
   width: 231px;
-  background: url(../assets/sprite1_Venom.png);
+  background: url(../assets/Venom/sprite1_venom.png);
   animation: transform1 1.5s steps(17) 0.99 forwards;
 }
 
@@ -922,7 +934,7 @@ input[type='submit']:hover {
 .transformBroly {
   height: 280px;
   width: 206px;
-  background: url(../assets/sprite1_Broly.png);
+  background: url(../assets/Broly/sprite1_Broly.png);
   animation: transform2 1.5s steps(10) 0.99 forwards;
 }
 
@@ -935,10 +947,74 @@ input[type='submit']:hover {
   }
 }
 
-.moveBroly {
+.onTheSpotVenom1{
+  height: 280px;
+  width: 301.3px;
+  background: url(../assets/Venom/spriteVenomSurPlace.png);
+  animation: onTheSpotV1 1.5s steps(3) 1;
+}
+
+@keyframes onTheSpotV1 {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -903.9px;
+  }
+}
+
+.onTheSpotVenom {
+  height: 280px;
+  width: 301.3px;
+  background: url(../assets/Venom/spriteVenomSurPlace.png);
+  animation: onTheSpotV 1.5s steps(13) infinite;
+}
+
+@keyframes onTheSpotV {
+  0% {
+    background-position: -903.9px;
+  }
+  100% {
+    background-position: -4822px;
+  }
+}
+
+.onTheSpotBroly{
+  height: 280px;
+  width: 164.5px;
+  background: url(../assets/Broly/spriteBrolySurPlace.png);  
+  animation: onTheSpotB 1s steps(8) infinite;
+}
+
+@keyframes onTheSpotB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1316px;
+  }
+}
+
+.moveVenom{
+  height: 280px;
+  width: 254.6px;
+  background: url(../assets/Venom/spriteVenomSeDeplace.png);
+  animation: moveeV 1.5s steps(11);
+}
+
+@keyframes moveV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2801px;
+  }
+}
+
+/* .moveBroly {
   height: 159px;
   width: 175px;
-  background: url(../assets/spriteBrolySeDeplace.png);
+  background: url(../assets/Broly/spriteBrolySeDeplace.png);
   animation: moveBroly 1.5s steps(3) 0.99 forwards;
 }
 
@@ -949,7 +1025,9 @@ input[type='submit']:hover {
   100% {
     background-position: -525px;
   }
-}
+} */
+
+
 /* game */
 
 /* .areneGame{
@@ -969,12 +1047,13 @@ input[type='submit']:hover {
   font-family: 'Calisto MT', sans-serif;
   color: white;
   font-size: 24px;
+  transition: 0.5s;
 }
 
 #player1 {
   width: 246px;
   height: 280px;
-  background-image: url(../assets/sprite1_Broly.png);
+  background-image: url(../assets/Broly/sprite1_Broly.png);
   animation: sprite-animation-4 0.8s steps(4) infinite;
   position: absolute;
   right: 300px;
@@ -985,7 +1064,7 @@ input[type='submit']:hover {
 #player1_attack {
   width: 267px;
   height: 280px;
-  background-image: url(../assets/sprite1_Broly.png);
+  background-image: url(../assets/Broly/sprite1_Broly.png);
   animation: sprite-animation-3 1.5s steps(9) 0.99 forwards;
   position: absolute;
   right: 300px;
@@ -995,7 +1074,7 @@ input[type='submit']:hover {
 #player1_blesse {
   width: 300px;
   height: 280px;
-  background-image: url(../assets/sprite1_Broly.png);
+  background-image: url(../assets/Broly/sprite1_Broly.png);
   animation: sprite-animation-5 1.2s steps(4) 0.99 forwards;
   position: absolute;
   right: 300px;
@@ -1005,7 +1084,7 @@ input[type='submit']:hover {
 #player1_seReleve {
   width: 300px;
   height: 280px;
-  background-image: url(../assets/sprite1_Broly.png);
+  background-image: url(../assets/Broly/sprite1_Broly.png);
   animation: sprite-animation-6 1.2s steps(7) 0.99 forwards;
   position: absolute;
   right: 300px;
@@ -1015,7 +1094,7 @@ input[type='submit']:hover {
 #player1_mort {
   width: 300px;
   height: 280px;
-  background-image: url(../assets/sprite1_Broly.png);
+  background-image: url(../assets/Broly/sprite1_Broly.png);
   animation: sprite-animation-7 1.2s steps(4) 0.99 forwards;
   position: absolute;
   right: 300px;
@@ -1025,7 +1104,7 @@ input[type='submit']:hover {
 #player2 {
   width: 246px;
   height: 280px;
-  background-image: url(../assets/sprite1_Venom.png);
+  background-image: url(../assets/Venom/sprite1_venom.png);
   animation: sprite-animation-4 0.8s steps(4) infinite;
   position: absolute;
   left: 300px;
@@ -1037,7 +1116,7 @@ input[type='submit']:hover {
 #player2_attack {
   width: 267px;
   height: 280px;
-  background-image: url(../assets/sprite1_Venom.png);
+  background-image: url(../assets/Venom/sprite1_venom.png);
   animation: sprite-animation-3 1.5s steps(9) 0.99 forwards;
   position: absolute;
   left: 300px;
@@ -1048,7 +1127,7 @@ input[type='submit']:hover {
 #player2_blesse {
   width: 300px;
   height: 280px;
-  background-image: url(../assets/sprite1_Venom.png);
+  background-image: url(../assets/Venom/sprite1_venom.png);
   animation: sprite-animation-5 1.2s steps(4) 0.99 forwards;
   position: absolute;
   left: 300px;
@@ -1059,7 +1138,7 @@ input[type='submit']:hover {
 #player2_seReleve {
   width: 300px;
   height: 280px;
-  background-image: url(../assets/sprite1_Venom.png);
+  background-image: url(../assets/Venom/sprite1_venom.png);
   animation: sprite-animation-6 1.2s steps(7) 0.99 forwards;
   position: absolute;
   left: 300px;
@@ -1070,7 +1149,7 @@ input[type='submit']:hover {
 #player2_mort {
   width: 300px;
   height: 280px;
-  background-image: url(../assets/sprite1_Venom.png);
+  background-image: url(../assets/Venom/sprite1_venom.png);
   animation: sprite-animation-7 1.2s steps(6) 0.99 forwards;
   position: absolute;
   left: 300px;
