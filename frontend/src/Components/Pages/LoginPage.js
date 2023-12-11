@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { clearPage } from '../../utils/render';
-// import { checkInformationsBeforeLogin } from '../../utils/validator';
+import { checkInformationsBeforeLogin } from '../../utils/validator';
 import Navigate from '../Router/Navigate';
 import { setAuthenticatedUser } from '../../utils/auths';
 
@@ -63,6 +63,18 @@ async function onLogin(e) {
 
   const phraseError = document.querySelector('.phrase_error');
 
+  const data = {
+    username : user,
+    password
+  }
+
+  const messageCheck = checkInformationsBeforeLogin(data);
+
+  if(messageCheck){
+    phraseError.textContent = messageCheck;
+    return;
+  }
+
   const options = {
     method: 'POST',
     body: JSON.stringify({
@@ -85,12 +97,11 @@ async function onLogin(e) {
     const authenticatedUser = setAuthenticatedUser(newSession);
     console.log('New user added : ', authenticatedUser);
 
-    // Navigate to the home page or perform other actions on successful login.
+    // Navigate to the home page on successful login.
     Navigate('/');
   } catch (error) {
     phraseError.textContent = "Pseudo, email ou le mot de passe est invalide";
     console.error('Login failed:', error.message);
-    // Handle the error, e.g., display an error message to the user.
   }
 }
 
