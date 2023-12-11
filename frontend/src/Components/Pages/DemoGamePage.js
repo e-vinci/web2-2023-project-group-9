@@ -15,7 +15,7 @@ import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
-import backgroundDemo from '../../img/Arena/arene8.gif';
+import backgroundDemo from '../../img/Arena/arene5.gif';
 import vsFight from '../../img/Arena/vsFight.png';
 // import {driver} from 'driver.js';
 // import 'driver.js/dist/driver.css';
