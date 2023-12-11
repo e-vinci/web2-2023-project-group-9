@@ -1,4 +1,5 @@
 import { clearPage } from '../../utils/render';
+import { getAuthenticatedUser } from '../../utils/auths';
 
 const HandlePhraseFromGamePage = async () => {
   clearPage();
@@ -50,12 +51,17 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
     const {phraseId} = e.target.dataset;
     const rowToRemove = e.target.closest('tr');
 
+    const infoUser = getAuthenticatedUser();
+    const userToken = infoUser.token;
+
 
     const option = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `${userToken}`
       },
+      credentials: 'include'
     };
 
     try {

@@ -1,5 +1,6 @@
 
 import { clearPage } from '../../utils/render';
+import { getAuthenticatedUser } from '../../utils/auths';
 
 const HandleSuggestedPhrasePage = () => {
   clearPage();
@@ -27,6 +28,11 @@ const HandleSuggestedPhrasePage = () => {
   btnAddPhrase.addEventListener('click', addOnePhrase);
 
   async function addOnePhrase(e) {
+    const infoUser = getAuthenticatedUser();
+    const userToken = infoUser.token;
+  
+    console.log(userToken);
+
     let error = '';
     e.preventDefault();
 
@@ -47,6 +53,7 @@ const HandleSuggestedPhrasePage = () => {
       }),
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `${userToken}`
       },
     };
 

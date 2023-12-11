@@ -1,4 +1,5 @@
 import { clearPage } from '../../utils/render';
+import { getAuthenticatedUser } from '../../utils/auths';
 
 const HandlePhrase = async () => {
   clearPage();
@@ -39,76 +40,90 @@ async function renderHandlePhrase() {
         </section>
     `;
 
-  async function addOneSuggestedPhraseInPhrases(e) {
-    e.preventDefault();
-
-    const rowToRemove = e.target.closest('tr');
-    const {phraseId} = e.target.dataset; // Récupère l'ID de la phrase depuis le bouton
-
-    const infophrase = await getPhraseById(phraseId);
-    const suggestedPhrase = infophrase.phrase;
-
-    console.log(`la phrase ajoité est ${suggestedPhrase}`);
-
-    const option = {
-      method: 'POST',
-      body: JSON.stringify({
-        phrase: suggestedPhrase,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    try {
-      const response3 = await fetch('/api/game/addPhrase', option);
-
-      if (!response3.ok)
-        throw new Error(`fetch error : ${response3.status} : ${response3.statusText}`);
-
-      const newPhrase = await response3.json();
-
-      console.log(`new phrase add : ${newPhrase}`);
-
-      removeAddedSuggestedPhrase(phraseId);
-
-      rowToRemove.remove();
-    } catch (error) {
-      console.error('Error adding phrase:', error);
+    async function addOneSuggestedPhraseInPhrases(e) {
+      e.preventDefault();
+    
+      const infoUser = getAuthenticatedUser();
+      const userToken = infoUser.token;
+    
+      console.log(userToken);
+    
+      const rowToRemove = e.target.closest('tr');
+      const {phraseId} = e.target.dataset; // Récupère l'ID de la phrase depuis le bouton
+    
+      const infophrase = await getPhraseById(phraseId);
+      const suggestedPhrase = infophrase.phrase;
+    
+      console.log(`la phrase ajouté est ${suggestedPhrase}`);
+    
+      const option = {
+        method: 'POST',
+        body: JSON.stringify({
+          phrase: suggestedPhrase,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `${userToken}`
+        },
+        credentials: 'include',
+      };
+    
+      try {
+        const response3 = await fetch('/api/game/addPhrase', option);
+    
+        if (!response3.ok)
+          throw new Error(`fetch error : ${response3.status} : ${response3.statusText}`);
+    
+        const newPhrase = await response3.json();
+    
+        console.log(`new phrase add : ${newPhrase}`);
+    
+        removeAddedSuggestedPhrase(phraseId);
+    
+        rowToRemove.remove();
+      } catch (error) {
+        console.error('Error adding phrase:', error);
+      }
     }
+
+async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
+  e.preventDefault();
+
+  const infoUser = getAuthenticatedUser();
+  const userToken = infoUser.token;
+
+  console.log(userToken);
+
+  const {phraseId} = e.target.dataset; // Récupère l'ID de la phrase depuis le bouton
+  const rowToRemove = e.target.closest('tr');
+
+  const option = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `${userToken}`
+    },
+    credentials: 'include',
+  };
+
+  try {
+    const response2 = await fetch(
+      `/api/game/deleteSuggestedPhrase/${phraseId}`,
+      option,
+    );
+
+    if (!response2.ok)
+      throw new Error(`fetch error : ${response2.status} : ${response2.statusText}`);
+
+    const removedPhrase = await response2.json();
+
+    console.log(`phrase removed : ${removedPhrase}`);
+
+    rowToRemove.remove();
+  } catch (error) {
+    console.error('Error removing phrase:', error);
   }
-
-  async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
-    e.preventDefault();
-
-    const {phraseId} = e.target.dataset; // Récupère l'ID de la phrase depuis le bouton
-    const rowToRemove = e.target.closest('tr');
-
-    const option = {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    try {
-      const response2 = await fetch(
-        `/api/game/deleteSuggestedPhrase/${phraseId}`,
-        option,
-      );
-
-      if (!response2.ok)
-        throw new Error(`fetch error : ${response2.status} : ${response2.statusText}`);
-
-      const removedPhrase = await response2.json();
-
-      console.log(`phrase removed : ${removedPhrase}`);
-
-      rowToRemove.remove();
-    } catch (error) {
-      console.error('Error removing phrase:', error);
-    }
-  }
+}
 
   setTimeout(() => {
     const btnAddPhrase = document.querySelectorAll('.btnAddPhrase');
@@ -140,10 +155,14 @@ async function renderHandlePhrase() {
   }
 
   async function removeAddedSuggestedPhrase(id) {
+    const infoUser = getAuthenticatedUser();
+    const userToken = infoUser.token;
+
     const option = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `${userToken}`
       },
     };
 
