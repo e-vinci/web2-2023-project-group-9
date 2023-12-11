@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 // eslint-disable-next-line import/named
@@ -17,7 +18,7 @@ const GamePage = async () => {
   main.innerHTML = `
   <div id="loading">
   <p>3</p>
-</div>
+  </div>
     <div id="menu">
       <div id="menuGame">
         <i class="fas fa-times" aria-hidden="true" style="font-size: 50px;"></i>
