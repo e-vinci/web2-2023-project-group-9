@@ -1,13 +1,10 @@
 
 const STORE_USER = 'user';
-const STORE_REMEMBER = 'remember';
 let currentUser;
 
 const clearAuthenticatedUser = () => {
   localStorage.removeItem(STORE_USER);
   sessionStorage.removeItem(STORE_USER);
-
-  localStorage.removeItem(STORE_REMEMBER);
   currentUser = undefined;
 };
 
@@ -21,12 +18,12 @@ const getAuthenticatedUser = () => {
   return currentUser;
 };
 
-const setAuthenticatedUser = (authenticatedUser, remember = false) => {
+const setAuthenticatedUser = (authenticatedUser) => {
   clearAuthenticatedUser();
 
   const serializedUser = JSON.stringify(authenticatedUser);
-  (remember ? localStorage : sessionStorage).setItem(STORE_USER, serializedUser);
-  localStorage.setItem(STORE_REMEMBER, remember);
+  localStorage.setItem(STORE_USER, serializedUser);
+  sessionStorage.setItem(STORE_USER, serializedUser);
 
   currentUser = authenticatedUser;
 };
