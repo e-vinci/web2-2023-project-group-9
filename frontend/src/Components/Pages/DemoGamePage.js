@@ -15,7 +15,7 @@ import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
-import backgroundDemo from '../../img/Arena/arene9.gif';
+import backgroundDemo from '../../img/Arena/arene8.gif';
 import vsFight from '../../img/Arena/vsFight.png';
 // import {driver} from 'driver.js';
 // import 'driver.js/dist/driver.css';
@@ -82,7 +82,7 @@ const DemoGame = () => {
   loadingPage();
 
   function startCountdown() {
-    let count = 3;
+    let count = 5;
     countdown = setInterval(() => {
       if (count > 0) {
         timeLeft.textContent = count.toString();
