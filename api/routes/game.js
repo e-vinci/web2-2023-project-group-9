@@ -12,26 +12,28 @@ const {
   readOneSuggestedPhrase,
   readOnePhrase,
 } = require('../models/game');
-// const { isAdmin } = require('../utils/auths');
 
-router.get('/', async (req, res) => {
-  const phrases = await readPhrases();
+const { authorize, isAdmin } = require('../utils/auths');
+
+router.get('/', (req, res) => {
+  const phrases = readPhrases();
   res.json(phrases);
 });
 
-router.post('/addPhrase', (req, res) => {
+router.post('/addPhrase', authorize, isAdmin, (req, res) => {
   const phrase = req?.body?.phrase?.length !== 0 ? req?.body?.phrase : undefined;
 
   if (!phrase) return res.status(404).send('phrase not found');
 
   const phraseAdded = addPhrase(phrase);
 
+  console.log(phraseAdded);
   return res.json(phraseAdded);
 });
 
-router.delete('/deletePhrase/:id', (req, res) => {
+router.delete('/deletePhrase/:id', authorize, isAdmin, (req, res) => {
   const phraseDeleted = removePhrase(req.params.id);
-
+  console.log(phraseDeleted);
   return res.json(phraseDeleted);
 });
 
@@ -40,8 +42,8 @@ router.get('/readOnePhraseFromGame/:id', (req, res) => {
   return res.json(phrase);
 });
 
-router.get('/readSuggestedPhrases', async (req, res) => {
-  const suggestedPhrases = await readSuggestedPhrases();
+router.get('/readSuggestedPhrases', (req, res) => {
+  const suggestedPhrases = readSuggestedPhrases();
   res.json(suggestedPhrases);
 });
 
@@ -51,7 +53,7 @@ router.get('/readOneSuggestedPhrase/:id', (req, res) => {
   return res.json(suggestedPhrase);
 });
 
-router.post('/addSuggestedPhrase', (req, res) => {
+router.post('/addSuggestedPhrase', authorize, (req, res) => {
   const suggestedPhrase = req?.body?.phrase?.length !== 0 ? req?.body?.phrase : undefined;
 
   if (!suggestedPhrase) return res.status(404).send('suggested phrase not found');
@@ -61,7 +63,7 @@ router.post('/addSuggestedPhrase', (req, res) => {
   return res.json(addedSuggestedPhrase);
 });
 
-router.delete('/deleteSuggestedPhrase/:id', (req, res) => {
+router.delete('/deleteSuggestedPhrase/:id', authorize, isAdmin, (req, res) => {
   const removedSuggestedPhrase = removeSuggestedPhrase(req.params.id);
 
   return res.json(removedSuggestedPhrase);

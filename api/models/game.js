@@ -41,7 +41,7 @@ const suggestedPhrases = [
  * Read Phrases from JSON file
  * @returns {Array} An array representing the parsed content of the 'phrases.json' file.
  */
-async function readPhrases() {
+function readPhrases() {
   const phrasesTable = parse(jsonDbPathForPhrase, phrases);
 
   return phrasesTable;
@@ -51,7 +51,7 @@ async function readPhrases() {
  * Read Suggested Phrases from JSON file
  * @returns {Array} An array representing the parsed content of the 'suggestedPhrases.json' file.
  */
-async function readSuggestedPhrases() {
+function readSuggestedPhrases() {
   const suggestedPhraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
 
   return suggestedPhraseTable;
@@ -64,7 +64,7 @@ async function readSuggestedPhrases() {
  *  it returns the deleted suggested phrase object.
  *  If the ID is not found, it returns undefined.
  */
-async function removeSuggestedPhrase(id) {
+function removeSuggestedPhrase(id) {
   const SuggestedphraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
 
   const parameterId = parseInt(id, 10);
@@ -85,7 +85,7 @@ async function removeSuggestedPhrase(id) {
  * @param {string} phrase - The new phrase to be added.
  * @returns {Object} The newly added phrase object, including its unique identifier.
  */
-async function addPhrase(phrase) {
+function addPhrase(phrase) {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
 
   const newPhrase = {
@@ -105,7 +105,7 @@ async function addPhrase(phrase) {
  * @param {string} suggestedPhrase - The new suggested phrase to be added.
  * @returns {Object} The newly added suggested phrase object, including its unique identifier.
  */
-async function addSuggestedPhrase(suggestedPhrase) {
+function addSuggestedPhrase(suggestedPhrase) {
   const suggestedPhraseTable = parse(jsonDbPathForSuggestedPhrase, suggestedPhrases);
 
   const newSuggestedPhrase = {
@@ -126,7 +126,7 @@ async function addSuggestedPhrase(suggestedPhrase) {
  * @returns {Object|undefined} If the suggested phrase with the specified ID is found,
  * it returns the suggested phrase object. If the ID is not found, it returns undefined.
  */
-async function removePhrase(id) {
+function removePhrase(id) {
   const phraseTable = parse(jsonDbPathForPhrase, phrases);
 
   const parameterId = parseInt(id, 10);
