@@ -19,6 +19,7 @@ const body = document.querySelector('body');
 const ArenaSelect = () => {
 
     clearAllPage();
+
     body.style.backgroundImage = `url(${background})`;
     body.style.backgroundSize = 'cover';
     body.style. backgroundRepeat = 'no-repeat';

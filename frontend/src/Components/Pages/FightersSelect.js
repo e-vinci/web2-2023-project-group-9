@@ -1,8 +1,11 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 import anime from 'animejs';
+
 import { clearAllPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
+import { createSessionForFighter1, createSessionForFighter2 } from '../../utils/game';
+
 import brolyPortrait from '../../img/PortraitFighters/Broly.png';
 import venomPortrait from '../../img/PortraitFighters/Venom.png';
 import chunLiPortrait from '../../img/PortraitFighters/Chun li.png';
@@ -19,6 +22,7 @@ import gokuPortrait2 from '../../img/PortraitFighters/gokuP.png';
 import gohanPortrait2 from '../../img/PortraitFighters/gohanP.png';
 import wichFighter from '../../img/PortraitFighters/wichFighter.png'
 import background from '../../img/BaseDuSite/backgroundFightSelect.jpg';
+// import brolyFighter from '../../assets/Broly/sprite1_Broly.png'
 
 
 const body = document.querySelector('body');
@@ -72,7 +76,7 @@ const FightersSelect  = () =>{
 
     let player1Selected = false;
     function choixJ1(){
-        let selectedFighter = null;
+        let selectedFighter1 = null;
         buttons1.forEach((button) => {
             button.addEventListener("mouseover", () => {
                 wich.style.marginLeft = '-100%';
@@ -153,44 +157,49 @@ const FightersSelect  = () =>{
             }
         
             button.addEventListener("click", () => {
-                if(!player1Selected && selectedFighter === button){
+                if(!player1Selected && selectedFighter1 === button){
                     if (button.classList.contains('brolyDBZ')) {
                         nomCombattant1.innerHTML = 'Broly (Pret)';
+                        createSessionForFighter1('broly');
                     }
                     if (button.classList.contains('venomSP')) {
                         nomCombattant1.innerHTML = 'Venom (Pret)';
+                        createSessionForFighter1('venom');
                     }
                     if (button.classList.contains('spiderMan')) {
                         nomCombattant1.innerHTML = 'Spider-Man (Pret)';
+                        createSessionForFighter1('spider-man');
                     }
                     if(button.classList.contains('chunLiTK')){
                         nomCombattant1.innerHTML = 'Chun-Li (Pret)';
+                        createSessionForFighter1('chun-li');
                     }
                     if (button.classList.contains('captainAmerica')){
                         nomCombattant1.innerHTML = 'Captain-America (Pret)'
+                        createSessionForFighter1('captain-america');
                     }
                     if (button.classList.contains('goku')){
                         nomCombattant1.innerHTML = 'Son-Goku (Pret)'
+                        createSessionForFighter1('son-goku');
                     }
                     if (button.classList.contains('gohan')){
                         nomCombattant1.innerHTML = 'Son-Gohan (Pret)'
+                        createSessionForFighter1('son-gohan');
                     }
-                    selectedFighter = null;
+                    selectedFighter1 = null;
                     player1Selected = true;
                     choixJ2();
                 }else{
-                    selectedFighter= button;
+                    selectedFighter1 = button;
                 }
             });
         }); 
     }
 
     function choixJ2(){
-        let selectedFighter = null;
+        let selectedFighter2 = null;
         const mainContent2 = document.querySelector('#main-container2');
         mainContent2.style.display = "flex";
-        // const mainContent1 = document.querySelector('#main-container1');
-        // mainContent2.style.display = "none";
         buttons2.forEach((button) => {
             button.addEventListener("mouseover", () => {
                 wich2.style.marginRight = '-100%';
@@ -271,33 +280,41 @@ const FightersSelect  = () =>{
             }
         
             button.addEventListener("click", () => {
-                if(selectedFighter === button){
+                if(selectedFighter2 === button){
                     if (button.classList.contains('brolyDBZ')) {
                         nomCombattant2.innerHTML = 'Broly (Pret)';
+                        createSessionForFighter2('broly')
                     }
                     if (button.classList.contains('venomSP')) {
                         nomCombattant2.innerHTML = 'Venom (Pret)';
+                        createSessionForFighter2('venom')
                     }
                     if (button.classList.contains('spiderMan')) {
                         nomCombattant2.innerHTML = 'Spider-Man (Pret)';
+                        createSessionForFighter2('spider-man')
                     }
                     if(button.classList.contains('chunLiTK')){
                         nomCombattant2.innerHTML = 'Chun-Li (Pret)';
+                        createSessionForFighter2('chun-li')
                     }
                     if (button.classList.contains('captainAmerica')){
                         nomCombattant2.innerHTML = 'Captain-America (Pret)'
+                        createSessionForFighter2('captain-america')
                     }
                     if (button.classList.contains('goku')){
                         nomCombattant2.innerHTML = 'Son-Goku (Pret)'
+                        createSessionForFighter2('son-goku')
                     }
                     if (button.classList.contains('gohan')){
                         nomCombattant2.innerHTML = 'Son-Gohan (Pret)'
+                        createSessionForFighter2('son-gohan')
                     }
                     // Réinitialisez la variable pour permettre de choisir un autre combattant
-                    selectedFighter = null;
+                    selectedFighter2 = null;
                     Navigate('/arenaSelect')
                 }else{
-                    selectedFighter= button;
+                    selectedFighter2 = button;
+
                 }
             });
         });

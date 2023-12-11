@@ -2,7 +2,7 @@
 import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 // eslint-disable-next-line import/named
-import { getPhraseRandom } from '../../utils/phrasesGame';
+import { getPhraseRandom } from '../../utils/game';
 import Navigate from '../Router/Navigate';
 
 import backgroundDemo from '../../img/Arena/arene6.gif';
@@ -10,6 +10,9 @@ import vsFight from '../../img/Arena/vsFight.png';
 
 const GamePage = async () => {
   clearAllPage();
+
+  const fighter1 = sessionStorage.getItem('fighter1');
+  const fighter2 = sessionStorage.getItem('fighter2');
 
   const main = document.querySelector('main');
   main.style.backgroundImage = `url(${backgroundDemo})`;
@@ -83,8 +86,19 @@ const GamePage = async () => {
         setTimeout(() => {
           switchText();
           startPreparationTimer();
-          avatarOfPlayer1.classList.add('transformVenom');
-          avatarOfPlayer2.classList.add('transformBroly');
+          if(fighter1 === 'broly'){
+            avatarOfPlayer1.classList.add('transformBroly');
+          }else if(fighter1 === 'venom'){
+            avatarOfPlayer1.classList.add('transformVenom');
+          }
+
+
+          if(fighter2 === 'venom'){
+            avatarOfPlayer2.classList.add('transformVenom');
+          }else if(fighter2 === 'broly'){
+            avatarOfPlayer2.classList.add('transformBroly');
+          }
+
         }, 200);
       }
     }, 1000);
