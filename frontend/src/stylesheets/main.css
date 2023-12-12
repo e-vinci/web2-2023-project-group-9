@@ -1335,3 +1335,18 @@ input[type='submit']:hover {
     font-size: 1.5vw;
     color: #ddd;
 }
+
+#valider {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px; /* Ajuste la distance entre le bouton et le bas de la page */
+  width: 100%; /* Assure que le bouton occupe toute la largeur de la page */
+}
+
+
+.carousel-item img {
+  width: 300px; /* Largeur souhaitée pour toutes les images des arènes */
+  height: 700px; /* Ajuste la hauteur en fonction de la largeur pour ne pas déformer les images */
+  object-fit: cover; /* Remplit le conteneur sans déformer l'image */
+}

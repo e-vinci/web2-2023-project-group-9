@@ -29,11 +29,8 @@ const ArenaSelect = () => {
    // removeExistingCarousel(); // Supprime le carrousel existant s'il y en a un
 
     const carouselHTML =   
-    ` 
-    <form method="POST">
-    <input type="submit" value="valdier" id="btn-validation-arena">
-  <form>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    `
+    <div id="carouselExampleControls" class="carousel-slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="d-block w-100" src="${arena1}" alt="First slide" data-name="arena1">
@@ -62,7 +59,11 @@ const ArenaSelect = () => {
       <div class="carousel-item">
         <img class="d-block w-100" src="${arena9}" alt="Third slide" data-name="arena9">
       </div>
+      
     </div>
+    <form method="POST" id="valider">
+    <input type="submit" value="valider" id="btn-validation-arena">
+  <form>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
