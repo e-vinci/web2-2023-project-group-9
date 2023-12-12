@@ -1340,13 +1340,37 @@ input[type='submit']:hover {
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 20px; /* Ajuste la distance entre le bouton et le bas de la page */
+  bottom:20px; /* Ajuste la distance entre le bouton et le bas de la page */
   width: 100%; /* Assure que le bouton occupe toute la largeur de la page */
 }
 
 
 .carousel-item img {
   width: 300px; /* Largeur souhaitée pour toutes les images des arènes */
-  height: 700px; /* Ajuste la hauteur en fonction de la largeur pour ne pas déformer les images */
+  height: 740px; /* Ajuste la hauteur en fonction de la largeur pour ne pas déformer les images */
   object-fit: cover; /* Remplit le conteneur sans déformer l'image */
 }
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: -550%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+
+
+
