@@ -24,4 +24,8 @@ export const getPhraseRandom = async () => {
   export const createSessionForFighter2 = (fighter2) => {
     sessionStorage.setItem('fighter2', fighter2);
   }
+
+  export const createSessionForArena = (arena) => {
+    sessionStorage.setItem('arena', arena);
+  }
   
