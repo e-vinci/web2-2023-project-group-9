@@ -63,6 +63,7 @@ const GamePage = async () => {
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
   }
+  
   const arenaImages = {
     arena1,
     arena2,
