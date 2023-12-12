@@ -688,6 +688,8 @@ input[type='submit']:hover {
   box-sizing: content-box;
 }
 
+
+
 .lifeBarLeftRed, .lifeBarLeftGreen, .lifeBarRightRed, .lifeBarRightGreen{
   transition: 0.5;
 }
