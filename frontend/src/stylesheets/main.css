@@ -1346,8 +1346,8 @@ input[type='submit']:hover {
 
 
 .carousel-item img {
-  width: 300px; /* Largeur souhaitée pour toutes les images des arènes */
-  height: 740px; /* Ajuste la hauteur en fonction de la largeur pour ne pas déformer les images */
+  width: 100vh; /* Largeur souhaitée pour toutes les images des arènes */
+  height: 100vh; /* Ajuste la hauteur en fonction de la largeur pour ne pas déformer les images */
   object-fit: cover; /* Remplit le conteneur sans déformer l'image */
 }
 
