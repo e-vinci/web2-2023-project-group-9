@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
@@ -24,6 +26,43 @@ const GamePage = async () => {
   const fighter2 = sessionStorage.getItem('fighter2');
   const arena = sessionStorage.getItem('arena');
 
+  if(arena === 'arena1'){
+    main.style.backgroundImage = `url(${arena1})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  } else if(arena === 'arena2'){
+    main.style.backgroundImage = `url(${arena2})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena3'){
+    main.style.backgroundImage = `url(${arena3})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena4'){
+    main.style.backgroundImage = `url(${arena4})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena5'){
+    main.style.backgroundImage = `url(${arena5})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena6'){
+    main.style.backgroundImage = `url(${arena6})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena7'){
+    main.style.backgroundImage = `url(${arena7})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena8'){
+    main.style.backgroundImage = `url(${arena8})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena9'){
+    main.style.backgroundImage = `url(${arena9})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }
   const arenaImages = {
     arena1,
     arena2,
@@ -109,14 +148,13 @@ const GamePage = async () => {
           switchText();
           startPreparationTimer();
           if(fighter1 === 'broly'){
-            avatarOfPlayer1.classList.add('transformBroly');
+            avatarOfPlayer1.classList.add('transformBrolyL');
           }else if(fighter1 === 'venom'){
             avatarOfPlayer1.classList.add('transformVenom');
           }
 
-
           if(fighter2 === 'venom'){
-            avatarOfPlayer2.classList.add('transformVenom');
+            avatarOfPlayer2.classList.add('transformVenomR');
           }else if(fighter2 === 'broly'){
             avatarOfPlayer2.classList.add('transformBroly');
           }
@@ -177,6 +215,13 @@ const GamePage = async () => {
 
   const phraseBlock = document.querySelector('#phrase-attribue-game');
   const phraseBlockBlock = document.querySelector('#phrase-game');
+  const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
+  const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
+  const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
+  const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
+  const timerDisplayLeft = document.querySelector('.timeLeft');
+  const timerDisplayRight = document.querySelector('.timeRight');
+
 
   const textGameData = {
     letterIndex: 0,
@@ -195,18 +240,17 @@ const GamePage = async () => {
     isRoundOver: false,
   };
 
-  const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
-  const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
-  const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
-  const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
-
-  const timerDisplayLeft = document.querySelector('.timeLeft');
-  const timerDisplayRight = document.querySelector('.timeRight');
-
+  function formatTime(milliseconds) {
+    const seconds = Math.floor(milliseconds / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+  
   const gameTimerData = {
     timer: null,
     isRunning: false,
-    countDown: 20000
+    countDown: 1000
   };
 
   const gamePreparationTimerData = {
@@ -218,10 +262,9 @@ const GamePage = async () => {
 
   function handleKeyboardInput(e) {
     if (!gamePreparationTimerData.isPreparationTime) {
-      const specialKeys = ["F1", "Enter", "Home", "CapsLock"];
       const {key} = e;
       
-      if (specialKeys.includes(key)) {
+      if (key.length > 1) {
         return; // Ignore the special keys
       }
       
@@ -271,9 +314,9 @@ const GamePage = async () => {
       setTimeout(() => {
         gamePreparationTimerData.isPreparationTime = false;
         if (players.currentPlayer === 1) {
-          timerDisplayLeft.textContent = gameTimerData.countDown;
+          timerDisplayLeft.textContent = formatTime(gameTimerData.countDown);
         } else {
-          timerDisplayRight.textContent = gameTimerData.countDown;
+          timerDisplayRight.textContent = formatTime(gameTimerData.countDown);
         }
         document.addEventListener('keydown', handleKeyboardInput);
       }, 5000);
@@ -298,13 +341,13 @@ const GamePage = async () => {
   }
 
   async function updatePlayersAndCheckGameOver() {
-    players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;
-    gameTimerData.countDown = 20000;
+    players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;   
+    gameTimerData.countDown = 1000;
 
     if (players.currentPlayer === 1) {
-      timerDisplayLeft.textContent = gameTimerData.countDown;
+      timerDisplayLeft.textContent = formatTime(gameTimerData.countDown);
     } else {
-      timerDisplayRight.textContent = gameTimerData.countDown;
+      timerDisplayRight.textContent = formatTime(gameTimerData.countDown);
     }
 
     if (players.currentPlayer === 1) {
@@ -319,17 +362,6 @@ const GamePage = async () => {
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
       phraseBlockBlock.style.visibility = 'hidden';
-      avatarOfPlayer2.setAttribute('id', 'player2_attack');
-      setTimeout(() => {
-        avatarOfPlayer1.setAttribute('id', 'player1_blesse');
-      }, 1000);
-      setTimeout(() => {
-        avatarOfPlayer2.setAttribute('id', 'player2');
-        avatarOfPlayer1.setAttribute('id', 'player1_seReleve');
-        setTimeout(() => {
-          avatarOfPlayer1.setAttribute('id', 'player1');
-        }, 1000);
-      }, 2000);
       setTimeout(() => {
         players.player1Life -= 10;
         let player1LifeRed = 0
@@ -341,17 +373,6 @@ const GamePage = async () => {
       }, 1000);
     } else if (players.player1Time < players.player2Time) {
       phraseBlockBlock.style.visibility = 'hidden';
-      avatarOfPlayer1.setAttribute('id', 'player1_attack');
-      setTimeout(() => {
-        avatarOfPlayer2.setAttribute('id', 'player2_blesse');
-      }, 1000);
-      setTimeout(() => {
-        avatarOfPlayer1.setAttribute('id', 'player1');
-        avatarOfPlayer2.setAttribute('id', 'player2_seReleve');
-        setTimeout(() => {
-          avatarOfPlayer2.setAttribute('id', 'player2');
-        }, 1000);
-      }, 2000);
       setTimeout(() => {
         players.player2Life -= 10;
         let player2LifeRed = 0
@@ -363,11 +384,9 @@ const GamePage = async () => {
       }, 1000);
     }
     if (players.player1Life <= 0) {
-      avatarOfPlayer1.setAttribute('id', 'player1_mort');
-      // console.log("Player 2 wins!");
+      console.log("Player 2 wins!");
     } else if (players.player2Life <= 0) {
-      avatarOfPlayer2.setAttribute('id', 'player2_mort');
-      // console.log("Player 1 wins!");
+      console.log("Player 1 wins!");
     }
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
@@ -387,15 +406,12 @@ const GamePage = async () => {
           players.player2Time += 100; // Ajouter 100 millisecondes
         }
   
-        gameTimerData.countDown -= 100; // Décompter de 100 millisecondes
-  
-        const seconds = Math.floor(gameTimerData.countDown / 1000); // Conversion en secondes
-        const milliseconds = gameTimerData.countDown % 1000; // Partie des millisecondes restantes
+        gameTimerData.countDown += 100; // Décompter de 100 millisecondes
   
         if (players.currentPlayer === 1) {
-          timerDisplayLeft.textContent = `${seconds}:${String(milliseconds).padStart(3, '0')}`;
+          timerDisplayLeft.textContent = formatTime(gameTimerData.countDown);
         } else {
-          timerDisplayRight.textContent = `${seconds}:${String(milliseconds).padStart(3, '0')}`;
+          timerDisplayRight.textContent = formatTime(gameTimerData.countDown);
         }
       } else {
         handleTimerFinish();
@@ -409,6 +425,7 @@ const GamePage = async () => {
 
     if (!players.isRoundOver) {
       textGameData.letterIndex = 0;
+      gameTimerData.countDown = 1000;
       players.isRoundOver = true;
       resetPhraseStyles();
       updatePlayersAndCheckGameOver();
@@ -443,14 +460,14 @@ const GamePage = async () => {
       }
 
       if (gamePreparationTimerData.preparationCountDown <= 0) {
-        clearInterval(preparationInterval);
         gamePreparationTimerData.isPreparationTime = false;
+        clearInterval(preparationInterval);
         startTimer();
 
         if (players.currentPlayer === 1) {
-          timerDisplayLeft.textContent = gameTimerData.countDown;
+          timerDisplayLeft.textContent = formatTime(gameTimerData.countDown);
         } else {
-          timerDisplayRight.textContent = gameTimerData.countDown;
+          timerDisplayRight.textContent = formatTime(gameTimerData.countDown);
         }
 
         document.addEventListener('keydown', handleKeyboardInput);

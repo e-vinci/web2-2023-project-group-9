@@ -83,7 +83,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('brolyDBZ')) {
                     img.src = `${brolyPortrait2}`;
                     img.style.transform = 'scaleX(-1)';
-                    nomCombattant1.innerHTML = 'Broly';
+                    nomCombattant1.innerHTML = 'Brylon';
                     nomCombattant1.style.background = 'linear-gradient(to right, green, yellow)';
                     animationImg(img,-1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
@@ -91,7 +91,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('venomSP')) {
                     img.src = `${venomPortrait2}`;
                     img.style.transform = 'scaleX(1)';
-                    nomCombattant1.innerHTML = 'Venom';
+                    nomCombattant1.innerHTML = 'Venin';
                     nomCombattant1.style.background = 'linear-gradient(to right, blue, white)';
                     animationImg(img,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
@@ -99,7 +99,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('spiderMan')) {
                     img.src = `${spiderManPortrait2}`;
                     img.style.transform = 'scaleX(1)';
-                    nomCombattant1.innerHTML = 'Spider-Man';
+                    nomCombattant1.innerHTML = 'Arachno-Guy';
                     nomCombattant1.style.background = 'linear-gradient(to right, red, black)';
                     animationImg(img,1550,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
@@ -107,7 +107,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('chunLiTK')) {
                     img.src = `${chunLiPortrait2}`;
                     img.style.transform = 'scaleX(1)';
-                    nomCombattant1.innerHTML = 'Chun-Li';
+                    nomCombattant1.innerHTML = 'Chin-Lai';
                     nomCombattant1.style.background = 'linear-gradient(to right, purple, blue)';
                     animationImg(img,1550,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
@@ -115,7 +115,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('captainAmerica')) {
                     img.src = `${captainAmericaPortrait2}`;
                     img.style.transform = 'scaleX(1)';
-                    nomCombattant1.innerHTML = 'Captain-America';
+                    nomCombattant1.innerHTML = 'Liberty Captain';
                     nomCombattant1.style.background = 'linear-gradient(to right, blue,red)';
                     animationImg(img,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
@@ -123,7 +123,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('goku')) {
                     img.src = `${gokuPortrait2}`;
                     img.style.transform = 'scaleX(1)';
-                    nomCombattant1.innerHTML = 'Son-Goku';
+                    nomCombattant1.innerHTML = 'Sun-Gako';
                     nomCombattant1.style.background = 'linear-gradient(to right, orange, green)';
                     animationImg(img,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
@@ -131,7 +131,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('gohan')) {
                     img.src = `${gohanPortrait2}`;
                     img.style.transform = 'scaleX(-1)';
-                    nomCombattant1.innerHTML = 'Son-Gohan';
+                    nomCombattant1.innerHTML = 'Sun-Gaho';
                     nomCombattant1.style.background = 'linear-gradient(to right, purple, yellow)';
                     animationImg(img,-1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
