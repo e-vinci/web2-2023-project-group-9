@@ -25,69 +25,54 @@ const Navbar = () => {
   // Ajouter le lien avec le logo à la barre de navigation
   navbarWrapper.appendChild(logo);
 
-  let navbar = ``;
+  const showFighterAndArenaLinks = isConnected && infoUser.user !== 'admin';
+  const showPhraseLinks = isConnected && infoUser.user === 'admin';
+  const isHomePage = window.location.pathname === '/';
 
-  if(isConnected && infoUser.user !== 'admin'){
-    navbar = `  <nav>
-    <div class="navLinks">
-      <ul>
-        <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="#mainMiddleContent">Combattants</a></li>
-        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
-        <li><a href="" data-uri="/handleSuggestedPhrase">Proposer des phrases</a></li>
-        <li><a href="" id="btn-log-out"> Se deconnecter<a> </li>
-      </ul>
-    </div>
-    <div id="icons"></div>
-  </nav>`;
-  } else if(isConnected && infoUser.user === 'admin'){
-    navbar = `  <nav>
-    <div class="navLinks">
-      <ul>
-        <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="#mainMiddleContent">Combattants</a></li>
-        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
-        <li><a href="" data-uri="/handlePhraseFromGame">Gerer les phrases du jeu</a></li>
-        <li><a href="" data-uri="/handlePhrase">Gerer les phrases suggerees</a></li>
-        <li><a href="" id="btn-log-out">Se deconnecter<a> </li>
-      </ul>
-    </div>
-    <div id="icons"></div>
-  </nav>`;
-  } else if(window.location.pathname === '/login'){
-    navbar = `  <nav>
-    <div class="navLinks">
-      <ul>
-        <li><a href="" data-uri="/">Accueil</a></li>
-      </ul>
-    </div>
-    <div id="icons"></div>
-  </nav>`;
-  } else if(window.location.pathname === '/register'){
-    navbar = `  <nav>
-    <div class="navLinks">
-      <ul>
-        <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="" data-uri="/login">se connecter</a></li>
-      </ul>
-    </div>
-    <div id="icons"></div>
-  </nav>`;
+  let navbar = `<li><a href="" data-uri="/">Accueil</a></li>`;
+
+  if (isConnected) {
+    if ((showFighterAndArenaLinks || isHomePage) && window.location.pathname !== '/handleSuggestedPhrase') {
+      navbar += `<li><a href="#mainMiddleContent">Combattants</a></li>`;
+      navbar += `<li><a href="#sectionTreeAcceuil">Arenes</a></li>`;
+    }
+
+    if (showPhraseLinks) {
+      navbar += `<li><a href="" data-uri="/handlePhraseFromGame">Gerer les phrases du jeu</a></li>`;
+      navbar += `<li><a href="" data-uri="/handlePhrase">Gerer les phrases suggerees</a></li>`;
+      
+    } else {
+      navbar += `<li><a href="" data-uri="/handleSuggestedPhrase">Proposer des phrases</a></li>`;
+    }
+
+    navbar += `<li><a href="" id="btn-log-out"> Se deconnecter<a></li>`;
+  } else if (isHomePage) {
+    // Lien Accueil est déjà inclus, ajouter Combattants et Arenes
+    navbar += `<li><a href="#mainMiddleContent">Combattants</a></li>`;
+    navbar += `<li><a href="#sectionTreeAcceuil">Arenes</a></li>`;
+  } else if (window.location.pathname === '/login') {
+    // Lien Accueil est déjà inclus
+  } else if (window.location.pathname === '/register') {
+    navbar += `<li><a href="" data-uri="/login">se connecter</a></li>`;
   } else {
-    navbar = `  <nav>
-    <div class="navLinks">
-      <ul>
-        <li><a href="" data-uri="/">Accueil</a></li>
-        <li><a href="#mainMiddleContent">Combattants</a></li>
-        <li><a href="#sectionTreeAcceuil">Arenes</a></li>
-        <li><a href="" data-uri="/login">se connecter</a></li>
-      </ul>
-    </div>
-    <div id="icons"></div>
-  </nav>`;
+    if (showFighterAndArenaLinks) {
+      navbar += `<li><a href="#mainMiddleContent">Combattants</a></li>`;
+      navbar += `<li><a href="#sectionTreeAcceuil">Arenes</a></li>`;
+    }
+
+    navbar += `<li><a href="" data-uri="/login">se connecter</a></li>`;
   }
 
-  navbarWrapper.innerHTML += navbar;
+  const finalNavbar = `<nav>
+    <div class="navLinks">
+      <ul>
+        ${navbar}
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
+
+  navbarWrapper.innerHTML += finalNavbar;
 
   // Ajout de l'écouteur d'événements pour le clic sur l'élément avec l'id "icons"
   const icons = document.querySelector('#icons');
@@ -96,8 +81,8 @@ const Navbar = () => {
   });
 
   const links = document.querySelectorAll('nav li');
-  links.forEach((link) =>{
-    link.addEventListener('click', () =>{
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
       navbarWrapper.classList.remove("active");
     });
   });

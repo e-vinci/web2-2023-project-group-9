@@ -63,6 +63,21 @@ const GamePage = async () => {
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
   }
+  const arenaImages = {
+    arena1,
+    arena2,
+    arena3,
+    arena4,
+    arena5,
+    arena6,
+    arena7,
+    arena8,
+    arena9,
+  };
+
+  main.style.backgroundImage = `url(${arenaImages[arena] || arena9})`;
+  main.style.backgroundSize = 'cover';
+  main.style.height = '100vh';
 
   main.innerHTML = `
   <div id="loading">
