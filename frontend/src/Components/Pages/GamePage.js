@@ -352,7 +352,7 @@ const GamePage = async () => {
 
     if (!players.isRoundOver) {
       textGameData.letterIndex = 0;
-      gameTimerData.countDown = formatTime(0);
+      gameTimerData.countDown = 1000;
       players.isRoundOver = true;
       resetPhraseStyles();
       updatePlayersAndCheckGameOver();
@@ -387,8 +387,8 @@ const GamePage = async () => {
       }
 
       if (gamePreparationTimerData.preparationCountDown <= 0) {
-        clearInterval(preparationInterval);
         gamePreparationTimerData.isPreparationTime = false;
+        clearInterval(preparationInterval);
         startTimer();
 
         if (players.currentPlayer === 1) {
