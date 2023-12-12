@@ -6,6 +6,7 @@ import Navigate from '../Router/Navigate';
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
+  navbarWrapper.style.backgroundColor = 'black';
   const isConnected = isAuthenticated();
   const infoUser = getAuthenticatedUser();
 
