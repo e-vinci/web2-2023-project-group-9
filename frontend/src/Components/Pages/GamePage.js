@@ -379,8 +379,8 @@ const GamePage = async () => {
         let player2LifeRed = 0
         player2LifeRed += 10;
         // console.log(player2LifeRed);
-        player2LifeRedDisplay.style.flex = `${player2LifeRed}%`;
-        player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
+        player2LifeRedDisplay.style.flex = `${players.player1Life}%`;
+        player2LifeGreenDisplay.style.flex = `${player2LifeRed}%`;
         phraseBlockBlock.style.visibility = 'visible';
       }, 1000);
     }
