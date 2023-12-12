@@ -10,7 +10,7 @@
 
 import { driver } from 'driver.js';
 import 'driver.js/dist/driver.css';
-import anime from 'animejs';
+import anime, { easings } from 'animejs';
 // import Navigate from '../Router/Navigate';
 import { clearAllPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
@@ -55,7 +55,7 @@ const DemoGame = () => {
         <div>
         <img src='${vsFight}' class='vs'></img>
         </div>
-        <div class='timeRight'>00:15</div>
+        <div class='timeRight'>00:01</div>
         <div class="lifeBarContainerRight">
             <div class="lifeBarRightRed"></div>
             <div class="lifeBarRightGreen"></div>
@@ -64,7 +64,7 @@ const DemoGame = () => {
       <div id="charactere-player-1-demo" class="baseV"></div>
       <div id="charactere-player-2-demo" class="baseB"></div>
   </div>
-  <div id="phrase-demo"><p id="phrase-attribue-demo">La guerre ne détermine pas qui a raison, mais qui reste.</p></div>`;
+  <div id="phrase-demo"><p id="phrase-attribue-demo">.</p></div>`;
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
   const phrase = document.querySelector('#phrase-demo');
@@ -72,6 +72,8 @@ const DemoGame = () => {
   const times = document.querySelectorAll('.timeLeft, .timeRight');
   const timeLeft = document.querySelector('.timeLeft');
   const text = document.querySelector('#phrase-attribue-demo');
+  const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
+  const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
 
   let timer;
   let countdown;
@@ -210,8 +212,6 @@ const DemoGame = () => {
       targets: target,
       duration,
       complete: () => {
-        console.log('Première animation terminée.');
-        charactereOfPlayer1.classList.add('onTheSpotVenom1');
         charactereOfPlayer1.classList.add('onTheSpotVenom');
         charactereOfPlayer2.classList.add('onTheSpotBroly');
       },
@@ -345,13 +345,17 @@ const DemoGame = () => {
     if (result === 'player1') {
       times[0].style.color = 'green';
       times[1].style.color = 'red';
-      phrase.style.top = '-100%';
+      phrase.style.visibility = 'hidden';
+      charactereOfPlayer1.classList.add('attackVenom')
+      shiftV(charactereOfPlayer1,1500);
     } else if (result === 'player2') {
       times[0].style.color = 'red';
       times[1].style.color = 'green';
-      phrase.style.top = '-100%';
-    } else {
-      phrase.style.top = '-100%';
+      phrase.style.visibility = 'hidden';
+      charactereOfPlayer2.classList.add('moveBroly')
+      shiftB(charactereOfPlayer2,1500);
+    } else if(result === 'equal'){
+      phrase.style.visibility = 'hidden';
       times.forEach((time) => {
         time.style.color = 'orange';
       });
@@ -363,17 +367,53 @@ const DemoGame = () => {
 
   // shift(charactereOfPlayer2,1500);
 
-  // function shift(target,duration) {
-  //     return anime({
-  //         targets: target,
-  //         translateX: {
-  //           value: '-=600px', // changez cette valeur pour contrôler la distance de déplacement
-  //           duration,
-  //         },
-  //         easing : 'linear',
-  //         loop: false,
-  //     });
-  // }
+  function shiftV(target,duration) {
+      return anime({
+          targets: target,
+          translateX: {
+            value: '+=550px', // changez cette valeur pour contrôler la distance de déplacement
+            duration,
+          },
+          scale: {
+            value: [1.3, 1.4], // changez ces valeurs pour contrôler la taille de l'animation
+            duration,
+          },
+          easing : 'easeOutQuad',
+          update: (anim) =>{
+            const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
+
+            if(currentTranslateX === 500){
+              charactereOfPlayer2.classList.add('sufferAttackB');
+              player2LifeGreenDisplay.style.flex = `90%`;
+              player2LifeRedDisplay.style.flex = `10%`;
+            }
+          },
+          complete: () => {
+            anime({
+              targets: target,
+              translateX: 0, // Revenir à la position initiale
+              scale: 1, // Revenir à la taille initiale
+              duration: 500, // Durée de l'animation de retour
+              easing: 'linear', // Easing pour le retour
+            });
+            charactereOfPlayer1.className = 'onTheSpotVenom';
+            charactereOfPlayer2.className = 'onTheSpotBroly';
+          },
+      });
+  }
+
+  function shiftB(target,duration){
+    return anime({
+      targets:target,
+      translateX:{
+        value:'-=525px',
+        duration
+      },scale: {
+        value: [0.7, 0.7],
+      },
+      easing : 'easeOutQuad',
+    })
+  }
 };
 
 export default DemoGame;

@@ -58,7 +58,7 @@ const GamePage = async () => {
     main.style.backgroundImage = `url(${arena8})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else{
+  }else if(arena === 'arena9'){
     main.style.backgroundImage = `url(${arena9})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
@@ -133,14 +133,13 @@ const GamePage = async () => {
           switchText();
           startPreparationTimer();
           if(fighter1 === 'broly'){
-            avatarOfPlayer1.classList.add('transformBroly');
+            avatarOfPlayer1.classList.add('transformBrolyL');
           }else if(fighter1 === 'venom'){
             avatarOfPlayer1.classList.add('transformVenom');
           }
 
-
           if(fighter2 === 'venom'){
-            avatarOfPlayer2.classList.add('transformVenom');
+            avatarOfPlayer2.classList.add('transformVenomR');
           }else if(fighter2 === 'broly'){
             avatarOfPlayer2.classList.add('transformBroly');
           }
