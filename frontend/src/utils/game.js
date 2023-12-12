@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export, consistent-return
-export const getPhraseRandom = async () => {
+const getPhraseRandom = async () => {
     try {
       const response = await fetch('/api/game');
   
@@ -17,15 +17,29 @@ export const getPhraseRandom = async () => {
     }
   };
 
-  export const createSessionForFighter1 = (fighter1) => {
+  const createSessionForFighter1 = (fighter1) => {
     sessionStorage.setItem('fighter1', fighter1);
   }
 
-  export const createSessionForFighter2 = (fighter2) => {
+  const createSessionForFighter2 = (fighter2) => {
     sessionStorage.setItem('fighter2', fighter2);
   }
 
-  export const createSessionForArena = (arena) => {
+  const createSessionForArena = (arena) => {
     sessionStorage.setItem('arena', arena);
+  }
+
+  const removeAllSession = () => {
+    sessionStorage.removeItem('arena');
+    sessionStorage.removeItem('fighter1');
+    sessionStorage.removeItem('fighter2');
+  }
+
+  export {
+    getPhraseRandom, 
+    createSessionForArena,
+    createSessionForFighter1,
+    createSessionForFighter2,
+    removeAllSession
   }
   
