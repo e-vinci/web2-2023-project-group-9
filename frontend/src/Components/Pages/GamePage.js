@@ -2,7 +2,7 @@
 import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 // eslint-disable-next-line import/named
-import { getPhraseRandom } from '../../utils/game';
+import { getPhraseRandom, removeAllSession } from '../../utils/game';
 import Navigate from '../Router/Navigate';
 
 import vsFight from '../../img/Arena/vsFight.png';
@@ -176,6 +176,7 @@ const GamePage = async () => {
 
   document.querySelector('#accueilLink').addEventListener('click',(e)=>{
     e.preventDefault();
+    removeAllSession();
     Navigate('/');
   })
 
