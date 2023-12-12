@@ -1,10 +1,12 @@
 // import d'une image
 import logoPage from '../../img/BaseDuSite/logoPage.png';
+// eslint-disable-next-line import/no-cycle
 import { getAuthenticatedUser, isAuthenticated, clearAuthenticatedUser } from '../../utils/auths';
 import Navigate from '../Router/Navigate';
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
+  navbarWrapper.style.backgroundColor = 'black';
   const isConnected = isAuthenticated();
   const infoUser = getAuthenticatedUser();
 

@@ -4,19 +4,66 @@
 import anime from 'animejs';
 import { clearAllPage } from '../../utils/render';
 // eslint-disable-next-line import/named
-import { getPhraseRandom } from '../../utils/phrasesGame';
+import { getPhraseRandom, removeAllSession } from '../../utils/game';
 import Navigate from '../Router/Navigate';
 
-import backgroundDemo from '../../img/Arena/arene6.gif';
 import vsFight from '../../img/Arena/vsFight.png';
+import arena1 from '../../img/Arena/arene1.gif';
+import arena2 from '../../img/Arena/arene2.gif';
+import arena3 from '../../img/Arena/arene3.gif';
+import arena4 from '../../img/Arena/arene4.gif';
+import arena5 from '../../img/Arena/arene5.gif';
+import arena6 from '../../img/Arena/arene6.gif';
+import arena7 from '../../img/Arena/arene7.gif';
+import arena8 from '../../img/Arena/arene8.gif';
+import arena9 from '../../img/Arena/arene9.gif';
 
 const GamePage = async () => {
   clearAllPage();
-
   const main = document.querySelector('main');
-  main.style.backgroundImage = `url(${backgroundDemo})`;
-  main.style.backgroundSize = 'cover';
-  main.style.height = '100vh';
+
+  const fighter1 = sessionStorage.getItem('fighter1');
+  const fighter2 = sessionStorage.getItem('fighter2');
+  const arena = sessionStorage.getItem('arena');
+
+  if(arena === 'arena1'){
+    main.style.backgroundImage = `url(${arena1})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  } else if(arena === 'arena2'){
+    main.style.backgroundImage = `url(${arena2})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena3'){
+    main.style.backgroundImage = `url(${arena3})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena4'){
+    main.style.backgroundImage = `url(${arena4})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena5'){
+    main.style.backgroundImage = `url(${arena5})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena6'){
+    main.style.backgroundImage = `url(${arena6})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena7'){
+    main.style.backgroundImage = `url(${arena7})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else if(arena === 'arena8'){
+    main.style.backgroundImage = `url(${arena8})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }else{
+    main.style.backgroundImage = `url(${arena9})`;
+    main.style.backgroundSize = 'cover';
+    main.style.height = '100vh';
+  }
+
   main.innerHTML = `
   <div id="loading">
   <p>3</p>
@@ -85,8 +132,19 @@ const GamePage = async () => {
         setTimeout(() => {
           switchText();
           startPreparationTimer();
-          avatarOfPlayer1.classList.add('transformVenom');
-          avatarOfPlayer2.classList.add('transformBroly');
+          if(fighter1 === 'broly'){
+            avatarOfPlayer1.classList.add('transformBroly');
+          }else if(fighter1 === 'venom'){
+            avatarOfPlayer1.classList.add('transformVenom');
+          }
+
+
+          if(fighter2 === 'venom'){
+            avatarOfPlayer2.classList.add('transformVenom');
+          }else if(fighter2 === 'broly'){
+            avatarOfPlayer2.classList.add('transformBroly');
+          }
+
         }, 200);
       }
     }, 1000);
@@ -120,6 +178,7 @@ const GamePage = async () => {
 
   document.querySelector('#accueilLink').addEventListener('click',(e)=>{
     e.preventDefault();
+    removeAllSession();
     Navigate('/');
   })
 
