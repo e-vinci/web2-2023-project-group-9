@@ -55,7 +55,7 @@ const DemoGame = () => {
         <div>
         <img src='${vsFight}' class='vs'></img>
         </div>
-        <div class='timeRight'>00:01</div>
+        <div class='timeRight'>00:15</div>
         <div class="lifeBarContainerRight">
             <div class="lifeBarRightRed"></div>
             <div class="lifeBarRightGreen"></div>
@@ -64,7 +64,7 @@ const DemoGame = () => {
       <div id="charactere-player-1-demo" class="baseV"></div>
       <div id="charactere-player-2-demo" class="baseB"></div>
   </div>
-  <div id="phrase-demo"><p id="phrase-attribue-demo">.</p></div>`;
+  <div id="phrase-demo"><p id="phrase-attribue-demo">Bienvenue dans la communauté Mortal Keyboard!</p></div>`;
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
   const phrase = document.querySelector('#phrase-demo');
@@ -72,6 +72,8 @@ const DemoGame = () => {
   const times = document.querySelectorAll('.timeLeft, .timeRight');
   const timeLeft = document.querySelector('.timeLeft');
   const text = document.querySelector('#phrase-attribue-demo');
+  const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
+  const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
   const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
   const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
 
@@ -159,6 +161,13 @@ const DemoGame = () => {
       time.style.color = 'white';
     });
     write(0, true);
+    player1LifeGreenDisplay.style.flex = `100%`;
+    player1LifeRedDisplay.style.flex = `0%`;
+    player2LifeGreenDisplay.style.flex = `100%`;
+    player2LifeRedDisplay.style.flex = `0%`;
+    charactereOfPlayer1.className = 'baseV';
+    charactereOfPlayer2.className = 'baseB';
+    phrase.style.visibility = 'visible';
     loadingPage();
   });
 
@@ -352,7 +361,7 @@ const DemoGame = () => {
       times[0].style.color = 'red';
       times[1].style.color = 'green';
       phrase.style.visibility = 'hidden';
-      charactereOfPlayer2.classList.add('moveBroly')
+      charactereOfPlayer2.classList.add('attackBroly')
       shiftB(charactereOfPlayer2,1500);
     } else if(result === 'equal'){
       phrase.style.visibility = 'hidden';
@@ -371,18 +380,18 @@ const DemoGame = () => {
       return anime({
           targets: target,
           translateX: {
-            value: '+=550px', // changez cette valeur pour contrôler la distance de déplacement
+            value: '+=520px', // changez cette valeur pour contrôler la distance de déplacement
             duration,
           },
           scale: {
-            value: [1.3, 1.4], // changez ces valeurs pour contrôler la taille de l'animation
+            value: [1.3], // changez ces valeurs pour contrôler la taille de l'animation
             duration,
           },
           easing : 'easeOutQuad',
           update: (anim) =>{
             const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
 
-            if(currentTranslateX === 500){
+            if(currentTranslateX >= 500){
               charactereOfPlayer2.classList.add('sufferAttackB');
               player2LifeGreenDisplay.style.flex = `90%`;
               player2LifeRedDisplay.style.flex = `10%`;
@@ -395,9 +404,25 @@ const DemoGame = () => {
               scale: 1, // Revenir à la taille initiale
               duration: 500, // Durée de l'animation de retour
               easing: 'linear', // Easing pour le retour
+              complete: () =>{
+                charactereOfPlayer1.className = 'onTheSpotVenom';
+                charactereOfPlayer2.className = 'onTheSpotBroly';
+                const d = driver({
+                  showButtons: ['next', 'previous', 'close'],
+                  showProgress: true,
+                  popoverClass: 'driverjs-theme',
+                  steps : [{
+                      element: '#arene-demo', 
+                      popover: {
+                      title: 'Terminé',
+                      description: 'Vous avez terminé la démo, pour plus de combat, inscrivez-vous pour défier vos copains :)',
+                      position: 'center'
+                      },
+                    }]
+                })
+                d.drive();
+              }
             });
-            charactereOfPlayer1.className = 'onTheSpotVenom';
-            charactereOfPlayer2.className = 'onTheSpotBroly';
           },
       });
   }
@@ -406,13 +431,42 @@ const DemoGame = () => {
     return anime({
       targets:target,
       translateX:{
-        value:'-=525px',
+        value:'-=500px',
         duration
-      },scale: {
-        value: [0.7, 0.7],
       },
+      scale: '1.2',
       easing : 'easeOutQuad',
-    })
+      update: (anim) =>{
+        const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
+
+        if(currentTranslateX === -500){
+          charactereOfPlayer1.classList.add('sufferAttackV');
+          anime({
+            targets: charactereOfPlayer1,
+            scale: 1.3,
+            complete: () =>{
+              anime({
+                targets: charactereOfPlayer1,
+                scale: 1
+              })
+              anime({
+                targets: target,
+                translateX: 0, // Revenir à la position initiale
+                scale: 1, // Revenir à la taille initiale
+                duration: 500, // Durée de l'animation de retour
+                easing: 'linear', // Easing pour le retour
+                complete: () =>{
+                  charactereOfPlayer1.className = 'onTheSpotVenom';
+                  charactereOfPlayer2.className = 'onTheSpotBroly';
+                }
+              });
+            }
+          })
+          player1LifeGreenDisplay.style.flex = `90%`;
+          player1LifeRedDisplay.style.flex = `10%`;
+        }
+      },
+    });
   }
 };
 

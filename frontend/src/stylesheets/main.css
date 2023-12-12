@@ -741,18 +741,6 @@ input[type='submit']:hover {
   width: 125px;
 }
 
-#phrase-demo {
-  background-color: #000000a3;
-  padding: 50px 50px 50px 50px;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: inline;
-  font-family: 'Calisto MT', sans-serif;
-  color: white;
-  font-size: 24px;
-}
-
 .green {
   color: green;
 }
@@ -990,6 +978,37 @@ input[type='submit']:hover {
     background-position: -1316px;
   }
 }
+.sufferAttackV{
+  height: 280px;
+  width: 227px;
+  background: url(../assets/Venom/spriteVenomSubitAttaque.png);
+  animation: sufferV 1.5s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -681px;
+  }
+}
+
+.sufferAttackB{
+  height: 280px;
+  width: 195px;
+  background: url(../assets/Broly/spriteBrolySubitAttaque.png);
+  animation: sufferB 1s steps(4) 0.99 forwards;
+}
+
+@keyframes sufferB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -780px;
+  }
+}
 
 .attackVenom{
   height: 280px;
@@ -1007,23 +1026,23 @@ input[type='submit']:hover {
   }  
 }
 
-.sufferAttackB{
+.attackBroly{
   height: 280px;
-  width: 195px;
-  background: url(../assets/Broly/spriteBrolySubitAttaque.png);
-  animation: sufferB 0.5s steps(4) 0.99 forwards;
+  width: 280px;
+  background: url(../assets/Broly/spriteBrolyAttaque.png);
+  animation: attackB 1.5s steps(11) 1 forwards;
 }
 
-@keyframes sufferB {
+@keyframes attackB {
   0%{
-    background-position: 0px;
+    background-position: -3080px;
   }
   100%{
-    background-position: -780px;
+    background-position: 0px;
   }
 }
 
-.moveBroly {
+/* .moveBroly {
   height: 280px;
   width: 308.3px;
   background: url(../assets/Broly/spriteBrolySeDeplace.png);
@@ -1041,8 +1060,19 @@ input[type='submit']:hover {
 
 .attackBroly{
   height: 280px;
-  
+  width: 639.6px;
+  background: url(../assets/Broly/spriteBrolyAttaque.png);
+  animation: attackB 1.5s steps(8) forwards;
 }
+
+@keyframes attackB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -5117px;
+  }
+} */
 
 
 /* game */
@@ -1054,9 +1084,9 @@ input[type='submit']:hover {
   height: 100vh;
 } */
 
-#phrase-game {
+#phrase-game, #phrase-demo {
   background-color: #000000a3;
-  padding: 50px 50px 50px 50px;
+  padding: 25px 25px 25px 25px;
   position: absolute;
   top: 50%;
   width: 100%;
@@ -1064,7 +1094,6 @@ input[type='submit']:hover {
   font-family: 'Calisto MT', sans-serif;
   color: white;
   font-size: 24px;
-  transition: 0.5s;
 }
 
 #player1 {
