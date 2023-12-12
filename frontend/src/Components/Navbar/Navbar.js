@@ -1,5 +1,6 @@
 // import d'une image
 import logoPage from '../../img/BaseDuSite/logoPage.png';
+// eslint-disable-next-line import/no-cycle
 import { getAuthenticatedUser, isAuthenticated, clearAuthenticatedUser } from '../../utils/auths';
 import Navigate from '../Router/Navigate';
 
