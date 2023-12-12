@@ -24,43 +24,21 @@ const GamePage = async () => {
   const fighter2 = sessionStorage.getItem('fighter2');
   const arena = sessionStorage.getItem('arena');
 
-  if(arena === 'arena1'){
-    main.style.backgroundImage = `url(${arena1})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  } else if(arena === 'arena2'){
-    main.style.backgroundImage = `url(${arena2})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else if(arena === 'arena3'){
-    main.style.backgroundImage = `url(${arena3})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else if(arena === 'arena4'){
-    main.style.backgroundImage = `url(${arena4})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else if(arena === 'arena5'){
-    main.style.backgroundImage = `url(${arena5})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else if(arena === 'arena6'){
-    main.style.backgroundImage = `url(${arena6})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else if(arena === 'arena7'){
-    main.style.backgroundImage = `url(${arena7})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else if(arena === 'arena8'){
-    main.style.backgroundImage = `url(${arena8})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }else{
-    main.style.backgroundImage = `url(${arena9})`;
-    main.style.backgroundSize = 'cover';
-    main.style.height = '100vh';
-  }
+  const arenaImages = {
+    arena1,
+    arena2,
+    arena3,
+    arena4,
+    arena5,
+    arena6,
+    arena7,
+    arena8,
+    arena9,
+  };
+
+  main.style.backgroundImage = `url(${arenaImages[arena] || arena9})`;
+  main.style.backgroundSize = 'cover';
+  main.style.height = '100vh';
 
   main.innerHTML = `
   <div id="loading">
