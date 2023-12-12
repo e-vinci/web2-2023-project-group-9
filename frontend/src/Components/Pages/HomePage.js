@@ -182,7 +182,7 @@ const HomePage = () => {
     
     const link_to_gamePage = document.querySelector('#link_to_gamePage');
     link_to_gamePage.addEventListener('click', () => {
-      Navigate('/game');
+      Navigate('/fightersSelect');
     })
   }
 

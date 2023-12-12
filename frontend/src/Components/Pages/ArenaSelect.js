@@ -10,50 +10,57 @@ import arena6 from '../../img/Arena/arene6.gif';
 import arena7 from '../../img/Arena/arene7.gif';
 import arena8 from '../../img/Arena/arene8.gif';
 import arena9 from '../../img/Arena/arene9.gif';
+import { createSessionForArena } from '../../utils/game';
+import Navigate from '../Router/Navigate';
 
-
-const body = document.querySelector('body');
-
-
+let choice = null;
 
 const ArenaSelect = () => {
 
     clearAllPage();
-    body.style.backgroundImage = `url(${background})`;
-    body.style.backgroundSize = 'cover';
-    body.style. backgroundRepeat = 'no-repeat';
+
+    const main = document.querySelector('main');
+
+    main.style.backgroundImage = `url(${background})`;
+    main.style.backgroundSize = 'cover';
+    main.style. backgroundRepeat = 'no-repeat';
+    main.style.height = '100vh';
 
    // removeExistingCarousel(); // Supprime le carrousel existant s'il y en a un
 
-
-    const carouselHTML =   `<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    const carouselHTML =   
+    ` 
+    <form method="POST">
+    <input type="submit" value="valdier" id="btn-validation-arena">
+  <form>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="${arena1}" alt="First slide">
+        <img class="d-block w-100" src="${arena1}" alt="First slide" data-name="arena1">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena2}" alt="Second slide">
+        <img class="d-block w-100" src="${arena2}" alt="Second slide" data-name="arena2">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena3}" alt="Third slide">
+        <img class="d-block w-100" src="${arena3}" alt="Third slide" data-name="arena3">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena4}" alt="Third slide">
+        <img class="d-block w-100" src="${arena4}" alt="Third slide" data-name="arena4">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena5}" alt="Third slide">
+        <img class="d-block w-100" src="${arena5}" alt="Third slide" data-name="arena5">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena6}" alt="Third slide">
+        <img class="d-block w-100" src="${arena6}" alt="Third slide" data-name="arena6">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena7}" alt="Third slide">
+        <img class="d-block w-100" src="${arena7}" alt="Third slide" data-name="arena7">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena8}" alt="Third slide">
+        <img class="d-block w-100" src="${arena8}" alt="Third slide" data-name="arena8">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="${arena9}" alt="Third slide">
+        <img class="d-block w-100" src="${arena9}" alt="Third slide" data-name="arena9">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -69,39 +76,49 @@ const ArenaSelect = () => {
   
   `;
 
-     body.innerHTML+= carouselHTML;
+     main.innerHTML+= carouselHTML;
      
      const carouselElement = document.querySelector('#carouselExampleControls');
      const carouselItems = carouselElement.querySelectorAll('.carousel-item');
      let currentIndex = 0;
- 
+
+     const showSlide = (index) => {
+       carouselItems.forEach((item, i) => {
+         if (i === index) {
+           item.classList.add('active');
+           // Utilisez getAttribute pour obtenir la valeur de l'attribut data-name
+           choice = item.querySelector('img').getAttribute('data-name');
+         } else {
+           item.classList.remove('active');
+         }
+       });
+     };
+   
      const nextButton = carouselElement.querySelector('.carousel-control-next');
      const prevButton = carouselElement.querySelector('.carousel-control-prev');
- 
-     const showSlide = (index) => {
-         carouselItems.forEach((item, i) => {
-             if (i === index) {
-                 item.classList.add('active');
-             } else {
-                 item.classList.remove('active');
-             }
-         });
-     };
- 
-     nextButton.addEventListener('click', (e ) => {
-        e.preventDefault();
-         currentIndex = (currentIndex + 1) % carouselItems.length;
-         showSlide(currentIndex);
+   
+     nextButton.addEventListener('click', (e) => {
+       e.preventDefault();
+       currentIndex = (currentIndex + 1) % carouselItems.length;
+       showSlide(currentIndex);
      });
- 
+   
      prevButton.addEventListener('click', (e) => {
-        e.preventDefault()
-         currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-         showSlide(currentIndex);
+       e.preventDefault();
+       currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+       showSlide(currentIndex);
      });
- 
-
-    
-}
+   
+     const btnValidationArena = document.querySelector('#btn-validation-arena');
+     btnValidationArena.addEventListener('click', validationChoice);
+   
+     function validationChoice(e) {
+       e.preventDefault();
+       console.log(choice);
+       createSessionForArena(choice);
+       Navigate('/game');
+     }
+   };
+   
 
 export default ArenaSelect;
