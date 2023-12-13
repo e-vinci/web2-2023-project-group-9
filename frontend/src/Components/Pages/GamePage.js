@@ -101,8 +101,8 @@ const GamePage = async () => {
       <section id="headGame">
         <div class="home"><i class="fas fa-home" style="font-size: 50px; color: white;"></i></div>
         <div class="lifeBarContainerLeft">
-          <div class="lifeBarLeftGreen"></div>
-          <div class="lifeBarLeftRed"></div>
+            <div class="lifeBarLeftGreen"></div>
+            <div class="lifeBarLeftRed"></div>
         </div>
         <div class='timeLeft'>00:00</div>
         <div>
@@ -110,8 +110,8 @@ const GamePage = async () => {
         </div>
         <div class='timeRight'>00:00</div>
         <div class="lifeBarContainerRight">
-          <div class="lifeBarRightGreen"></div>
           <div class="lifeBarRightRed"></div>
+          <div class="lifeBarRightGreen"></div>
         </div>
       </section>
       <div id="charactere-player-1-demo"></div>
@@ -218,8 +218,10 @@ const GamePage = async () => {
   const phraseBlockBlock = document.querySelector('#phrase-game');
   const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
   const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
+
   const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
   const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
+
   const timerDisplayLeft = document.querySelector('.timeLeft');
   const timerDisplayRight = document.querySelector('.timeRight');
 
@@ -364,9 +366,9 @@ const GamePage = async () => {
     if (players.player1Time > players.player2Time) {
       phraseBlockBlock.style.visibility = 'hidden';
       setTimeout(() => {
-        players.player1Life -= 10;
+        players.player1Life -= 50;
         let player1LifeRed = 0
-        player1LifeRed += 10;
+        player1LifeRed += 50;
         // console.log(player1LifeRed);
         player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
         player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
@@ -375,12 +377,12 @@ const GamePage = async () => {
     } else if (players.player1Time < players.player2Time) {
       phraseBlockBlock.style.visibility = 'hidden';
       setTimeout(() => {
-        players.player2Life -= 10;
+        players.player2Life -= 50;
         let player2LifeRed = 0
-        player2LifeRed += 10;
+        player2LifeRed += 50;
         // console.log(player2LifeRed);
-        player2LifeRedDisplay.style.flex = `${players.player1Life}%`;
-        player2LifeGreenDisplay.style.flex = `${player2LifeRed}%`;
+        player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
+        player2LifeRedDisplay.style.flex = `${player2LifeRed}%`;
         phraseBlockBlock.style.visibility = 'visible';
       }, 1000);
     }

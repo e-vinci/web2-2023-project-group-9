@@ -6,6 +6,7 @@ import { clearAllPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 import { createSessionForFighter1, createSessionForFighter2 } from '../../utils/game';
 
+import loadingLogo from '../../img/BaseDuSite/logoPage.png'
 import brolyPortrait from '../../img/PortraitFighters/Broly.png';
 import venomPortrait from '../../img/PortraitFighters/Venom.png';
 import chunLiPortrait from '../../img/PortraitFighters/Chun li.png';
@@ -34,6 +35,10 @@ const FightersSelect  = () =>{
     body.style. backgroundRepeat = 'no-repeat';
     const main = document.querySelector('main');
     main.innerHTML = `
+    <section id="loadingGame">
+        <img src="${loadingLogo}" class="loadingLogo">
+        <div class="circle"></div>
+    </section>
     <section id="fightersSelect">
     <section id="titleOfFigtersSelect">Choisissez Vos Combattants</section>
     <section class="wichChoise1">
@@ -65,6 +70,17 @@ const FightersSelect  = () =>{
     <button style="background-image: url('${gohanPortrait}')" class="gohan"></button>
     </section>
     `;
+    loading();
+
+    function loading(){
+        const load = document.querySelector('#loadingGame');
+        load.style.display = 'flex';
+      
+        setTimeout(() => {
+          load.style.display = 'none';
+        }, 1150);
+    }
+
     const buttons1 = document.querySelectorAll('#main-container1 button');
     const buttons2 = document.querySelectorAll('#main-container2 button');
     const img = document.querySelector('.combattant1');
@@ -159,31 +175,31 @@ const FightersSelect  = () =>{
             button.addEventListener("click", () => {
                 if(!player1Selected && selectedFighter1 === button){
                     if (button.classList.contains('brolyDBZ')) {
-                        nomCombattant1.innerHTML = 'Broly (Pret)';
+                        nomCombattant1.innerHTML = 'Brylon (Pret)';
                         createSessionForFighter1('broly');
                     }
                     if (button.classList.contains('venomSP')) {
-                        nomCombattant1.innerHTML = 'Venom (Pret)';
+                        nomCombattant1.innerHTML = 'Venin (Pret)';
                         createSessionForFighter1('venom');
                     }
                     if (button.classList.contains('spiderMan')) {
-                        nomCombattant1.innerHTML = 'Spider-Man (Pret)';
+                        nomCombattant1.innerHTML = 'Arachno-Guy (Pret)';
                         createSessionForFighter1('spider-man');
                     }
                     if(button.classList.contains('chunLiTK')){
-                        nomCombattant1.innerHTML = 'Chun-Li (Pret)';
+                        nomCombattant1.innerHTML = 'Chin-Lai (Pret)';
                         createSessionForFighter1('chun-li');
                     }
                     if (button.classList.contains('captainAmerica')){
-                        nomCombattant1.innerHTML = 'Captain-America (Pret)'
+                        nomCombattant1.innerHTML = 'Liberty Captain (Pret)'
                         createSessionForFighter1('captain-america');
                     }
                     if (button.classList.contains('goku')){
-                        nomCombattant1.innerHTML = 'Son-Goku (Pret)'
+                        nomCombattant1.innerHTML = 'Sun-Gako (Pret)'
                         createSessionForFighter1('son-goku');
                     }
                     if (button.classList.contains('gohan')){
-                        nomCombattant1.innerHTML = 'Son-Gohan (Pret)'
+                        nomCombattant1.innerHTML = 'Sun-Gaho (Pret)'
                         createSessionForFighter1('son-gohan');
                     }
                     selectedFighter1 = null;
@@ -206,7 +222,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('brolyDBZ')) {
                     img2.src = `${brolyPortrait2}`;
                     img2.style.transform = 'scaleX(1)';
-                    nomCombattant2.innerHTML = 'Broly';
+                    nomCombattant2.innerHTML = 'Brylon';
                     nomCombattant2.style.background = 'linear-gradient(to right, green, yellow)';
                     animationImg(img2,-1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -214,7 +230,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('venomSP')) {
                     img2.src = `${venomPortrait2}`;
                     img2.style.transform = 'scaleX(-1)';
-                    nomCombattant2.innerHTML = 'Venom';
+                    nomCombattant2.innerHTML = 'Venin';
                     nomCombattant2.style.background = 'linear-gradient(to right, blue, white)';
                     animationImg(img2,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -222,7 +238,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('spiderMan')) {
                     img2.src = `${spiderManPortrait2}`;
                     img2.style.transform = 'scaleX(-1)';
-                    nomCombattant2.innerHTML = 'Spider-Man';
+                    nomCombattant2.innerHTML = 'Arachno-Guy';
                     nomCombattant2.style.background = 'linear-gradient(to right, red, black)';
                     animationImg(img2,1550,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -230,7 +246,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('chunLiTK')) {
                     img2.src = `${chunLiPortrait2}`;
                     img2.style.transform = 'scaleX(-1)';
-                    nomCombattant2.innerHTML = 'Chun-Li';
+                    nomCombattant2.innerHTML = 'Chin-Lai';
                     nomCombattant2.style.background = 'linear-gradient(to right, purple, blue)';
                     animationImg(img2,1550,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -238,7 +254,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('captainAmerica')) {
                     img2.src = `${captainAmericaPortrait2}`;
                     img2.style.transform = 'scaleX(-1)';
-                    nomCombattant2.innerHTML = 'Captain-America';
+                    nomCombattant2.innerHTML = 'Liberty Captain';
                     nomCombattant2.style.background = 'linear-gradient(to right, blue,red)';
                     animationImg(img2,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -246,7 +262,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('goku')) {
                     img2.src = `${gokuPortrait2}`;
                     img2.style.transform = 'scaleX(-1)';
-                    nomCombattant2.innerHTML = 'Son-Goku';
+                    nomCombattant2.innerHTML = 'Sun-Gako';
                     nomCombattant2.style.background = 'linear-gradient(to right, orange, green)';
                     animationImg(img2,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -254,7 +270,7 @@ const FightersSelect  = () =>{
                 if (button.classList.contains('gohan')) {
                     img2.src = `${gohanPortrait2}`;
                     img2.style.transform = 'scaleX(1)';
-                    nomCombattant2.innerHTML = 'Son-Gohan';
+                    nomCombattant2.innerHTML = 'Sun-Gaho';
                     nomCombattant2.style.background = 'linear-gradient(to right, purple, yellow)';
                     animationImg(img2,-1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
@@ -282,39 +298,38 @@ const FightersSelect  = () =>{
             button.addEventListener("click", () => {
                 if(selectedFighter2 === button){
                     if (button.classList.contains('brolyDBZ')) {
-                        nomCombattant2.innerHTML = 'Broly (Pret)';
+                        nomCombattant1.innerHTML = 'Brylon (Pret)';
                         createSessionForFighter2('broly')
                     }
                     if (button.classList.contains('venomSP')) {
-                        nomCombattant2.innerHTML = 'Venom (Pret)';
+                        nomCombattant2.innerHTML = 'Venin (Pret)';
                         createSessionForFighter2('venom')
                     }
                     if (button.classList.contains('spiderMan')) {
-                        nomCombattant2.innerHTML = 'Spider-Man (Pret)';
+                        nomCombattant2.innerHTML = 'Arachno-Guy (Pret)';
                         createSessionForFighter2('spider-man')
                     }
                     if(button.classList.contains('chunLiTK')){
-                        nomCombattant2.innerHTML = 'Chun-Li (Pret)';
+                        nomCombattant2.innerHTML = 'Chin-Lai (Pret)';
                         createSessionForFighter2('chun-li')
                     }
                     if (button.classList.contains('captainAmerica')){
-                        nomCombattant2.innerHTML = 'Captain-America (Pret)'
+                        nomCombattant2.innerHTML = 'Liberty Captain (Pret)'
                         createSessionForFighter2('captain-america')
                     }
                     if (button.classList.contains('goku')){
-                        nomCombattant2.innerHTML = 'Son-Goku (Pret)'
+                        nomCombattant2.innerHTML = 'Sun-Gako (Pret)'
                         createSessionForFighter2('son-goku')
                     }
                     if (button.classList.contains('gohan')){
-                        nomCombattant2.innerHTML = 'Son-Gohan (Pret)'
+                        nomCombattant2.innerHTML = 'Sun-Gaho (Pret)'
                         createSessionForFighter2('son-gohan')
                     }
-                    // Réinitialisez la variable pour permettre de choisir un autre combattant
+
                     selectedFighter2 = null;
                     Navigate('/arenaSelect')
                 }else{
                     selectedFighter2 = button;
-
                 }
             });
         });

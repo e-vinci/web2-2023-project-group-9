@@ -443,7 +443,7 @@ const DemoGame = () => {
           charactereOfPlayer1.classList.add('sufferAttackV');
           anime({
             targets: charactereOfPlayer1,
-            scale: 1.3,
+            scale: 1.2,
             complete: () =>{
               anime({
                 targets: charactereOfPlayer1,
@@ -464,6 +464,20 @@ const DemoGame = () => {
           })
           player1LifeGreenDisplay.style.flex = `90%`;
           player1LifeRedDisplay.style.flex = `10%`;
+          const d = driver({
+            showButtons: ['next', 'previous', 'close'],
+            showProgress: true,
+            popoverClass: 'driverjs-theme',
+            steps : [{
+                element: '#arene-demo', 
+                popover: {
+                title: 'Terminé',
+                description: 'Vous avez terminé la démo, pour plus de combat, inscrivez-vous pour défier vos copains :)',
+                position: 'center'
+                },
+              }]
+          })
+          d.drive();
         }
       },
     });

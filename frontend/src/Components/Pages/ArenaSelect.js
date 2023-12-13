@@ -1,6 +1,7 @@
 import { clearAllPage } from '../../utils/render';
 import background from '../../img/BaseDuSite/backgroundFighters.jpg';
 
+import loadingLogo from '../../img/BaseDuSite/logoPage.png';
 import arena1 from '../../img/Arena/arene1.gif';
 import arena2 from '../../img/Arena/arene2.gif';
 import arena3 from '../../img/Arena/arene3.gif';
@@ -16,23 +17,25 @@ import Navigate from '../Router/Navigate';
 let choice = null;
 
 const ArenaSelect = () => {
+  clearAllPage();
 
-    clearAllPage();
+  const main = document.querySelector('main');
 
-    const main = document.querySelector('main');
+  main.style.backgroundImage = `url(${background})`;
+  main.style.backgroundSize = 'cover';
+  main.style.backgroundRepeat = 'no-repeat';
+  main.style.height = '100vh';
 
-    main.style.backgroundImage = `url(${background})`;
-    main.style.backgroundSize = 'cover';
-    main.style. backgroundRepeat = 'no-repeat';
-    main.style.height = '100vh';
+  // removeExistingCarousel(); // Supprime le carrousel existant s'il y en a un
 
-   // removeExistingCarousel(); // Supprime le carrousel existant s'il y en a un
-
-    const carouselHTML =   
-    `
+  const carouselHTML = `
+    <section id="loadingGame">
+        <img src="${loadingLogo}" class="loadingLogo">
+        <div class="circle"></div>
+    </section>
     <div id="carouselExampleControls" class="carousel-slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item">
         <img class="d-block w-100" src="${arena1}" alt="First slide" data-name="arena1">
       </div>
       <div class="carousel-item">
@@ -77,49 +80,57 @@ const ArenaSelect = () => {
   
   `;
 
-     main.innerHTML+= carouselHTML;
-     
-     const carouselElement = document.querySelector('#carouselExampleControls');
-     const carouselItems = carouselElement.querySelectorAll('.carousel-item');
-     let currentIndex = 0;
+  main.innerHTML += carouselHTML;
 
-     const showSlide = (index) => {
-       carouselItems.forEach((item, i) => {
-         if (i === index) {
-           item.classList.add('active');
-           // Utilisez getAttribute pour obtenir la valeur de l'attribut data-name
-           choice = item.querySelector('img').getAttribute('data-name');
-         } else {
-           item.classList.remove('active');
-         }
-       });
-     };
-   
-     const nextButton = carouselElement.querySelector('.carousel-control-next');
-     const prevButton = carouselElement.querySelector('.carousel-control-prev');
-   
-     nextButton.addEventListener('click', (e) => {
-       e.preventDefault();
-       currentIndex = (currentIndex + 1) % carouselItems.length;
-       showSlide(currentIndex);
-     });
-   
-     prevButton.addEventListener('click', (e) => {
-       e.preventDefault();
-       currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-       showSlide(currentIndex);
-     });
-   
-     const btnValidationArena = document.querySelector('#btn-validation-arena');
-     btnValidationArena.addEventListener('click', validationChoice);
-   
-     function validationChoice(e) {
-       e.preventDefault();
-       console.log(choice);
-       createSessionForArena(choice);
-       Navigate('/game');
-     }
-   };
-   
+  loading();
+
+  function loading() {
+    const load = document.querySelector('#loadingGame');
+    load.style.display = 'flex';
+    setTimeout(() => {
+      load.style.display = 'none';
+    }, 1150);
+  }
+
+  const carouselElement = document.querySelector('#carouselExampleControls');
+  const carouselItems = carouselElement.querySelectorAll('.carousel-item');
+  let currentIndex = 0;
+
+  const showSlide = (index) => {
+    carouselItems.forEach((item, i) => {
+      if (i === index) {
+        item.classList.add('active');
+        // Utilisez getAttribute pour obtenir la valeur de l'attribut data-name
+        choice = item.querySelector('img').getAttribute('data-name');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  };
+
+  const nextButton = carouselElement.querySelector('.carousel-control-next');
+  const prevButton = carouselElement.querySelector('.carousel-control-prev');
+
+  nextButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    showSlide(currentIndex);
+  });
+
+  prevButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+    showSlide(currentIndex);
+  });
+
+  const btnValidationArena = document.querySelector('#btn-validation-arena');
+  btnValidationArena.addEventListener('click', validationChoice);
+
+  function validationChoice(e) {
+    e.preventDefault();
+    createSessionForArena(choice);
+    Navigate('/game');
+  }
+};
 
 export default ArenaSelect;
