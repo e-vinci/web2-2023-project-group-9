@@ -2,7 +2,7 @@ const path = require('node:path');
 
 const { parse, serialize } = require('../utils/json');
 
-const jsonDbPathForPhrase = path.join(__dirname, '/../data/phrases.json');
+const jsonDbPathForPhrase = path.join(__dirname, '/../FolderPhraseForGame/phrases.json');
 const jsonDbPathForSuggestedPhrase = path.join(__dirname, '/../data/suggestedPhrases.json');
 
 const phrases = [
