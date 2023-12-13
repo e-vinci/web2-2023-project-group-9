@@ -1,10 +1,12 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
 import anime from 'animejs';
+
+import { driver } from 'driver.js';
+import 'driver.js/dist/driver.css';
 
 import { clearAllPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 import { createSessionForFighter1, createSessionForFighter2 } from '../../utils/game';
+
 
 import loadingLogo from '../../img/BaseDuSite/logoPage.png'
 import brolyPortrait from '../../img/PortraitFighters/Broly.png';
@@ -23,7 +25,6 @@ import gokuPortrait2 from '../../img/PortraitFighters/gokuP.png';
 import gohanPortrait2 from '../../img/PortraitFighters/gohanP.png';
 import wichFighter from '../../img/PortraitFighters/wichFighter.png'
 import background from '../../img/BaseDuSite/backgroundFightSelect.jpg';
-// import brolyFighter from '../../assets/Broly/sprite1_Broly.png'
 
 
 const body = document.querySelector('body');
@@ -72,14 +73,32 @@ const FightersSelect  = () =>{
     `;
     loading();
 
+    const driverObj = driver({
+        popoverClass: "driverjs-theme",
+        stagePadding: 0,
+        onDestroyed: () => {
+          document?.activeElement?.blur();
+        }
+      });
+
     function loading(){
         const load = document.querySelector('#loadingGame');
         load.style.display = 'flex';
       
         setTimeout(() => {
           load.style.display = 'none';
+        
+          driverObj.highlight({
+            element: '.main-container',
+            popover : {
+              title: "Selection de personnage",
+              description: "Cliquer 2 fois pour choisir definitivement le personnage pour cette game",
+              side: 'top',
+              align: 'center'
+            }
+          });
         }, 1150);
-    }
+    } 
 
     const buttons1 = document.querySelectorAll('#main-container1 button');
     const buttons2 = document.querySelectorAll('#main-container2 button');
