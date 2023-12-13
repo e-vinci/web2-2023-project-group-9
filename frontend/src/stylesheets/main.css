@@ -825,6 +825,42 @@ input[type='submit']:hover {
 }
 
 /* Fighters Select */
+#loadingGame{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000091;
+  backdrop-filter: blur(25px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.loadingLogo{
+  width: 15%;
+  position: absolute;
+}
+
+.circle{
+  width: 225px;
+  height: 225px;
+  background-color: rgba(255, 255, 255, 0);
+  border-top: 4px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  animation: rotateAround 2s linear infinite;
+}
+
+@keyframes rotateAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 #titleOfFigtersSelect{
     color: white;
