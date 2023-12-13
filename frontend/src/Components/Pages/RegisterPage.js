@@ -41,6 +41,9 @@ const RegisterPage = () => {
             <label for="motdepasse">Mot de passe :</label>
             <input type="password" id="motdepasse" name="motdepasse" required>
             <br>
+            <label for="motdepasse">retapez mot de passe :</label>
+            <input type="password" id="motdepasse2" name="motdepasse" required>
+            <br>
             <p id="paragrapheLogin">Avez-vous un compte ? <a href="#"> Connectez-vous</a></p>
             <br>
             <div class="form-check">
@@ -93,6 +96,7 @@ async function addOneUser(e) {
   const username = document.querySelector('#pseudo').value;
   const email = document.querySelector('#mail').value;
   const password = document.querySelector('#motdepasse').value;
+  const password2 = document.querySelector('#motdepasse2').value;
   const term = document.querySelector('#checkRGPD').checked;
 
   const phraseError = document.querySelector('.phrase_error');
@@ -108,6 +112,11 @@ async function addOneUser(e) {
 
   if (emailError) {
     phraseError.textContent = emailError;
+    return;
+  }
+
+  if(password !== password2){
+    phraseError.textContent = 'Les mots de passe sont differents';
     return;
   }
 
@@ -130,11 +139,10 @@ async function addOneUser(e) {
     }),
     headers: {
       'Content-Type': 'application/json',
-    },
-    credentials: 'include',
+    }
   };
 
-  const response = await fetch('/api/auths/register', options); // fetch return a promise => we wait for the response
+  const response = await fetch(`${process.env.API_BASE_URL}/auths/register`, options); // fetch return a promise => we wait for the response
 
   if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 

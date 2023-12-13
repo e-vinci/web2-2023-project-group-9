@@ -57,7 +57,7 @@ const HandleSuggestedPhrasePage = () => {
       },
     };
 
-    const response = await fetch('/api/game/addSuggestedPhrase', option);
+    const response = await fetch(`${process.env.API_BASE_URL}/game/addSuggestedPhrase`, option);
 
     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 

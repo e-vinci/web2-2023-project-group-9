@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/prefer-default-export, consistent-return
 const getPhraseRandom = async () => {
     try {
-      const response = await fetch('/api/game');
+      const response = await fetch(`${process.env.API_BASE_URL}/game`);
   
       if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
   

@@ -1,4 +1,4 @@
-@baseUrl = https://mortalkeyboard.azurewebsites.net/
+@baseUrl = http://localhost:3000
 
 #### First login as the admin
 ##### Define a request variable nammed admin
@@ -12,14 +12,14 @@ Content-Type: application/json
 }
 
 #### First login as the user 
-##### Define a request variable nammed karim2003
+### Login the manager user with userName
 # @name user
 POST {{baseUrl}}/auths/login
 Content-Type: application/json
 
 {
-    "username":"karim2003",
-    "password":"Juin2003."
+    "username":"manager123",
+    "password":"Manager.2003"
 }
 
 ### read phrases 
@@ -57,5 +57,5 @@ Authorization: {{admin.response.body.token}}
 }
 
 ### remove phrase
-DELETE {{baseUrl}}/game/deletePhrase/9
+DELETE {{baseUrl}}/game/deletePhrase/26
 Authorization: {{admin.response.body.token}}

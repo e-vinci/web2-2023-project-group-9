@@ -9,7 +9,7 @@ const HandlePhrase = async () => {
 };
 
 async function renderHandlePhrase() {
-  const response = await fetch('/api/game/readSuggestedPhrases');
+  const response = await fetch(`${process.env.API_BASE_URL}/game/readSuggestedPhrases`);
 
   if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
@@ -64,12 +64,11 @@ async function renderHandlePhrase() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `${userToken}`
-        },
-        credentials: 'include',
+        }
       };
     
       try {
-        const response3 = await fetch('/api/game/addPhrase', option);
+        const response3 = await fetch(`${process.env.API_BASE_URL}/game/addPhrase`, option);
     
         if (!response3.ok)
           throw new Error(`fetch error : ${response3.status} : ${response3.statusText}`);
@@ -102,13 +101,12 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `${userToken}`
-    },
-    credentials: 'include',
+    }
   };
 
   try {
     const response2 = await fetch(
-      `/api/game/deleteSuggestedPhrase/${phraseId}`,
+      `${process.env.API_BASE_URL}/game/deleteSuggestedPhrase/${phraseId}`,
       option,
     );
 
@@ -138,7 +136,7 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
   }, 0);
 
   async function getPhraseById(id) {
-    const response4 = await fetch(`/api/game/readOneSuggestedPhrase/${id}`);
+    const response4 = await fetch(`${process.env.API_BASE_URL}/game/readOneSuggestedPhrase/${id}`);
 
     if (!response4.ok)
       throw new Error(`fetch error : ${response4.status} : ${response4.statusText}`);
@@ -166,7 +164,7 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
       },
     };
 
-    const response5 = await fetch(`/api/game/deleteSuggestedPhrase/${id}`, option);
+    const response5 = await fetch(`${process.env.API_BASE_URL}/game/deleteSuggestedPhrase/${id}`, option);
 
     if (!response5.ok)
       throw new Error(`fetch error : ${response5.status} : ${response5.statusText}`);

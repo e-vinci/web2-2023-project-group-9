@@ -10,7 +10,7 @@ const HandlePhraseFromGamePage = async () => {
 
 async function renderHandlePhraseFromGame() {
 
-  const response = await fetch('/api/game');
+  const response = await fetch(`${process.env.API_BASE_URL}/game`);
 
   if(!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
@@ -60,13 +60,12 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `${userToken}`
-      },
-      credentials: 'include'
+      }
     };
 
     try {
       const response2 = await fetch(
-        `/api/game/deletePhrase/${phraseId}`,
+        `${process.env.API_BASE_URL}/game/deletePhrase/${phraseId}`,
         option
       );
 
