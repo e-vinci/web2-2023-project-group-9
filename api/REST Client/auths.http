@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000
+@baseUrl = https://mortalkeyboard.azurewebsites.net/
 
 ### Try to login an unknow user
 POST {{baseUrl}}/auths/login
@@ -17,9 +17,6 @@ Content-Type: application/json
     "username":"admin",
     "password":"admin"
 }
-
-
-
 
 ### Create the manager user
 POST {{baseUrl}}/auths/register

@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000
+@baseUrl = https://mortalkeyboard.azurewebsites.net/
 
 #### First login as the admin
 ##### Define a request variable nammed admin
@@ -57,5 +57,5 @@ Authorization: {{admin.response.body.token}}
 }
 
 ### remove phrase
-DELETE {{baseUrl}}/game/deletePhrase/26
+DELETE {{baseUrl}}/game/deletePhrase/9
 Authorization: {{admin.response.body.token}}
