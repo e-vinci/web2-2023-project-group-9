@@ -100,7 +100,7 @@ function checkPassword(password) {
 function checkInformationsBeforeLogin(data){
   let error = '';
 
-  if(!validator.isAlphanumeric(data.username) || data.username.length <= 1 || data.password.length <= 1) {
+  if(data.username.length <= 1 || data.password.length <= 1) {
     error = 'Remplissez les champs !'
     return error;
   }

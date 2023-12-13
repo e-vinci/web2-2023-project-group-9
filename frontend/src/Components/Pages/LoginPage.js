@@ -27,7 +27,7 @@ const LoginPage = () => {
     <div id="containerLoginPage">
         <div id="containerForm">
             <form action="#" method="post">
-                <label for="pseudo">Pseudo / Email :</label>
+                <label for="pseudo">Pseudo</label>
                 <input type="text" id="pseudo" name="pseudo" required>
                 <br>
                 <label for="motdepasse">Mot de passe :</label>
