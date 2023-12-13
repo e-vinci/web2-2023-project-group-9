@@ -727,14 +727,15 @@ input[type='submit']:hover {
   left: 64%;
 }
 
-.lifeBarRightGreen {
-  flex: 100%; /* Les points de vie restant ceux- en dessous du vert */
-  background-color: rgb(0, 255, 0);
-}
 
 .lifeBarRightRed {
-  flex: 0%; /* sert à controler les points de vie perdues */
+  flex: 0%; /* Les points de vie restant ceux- en dessous du vert */
   background-color: red;
+}
+
+.lifeBarRightGreen {
+  flex: 100%; /* sert à controler les points de vie perdues */
+  background-color: rgb(0, 255, 0);
 }
 
 .vs {
