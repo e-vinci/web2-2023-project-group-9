@@ -366,9 +366,9 @@ const GamePage = async () => {
     if (players.player1Time > players.player2Time) {
       phraseBlockBlock.style.visibility = 'hidden';
       setTimeout(() => {
-        players.player1Life -= 50;
+        players.player1Life -= 10;
         let player1LifeRed = 0
-        player1LifeRed += 50;
+        player1LifeRed += 10;
         // console.log(player1LifeRed);
         player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
         player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
@@ -377,9 +377,9 @@ const GamePage = async () => {
     } else if (players.player1Time < players.player2Time) {
       phraseBlockBlock.style.visibility = 'hidden';
       setTimeout(() => {
-        players.player2Life -= 50;
+        players.player2Life -= 10;
         let player2LifeRed = 0
-        player2LifeRed += 50;
+        player2LifeRed += 10;
         // console.log(player2LifeRed);
         player2LifeRedDisplay.style.flex = `${players.player2Life}%`;
         player2LifeGreenDisplay.style.flex = `${player2LifeRed}%`;
