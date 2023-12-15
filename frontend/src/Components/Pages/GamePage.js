@@ -385,14 +385,14 @@ const GamePage = async () => {
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
-      players.player1Life -= 20;
+      players.player1Life -= 25;
       let player1LifeRed = 0;
-      player1LifeRed += 20;
+      player1LifeRed += 25;
 
       player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
       player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
 
-      if (players.player1Life <= 0) {
+      if (player1LifeGreenDisplay.style.flex <= '0%') {
         setTimeout(() => {
           showWinner('Joueur 2');
 
@@ -408,14 +408,14 @@ const GamePage = async () => {
         phraseBlockBlock.style.visibility = 'visible';
       }
     } else if (players.player1Time < players.player2Time) {
-      players.player2Life -= 100;
+      players.player2Life -= 25;
       let player2LifeRed = 0;
-      player2LifeRed += 100;
+      player2LifeRed += 25;
 
       player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
       player2LifeRedDisplay.style.flex = `${player2LifeRed}%`;
 
-      if (players.player2Life <= 0) {
+      if (player2LifeGreenDisplay.style.flex <= '0%') {
         setTimeout(() => {
           showWinner('Joueur 1');
 

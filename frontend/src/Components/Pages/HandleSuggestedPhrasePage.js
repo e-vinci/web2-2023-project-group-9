@@ -40,7 +40,7 @@ const HandleSuggestedPhrasePage = () => {
 
     const phraseError = document.querySelector('.phrase_error');
 
-    if (phrase.length < 5) {
+    if (phrase.length < 10) {
       error = 'Phrase trop courte';
       phraseError.textContent = error;
       return;

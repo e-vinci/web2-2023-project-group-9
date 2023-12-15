@@ -354,7 +354,7 @@ const DemoGame = () => {
       times[1].style.color = 'red';
       phrase.style.visibility = 'hidden';
       charactereOfPlayer1.classList.add('attackVenom')
-      shiFftV(charactereOfPlayer1,1500);
+      shiftV(charactereOfPlayer1,1500);
     } else if (result === 'player2') {
       times[0].style.color = 'red';
       times[1].style.color = 'green';
