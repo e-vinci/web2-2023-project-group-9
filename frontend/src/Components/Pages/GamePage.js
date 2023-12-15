@@ -386,19 +386,22 @@ const GamePage = async () => {
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
       players.player1Life -= 25;
-      let player1LifeRed = 0;
-      player1LifeRed += 25;
-
-      player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
-      player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
-
-      if (player1LifeGreenDisplay.style.flex <= '0%') {
+  
+      if (players.player1Life < 0) {
+        players.player1Life = 0;
+      }
+  
+      const player1LifeFlex = (players.player1Life / 100) * 100;
+      player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
+      player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
+  
+      if (players.player1Life <= 0) {
         setTimeout(() => {
           showWinner('Joueur 2');
-
+  
           setTimeout(() => {
             hideContainerWinner();
-
+  
             setTimeout(() => {
               menuOpen.style.top = '0%';
             }, 1000);
@@ -409,19 +412,22 @@ const GamePage = async () => {
       }
     } else if (players.player1Time < players.player2Time) {
       players.player2Life -= 25;
-      let player2LifeRed = 0;
-      player2LifeRed += 25;
-
-      player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
-      player2LifeRedDisplay.style.flex = `${player2LifeRed}%`;
-
-      if (player2LifeGreenDisplay.style.flex <= '0%') {
+  
+      if (players.player2Life < 0) {
+        players.player2Life = 0;
+      }
+  
+      const player2LifeFlex = (players.player2Life / 100) * 100;
+      player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
+      player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
+  
+      if (players.player2Life <= 0) {
         setTimeout(() => {
           showWinner('Joueur 1');
-
+  
           setTimeout(() => {
             hideContainerWinner();
-
+  
             setTimeout(() => {
               menuOpen.style.top = '0%';
             }, 500);
@@ -431,10 +437,11 @@ const GamePage = async () => {
         phraseBlockBlock.style.visibility = 'visible';
       }
     }
-
+  
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
   }
+  
 
   function showWinner(name) {
     const containerAlertWinner = document.querySelector('#container-alert-winner');
