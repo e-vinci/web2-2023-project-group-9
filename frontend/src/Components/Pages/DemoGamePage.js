@@ -17,8 +17,6 @@ import Navigate from '../Router/Navigate';
 
 import backgroundDemo from '../../img/Arena/arene5.gif';
 import vsFight from '../../img/Arena/vsFight.png';
-// import {driver} from 'driver.js';
-// import 'driver.js/dist/driver.css';
 
 const DemoGame = () => {
   clearAllPage();
@@ -356,7 +354,7 @@ const DemoGame = () => {
       times[1].style.color = 'red';
       phrase.style.visibility = 'hidden';
       charactereOfPlayer1.classList.add('attackVenom')
-      shiftV(charactereOfPlayer1,1500);
+      shiFftV(charactereOfPlayer1,1500);
     } else if (result === 'player2') {
       times[0].style.color = 'red';
       times[1].style.color = 'green';

@@ -636,7 +636,39 @@ input[type='submit']:hover {
   justify-content: center;
 }
 
-/* demo page */
+
+/* demo page & game page */
+
+#container-alert-winner {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left: 0;
+  background-color: #090909c8;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+#alert-winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px; /* Valeur arbitraire, assurez-vous qu'elle est plus élevée que les autres éléments */
+  display: none; /* Vous pouvez le rendre visible au besoin */
+  justify-content: center;
+  width: 70vh;
+}
+
+#name-winner {
+  font-size: 40px;
+  color: rgb(255, 255, 0); /* Couleur du texte */
+  text-shadow: 3px 3px 0 red, /* Contour rouge */ -3px 3px 0 red;
+}
 
 #loading {
   position: absolute;

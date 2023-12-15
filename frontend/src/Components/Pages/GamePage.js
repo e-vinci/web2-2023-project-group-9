@@ -26,44 +26,44 @@ const GamePage = async () => {
   const fighter2 = sessionStorage.getItem('fighter2');
   const arena = sessionStorage.getItem('arena');
 
-  if(arena === 'arena1'){
+  if (arena === 'arena1') {
     main.style.backgroundImage = `url(${arena1})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  } else if(arena === 'arena2'){
+  } else if (arena === 'arena2') {
     main.style.backgroundImage = `url(${arena2})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena3'){
+  } else if (arena === 'arena3') {
     main.style.backgroundImage = `url(${arena3})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena4'){
+  } else if (arena === 'arena4') {
     main.style.backgroundImage = `url(${arena4})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena5'){
+  } else if (arena === 'arena5') {
     main.style.backgroundImage = `url(${arena5})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena6'){
+  } else if (arena === 'arena6') {
     main.style.backgroundImage = `url(${arena6})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena7'){
+  } else if (arena === 'arena7') {
     main.style.backgroundImage = `url(${arena7})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena8'){
+  } else if (arena === 'arena8') {
     main.style.backgroundImage = `url(${arena8})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
-  }else if(arena === 'arena9'){
+  } else if (arena === 'arena9') {
     main.style.backgroundImage = `url(${arena9})`;
     main.style.backgroundSize = 'cover';
     main.style.height = '100vh';
   }
-  
+
   const arenaImages = {
     arena1,
     arena2,
@@ -98,6 +98,11 @@ const GamePage = async () => {
       </div>
     </div>
     <div id="arene-demo">
+    <div id="container-alert-winner">
+      <div id="alert-winner">
+        <p id="name-winner"></p>
+      </div>
+    </div>
       <section id="headGame">
         <div class="home"><i class="fas fa-home" style="font-size: 50px; color: white;"></i></div>
         <div class="lifeBarContainerLeft">
@@ -124,7 +129,18 @@ const GamePage = async () => {
 
   const avatarOfPlayer1 = document.querySelector('#charactere-player-1-demo');
   const avatarOfPlayer2 = document.querySelector('#charactere-player-2-demo');
-  
+
+  const phraseBlock = document.querySelector('#phrase-attribue-game');
+  const phraseBlockBlock = document.querySelector('#phrase-game');
+  const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
+  const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
+
+  const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
+  const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
+
+  const timerDisplayLeft = document.querySelector('.timeLeft');
+  const timerDisplayRight = document.querySelector('.timeRight');
+
   const menuOpen = document.querySelector('#menu');
 
   const times = document.querySelectorAll('.timeLeft, .timeRight');
@@ -148,18 +164,17 @@ const GamePage = async () => {
         setTimeout(() => {
           switchText();
           startPreparationTimer();
-          if(fighter1 === 'broly'){
+          if (fighter1 === 'broly') {
             avatarOfPlayer1.classList.add('transformBrolyL');
-          }else if(fighter1 === 'venom'){
+          } else if (fighter1 === 'venom') {
             avatarOfPlayer1.classList.add('transformVenom');
           }
 
-          if(fighter2 === 'venom'){
+          if (fighter2 === 'venom') {
             avatarOfPlayer2.classList.add('transformVenomR');
-          }else if(fighter2 === 'broly'){
+          } else if (fighter2 === 'broly') {
             avatarOfPlayer2.classList.add('transformBroly');
           }
-
         }, 200);
       }
     }, 1000);
@@ -175,56 +190,6 @@ const GamePage = async () => {
       duration,
     });
   }
-
- const restarLink = document.querySelector('#restartLink')
-  restarLink.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    menuOpen.style.top = '-100%';
-    setTimeout(() =>{
-      avatarOfPlayer1.classList.remove('transformVenom');
-      avatarOfPlayer2.classList.remove('transformBroly');
-      times.forEach((t) =>{
-        // eslint-disable-next-line no-param-reassign
-        t.innerHTML = '00:00'
-      })
-      loadingPage();
-    },500);
-  });
-
-  document.querySelector('#accueilLink').addEventListener('click',(e)=>{
-    e.preventDefault();
-    removeAllSession();
-    Navigate('/');
-  })
-
-  document.querySelector('#continueGame').addEventListener('click',(e) =>{
-    e.preventDefault();
-    menuOpen.style.top = '-100%';
-  })
-
-  const menu = document.querySelector('.home');
-  menu.addEventListener('click', (e) => {
-    e.preventDefault();
-    menuOpen.style.top = '0%';
-  });
-
-  const menuFerme = document.querySelector('.fa-times');
-  menuFerme.addEventListener('click', (e) => {
-    e.preventDefault();
-    menuOpen.style.top = '-100%';
-  });
-
-  const phraseBlock = document.querySelector('#phrase-attribue-game');
-  const phraseBlockBlock = document.querySelector('#phrase-game');
-  const player1LifeGreenDisplay = document.querySelector('.lifeBarLeftGreen');
-  const player1LifeRedDisplay = document.querySelector('.lifeBarLeftRed');
-
-  const player2LifeGreenDisplay = document.querySelector('.lifeBarRightGreen');
-  const player2LifeRedDisplay = document.querySelector('.lifeBarRightRed');
-
-  const timerDisplayLeft = document.querySelector('.timeLeft');
-  const timerDisplayRight = document.querySelector('.timeRight');
-
 
   const textGameData = {
     letterIndex: 0,
@@ -243,17 +208,73 @@ const GamePage = async () => {
     isRoundOver: false,
   };
 
+  const restartLink = document.querySelector('#restartLink');
+
+  restartLink.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Reste du code pour masquer le menu, etc.
+    menuOpen.style.top = '-100%';
+
+    resetCounters();
+
+    players.currentPlayer = 1;
+
+    textGameData.letterIndex = 0;
+
+    
+
+    setTimeout(() => {
+      avatarOfPlayer1.classList.remove('transformVenom');
+      avatarOfPlayer2.classList.remove('transformBroly');
+      // Réinitialiser les barres de vie en vert
+      player1LifeGreenDisplay.style.flex = '100%';
+      player2LifeGreenDisplay.style.flex = '100%';
+      player1LifeRedDisplay.style.flex = '0%';
+      player2LifeRedDisplay.style.flex = '0%';
+
+      // Réinitialiser le chronomètre à "00:00"
+      times.forEach((t) => {
+        t.innerText = '00:00';
+      });
+      loadingPage();
+    }, 500);
+  });
+
+  document.querySelector('#accueilLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    removeAllSession();
+    Navigate('/');
+  });
+
+  document.querySelector('#continueGame').addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOpen.style.top = '-100%';
+  });
+
+  const menu = document.querySelector('.home');
+  menu.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOpen.style.top = '0%';
+  });
+
+  const menuFerme = document.querySelector('.fa-times');
+  menuFerme.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOpen.style.top = '-100%';
+  });
+
   function formatTime(milliseconds) {
     const seconds = Math.floor(milliseconds / 1000);
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
-  
+
   const gameTimerData = {
     timer: null,
     isRunning: false,
-    countDown: 1000
+    countDown: 1000,
   };
 
   const gamePreparationTimerData = {
@@ -265,14 +286,14 @@ const GamePage = async () => {
 
   function handleKeyboardInput(e) {
     if (!gamePreparationTimerData.isPreparationTime) {
-      const {key} = e;
-      
+      const { key } = e;
+
       if (key.length > 1) {
         return; // Ignore the special keys
       }
-      
+
       const currentLetter = textGameData.phrase[textGameData.letterIndex];
-      
+
       if (key === currentLetter) {
         handleCorrectKey();
       } else {
@@ -344,7 +365,7 @@ const GamePage = async () => {
   }
 
   async function updatePlayersAndCheckGameOver() {
-    players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;   
+    players.currentPlayer = players.currentPlayer === 1 ? 2 : 1;
     gameTimerData.countDown = 1000;
 
     if (players.currentPlayer === 1) {
@@ -364,35 +385,72 @@ const GamePage = async () => {
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
-      phraseBlockBlock.style.visibility = 'hidden';
-      setTimeout(() => {
-        players.player1Life -= 20;
-        let player1LifeRed = 0
-        player1LifeRed += 20;
-        // console.log(player1LifeRed);
-        player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
-        player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
+      players.player1Life -= 20;
+      let player1LifeRed = 0;
+      player1LifeRed += 20;
+
+      player1LifeGreenDisplay.style.flex = `${players.player1Life}%`;
+      player1LifeRedDisplay.style.flex = `${player1LifeRed}%`;
+
+      if (players.player1Life <= 0) {
+        setTimeout(() => {
+          showWinner('Joueur 2');
+
+          setTimeout(() => {
+            hideContainerWinner();
+
+            setTimeout(() => {
+              menuOpen.style.top = '0%';
+            }, 1000);
+          }, 500);
+        }, 500);
+      } else {
         phraseBlockBlock.style.visibility = 'visible';
-      }, 1000);
+      }
     } else if (players.player1Time < players.player2Time) {
-      phraseBlockBlock.style.visibility = 'hidden';
-      setTimeout(() => {
-        players.player2Life -= 20;
-        let player2LifeRed = 0
-        player2LifeRed += 20;
-        // console.log(player2LifeRed);
-        player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
-        player2LifeRedDisplay.style.flex = `${player2LifeRed}%`;
+      players.player2Life -= 100;
+      let player2LifeRed = 0;
+      player2LifeRed += 100;
+
+      player2LifeGreenDisplay.style.flex = `${players.player2Life}%`;
+      player2LifeRedDisplay.style.flex = `${player2LifeRed}%`;
+
+      if (players.player2Life <= 0) {
+        setTimeout(() => {
+          showWinner('Joueur 1');
+
+          setTimeout(() => {
+            hideContainerWinner();
+
+            setTimeout(() => {
+              menuOpen.style.top = '0%';
+            }, 500);
+          }, 1000);
+        }, 500);
+      } else {
         phraseBlockBlock.style.visibility = 'visible';
-      }, 1000);
+      }
     }
-    if (players.player1Life <= 0) {
-      console.log("Player 2 wins!");
-    } else if (players.player2Life <= 0) {
-      console.log("Player 1 wins!");
-    }
+
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
+  }
+
+  function showWinner(name) {
+    const containerAlertWinner = document.querySelector('#container-alert-winner');
+    const alertWinner = document.querySelector('#alert-winner');
+    containerAlertWinner.style.display = "flex";
+    alertWinner.style.display = 'flex';
+    const winnerSpan = document.querySelector('#name-winner');
+    winnerSpan.textContent = `${name}, tu as gagne !!`;
+  }
+
+  function hideContainerWinner() {
+    const containerAlertWinner = document.querySelector('#container-alert-winner');
+    const alertWinner = document.querySelector('#alert-winner');
+
+    containerAlertWinner.style.display = 'none';
+    alertWinner.style.display = "none";
   }
 
   function resetCounters() {
@@ -408,9 +466,9 @@ const GamePage = async () => {
         } else {
           players.player2Time += 100; // Ajouter 100 millisecondes
         }
-  
+
         gameTimerData.countDown += 100; // Décompter de 100 millisecondes
-  
+
         if (players.currentPlayer === 1) {
           timerDisplayLeft.textContent = formatTime(gameTimerData.countDown);
         } else {
@@ -421,11 +479,8 @@ const GamePage = async () => {
       }
     }
   }
-  
-  function handleTimerFinish() {
-    // clearInterval(gameTimerData.timer);
-    // gameTimerData.isRunning = false;
 
+  function handleTimerFinish() {
     if (!players.isRoundOver) {
       textGameData.letterIndex = 0;
       gameTimerData.countDown = 1000;
@@ -485,7 +540,6 @@ const GamePage = async () => {
       .map((letter) => `<span>${letter}</span>`)
       .join('');
   }
-  
 };
 
 export default GamePage;

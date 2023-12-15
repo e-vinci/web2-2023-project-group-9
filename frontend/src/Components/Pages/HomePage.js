@@ -150,11 +150,11 @@ const HomePage = () => {
     <div class="left">
     <p>Information complementaires</p>
     <a href=""><p class="linkFooter">Assistance technique</p></a>
-    <a href=""><p class="linkFooter">Politique de confidentialité</p></a> 
+    <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016R0679&from=FR"><p class="linkFooter">Politique de confidentialité</p></a> 
     </div>
     <div class="right">
     <p>A Propos De Nous</p>
-    <a href=""><p class="linkFooter">Notre équipe de développement</p></a>
+    <p class="linkFooter">Notre équipe de développement : Naviaux Karim, ElBouhtani Souhaib, Mohammed Guerbaoui, Youssef Abouhamid et Ibrahim Yahia</p>
     </div>
     </div>
     </section>
