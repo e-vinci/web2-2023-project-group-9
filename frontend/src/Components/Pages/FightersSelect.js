@@ -92,7 +92,7 @@ const FightersSelect  = () =>{
             element: '.main-container',
             popover : {
               title: "Selection de personnage",
-              description: "Cliquer 2 fois pour choisir definitivement le personnage pour cette game",
+              description: "Cliquer 2 fois pour choisir definitivement le personnage pour cette game (cliquer sur la page pour sauf le bloc de séléction de personnage faire disparaitre ce message)",
               side: 'top',
               align: 'center'
             }
