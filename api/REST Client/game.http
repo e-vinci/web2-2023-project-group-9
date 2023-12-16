@@ -28,7 +28,7 @@ GET {{baseUrl}}/game
 ### read suggested phrases
 GET {{baseUrl}}/game/readSuggestedPhrases
 
-### add suggested phrase
+### add suggested phrase only by user connected
 POST {{baseUrl}}/game/addSuggestedPhrase
 Content-Type: application/json
 Authorization: {{user.response.body.token}}
@@ -37,7 +37,7 @@ Authorization: {{user.response.body.token}}
     "phrase" : "Je vais te massacrer sale fou !"
 }
 
-### delete suggested phrase
+### delete suggested phrase only by admin
 DELETE {{baseUrl}}/game/deleteSuggestedPhrase/1
 Authorization: {{admin.response.body.token}}
 
@@ -47,7 +47,7 @@ GET {{baseUrl}}/game/readOneSuggestedPhrase/4
 ### read one phrase
 GET {{baseUrl}}/game/readOnePhraseFromGame/23
 
-### add phrase 
+### add phrase only by admin
 POST {{baseUrl}}/game/addPhrase
 Content-Type: application/json
 Authorization: {{admin.response.body.token}}
@@ -56,6 +56,6 @@ Authorization: {{admin.response.body.token}}
     "phrase" : "la victoire est mienne !"
 }
 
-### remove phrase
+### remove phrase only by admin
 DELETE {{baseUrl}}/game/deletePhrase/26
 Authorization: {{admin.response.body.token}}
