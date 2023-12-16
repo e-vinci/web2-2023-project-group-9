@@ -165,19 +165,13 @@ const HomePage = () => {
   </section>
 `;
 
-  
-   
-  console.log(isConnected);
-
   const containerInscription = document.querySelector('#inscription');
 
   if(isConnected === true){
  
     containerInscription.innerHTML = `
-    <div id="inscription">
     <p class="pboutton" id="link_to_gamePage">Jouer</p>
     ${imgInscription.outerHTML}
-  </div>
     `;
     
     const link_to_gamePage = document.querySelector('#link_to_gamePage');
