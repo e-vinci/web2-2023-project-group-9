@@ -282,17 +282,6 @@ const GamePage = async () => {
     isRoundOver: false,
   };
 
-  const gameTimerData = {
-    timer: null,
-    isRunning: false,
-    countDown: 1000,
-  };
-
-  const gamePreparationTimerData = {
-    isPreparationTime: false,
-    preparationCountDown: 5,
-  };
-
   const restartLink = document.querySelector('#restartLink');
 
   restartLink.addEventListener('click', (e) => {
@@ -363,6 +352,17 @@ const GamePage = async () => {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
 
+  const gameTimerData = {
+    timer: null,
+    isRunning: false,
+    countDown: 1000,
+  };
+
+  const gamePreparationTimerData = {
+    isPreparationTime: false,
+    preparationCountDown: 5,
+  };
+
   document.addEventListener('keydown', handleKeyboardInput);
 
   function handleKeyboardInput(e) {
@@ -401,20 +401,21 @@ const GamePage = async () => {
         reduceLife();
         players.roundCount = 0;
         resetCounters();
-        resetTimerColor();
       }
 
       gamePreparationTimerData.isPreparationTime = true;
       gamePreparationTimerData.preparationCountDown = 5;
 
       if (players.currentPlayer === 1) {
+        timerDisplayLeft.style.color = 'white'
         timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
       } else {
+        timerDisplayRight.style.color = 'white'
         timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
       }
 
       document.removeEventListener('keydown', handleKeyboardInput);
-
+      
       startPreparationTimer();
 
       setTimeout(() => {
@@ -465,33 +466,33 @@ const GamePage = async () => {
     await switchText();
   }
 
-  function resetTimerColor(){
-    times.forEach((t) =>{
-      t.style.color = 'white';
-    })
-  }
+  // function resetTimerColor(){
+  //   times.forEach((t) =>{
+  //     t.style.color = 'white';
+  //   })
+  // }
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
       timerDisplayLeft.style.color = 'red';
       timerDisplayRight.style.color = 'green';
       players.player1Life -= 25;
-
+  
       if (players.player1Life < 0) {
         players.player1Life = 0;
       }
-
+  
       const player1LifeFlex = (players.player1Life / 100) * 100;
       player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
       player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
-
+  
       if (players.player1Life <= 0) {
         setTimeout(() => {
           showWinner('Joueur 2');
-
+  
           setTimeout(() => {
             hideContainerWinner();
-
+  
             setTimeout(() => {
               menuOpen.style.top = '0%';
             }, 1000);
@@ -504,22 +505,22 @@ const GamePage = async () => {
       timerDisplayLeft.style.color = 'green';
       timerDisplayRight.style.color = 'red';
       players.player2Life -= 25;
-
+  
       if (players.player2Life < 0) {
         players.player2Life = 0;
       }
-
+  
       const player2LifeFlex = (players.player2Life / 100) * 100;
       player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
       player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
-
+  
       if (players.player2Life <= 0) {
         setTimeout(() => {
           showWinner('Joueur 1');
-
+  
           setTimeout(() => {
             hideContainerWinner();
-
+  
             setTimeout(() => {
               menuOpen.style.top = '0%';
             }, 500);
@@ -529,7 +530,11 @@ const GamePage = async () => {
         phraseBlockBlock.style.visibility = 'visible';
       }
     }
-  
+
+    if (players.player1Time === players.player2Time) {
+      timerDisplayLeft.style.color = 'orange';
+      timerDisplayRight.style.color = 'orange';
+    }  
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
   }
