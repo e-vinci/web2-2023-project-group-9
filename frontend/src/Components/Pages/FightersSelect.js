@@ -136,7 +136,7 @@ const FightersSelect  = () =>{
                     img.style.transform = 'scaleX(1)';
                     nomCombattant1.innerHTML = 'Arachno-Guy';
                     nomCombattant1.style.background = 'linear-gradient(to right, red, black)';
-                    animationImg(img,1550,'easeInOutExpo',500);
+                    animationImg(img,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
                 }
                 if (button.classList.contains('chunLiTK')) {
@@ -144,7 +144,7 @@ const FightersSelect  = () =>{
                     img.style.transform = 'scaleX(1)';
                     nomCombattant1.innerHTML = 'Chin-Lai';
                     nomCombattant1.style.background = 'linear-gradient(to right, purple, blue)';
-                    animationImg(img,1550,'easeInOutExpo',500);
+                    animationImg(img,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant1,-20,1500,'easeInOutExpo',500)
                 }
                 if (button.classList.contains('captainAmerica')) {
@@ -259,7 +259,7 @@ const FightersSelect  = () =>{
                     img2.style.transform = 'scaleX(-1)';
                     nomCombattant2.innerHTML = 'Arachno-Guy';
                     nomCombattant2.style.background = 'linear-gradient(to right, red, black)';
-                    animationImg(img2,1550,'easeInOutExpo',500);
+                    animationImg(img2,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
                 }
                 if (button.classList.contains('chunLiTK')) {
@@ -267,7 +267,7 @@ const FightersSelect  = () =>{
                     img2.style.transform = 'scaleX(-1)';
                     nomCombattant2.innerHTML = 'Chin-Lai';
                     nomCombattant2.style.background = 'linear-gradient(to right, purple, blue)';
-                    animationImg(img2,1550,'easeInOutExpo',500);
+                    animationImg(img2,1500,'easeInOutExpo',500);
                     animationNom(nomCombattant2,-20,-1500,'easeInOutExpo',500)
                 }
                 if (button.classList.contains('captainAmerica')) {

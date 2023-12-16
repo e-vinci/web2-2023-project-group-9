@@ -22,8 +22,7 @@ const GamePage = async () => {
   clearAllPage();
   const main = document.querySelector('main');
 
-  const fighter1 = sessionStorage.getItem('fighter1');
-  const fighter2 = sessionStorage.getItem('fighter2');
+  
   const arena = sessionStorage.getItem('arena');
 
   if (arena === 'arena1') {
@@ -119,16 +118,57 @@ const GamePage = async () => {
           <div class="lifeBarRightGreen"></div>
         </div>
       </section>
-      <div id="charactere-player-1-demo"></div>
-      <div id="charactere-player-2-demo"></div>
+      <div id="fighter1"></div>
+      <div id="fighter2"></div>
     </div>
     <div id="phrase-game"><p id="phrase-attribue-game"></p></div>
   `;
 
-  loadingPage();
+  const fighter1 = sessionStorage.getItem('fighter1');
+  const fighter2 = sessionStorage.getItem('fighter2');
+  const avatarOfPlayer1 = document.querySelector('#fighter1');
+  const avatarOfPlayer2 = document.querySelector('#fighter2');
 
-  const avatarOfPlayer1 = document.querySelector('#charactere-player-1-demo');
-  const avatarOfPlayer2 = document.querySelector('#charactere-player-2-demo');
+  if (fighter1 === 'broly') {
+    avatarOfPlayer1.classList.add('baseB')
+    avatarOfPlayer1.style.transform = 'scaleX(-1)'
+  }else if(fighter1 === 'venom'){
+    avatarOfPlayer1.classList.add('baseV')
+  }else if(fighter1 === 'spider-man'){
+    avatarOfPlayer1.classList.add('baseS');
+  }else if(fighter1 === 'chun-li'){
+    avatarOfPlayer1.classList.add('baseCl');
+  }else if(fighter1 === 'captain-america'){
+    avatarOfPlayer1.classList.add('baseCA');
+  }else if(fighter1 === 'son-goku'){
+    avatarOfPlayer1.classList.add('baseGk');
+  }else if(fighter1 === 'son-gohan'){
+    avatarOfPlayer1.classList.add('baseGh');
+  }
+
+  if (fighter2 === 'broly') {
+    avatarOfPlayer2.classList.add('baseB')
+  }else if(fighter2 === 'venom'){
+    avatarOfPlayer2.classList.add('baseV')
+    avatarOfPlayer2.style.transform = 'scaleX(-1)';
+  }else if(fighter2 === 'spider-man'){
+    avatarOfPlayer2.classList.add('baseS');
+    avatarOfPlayer2.style.transform = 'scaleX(-1)';
+  }else if(fighter2 === 'chun-li'){
+    avatarOfPlayer2.classList.add('baseCl');
+    avatarOfPlayer2.style.transform = 'scaleX(-1)';
+  }else if(fighter2 === 'captain-america'){
+    avatarOfPlayer2.classList.add('baseCA');
+    avatarOfPlayer2.style.transform = 'scaleX(-1)';
+  }else if(fighter2 === 'son-goku'){
+    avatarOfPlayer2.classList.add('baseGk');
+    avatarOfPlayer2.style.transform = 'scaleX(-1)';
+  }else if(fighter2 === 'son-gohan'){
+    avatarOfPlayer2.classList.add('baseGh');
+    avatarOfPlayer2.style.transform = 'scaleX(-1)';
+  }
+  
+  loadingPage();
 
   const phraseBlock = document.querySelector('#phrase-attribue-game');
   const phraseBlockBlock = document.querySelector('#phrase-game');
@@ -165,29 +205,61 @@ const GamePage = async () => {
           switchText();
           startPreparationTimer();
           if (fighter1 === 'broly') {
-            avatarOfPlayer1.classList.add('transformBrolyL');
+            avatarOfPlayer1.classList.add('transformBroly');
+            transformation(avatarOfPlayer1, 1500);
           } else if (fighter1 === 'venom') {
             avatarOfPlayer1.classList.add('transformVenom');
+            transformation(avatarOfPlayer1, 1500);
+          } else if(fighter1 === 'spider-man'){
+            avatarOfPlayer1.classList.add('onTheSpotSpider');
+          }else if(fighter1 === 'chun-li'){
+            avatarOfPlayer1.classList.add('onTheSpotChun');
+          }else if(fighter1 === 'captain-america'){
+            avatarOfPlayer1.classList.add('onTheSpotCapt');
+          }else if(fighter1 === 'son-goku'){
+            avatarOfPlayer1.classList.add('onTheSpotGk');
+          }else if(fighter1 === 'son-gohan'){
+            avatarOfPlayer1.classList.add('onTheSpotGh')
           }
 
           if (fighter2 === 'venom') {
-            avatarOfPlayer2.classList.add('transformVenomR');
+            avatarOfPlayer2.classList.add('transformVenom');
+            transformation(avatarOfPlayer2, 1500);
           } else if (fighter2 === 'broly') {
             avatarOfPlayer2.classList.add('transformBroly');
+            transformation(avatarOfPlayer2, 1500);
+          } else if(fighter2 === 'spider-man'){
+            avatarOfPlayer2.classList.add('onTheSpotSpider');
+          }else if(fighter2 === 'chun-li'){
+            avatarOfPlayer2.classList.add('onTheSpotChun');
+          }else if(fighter2 === 'captain-america'){
+            avatarOfPlayer2.classList.add('onTheSpotCapt');
+          }else if(fighter2 === 'son-goku'){
+            avatarOfPlayer2.classList.add('onTheSpotGk');
+          }else if(fighter2 === 'son-gohan'){
+            avatarOfPlayer2.classList.add('onTheSpotGh')
           }
         }, 200);
       }
     }, 1000);
   }
 
-  transformation(avatarOfPlayer2, 1500);
-  transformation(avatarOfPlayer1, 1500);
-
   function transformation(target, duration) {
     return anime({
       targets: target,
-      loop: true,
       duration,
+      complete: () =>{
+        if(fighter1 === 'broly'){
+          avatarOfPlayer1.classList.add('onTheSpotBroly')
+        }else{
+          avatarOfPlayer1.classList.add('onTheSpotVenom')
+        }
+        if(fighter2 === 'broly'){
+          avatarOfPlayer2.classList.add('onTheSpotBroly')
+        }else{
+          avatarOfPlayer2.classList.add('onTheSpotVenom')
+        }
+      }
     });
   }
 
@@ -221,9 +293,7 @@ const GamePage = async () => {
     players.currentPlayer = 1;
 
     textGameData.letterIndex = 0;
-
     
-
     setTimeout(() => {
       avatarOfPlayer1.classList.remove('transformVenom');
       avatarOfPlayer2.classList.remove('transformBroly');
@@ -320,6 +390,7 @@ const GamePage = async () => {
         reduceLife();
         players.roundCount = 0;
         resetCounters();
+        resetTimerColor();
       }
 
       gamePreparationTimerData.isPreparationTime = true;
@@ -383,8 +454,16 @@ const GamePage = async () => {
     await switchText();
   }
 
+  function resetTimerColor(){
+    times.forEach((t) =>{
+      t.style.color = 'white';
+    })
+  }
+
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
+      timerDisplayLeft.style.color = 'red';
+      timerDisplayRight.style.color = 'green';
       players.player1Life -= 25;
   
       if (players.player1Life < 0) {
@@ -411,6 +490,8 @@ const GamePage = async () => {
         phraseBlockBlock.style.visibility = 'visible';
       }
     } else if (players.player1Time < players.player2Time) {
+      timerDisplayLeft.style.color = 'green';
+      timerDisplayRight.style.color = 'red';
       players.player2Life -= 25;
   
       if (players.player2Life < 0) {
@@ -437,7 +518,12 @@ const GamePage = async () => {
         phraseBlockBlock.style.visibility = 'visible';
       }
     }
-  
+
+    if (players.player1Time === players.player2Time) {
+      timerDisplayLeft.style.color = 'orange';
+      timerDisplayRight.style.color = 'orange';
+    }
+
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
   }

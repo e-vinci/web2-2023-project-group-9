@@ -984,211 +984,6 @@ input[type='submit']:hover {
   justify-content: center;
 }
 
-/*DEBUT POUR ANIMER les personnages */
-#charactere-player-1-demo {
-  position: absolute;
-  bottom: 0;
-  margin-left: 20%;
-  margin-bottom: 5%;
-  left: 0;
-}
-
-.baseV{
-  height: 280px;
-  width: 231px;
-  background: url(../assets/Venom/sprite1_venom.png);
-}
-#charactere-player-2-demo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 5%;
-  margin-right: 20%;
-}
-
-.baseB{
-  height: 280px;
-  width: 206px;
-  background: url(../assets/Broly/sprite1_Broly.png);
-}
-
-.transformVenom, .transformVenomR {
-  height: 280px;
-  width: 231px;
-  background: url(../assets/Venom/sprite1_venom.png);
-  animation: transform1 1.5s steps(17) 0.99 forwards;
-}
-
-.transformVenomR{
-  transform: scaleX(-1);
-}
-
-@keyframes transform1 {
-  0% {
-    background-position: 0px;
-  }
-  100% {
-    background-position: -3940px;
-  }
-}
-
-.transformBroly, .transformBrolyL {
-  height: 280px;
-  width: 206px;
-  background: url(../assets/Broly/sprite1_Broly.png);
-  animation: transform2 1.5s steps(10) 0.99 forwards;
-}
-
-.transformBrolyL{
-  transform: scaleX(-1);
-}
-
-@keyframes transform2 {
-  0% {
-    background-position: 0px;
-  }
-  100% {
-    background-position: -2006px;
-  }
-}
-
-.onTheSpotVenom {
-  height: 280px;
-  width: 301.3px;
-  background: url(../assets/Venom/spriteVenomSurPlace.png);
-  animation: onTheSpotV 1.5s steps(13) infinite;
-}
-
-@keyframes onTheSpotV {
-  0% {
-    background-position: -903.9px;
-  }
-  100% {
-    background-position: -4822px;
-  }
-}
-
-.onTheSpotBroly{
-  height: 280px;
-  width: 164.5px;
-  background: url(../assets/Broly/spriteBrolySurPlace.png);  
-  animation: onTheSpotB 1s steps(8) infinite;
-}
-
-@keyframes onTheSpotB {
-  0%{
-    background-position: 0px;
-  }
-  100%{
-    background-position: -1316px;
-  }
-}
-.sufferAttackV{
-  height: 280px;
-  width: 227px;
-  background: url(../assets/Venom/spriteVenomSubitAttaque.png);
-  animation: sufferV 1.5s steps(3) 0.99 forwards;
-}
-
-@keyframes sufferV {
-  0%{
-    background-position: 0px;
-  }
-  100%{
-    background-position: -681px;
-  }
-}
-
-.sufferAttackB{
-  height: 280px;
-  width: 195px;
-  background: url(../assets/Broly/spriteBrolySubitAttaque.png);
-  animation: sufferB 1s steps(4) 0.99 forwards;
-}
-
-@keyframes sufferB {
-  0%{
-    background-position: 0px;
-  }
-  100%{
-    background-position: -780px;
-  }
-}
-
-.attackVenom{
-  height: 280px;
-  width: 257.6px;
-  background: url(../assets/Venom/spriteVenomAttaque.png);
-  animation: attackV 1.5s steps(21) 0.99 forwards;
-}
-
-@keyframes attackV {
-  0%{
-    background-position: 0px;
-  }
-  100%{
-    background-position: -5410px;
-  }  
-}
-
-.attackBroly{
-  height: 280px;
-  width: 280px;
-  background: url(../assets/Broly/spriteBrolyAttaque.png);
-  animation: attackB 1.5s steps(11) 1 forwards;
-}
-
-@keyframes attackB {
-  0%{
-    background-position: -3080px;
-  }
-  100%{
-    background-position: 0px;
-  }
-}
-
-/* .moveBroly {
-  height: 280px;
-  width: 308.3px;
-  background: url(../assets/Broly/spriteBrolySeDeplace.png);
-  animation: moveBroly 1.5s steps(3) 0.99 forwards;
-}
-
-@keyframes moveBroly {
-  0% {
-    background-position: 0px;
-  }
-  100% {
-    background-position: -925px;
-  }
-}
-
-.attackBroly{
-  height: 280px;
-  width: 639.6px;
-  background: url(../assets/Broly/spriteBrolyAttaque.png);
-  animation: attackB 1.5s steps(8) forwards;
-}
-
-@keyframes attackB {
-  0%{
-    background-position: 0px;
-  }
-  100%{
-    background-position: -5117px;
-  }
-} */
-
-
-/* game */
-
-/* .areneGame{
-  background-image: url(../img/Arena/areneDBZ.png);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-} */
-
 #phrase-game, #phrase-demo {
   background-color: #000000a3;
   padding: 25px 25px 25px 25px;
@@ -1522,3 +1317,271 @@ input[type='submit']:hover {
   right: 0;
 }
 
+/*DEBUT POUR ANIMER les personnages */
+#charactere-player-1-demo, #fighter1{
+  position: absolute;
+  bottom: 0;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  left: 0;
+}
+
+#charactere-player-2-demo, #fighter2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5%;
+  margin-right: 20%;
+}
+
+.baseB{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/Broly/sprite1_Broly.png);
+}
+
+
+.baseV{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/Venom/sprite1_venom.png);
+}
+
+.baseS{
+  height: 240px;
+  width: 297px;
+  background: url(../assets/Spider-Man/spider1_.spiderman.png);
+}
+
+.baseCl{
+  height: 240px;
+  width: 221px;
+  background: url(../assets/Chun-Li/sprite1_ChunLi.png);
+}
+
+.baseCA{
+  height: 240px;
+  width: 208.1px;
+  background: url(../assets/Captain/sprite1_CaptainAmerica.png);
+}
+
+.baseGk{
+  height: 240px;
+  width: 226.5px;
+  background: url(../assets/Goku/sprite1_Goku.png);
+}
+
+.baseGh{
+  height: 240px;
+  width: 104px;
+  background: url(../assets/Gohan/sprite1_Gohan.png);
+}
+
+.transformVenom{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/Venom/sprite1_venom.png);
+  animation: transform1 1.5s steps(17) 0.99 forwards;
+}
+
+@keyframes transform1 {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -3940px;
+  }
+}
+
+.transformBroly{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/Broly/sprite1_Broly.png);
+  animation: transform2 1.5s steps(10) 0.99 forwards;
+}
+
+@keyframes transform2 {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2006px;
+  }
+}
+
+.onTheSpotVenom {
+  height: 280px;
+  width: 299.25px;
+  background: url(../assets/Venom/spriteVenomSurPlace.png);
+  animation: onTheSpotV 1.5s steps(12) infinite;
+}
+
+
+@keyframes onTheSpotV {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -3591px;
+  }
+}
+
+.onTheSpotBroly{
+  height: 280px;
+  width: 164.5px;
+  background: url(../assets/Broly/spriteBrolySurPlace.png);  
+  animation: onTheSpotB 1.5s steps(8) infinite;
+}
+
+@keyframes onTheSpotB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1316px;
+  }
+}
+
+.onTheSpotSpider{
+  height: 240px;
+  width: 297px;
+  background: url(../assets/Spider-Man/spider1_.spiderman.png);
+  animation: ontheSpotS 1.5s steps(10) infinite;
+}
+
+@keyframes ontheSpotS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2970px;
+  }
+}
+
+.onTheSpotChun{
+  height: 240px;
+  width: 221px;
+  background: url(../assets/Chun-Li/sprite1_ChunLi.png);
+  animation: onTheSpotCh 1.5s steps(7) infinite;
+}
+
+@keyframes onTheSpotCh {
+  0%{
+    background-position: -442px;
+  }
+  100%{
+    background-position: -1988px;
+  }
+}
+
+.onTheSpotCapt{
+  height: 240px;
+  width: 208.1px;
+  background: url(../assets/Captain/sprite1_CaptainAmerica.png);
+  animation: onTheSpotCa 1.5s steps(9) infinite;
+}
+
+@keyframes onTheSpotCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1873px;
+  }
+}
+
+.onTheSpotGk{
+  height: 240px;
+  width: 226.5px;
+  background: url(../assets/Goku/sprite1_Goku.png);
+  animation: onTheSpotGok 0.7s steps(4) infinite;
+}
+
+@keyframes onTheSpotGok {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -906px;
+  }
+}
+
+.onTheSpotGh{
+  height: 240px;
+  width: 104px;
+  background: url(../assets/Gohan/sprite1_Gohan.png);
+  animation: onTheSpotGoh 0.7s steps(4) infinite;
+}
+
+@keyframes onTheSpotGoh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -416px;
+  }
+}
+
+.sufferAttackV{
+  height: 280px;
+  width: 312px;
+  background: url(../assets/Venom/spriteVenomSubitAttaque.png);
+  animation: sufferV 0.5s steps(3) forwards ;
+}
+
+@keyframes sufferV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -936px;
+  }
+}
+
+.sufferAttackB{
+  height: 280px;
+  width: 196.75px;
+  background: url(../assets/Broly/spriteBrolySubitAttaque.png);
+  animation: sufferB 1s steps(4) 0.99 forwards;
+}
+
+@keyframes sufferB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -787px;
+  }
+}
+
+.attackVenom{
+  height: 280px;
+  width: 317.6px;
+  background: url(../assets/Venom/spriteVenomAttaque.png);
+  animation: attackV 1.5s steps(15) 0.99 forwards;
+}
+
+@keyframes attackV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -4765px;
+  }  
+}
+
+.attackBroly{
+  height: 280px;
+  width: 492px;
+  background: url(../assets/Broly/spriteBrolyAttaque.png);
+  animation: attackB 1.5s steps(11) forwards;
+}
+
+@keyframes attackB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -5413px;
+  }
+}

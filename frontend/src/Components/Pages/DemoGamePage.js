@@ -62,7 +62,7 @@ const DemoGame = () => {
       <div id="charactere-player-1-demo" class="baseV"></div>
       <div id="charactere-player-2-demo" class="baseB"></div>
   </div>
-  <div id="phrase-demo"><p id="phrase-attribue-demo">Bienvenue dans la communauté Mortal Keyboard!</p></div>`;
+  <div id="phrase-demo"><p id="phrase-attribue-demo">!</p></div>`;
   const charactereOfPlayer2 = document.querySelector('#charactere-player-2-demo');
   const charactereOfPlayer1 = document.querySelector('#charactere-player-1-demo');
   const phrase = document.querySelector('#phrase-demo');
@@ -378,11 +378,11 @@ const DemoGame = () => {
       return anime({
           targets: target,
           translateX: {
-            value: '+=520px', // changez cette valeur pour contrôler la distance de déplacement
+            value: '+=520px',
             duration,
           },
           scale: {
-            value: [1.3], // changez ces valeurs pour contrôler la taille de l'animation
+            value: [1.3], 
             duration,
           },
           easing : 'easeOutQuad',
@@ -429,10 +429,9 @@ const DemoGame = () => {
     return anime({
       targets:target,
       translateX:{
-        value:'-=500px',
+        value:'-=525px',
         duration
       },
-      scale: '1.2',
       easing : 'easeOutQuad',
       update: (anim) =>{
         const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
@@ -441,18 +440,15 @@ const DemoGame = () => {
           charactereOfPlayer1.classList.add('sufferAttackV');
           anime({
             targets: charactereOfPlayer1,
-            scale: 1.2,
             complete: () =>{
               anime({
                 targets: charactereOfPlayer1,
-                scale: 1
               })
               anime({
                 targets: target,
-                translateX: 0, // Revenir à la position initiale
-                scale: 1, // Revenir à la taille initiale
-                duration: 500, // Durée de l'animation de retour
-                easing: 'linear', // Easing pour le retour
+                translateX: 0, 
+                duration: 500,
+                easing: 'linear',
                 complete: () =>{
                   charactereOfPlayer1.className = 'onTheSpotVenom';
                   charactereOfPlayer2.className = 'onTheSpotBroly';
