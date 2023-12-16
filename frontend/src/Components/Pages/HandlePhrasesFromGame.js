@@ -5,6 +5,7 @@ const HandlePhraseFromGamePage = async () => {
   clearPage();
 
   const main = document.querySelector('main');
+
   main.innerHTML += await renderHandlePhraseFromGame();
 };
 
