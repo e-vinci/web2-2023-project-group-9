@@ -522,8 +522,7 @@ const GamePage = async () => {
     if (players.player1Time === players.player2Time) {
       timerDisplayLeft.style.color = 'orange';
       timerDisplayRight.style.color = 'orange';
-    }
-    
+    }  
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
   }
