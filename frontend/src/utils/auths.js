@@ -1,10 +1,17 @@
+// Importing the Navbar component
 // eslint-disable-next-line import/no-cycle
 import Navbar from '../Components/Navbar/Navbar';
 
+// Constants for local and session storage keys
 const STORE_USER = 'user';
 const STORE_REMEMBER = 'remember';
+
+// Variable to hold the current user's data
 let currentUser;
 
+/**
+ * Function to clear the authenticated user's data from local and session storage
+ */
 const clearAuthenticatedUser = () => {
   localStorage.removeItem(STORE_USER);
   sessionStorage.removeItem(STORE_USER);
@@ -13,6 +20,10 @@ const clearAuthenticatedUser = () => {
   currentUser = undefined;
 };
 
+/**
+ * Function to get the authenticated user's data from local or session storage
+ * @returns {Object} The authenticated user's data, or undefined if no user is authenticated
+ */
 const getAuthenticatedUser = () => {
   if (currentUser !== undefined) return currentUser;
 
@@ -23,6 +34,11 @@ const getAuthenticatedUser = () => {
   return currentUser;
 };
 
+/**
+ * Function to set the authenticated user's data in local or session storage
+ * @param {Object} authenticatedUser - The authenticated user's data
+ * @param {boolean} remember - Whether to remember the user's data across sessions
+ */
 const setAuthenticatedUser = (authenticatedUser, remember = false) => {
   clearAuthenticatedUser();
 
@@ -32,17 +48,20 @@ const setAuthenticatedUser = (authenticatedUser, remember = false) => {
 
   currentUser = authenticatedUser;
 
+  // Call the Navbar function after setting the authenticated user
   Navbar();
 };
 
+/**
+ * Function to check if a user is authenticated
+ * @returns {boolean} True if a user is authenticated, false otherwise
+ */
 const isAuthenticated = () => currentUser !== undefined || getAuthenticatedUser() !== undefined;
 
-const getRememberMe = () => sessionStorage.getItem('remember') === 'true';
-
+// Exporting the functions for use in other modules
 export {
   getAuthenticatedUser,
   setAuthenticatedUser,
   isAuthenticated,
   clearAuthenticatedUser,
-  getRememberMe,
 };

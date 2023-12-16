@@ -1,12 +1,17 @@
+// Importing the logo image from the local directory
 import logoPage from '../../img/BaseDuSite/logoPage.png';
 // eslint-disable-next-line import/no-cycle
 import { getAuthenticatedUser, isAuthenticated, clearAuthenticatedUser } from '../../utils/auths';
+
 import Navigate from '../Router/Navigate';
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
   navbarWrapper.style.backgroundColor = 'black';
+
+    // Checking if the user is authenticated
   const isConnected = isAuthenticated();
+
   const infoUser = getAuthenticatedUser();
 
   navbarWrapper.innerHTML = '';
@@ -20,12 +25,15 @@ const Navbar = () => {
   logo.appendChild(logoLink);
   navbarWrapper.appendChild(logo);
 
+  // Determining which links to show based on the user's role and authentication status
   const showFighterAndArenaLinks = isConnected && infoUser.user !== 'admin';
   const showPhraseLinks = isConnected && infoUser.user === 'admin';
   const isHomePage = window.location.pathname === '/';
 
+    // Initializing the navbar with the home link
   let navbar = `<li><a href="" data-uri="/">Accueil</a></li>`;
 
+    // Adding additional links based on the user's authentication status and current page
   if (isConnected) {
     if ((showFighterAndArenaLinks || isHomePage) && window.location.pathname !== '/handleSuggestedPhrase') {
       navbar += `<li><a href="#mainMiddleContent">Combattants</a></li>`;

@@ -53,7 +53,7 @@ const HandleSuggestedPhrasePage = () => {
       }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${userToken}`
+        'Authorization': `${userToken}` // token of user
       },
     };
 

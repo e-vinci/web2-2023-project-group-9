@@ -52,14 +52,14 @@ async function removeOneSuggestedPhraseInSuggestedPhrase(e) {
     const rowToRemove = e.target.closest('tr');
 
     const infoUser = getAuthenticatedUser();
-    const userToken = infoUser.token;
+    const adminToken = infoUser.token;
 
 
     const option = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${userToken}`
+        'Authorization': `${adminToken}` // token of admin
       }
     };
 
