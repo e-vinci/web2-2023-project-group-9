@@ -9,7 +9,7 @@
 
 The frontend and the API are deployed on GitHub Pages and Azure respectively. They are built automatically on every push to the `main` branch, using GitHub Actions.
 
-**Frontend: [https://e-vinci.github.io/web2-2022-project-group-02/](https://e-vinci.github.io/web2-2022-project-group-02/)**  
+<!-- **Frontend: [https://e-vinci.github.io/web2-2022-project-group-02/](https://e-vinci.github.io/web2-2022-project-group-02/)**   -->
 API: [https://mortalkeyboard.azurewebsites.net](https://mortalkeyboard.azurewebsites.net)
 
 ## API
