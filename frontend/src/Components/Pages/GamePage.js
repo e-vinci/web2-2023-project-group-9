@@ -282,6 +282,13 @@ const GamePage = async () => {
     isRoundOver: false,
   };
 
+  const gameTimerData = {
+    timer: null,
+    isRunning: false,
+    countDown: 1000,
+  };
+
+
   const restartLink = document.querySelector('#restartLink');
 
   restartLink.addEventListener('click', (e) => {
@@ -351,12 +358,6 @@ const GamePage = async () => {
     const remainingSeconds = seconds % 60;
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
-
-  const gameTimerData = {
-    timer: null,
-    isRunning: false,
-    countDown: 1000,
-  };
 
   const gamePreparationTimerData = {
     isPreparationTime: false,
