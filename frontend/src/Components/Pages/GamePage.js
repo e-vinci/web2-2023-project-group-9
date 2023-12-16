@@ -523,6 +523,7 @@ const GamePage = async () => {
       timerDisplayLeft.style.color = 'orange';
       timerDisplayRight.style.color = 'orange';
     }
+    
     gamePreparationTimerData.isPreparationTime = true;
     document.addEventListener('keydown', handleKeyboardInput);
   }
