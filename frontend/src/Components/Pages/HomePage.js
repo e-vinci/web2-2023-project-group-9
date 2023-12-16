@@ -89,12 +89,12 @@ const HomePage = () => {
   <section class = "mainContent">
   <section id = "titleOfMain"></section>
   <section id ="buttonSection">
-    <div id="inscription">
-      <p class="pboutton" id="link_to_registerPage">S'inscrire</p>
+    <div id="inscription" id="link_to_registerPage">
+      <p class="pboutton">S'inscrire</p>
       ${imgInscription.outerHTML}
     </div>
-    <div id="demo">
-      <p class="pboutton link_to_demoPage">Demo</p>
+    <div id="demo" class="link_to_demoPage">
+      <p class="pboutton">Demo</p>
       ${imgDemo.outerHTML}
     </div>
   </section>
@@ -138,8 +138,8 @@ const HomePage = () => {
     <section id="sectionForAcceuil">
     <section id="sectionForOneAcceuil">
       <p class="titreSectionMain3">Qu'attendez vous pour nous rejoindre,</br> a vos claviers, pret ? </p>
-      <div id="demo">
-        <p class="pboutton link_to_demoPage">Demo</p>
+      <div id="demo" class="link_to_demoPage">
+        <p class="pboutton">Demo</p>
         ${imgDemo.outerHTML}
       </div>
     </section>
