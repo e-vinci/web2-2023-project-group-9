@@ -280,6 +280,12 @@ const GamePage = async () => {
     isRoundOver: false,
   };
 
+  const gameTimerData = {
+    timer: null,
+    isRunning: false,
+    countDown: 1000,
+  };
+
   const restartLink = document.querySelector('#restartLink');
 
   restartLink.addEventListener('click', (e) => {
@@ -341,12 +347,6 @@ const GamePage = async () => {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
 
-  const gameTimerData = {
-    timer: null,
-    isRunning: false,
-    countDown: 1000,
-  };
-
   const gamePreparationTimerData = {
     isPreparationTime: false,
     preparationCountDown: 5,
@@ -390,20 +390,21 @@ const GamePage = async () => {
         reduceLife();
         players.roundCount = 0;
         resetCounters();
-        resetTimerColor();
       }
 
       gamePreparationTimerData.isPreparationTime = true;
       gamePreparationTimerData.preparationCountDown = 5;
 
       if (players.currentPlayer === 1) {
+        timerDisplayLeft.style.color = 'white'
         timerDisplayLeft.textContent = gamePreparationTimerData.preparationCountDown;
       } else {
+        timerDisplayRight.style.color = 'white'
         timerDisplayRight.textContent = gamePreparationTimerData.preparationCountDown;
       }
 
       document.removeEventListener('keydown', handleKeyboardInput);
-
+      
       startPreparationTimer();
 
       setTimeout(() => {
@@ -454,77 +455,148 @@ const GamePage = async () => {
     await switchText();
   }
 
-  function resetTimerColor(){
-    times.forEach((t) =>{
-      t.style.color = 'white';
-    })
-  }
+  // function resetTimerColor(){
+  //   times.forEach((t) =>{
+  //     t.style.color = 'white';
+  //   })
+  // }
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
-      timerDisplayLeft.style.color = 'red';
-      timerDisplayRight.style.color = 'green';
-      players.player1Life -= 25;
-  
-      if (players.player1Life < 0) {
-        players.player1Life = 0;
-      }
-  
-      const player1LifeFlex = (players.player1Life / 100) * 100;
-      player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
-      player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
-  
-      if (players.player1Life <= 0) {
-        setTimeout(() => {
-          showWinner('Joueur 2');
-  
-          setTimeout(() => {
-            hideContainerWinner();
-  
-            setTimeout(() => {
-              menuOpen.style.top = '0%';
-            }, 1000);
-          }, 500);
-        }, 500);
-      } else {
-        phraseBlockBlock.style.visibility = 'visible';
+      if(fighter2 === 'broly'){
+        timerDisplayLeft.style.color = 'red';
+        timerDisplayRight.style.color = 'green';
+        phraseBlockBlock.style.visibility = 'hidden';
+        avatarOfPlayer2.classList.add('attackBroly')
+        anime({
+          targets: avatarOfPlayer2,
+          translateX:{
+            value:'-=600px',
+            duration: 1500,
+          },
+          easing : 'easeOutQuad',
+          update: (anim) =>{
+            const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
+    
+            if(currentTranslateX === -550){
+              if(fighter1 === 'broly'){
+                avatarOfPlayer1.classList.add('sufferAttackB');
+                anime({
+                  targets: avatarOfPlayer1,
+                  complete: () =>{
+                    anime({
+                      targets: avatarOfPlayer1,
+                    })
+                    anime({
+                      targets: avatarOfPlayer2,
+                      translateX: 0, 
+                      duration: 500,
+                      easing: 'linear',
+                      complete: () =>{
+                        players.player1Life -= 25;
+                        const player1LifeFlex = (players.player1Life / 100) * 100;
+                        player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
+                        player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
+                        avatarOfPlayer2.className = 'onTheSpotBroly';
+                        avatarOfPlayer1.className = 'onTheSpotBroly';
+                        if (players.player1Life < 0) {
+                          players.player1Life = 0;
+                        }
+                    
+                        if (players.player1Life <= 0) {
+                          setTimeout(() => {
+                            showWinner('Joueur 2');
+                    
+                            setTimeout(() => {
+                              hideContainerWinner();
+                    
+                              setTimeout(() => {
+                                menuOpen.style.top = '0%';
+                              }, 1000);
+                            }, 500);
+                          }, 500);
+                        } else {
+                          phraseBlockBlock.style.visibility = 'visible';
+                        }
+                      }
+                    });
+                  }
+                })
+              }
+            }
+          }
+        })
       }
     } else if (players.player1Time < players.player2Time) {
-      timerDisplayLeft.style.color = 'green';
-      timerDisplayRight.style.color = 'red';
-      players.player2Life -= 25;
-  
-      if (players.player2Life < 0) {
-        players.player2Life = 0;
-      }
-  
-      const player2LifeFlex = (players.player2Life / 100) * 100;
-      player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
-      player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
-  
-      if (players.player2Life <= 0) {
-        setTimeout(() => {
-          showWinner('Joueur 1');
-  
-          setTimeout(() => {
-            hideContainerWinner();
-  
-            setTimeout(() => {
-              menuOpen.style.top = '0%';
-            }, 500);
-          }, 1000);
-        }, 500);
-      } else {
-        phraseBlockBlock.style.visibility = 'visible';
+      if(fighter2 === 'broly'){
+        timerDisplayLeft.style.color = 'green';
+        timerDisplayRight.style.color = 'red';
+        phraseBlockBlock.style.visibility = 'hidden';
+        avatarOfPlayer1.classList.add('attackBrolyL')
+        anime({
+          targets: avatarOfPlayer1,
+          translateX:{
+            value:'-=600px',
+            duration: 1500,
+          },
+          easing : 'easeOutQuad',
+          update: (anim) =>{
+            const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
+    
+            if(currentTranslateX === -550){
+              if(fighter2 === 'broly'){
+                avatarOfPlayer2.classList.add('sufferAttackB');
+                anime({
+                  targets: avatarOfPlayer2,
+                  complete: () =>{
+                    anime({
+                      targets: avatarOfPlayer1,
+                    })
+                    anime({
+                      targets: avatarOfPlayer1,
+                      translateX: 0, 
+                      duration: 500,
+                      easing: 'linear',
+                      complete: () =>{
+                        players.player2Life -= 25;
+                        const player2LifeFlex = (players.player2Life / 100) * 100;
+                        player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
+                        player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
+                        avatarOfPlayer1.className = 'onTheSpotBroly';
+                        avatarOfPlayer2.className = 'onTheSpotBroly';
+                        if (players.player2Life < 0) {
+                          players.player2Life = 0;
+                        }
+                    
+                        if (players.player2Life <= 0) {
+                          setTimeout(() => {
+                            showWinner('Joueur 1');
+                    
+                            setTimeout(() => {
+                              hideContainerWinner();
+                    
+                              setTimeout(() => {
+                                menuOpen.style.top = '0%';
+                              }, 500);
+                            }, 1000);
+                          }, 500);
+                        } else {
+                          phraseBlockBlock.style.visibility = 'visible';
+                        }
+                      }
+                    });
+                  }
+                })
+              }
+            }
+          }
+        })
       }
     }
-
     if (players.player1Time === players.player2Time) {
       timerDisplayLeft.style.color = 'orange';
       timerDisplayRight.style.color = 'orange';
     }  
-    gamePreparationTimerData.isPreparationTime = true;
-    document.addEventListener('keydown', handleKeyboardInput);
   }
   
 

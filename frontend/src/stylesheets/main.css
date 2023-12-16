@@ -1446,7 +1446,7 @@ input[type='submit']:hover {
   height: 240px;
   width: 297px;
   background: url(../assets/Spider-Man/spider1_.spiderman.png);
-  animation: ontheSpotS 1.5s steps(10) infinite;
+  animation: ontheSpotS 0.9s steps(8) infinite;
 }
 
 @keyframes ontheSpotS {
@@ -1454,7 +1454,7 @@ input[type='submit']:hover {
     background-position: 0px;
   }
   100%{
-    background-position: -2970px;
+    background-position: -2376px;
   }
 }
 
@@ -1583,5 +1583,21 @@ input[type='submit']:hover {
   }
   100%{
     background-position: -5413px;
+  }
+}
+
+.attackBrolyL{
+  height: 280px;
+  width: 492px;
+  background: url(../assets/Broly/spriteBrolyAttaque.png);
+  animation: attackB 1.5s steps(11) forwards;
+}
+
+@keyframes attackB {
+  0%{
+    background-position: -5413px;
+  }
+  100%{
+    background-position: 0px;
   }
 }
