@@ -184,7 +184,7 @@ const GamePage = async () => {
 
   const menuOpen = document.querySelector('#menu');
 
-  const times = document.querySelectorAll('.timeLeft, .timeRight');
+  // const times = document.querySelectorAll('.timeLeft, .timeRight');
 
   function loadingPage() {
     const loading = document.querySelector('#loading');
@@ -295,35 +295,8 @@ const GamePage = async () => {
   restartLink.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // Reste du code pour masquer le menu, etc.
-    menuOpen.style.top = '-100%';
-
-    resetCounters();
-
-    players.currentPlayer = 1;
-
-    phraseBlock.style.marginLeft = '0%';
-
-    textGameData.letterIndex = 0;
-
-    setTimeout(() => {
-      avatarOfPlayer1.classList.remove('transformVenom');
-      avatarOfPlayer2.classList.remove('transformBroly');
-      // Réinitialiser les barres de vie en vert
-      player1LifeGreenDisplay.style.flex = '100%';
-      player2LifeGreenDisplay.style.flex = '100%';
-      player1LifeRedDisplay.style.flex = '0%';
-      player2LifeRedDisplay.style.flex = '0%';
-
-      // Réinitialiser le chronomètre à "00:00"
-      times.forEach((t) => {
-        t.innerText = '00:00';
-      });
-
-      // gameTimerData.countDown = 1000;
-      loadingPage();
-    }, 500);
-
+    removeAllSession()
+    Navigate('/fightersSelect');
     isMenuClose = true;
   });
 

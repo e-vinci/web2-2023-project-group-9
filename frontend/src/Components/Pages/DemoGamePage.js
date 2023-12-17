@@ -34,7 +34,6 @@ const DemoGame = () => {
     <p class='titreMenu'>Menu</p>
     <p class='link'>
       <ul>
-        <a href="" data-uri ="/"><li id="restartLink">Recommencer</li></a>
         <a href="" data-uri="/"><li id="continueGame">Continuer Partie</li></a>
         <a href="" data-uri="/"><li id="accueilLink">Quitter</li></a>
       </ul>
@@ -146,28 +145,6 @@ const DemoGame = () => {
     return keydownHandler;
   }
 
-  document.querySelector('#restartLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    menuOpen.style.top = '-100%';
-    phrase.style.top = '50%';
-    charactereOfPlayer1.classList.remove('transformVenom');
-    charactereOfPlayer2.classList.remove('transformBroly');
-    clearInterval(timer); 
-    clearInterval(countdown);
-    timeLeft.innerHTML = '00:00';
-    times.forEach((time) => {
-      time.style.color = 'white';
-    });
-    write(0, true);
-    player1LifeGreenDisplay.style.flex = `100%`;
-    player1LifeRedDisplay.style.flex = `0%`;
-    player2LifeGreenDisplay.style.flex = `100%`;
-    player2LifeRedDisplay.style.flex = `0%`;
-    charactereOfPlayer1.className = 'baseV';
-    charactereOfPlayer2.className = 'baseB';
-    phrase.style.visibility = 'visible';
-    loadingPage();
-  });
 
   document.querySelector('#accueilLink').addEventListener('click', (e) => {
     e.preventDefault();
