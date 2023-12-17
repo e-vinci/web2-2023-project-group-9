@@ -550,7 +550,7 @@ const GamePage = async () => {
               duration: 500,
               easing: 'linear',
               complete: () => {
-                players.player1Life -= 100;
+                players.player1Life -= 25;
                 const player1LifeFlex = (players.player1Life / 100) * 100;
                 player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
                 player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
@@ -709,7 +709,7 @@ const GamePage = async () => {
               duration: 500,
               easing: 'linear',
               complete: () => {
-                players.player2Life -= 100;
+                players.player2Life -= 25;
                 const player2LifeFlex = (players.player2Life / 100) * 100;
                 player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
                 player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
