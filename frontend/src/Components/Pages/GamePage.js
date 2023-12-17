@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 /* eslint-disable prefer-const */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
@@ -319,7 +320,7 @@ const GamePage = async () => {
         t.innerText = '00:00';
       });
 
-      gameTimerData.countDown = 1000;
+      // gameTimerData.countDown = 1000;
       loadingPage();
     }, 500);
 
@@ -475,69 +476,328 @@ const GamePage = async () => {
 
   function reduceLife() {
     if (players.player1Time > players.player2Time) {
+      if (fighter2 === 'broly') {
+        avatarOfPlayer2.classList.add('attackBroly');
+        animation(avatarOfPlayer2, "-=600px", "-550");
+      } else if (fighter2 === 'venom') {
+        avatarOfPlayer2.classList.add('attackVenom');
+        animation(avatarOfPlayer2, "+=600px", "+550");
+      } else if(fighter2 === 'spider-man'){
+        avatarOfPlayer2.classList.add('attackSpider');
+        animation(avatarOfPlayer2, "+=600px", "+550");
+      } else if (fighter2 === 'chun-li'){
+        avatarOfPlayer2.classList.add('attackChun');
+        animation(avatarOfPlayer2, "+=600px", "+550");
+      }  else if (fighter2 === 'captain-america'){
+        avatarOfPlayer2.classList.add('attackCapt');
+        animation(avatarOfPlayer2, "+=600px", "+550");
+      } else if (fighter2 === 'son-goku'){
+        avatarOfPlayer2.classList.add('attackGoku');
+        animation(avatarOfPlayer2, "+=600px", "+550");
+      }  else if (fighter2 === 'son-gohan'){
+        avatarOfPlayer2.classList.add('attackGohan');
+        animation(avatarOfPlayer2, "+=600px", "+550");
+      }
+    
       timerDisplayLeft.style.color = 'red';
       timerDisplayRight.style.color = 'green';
-      players.player1Life -= 25;
-  
-      if (players.player1Life < 0) {
-        players.player1Life = 0;
+      phraseBlockBlock.style.visibility = 'hidden';
+    
+      function animation(target, valuePx, currentTranslate) {
+        anime({
+          targets: target,
+          translateX: {
+            value: valuePx,
+            duration: 1500,
+          },
+          easing: 'easeOutQuad',
+          update: (anim) => {
+            const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
+    
+            if (currentTranslateX === parseInt(currentTranslate, 10)) {
+              handleAnimationCompletion();
+            }
+          },
+        });
       }
-  
-      const player1LifeFlex = (players.player1Life / 100) * 100;
-      player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
-      player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
-  
-      if (players.player1Life <= 0) {
+    
+      function handleAnimationCompletion() {
+        if (fighter1 === 'broly') {
+          avatarOfPlayer1.classList.add('sufferAttackB');
+        } else if (fighter1 === 'venom'){
+          avatarOfPlayer1.classList.add('sufferAttackV')
+        } else if (fighter1 === 'spider-man'){
+          avatarOfPlayer1.classList.add('sufferAttackS');
+        } else if(fighter1 === 'chun-li'){
+          avatarOfPlayer1.classList.add('sufferAttackCh');
+        } else if(fighter1 === 'captain-america'){
+          avatarOfPlayer1.classList.add('sufferAttackCa');
+        } else if(fighter1 === 'son-goku'){
+          avatarOfPlayer1.classList.add('sufferAttackGk');
+        } else if(fighter1 === 'son-gohan'){
+          avatarOfPlayer1.classList.add('sufferAttackGh');
+        } 
+    
+        anime({
+          targets: avatarOfPlayer1,
+          complete: () => {
+            anime({
+              targets: avatarOfPlayer1,
+            });
+            anime({
+              targets: avatarOfPlayer2,
+              translateX: 0,
+              duration: 500,
+              easing: 'linear',
+              complete: () => {
+                players.player1Life -= 100;
+                const player1LifeFlex = (players.player1Life / 100) * 100;
+                player1LifeGreenDisplay.style.flex = `${player1LifeFlex}%`;
+                player1LifeRedDisplay.style.flex = `${100 - player1LifeFlex}%`;
+    
+                handleLifeUpdate();
+    
+                if (players.player1Life <= 0) {
+                  if (fighter1 === 'broly') {
+                    avatarOfPlayer1.className = 'deadBroly';
+                  } else if (fighter1 === 'venom'){
+                    avatarOfPlayer1.className = 'deadVenom';
+                  } else if (fighter1 === 'spider-man'){
+                    avatarOfPlayer1.className = 'deadSpider';
+                  } else if(fighter1 === 'chun-li'){
+                    avatarOfPlayer1.className = 'deadChun';
+                  } else if(fighter1 === 'captain-america'){
+                    avatarOfPlayer1.className = 'deadCapt';
+                  } else if(fighter1 === 'son-goku'){
+                    avatarOfPlayer1.className = 'deadGoku';
+                  } else if(fighter1 === 'son-gohan'){
+                    avatarOfPlayer1.className = 'deadGohan';
+                  }   
+                  handlePlayer1Defeat();
+                } else {
+                  phraseBlockBlock.style.visibility = 'visible';
+                }
+              },
+            });
+          },
+        });
+      }
+    
+      function handleLifeUpdate() {
+        if (fighter1 === 'broly') {
+          avatarOfPlayer1.className = 'onTheSpotBroly';
+        } else if (fighter1 === 'spider-man'){
+          avatarOfPlayer1.className = 'onTheSpotSpider';
+        } else if (fighter1 === 'venom'){
+          avatarOfPlayer1.className = 'onTheSpotVenom';
+        } else if (fighter1 === 'chun-li'){
+          avatarOfPlayer1.className = 'onTheSpotChun';
+        } else if (fighter1 === 'captain-america'){
+          avatarOfPlayer1.className = 'onTheSpotCapt';
+        } else if (fighter1 === 'son-goku'){
+          avatarOfPlayer1.className = 'onTheSpotGk';
+        } else if (fighter1 === 'son-gohan'){
+          avatarOfPlayer1.className = 'onTheSpotGh';
+        }
+
+        if (fighter2 === 'broly') {
+          avatarOfPlayer2.className = 'onTheSpotBroly';
+        } else if (fighter2 === 'venom') {
+          avatarOfPlayer2.className = 'onTheSpotVenom';
+        } else if (fighter2 === 'spider-man'){
+          avatarOfPlayer2.className = 'onTheSpotSpider';
+        } else if (fighter2 === 'chun-li'){
+          avatarOfPlayer2.className = 'onTheSpotChun';
+        } else if (fighter2 === 'captain-america'){
+          avatarOfPlayer2.className = 'onTheSpotCapt';
+        } else if (fighter2 === 'son-goku'){
+          avatarOfPlayer2.className = 'onTheSpotGk';
+        } else if (fighter2 === 'son-gohan'){
+          avatarOfPlayer2.className = 'onTheSpotGh';
+        }
+    
+        if (players.player1Life < 0) {
+          players.player1Life = 0;
+        }
+      }
+    
+      function handlePlayer1Defeat() {
         setTimeout(() => {
           showWinner('Joueur 2');
-  
+    
           setTimeout(() => {
             hideContainerWinner();
-  
+    
             setTimeout(() => {
               menuOpen.style.top = '0%';
-            }, 1000);
-          }, 500);
-        }, 500);
-      } else {
-        phraseBlockBlock.style.visibility = 'visible';
+            }, 2100);
+          }, 2000);
+        }, 2000);
       }
     } else if (players.player1Time < players.player2Time) {
+      if(fighter1 === 'broly'){
+        avatarOfPlayer1.classList.add('attackBroly');
+        animation(avatarOfPlayer1, "-=600px", "-550");
+      } else if(fighter1 === 'venom'){
+        avatarOfPlayer1.classList.add('attackVenom');
+        animation(avatarOfPlayer1, "+=600px", "+550");
+      } else if(fighter1 === 'spider-man'){
+        avatarOfPlayer1.classList.add('attackSpider');
+        animation(avatarOfPlayer1, "+=600px", "+550");
+      } else if (fighter1 === 'chun-li'){
+        avatarOfPlayer1.classList.add('attackChun');
+        animation(avatarOfPlayer1, "+=600px", "+550");
+      } else if (fighter1 === 'captain-america'){
+        avatarOfPlayer1.classList.add('attackCapt');
+        animation(avatarOfPlayer1, "+=600px", "+550");
+      } else if (fighter1 === 'son-goku'){
+        avatarOfPlayer1.classList.add('attackGoku');
+        animation(avatarOfPlayer1, "+=600px", "+550");
+      }  else if (fighter1 === 'son-gohan'){
+        avatarOfPlayer1.classList.add('attackGohan');
+        animation(avatarOfPlayer1, "+=600px", "+550");
+      }
+
       timerDisplayLeft.style.color = 'green';
       timerDisplayRight.style.color = 'red';
-      players.player2Life -= 25;
-  
-      if (players.player2Life < 0) {
-        players.player2Life = 0;
+      phraseBlockBlock.style.visibility = 'hidden';
+
+      function animation(target, valuePx, currentTranslate) {
+        anime({
+          targets: target,
+          translateX: {
+            value: valuePx,
+            duration: 1500,
+          },
+          easing: 'easeOutQuad',
+          update: (anim) => {
+            const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
+    
+            if (currentTranslateX === parseInt(currentTranslate, 10)) {
+              handleAnimationCompletion();
+            }
+          },
+        });
       }
-  
-      const player2LifeFlex = (players.player2Life / 100) * 100;
-      player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
-      player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
-  
-      if (players.player2Life <= 0) {
+
+      function handleAnimationCompletion() {
+        if (fighter2 === 'broly') {
+          avatarOfPlayer2.classList.add('sufferAttackB');
+        } else if (fighter2 === 'venom'){
+          avatarOfPlayer2.classList.add('sufferAttackV');
+        } else if(fighter2 === 'spider-man'){
+          avatarOfPlayer2.classList.add('sufferAttackS')
+        } else if(fighter2 === 'chun-li'){
+          avatarOfPlayer2.classList.add('sufferAttackCh');
+        } else if(fighter2 === 'captain-america'){
+          avatarOfPlayer2.classList.add('sufferAttackCa')
+        } else if(fighter2 === 'son-goku'){
+          avatarOfPlayer2.classList.add('sufferAttackGk')
+        } else if(fighter2 === 'son-gohan'){
+          avatarOfPlayer2.classList.add('sufferAttackGh')
+        } 
+    
+        anime({
+          targets: avatarOfPlayer2,
+          complete: () => {
+            anime({
+              targets: avatarOfPlayer2,
+            });
+            anime({
+              targets: avatarOfPlayer1,
+              translateX: 0,
+              duration: 500,
+              easing: 'linear',
+              complete: () => {
+                players.player2Life -= 100;
+                const player2LifeFlex = (players.player2Life / 100) * 100;
+                player2LifeGreenDisplay.style.flex = `${player2LifeFlex}%`;
+                player2LifeRedDisplay.style.flex = `${100 - player2LifeFlex}%`;
+    
+                handleLifeUpdate();
+    
+                if (players.player2Life <= 0) {
+                  if(fighter2 === 'broly'){
+                    avatarOfPlayer2.className = 'deadBroly';
+                  } else if (fighter2 === 'venom'){
+                    avatarOfPlayer2.className = 'deadVenom';
+                  } else if (fighter2 === 'spider-man'){
+                    avatarOfPlayer2.className = 'deadSpider';
+                  } else if(fighter2 === 'chun-li'){
+                    avatarOfPlayer2.className = 'deadChun';
+                  } else if(fighter2 === 'captain-america'){
+                    avatarOfPlayer2.className = 'deadCapt';
+                  } else if(fighter2 === 'son-goku'){
+                    avatarOfPlayer2.className = 'deadGoku';
+                  } else if(fighter2 === 'son-gohan'){
+                    avatarOfPlayer2.className = 'deadGohan';
+                  }   
+                  handlePlayer1Defeat();
+                } else {
+                  phraseBlockBlock.style.visibility = 'visible';
+                }
+              },
+            });
+          },
+        });
+      }
+
+      function handleLifeUpdate() {
+        if (fighter1 === 'broly') {
+          avatarOfPlayer1.className = 'onTheSpotBroly';
+        } else if (fighter1 === 'spider-man'){
+          avatarOfPlayer1.className = 'onTheSpotSpider';
+        } else if (fighter1 === 'venom'){
+          avatarOfPlayer1.className = 'onTheSpotVenom';
+        } else if (fighter1 === 'chun-li'){
+          avatarOfPlayer1.className = 'onTheSpotChun';
+        } else if (fighter1 === 'captain-america'){
+          avatarOfPlayer1.className = 'onTheSpotCapt';
+        } else if (fighter1 === 'son-goku'){
+          avatarOfPlayer1.className = 'onTheSpotGk';
+        } else if (fighter1 === 'son-gohan'){
+          avatarOfPlayer1.className = 'onTheSpotGh';
+        }
+
+        if (fighter2 === 'broly') {
+          avatarOfPlayer2.className = 'onTheSpotBroly';
+        } else if (fighter2 === 'venom') {
+          avatarOfPlayer2.className = 'onTheSpotVenom';
+        } else if (fighter2 === 'spider-man'){
+          avatarOfPlayer2.className = 'onTheSpotSpider';
+        } else if (fighter2 === 'chun-li'){
+          avatarOfPlayer2.className = 'onTheSpotChun';
+        } else if (fighter2 === 'captain-america'){
+          avatarOfPlayer2.className = 'onTheSpotCapt';
+        } else if (fighter2 === 'son-goku'){
+          avatarOfPlayer2.className = 'onTheSpotGk';
+        } else if (fighter2 === 'son-gohan'){
+          avatarOfPlayer2.className = 'onTheSpotGh';
+        }
+    
+        if (players.player2Life < 0) {
+          players.player2Life = 0;
+        }
+      }
+
+      function handlePlayer1Defeat() {
         setTimeout(() => {
           showWinner('Joueur 1');
-  
+    
           setTimeout(() => {
             hideContainerWinner();
-  
+    
             setTimeout(() => {
               menuOpen.style.top = '0%';
-            }, 500);
-          }, 1000);
-        }, 500);
-      } else {
-        phraseBlockBlock.style.visibility = 'visible';
+            }, 2100);
+          }, 2000);
+        }, 2000);
       }
     }
-
     if (players.player1Time === players.player2Time) {
       timerDisplayLeft.style.color = 'orange';
       timerDisplayRight.style.color = 'orange';
     }  
-    gamePreparationTimerData.isPreparationTime = true;
-    document.addEventListener('keydown', handleKeyboardInput);
   }
 
   function showWinner(name) {
@@ -546,7 +806,7 @@ const GamePage = async () => {
     containerAlertWinner.style.display = 'flex';
     alertWinner.style.display = 'flex';
     const winnerSpan = document.querySelector('#name-winner');
-    winnerSpan.textContent = `${name}, tu as gagne !!`;
+    winnerSpan.textContent = `${name}, winner !!`;
   }
 
   function hideContainerWinner() {

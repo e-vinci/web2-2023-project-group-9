@@ -206,7 +206,7 @@ const FightersSelect  = () =>{
                         createSessionForFighter1('spider-man');
                     }
                     if(button.classList.contains('chunLiTK')){
-                        nomCombattant1.innerHTML = 'Chin-Lai (Pret)';
+                        nomCombattant1.innerHTML = 'Chin-Lai (Prete)';
                         createSessionForFighter1('chun-li');
                     }
                     if (button.classList.contains('captainAmerica')){
@@ -329,7 +329,7 @@ const FightersSelect  = () =>{
                         createSessionForFighter2('spider-man')
                     }
                     if(button.classList.contains('chunLiTK')){
-                        nomCombattant2.innerHTML = 'Chin-Lai (Pret)';
+                        nomCombattant2.innerHTML = 'Chin-Lai (Prete)';
                         createSessionForFighter2('chun-li')
                     }
                     if (button.classList.contains('captainAmerica')){

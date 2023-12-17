@@ -89,8 +89,8 @@ const HomePage = () => {
   <section class = "mainContent">
   <section id = "titleOfMain"></section>
   <section id ="buttonSection">
-    <div id="inscription" id="link_to_registerPage">
-      <p class="pboutton">S'inscrire</p>
+    <div id="inscription">
+      <p class="pboutton" id="link_to_registerPage">S'inscrire</p>
       ${imgInscription.outerHTML}
     </div>
     <div id="demo" class="link_to_demoPage">

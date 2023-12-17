@@ -1443,10 +1443,10 @@ input[type='submit']:hover {
 }
 
 .onTheSpotSpider{
-  height: 240px;
-  width: 297px;
+  height: 200px;
+  width: 247.5px;
   background: url(../assets/Spider-Man/spider1_.spiderman.png);
-  animation: ontheSpotS 0.9s steps(8) infinite;
+  animation: ontheSpotS 0.9s steps(10) infinite;
 }
 
 @keyframes ontheSpotS {
@@ -1454,23 +1454,23 @@ input[type='submit']:hover {
     background-position: 0px;
   }
   100%{
-    background-position: -2376px;
+    background-position: -2475px;
   }
 }
 
 .onTheSpotChun{
-  height: 240px;
-  width: 221px;
+  height: 260px;
+  width: 235px;
   background: url(../assets/Chun-Li/sprite1_ChunLi.png);
-  animation: onTheSpotCh 1.5s steps(7) infinite;
+  animation: onTheSpotCh 1.5s steps(9) infinite;
 }
 
 @keyframes onTheSpotCh {
   0%{
-    background-position: -442px;
+    background-position: 0px;
   }
   100%{
-    background-position: -1988px;
+    background-position: -2154px;
   }
 }
 
@@ -1523,10 +1523,10 @@ input[type='submit']:hover {
 }
 
 .sufferAttackV{
-  height: 280px;
-  width: 312px;
+  height: 240px;
+  width: 267.6px;
   background: url(../assets/Venom/spriteVenomSubitAttaque.png);
-  animation: sufferV 0.5s steps(3) forwards ;
+  animation: sufferV 1s steps(3) forwards ;
 }
 
 @keyframes sufferV {
@@ -1534,7 +1534,7 @@ input[type='submit']:hover {
     background-position: 0px;
   }
   100%{
-    background-position: -936px;
+    background-position: -803px;
   }
 }
 
@@ -1554,9 +1554,89 @@ input[type='submit']:hover {
   }
 }
 
-.attackVenom{
+.sufferAttackS{
+  height: 200px;
+  width: 209.4px;
+  background: url(../assets/Spider-Man/spriteSpiderSubitAttaque.png);
+  animation: sufferS 1s steps(5) 0.99 forwards;
+}
+
+@keyframes sufferS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1047px;
+  }
+}
+
+.sufferAttackCh{
+  height: 220px;
+  width: 248px;
+  background: url(../assets/Chun-Li/spriteChunSubitAttaque.png);
+  animation: sufferCh 1s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferCh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -744px;
+  }
+}
+
+.sufferAttackCa{
   height: 280px;
-  width: 317.6px;
+  width: 269px;
+  background: url(../assets/Captain/spriteCaptSubitAttaque.png);
+  animation: sufferCa 1s steps(2) 0.99 forwards;
+}
+
+@keyframes sufferCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -538px;
+  }
+}
+
+.sufferAttackGk{
+  height: 300px;
+  width: 246.6px;
+  background: url(../assets/Goku/spriteGokuSubitAttaque.png);
+  animation: sufferGk 1s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferGk {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -740px;
+  }
+}
+
+.sufferAttackGh{
+  height: 280px;
+  width: 142.3px;
+  background: url(../assets/Gohan/spriteGohanSubitAttaque.png);
+  animation: sufferGh 1s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferGh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -427px;
+  }
+}
+
+.attackVenom{
+  height: 300px;
+  width: 340.4px;
   background: url(../assets/Venom/spriteVenomAttaque.png);
   animation: attackV 1.5s steps(15) 0.99 forwards;
 }
@@ -1566,7 +1646,7 @@ input[type='submit']:hover {
     background-position: 0px;
   }
   100%{
-    background-position: -4765px;
+    background-position: -5106px;
   }  
 }
 
@@ -1579,25 +1659,201 @@ input[type='submit']:hover {
 
 @keyframes attackB {
   0%{
-    background-position: 0px;
-  }
-  100%{
     background-position: -5413px;
   }
+  100%{
+    background-position: 0px;
+  }
 }
 
-.attackBrolyL{
-  height: 280px;
-  width: 492px;
-  background: url(../assets/Broly/spriteBrolyAttaque.png);
-  animation: attackB 1.5s steps(11) forwards;
+.attackSpider{
+  height: 300px;
+  width: 300px;
+  background: url(../assets/Spider-Man/spriteSpiderAttaque.png);
+  animation: attackS 1.5s steps(18) 0.99 forwards;
 }
 
-@keyframes attackB {
+@keyframes attackS {
   0%{
-    background-position: -5413px;
+    background-position: 0px;
   }
   100%{
+    background-position: -5400px;
+  }
+}
+
+.attackChun{
+  height: 300px;
+  width: 354.3px;
+  background: url(../assets/Chun-Li/spriteChunAttaque.png);
+  animation: attackCh 1.5s steps(11) 0.99 forwards; 
+}
+
+@keyframes attackCh {
+  0%{
     background-position: 0px;
+  }
+  100%{
+    background-position: -3898px;
+  }
+}
+
+.attackCapt{
+  height: 300px;
+  width: 517.6px;
+  background: url(../assets/Captain/spriteCaptAttaque.png);
+  animation: attackCa 1.5s steps(6) 0.99 forwards;
+}
+
+@keyframes attackCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -3106px;
+  }
+}
+
+.attackGoku{
+  height: 320px;
+  width: 384.5px;
+  background: url(../assets/Goku/spriteGokuAttaque.png);
+  animation: attackGo 1.5s steps(9) 0.99 forwards;
+}
+
+@keyframes attackGo {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -3461px;
+  }
+}
+
+.attackGohan{
+  height: 250px;
+  width: 349.2px;
+  background: url(../assets/Gohan/spriteGohanAttaque.png);
+  animation: attackGh 1.5s steps(8) 0.99 forwards;
+}
+
+@keyframes attackGh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2794px;
+  }
+}
+
+.deadBroly{
+  height: 200px;
+  width: 211.7px;
+  background: url(../assets/Broly/spriteBrolyMeurt.png);
+  animation: deadB 1.5s steps(4) 0.99 forwards;
+}
+
+@keyframes deadB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -847px;
+  }
+}
+
+.deadVenom{
+  height: 100px;
+  width: 316px;
+  background: url(../assets/Venom/spriteVenomMeurt.png);
+  animation: deadV 1.5s steps(3) 0.99 forwards;
+}
+
+@keyframes deadV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -948px;
+  }
+}
+
+.deadSpider{
+  height: 180px;
+  width: 305.1px;
+  background: url(../assets/Spider-Man/spriteSpiderMeurt.png);
+  animation: deadS 1.5s steps(9) 0.99 forwards;
+}
+
+@keyframes deadS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2746px;
+  }
+}
+
+.deadChun{
+  height: 170px;
+  width: 321px;
+  background: url(../assets/Chun-Li/spriteChunMeurt.png);
+  animation: deadCh 1.5s steps(4) 0.99 forwards;
+}
+
+@keyframes deadCh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1284px;
+  }
+}
+
+.deadCapt{
+  height: 250px;
+  width: 335.3px;
+  background: url(../assets/Captain/spriteCaptMeurt.png);
+  animation: deadCa 1.5s steps(3) 0.99 forwards;
+}
+
+@keyframes deadCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1006px;
+  }
+}
+
+.deadGoku{
+  height: 200px;
+  width: 277px;
+  background: url(../assets/Goku/spriteGokuMeurt.png);
+  animation: deadGk 1.5s steps(4) 0.99 forwards;
+}
+
+@keyframes deadGk {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1108px;
+  }
+}
+
+.deadGohan{
+  height: 280px;
+  width: 196.8px;
+  background: url(../assets/Gohan/spriteGohanMeurt.png);
+  animation: deadGh 1.5s steps(6) 0.99 forwards;
+}
+
+@keyframes deadGh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1181px;
   }
 }
