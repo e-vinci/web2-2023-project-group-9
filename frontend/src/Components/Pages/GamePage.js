@@ -451,25 +451,25 @@ const GamePage = async () => {
     if (players.player1Time > players.player2Time) {
       if (fighter2 === 'broly') {
         avatarOfPlayer2.classList.add('attackBroly');
-        animation(avatarOfPlayer2, "-=600px", "-550");
+        animation(avatarOfPlayer2, "-=100%", "-100");
       } else if (fighter2 === 'venom') {
         avatarOfPlayer2.classList.add('attackVenom');
-        animation(avatarOfPlayer2, "+=600px", "+550");
+        animation(avatarOfPlayer2, "+=200%", "+200");
       } else if(fighter2 === 'spider-man'){
         avatarOfPlayer2.classList.add('attackSpider');
-        animation(avatarOfPlayer2, "+=600px", "+550");
+        animation(avatarOfPlayer2, "+=200%", "+200");
       } else if (fighter2 === 'chun-li'){
         avatarOfPlayer2.classList.add('attackChun');
-        animation(avatarOfPlayer2, "+=600px", "+550");
+        animation(avatarOfPlayer2, "+=200%", "+200");
       }  else if (fighter2 === 'captain-america'){
         avatarOfPlayer2.classList.add('attackCapt');
-        animation(avatarOfPlayer2, "+=600px", "+550");
+        animation(avatarOfPlayer2, "+=100%", "+100");
       } else if (fighter2 === 'son-goku'){
         avatarOfPlayer2.classList.add('attackGoku');
-        animation(avatarOfPlayer2, "+=600px", "+550");
+        animation(avatarOfPlayer2, "+=200%", "+200");
       }  else if (fighter2 === 'son-gohan'){
         avatarOfPlayer2.classList.add('attackGohan');
-        animation(avatarOfPlayer2, "+=600px", "+550");
+        animation(avatarOfPlayer2, "+=200%", "+200");
       }
     
       timerDisplayLeft.style.color = 'red';
@@ -610,25 +610,25 @@ const GamePage = async () => {
     } else if (players.player1Time < players.player2Time) {
       if(fighter1 === 'broly'){
         avatarOfPlayer1.classList.add('attackBroly');
-        animation(avatarOfPlayer1, "-=600px", "-550");
+        animation(avatarOfPlayer1, "-=100%", "-100");
       } else if(fighter1 === 'venom'){
         avatarOfPlayer1.classList.add('attackVenom');
-        animation(avatarOfPlayer1, "+=600px", "+550");
+         animation(avatarOfPlayer1, "+=200%", "+200");
       } else if(fighter1 === 'spider-man'){
         avatarOfPlayer1.classList.add('attackSpider');
-        animation(avatarOfPlayer1, "+=600px", "+550");
+        animation(avatarOfPlayer1, "+=200%", "+200");
       } else if (fighter1 === 'chun-li'){
         avatarOfPlayer1.classList.add('attackChun');
-        animation(avatarOfPlayer1, "+=600px", "+550");
+         animation(avatarOfPlayer1, "+=200%", "+200");
       } else if (fighter1 === 'captain-america'){
         avatarOfPlayer1.classList.add('attackCapt');
-        animation(avatarOfPlayer1, "+=600px", "+550");
+         animation(avatarOfPlayer1, "+=100%", "+100");
       } else if (fighter1 === 'son-goku'){
         avatarOfPlayer1.classList.add('attackGoku');
-        animation(avatarOfPlayer1, "+=600px", "+550");
+         animation(avatarOfPlayer1, "+=200%", "+200");
       }  else if (fighter1 === 'son-gohan'){
         avatarOfPlayer1.classList.add('attackGohan');
-        animation(avatarOfPlayer1, "+=600px", "+550");
+         animation(avatarOfPlayer1, "+=200%", "+200");
       }
 
       timerDisplayLeft.style.color = 'green';

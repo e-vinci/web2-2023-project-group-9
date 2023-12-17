@@ -355,14 +355,14 @@ const DemoGame = () => {
       return anime({
           targets: target,
           translateX: {
-            value: '+=600px',
+            value: '+=200%',
             duration,
           },
           easing : 'easeOutQuad',
           update: (anim) =>{
             const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
 
-            if(currentTranslateX === +550){
+            if(currentTranslateX === +200){
               charactereOfPlayer2.classList.add('sufferAttackB');
               player2LifeGreenDisplay.style.flex = `75%`;
               player2LifeRedDisplay.style.flex = `25%`;
@@ -401,14 +401,14 @@ const DemoGame = () => {
     return anime({
       targets:target,
       translateX:{
-        value:'-=600px',
+        value:'-=100%',
         duration
       },
       easing : 'easeOutQuad',
       update: (anim) =>{
         const currentTranslateX = parseInt(anim.animations[0].currentValue, 10);
 
-        if(currentTranslateX === -550){
+        if(currentTranslateX === -100){
           charactereOfPlayer1.classList.add('sufferAttackV');
           anime({
             targets: charactereOfPlayer1,
