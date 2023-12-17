@@ -1,12 +1,46 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12425572&assignment_repo_type=AssignmentRepo)
 # Projet Web2 2023
 ## Introduction
 - Ce boilerplate vous offre l'architecture de base de votre frontend et de votre API pour développer un projet qui vous tient à coeur et qui répond aux exigences résumées ci-dessous (et détaillées dans le template du rapport de projet). 
 - Vous pouvez mettre à jour le boilerplate autant que nécessaire, installer des packages...
 - Votre web repository sur GitHub doit être public.
 
+## Deployment
+
+The frontend and the API are deployed on GitHub Pages and Azure respectively. They are built automatically on every push to the `main` branch, using GitHub Actions.
+
+<!-- **Frontend: [https://e-vinci.github.io/web2-2022-project-group-02/](https://e-vinci.github.io/web2-2022-project-group-02/)**   -->
+API: [https://mortalkeyboard.azurewebsites.net](https://mortalkeyboard.azurewebsites.net)
+
 ## API
 - Votre API doit respecter les conventions REST et appliquer le boilerplate offert dans le cadre du cours de Web2.
 - Veuillez documenter les opérations de votre API, soit à l'aide de tableaux, comme vus dans le cours, soit à l'aide d'outils (Swagger par exemple). Votre fichier `README.md` doit indiquer l'endroit où se situe la documentation de votre API.
+
+
+**Game**
+URI	 | Méthode HTTP	| Opération
+--- | --- | --- 
+/game|	GET |	READ ALL : Read all the resources in the collection
+/game/addPhrase|	POST|	CREATE ONE : Create a resource based on query data
+/game/deletePhrase/:id	|DELETE	|DELETE ONE : Delete the identified resource
+/game/readOnePhraseFromGame/:id	|GET	|READ ONE : Read the identified resource 
+/game/readSuggestedPhrases	|GET	|READ ALL : Read all the resources in the collection
+/game/readOneSuggestedPhrase/:id	|GET	|READ ALL : Read the identified resource
+/game/addSuggestedPhrase	|POST	|CREATE ONE : Create a resource based on query data
+/game/deleteSuggestedPhrase/:id|	DELETE|	DELETE ONE: Delete the identified resource
+
+**Authentication**
+URI	 | Méthode HTTP	| Opération
+--- | --- | --- 
+auths/register|	POST |	CREATE ONE : Create a resource based on query data
+auths/login|	POST|	READ ONE : Create a resource based on query data
+
+
+The endpoints are testable with the
+[VSCode REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client),
+in the `api/REST Client` folder.
+
+
 - Les tests de votre API, les requêtes HTTP, doivent être données au sein de votre projet. Votre fichier `README.md` doit indiquer où se trouve ces fichiers. Pour chaque opération de votre API, il doit exister au minimum une requête HTTP associée.
 - La RESTful API ne peut pas être uniquement un « copier/coller » de ressources offertes dans le cours (notamment les ressources **users** et **auths**). Vous pouvez utiliser les ressources offertes dans le cours, mais vous devez y apporter des ajouts significatifs.
 - Votre RESTful API doit mettre en œuvre au minimum un package non vu en cours.
@@ -21,6 +55,11 @@
 - Votre RESTful API doit mettre en œuvre au minimum un package non vu en cours.
 - Votre frontend doit respecter les droits d’auteurs, que ça soit pour les éventuels sons, images, vidéos, librairies et morceaux de codes utilisés. Cela est de votre responsabilité et non pas de celle de vos enseignants.
 - Vous devez déployer votre API sur Azure ou d’autres providers gratuits supportant votre application.
+
+## Frontend
+
+The frontend is a vanilla JavaScript SPA (Single Page Application) using a custom router. The
+application is built with Webpack.
 
 ## Ergonomie
 - La vision marketing ainsi que les wireframes de votre application doivent se trouver dans le répertoire `/ergonomics`.

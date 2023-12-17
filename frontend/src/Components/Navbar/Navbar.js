@@ -1,47 +1,91 @@
-// eslint-disable-next-line no-unused-vars
-import { Navbar as BootstrapNavbar } from 'bootstrap';
+// Importing the logo image from the local directory
+import logoPage from '../../img/BaseDuSite/logoPage.png';
+// eslint-disable-next-line import/no-cycle
+import { getAuthenticatedUser, isAuthenticated, clearAuthenticatedUser } from '../../utils/auths';
 
-/**
- * Render the Navbar which is styled by using Bootstrap
- * Each item in the Navbar is tightly coupled with the Router configuration :
- * - the URI associated to a page shall be given in the attribute "data-uri" of the Navbar
- * - the router will show the Page associated to this URI when the user click on a nav-link
- */
+import Navigate from '../Router/Navigate';
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
-  const navbar = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/game">Game</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>                        
-            </ul>
-          </div>
-        </div>
-      </nav>
-  `;
-  navbarWrapper.innerHTML = navbar;
+  navbarWrapper.style.backgroundColor = 'black';
+
+    // Checking if the user is authenticated
+  const isConnected = isAuthenticated();
+
+  const infoUser = getAuthenticatedUser();
+
+  navbarWrapper.innerHTML = '';
+  const logo = document.createElement('a');
+  logo.href = '';
+  logo.classList.add('logoPage');
+  const logoLink = document.createElement('img');
+  logoLink.src = logoPage;
+  logoLink.classList.add('logoPage');
+  logoLink.dataset.uri = '/';
+  logo.appendChild(logoLink);
+  navbarWrapper.appendChild(logo);
+
+  // Determining which links to show based on the user's role and authentication status
+  const showFighterAndArenaLinks = isConnected && infoUser.user !== 'admin';
+  const showPhraseLinks = isConnected && infoUser.user === 'admin';
+  const isHomePage = window.location.pathname === '/';
+
+    // Initializing the navbar with the home link
+  let navbar = `<li><a href="" data-uri="/">Accueil</a></li>`;
+
+    // Adding additional links based on the user's authentication status and current page
+  if (isConnected) {
+    if ((showFighterAndArenaLinks || isHomePage) && window.location.pathname !== '/handleSuggestedPhrase') {
+      navbar += `<li><a href="#mainMiddleContent">Combattants</a></li>`;
+      navbar += `<li><a href="#sectionTreeAcceuil">Arenes</a></li>`;
+    }
+
+    if (showPhraseLinks) {
+      navbar += `<li><a href="" data-uri="/handlePhraseFromGame">Gerer les phrases du jeu</a></li>`;
+      navbar += `<li><a href="" data-uri="/handlePhrase">Gerer les phrases suggerees</a></li>`;
+    } else {
+      navbar += `<li><a href="" data-uri="/handleSuggestedPhrase">Proposer des phrases</a></li>`;
+    }
+
+    navbar += `<li><a href="" id="btn-log-out"> Se deconnecter<a></li>`;
+  } else if (isHomePage) {
+    navbar += `<li><a href="#mainMiddleContent">Combattants</a></li>`;
+    navbar += `<li><a href="#sectionTreeAcceuil">Arenes</a></li>`;
+    navbar += `<li><a href="" data-uri="/login">se connecter</a></li>`;
+  } else {
+    navbar += `<li><a href="" data-uri="/login">se connecter</a></li>`;
+  }
+
+  const finalNavbar = `<nav>
+    <div class="navLinks">
+      <ul>
+        ${navbar}
+      </ul>
+    </div>
+    <div id="icons"></div>
+  </nav>`;
+
+  navbarWrapper.innerHTML += finalNavbar;
+
+  const icons = document.querySelector('#icons');
+  icons.addEventListener('click', () => {
+    navbarWrapper.classList.toggle("active");
+  });
+
+  const links = document.querySelectorAll('nav li');
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      navbarWrapper.classList.remove("active");
+    });
+  });
+
+  const btnLogOut = document.querySelector('#btn-log-out');
+  if (btnLogOut) {
+    btnLogOut.addEventListener('click', () => {
+      clearAuthenticatedUser();
+      Navigate('/login');
+    });
+  }
 };
 
 export default Navbar;

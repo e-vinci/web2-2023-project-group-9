@@ -1,0 +1,1859 @@
+/* Reset CSS de base */
+/* Supprime les marges et les espacements par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Largeur de la scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track de la scrollbar (la zone grise) */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle de la scrollbar (le curseur) */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgb(124, 1, 1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(73, 1, 1);
+  transition: 1s ease-in-out;
+}
+
+/* Handle de la scrollbar (le curseur) pour Gecko */
+* {
+  scrollbar-color: rgb(124, 1, 1) #000000;
+}
+
+/* Handle de la scrollbar (le curseur) pour Gecko lorsqu'il est hover */
+* {
+  scrollbar-color: rgb(73, 1, 1) #000000;
+}
+
+/* Rétablit la police de caractères en sans-serif et ajout de la police de Mortal Kombat*/
+@font-face {
+  font-family: 'MK TITLE';
+  src: url('../fonts/MKtitle.ttf') format('truetype');
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'MK TITLE', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Annule la liste des éléments de liste */
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Réinitialise d'autres styles */
+/* Annule les puces par défaut des listes non ordonnées */
+ul {
+  list-style-type: none;
+}
+body {
+  background-color: #000000;
+}
+
+/* Sohaib */
+/* NAVBAR */
+#navbarWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00000000;
+  width: 100%;
+}
+
+#navbarWrapper a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 100%;
+}
+
+#navbarWrapper .logoPage {
+  position: relative;
+  margin-left: 5%;
+  width: 8em;
+}
+
+#navbarWrapper .navLinks ul {
+  display: flex;
+}
+
+#navbarWrapper .navLinks ul li {
+  margin: 0 25px;
+}
+
+#icons {
+  display: none;
+}
+
+/* Sohaib */
+/* Page d'acceuil */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  height: 83vh;
+  background-image: url(../img/BaseDuSite/backgroundSite.jpg);
+  max-width: 100%;
+  background-repeat: no-repeat;
+}
+
+#titleOfMain {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#h1Acceuil {
+  max-width: 60%;
+}
+
+.slogan {
+  background-color: black;
+  color: white;
+  font-size: 4vw;
+  padding: 0px 10px 0px 10px;
+  display: inline-block;
+  width: max-content;
+}
+
+#buttonSection {
+  display: flex;
+  position: relative;
+  top: 30%;
+  width: 75vw;
+  margin-left: 15vw;
+  justify-content: space-between;
+}
+
+/* button Acceuil */
+#inscription {
+  position: relative;
+  width: 25vw;
+  border-radius: 8px;
+  border: 3px solid #fffcfc;
+  background: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+#inscription:hover,
+#demo:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  transition: 0.5s;
+}
+
+#demo {
+  position: relative;
+  width: 25vw;
+  border-radius: 8px;
+  border: 3px solid #fffcfc;
+  background: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.pboutton {
+  position: absolute;
+  font-size: 4vw;
+  cursor: pointer;
+  max-width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: auto;
+  text-align: center;
+}
+div img {
+  width: 120pt;
+}
+
+/* Sohaib */
+/* section 2 */
+#mainMiddleContent {
+  background-color: #000000;
+}
+#sectionTwoAcceuil {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 85%;
+  height: 100vh;
+  background-color: #000000;
+  transition: 1.5s;
+}
+
+.broly,
+.venom,
+.captainA,
+.chunLi {
+  max-width: 50%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  margin-left: -28%;
+}
+
+/* Exemple d'utilisation des unités de vue en largeur (vw) pour spécifier la taille de l'image */
+.broly img,
+.venom img,
+.captainA img,
+.chunLi img {
+  height: auto;
+}
+
+.broly {
+  z-index: 3;
+  object-fit: cover;
+}
+
+.venom {
+  z-index: 2;
+  object-fit: cover;
+}
+
+.captainA {
+  z-index: 1;
+  object-fit: cover;
+}
+
+.chunLi {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.broly:hover,
+.venom:hover,
+.captainA:hover,
+.chunLi:hover {
+  margin-left: -10%;
+  transition: 1s;
+}
+
+#spriteAccueil {
+  height: max-content;
+  align-items: center;
+  margin-top: 10%;
+  max-width: 100%;
+  z-index: 1000;
+  background-color: wheat;
+  display: none;
+}
+
+#broly {
+  height: 280px;
+  width: 206px;
+  background: url(../assets/Broly/sprite1_Broly.png);
+  visibility: hidden;
+}
+
+#venom {
+  height: 280px;
+  width: 230px;
+  background: url(../assets/Venom/sprite1_venom.png);
+  visibility: hidden;
+}
+
+#chunLi {
+  height: 101px;
+  width: 93px;
+  background: url(../assets/sprite1_ChunLi.png);
+  transform: scale(2);
+  visibility: hidden;
+  margin-top: 5%;
+}
+
+#captainA {
+  height: 200px;
+  width: 147px;
+  background: url(../assets/sprite1_CaptainAmerica.png);
+  transform: scale(2);
+  visibility: hidden;
+  margin-top: 5%;
+}
+
+#broly,
+#chunLi,
+#captainA,
+#venom {
+  position: absolute;
+  margin-left: 5%;
+}
+
+.textSectionMain {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  padding: 2%;
+}
+
+.titreSectionMain {
+  font-size: 3vw;
+}
+
+.phraseSectionMain {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5vw;
+}
+
+/* Sohaib */
+/* section 3 */
+#sectionTreeAcceuil {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: flex-start;
+  background-color: #000000;
+  transition: 1.5s;
+}
+
+.textSectionMain2 {
+  background-color: black;
+  color: white;
+  width: 25vw;
+  padding: 2%;
+}
+
+#areneAccueil {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+.arene {
+  width: 25vw;
+}
+/* Sohaib */
+/* section 4 */
+#sectionForAcceuil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+  transition: 1.5s;
+}
+
+.titreSectionMain3 {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100vw;
+  padding: 2%;
+  font-size: 4vw;
+}
+
+#sectionForOneAcceuil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+#sectionForTwoAcceuil {
+  background-color: white;
+  width: 100vw;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  padding: 2%;
+  height: 50vh;
+}
+
+.logoFooter {
+  width: 5vw;
+}
+
+.titreFooter {
+  width: 20vw;
+}
+
+#infoFooter {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  font: 1vw;
+  justify-content: space-around;
+}
+
+.linkFooter {
+  font: 1vw sans-serif;
+}
+
+#section_btn_scrollup {
+  visibility: hidden;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+#btn_scrollup {
+  background-color: rgba(124, 1, 1, 0.558);
+  border: none;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  width: 50px;
+  height: 50px;
+  transition: 1.5s solid ease-in-out;
+}
+
+#btn_scrollup svg path {
+  color: white;
+}
+
+#btn_scrollup:hover {
+  background-color: rgb(124, 1, 1);
+}
+
+/* Karim */
+/* login page style */
+#containerLoginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+
+#containerLoginPage a {
+  color: blue;
+}
+
+#containerForm {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  width: 60%;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #ffffff;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  font: 1em arial sans-serif;
+}
+
+input[type='submit'] {
+  background-color: black;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type='submit']:hover {
+  background: rgb(124, 1, 1);
+}
+
+#containerForm #paragrapheLogin {
+  display: block;
+  color: #ffffff;
+  text-align: left;
+}
+
+#containerForm a {
+  text-decoration: none;
+}
+
+#containerForm a:hover {
+  text-decoration: underline;
+}
+
+.phrase_error {
+  color: rgb(124, 1, 1);
+}
+
+@media screen and (max-width: 700px) {
+  #mainContent {
+    height: 100vh;
+  }
+  #navbarWrapper {
+    display: block;
+    height: 100px;
+  }
+
+  #navbarWrapper .navLinks ul li {
+    margin: 0;
+  }
+
+  .navLinks ul {
+    top: 5em;
+    position: absolute;
+    display: flex;
+    line-height: 100px;
+    flex-direction: column;
+    height: 100vh;
+    left: -100%;
+    width: 100%;
+    background: rgb(124, 1, 1);
+    padding: 0;
+    text-align: center;
+    transition: 0.25s;
+    z-index: 1000;
+  }
+
+  #navbarWrapper .logoPage {
+    margin: 40px 0;
+    width: 7em;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .navLinks ul li a {
+    display: block; /* Faire en sorte que le lien soit un bloc pour couvrir l'ensemble de l'élément li */
+    max-width: 100%; /* Étendre le lien sur toute la largeur de l'élément li */
+    height: auto; /* Étendre le lien sur toute la hauteur de l'élément li */
+  }
+
+  .navLinks ul li:hover {
+    background: rgba(79, 1, 1, 0.429);
+    padding-left: 20px;
+    cursor: pointer;
+  }
+
+  #icons {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+
+  #icons:before {
+    content: '\2630';
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+  }
+
+  .active #icons::before {
+    content: '\2716';
+    font-size: 30px;
+  }
+
+  #navbarWrapper.active ul {
+    left: 0;
+  }
+
+  #titleOfMain {
+    position: relative;
+    top: 25%;
+  }
+
+  #buttonSection {
+    top: 55%;
+  }
+
+  div img {
+    width: 85pt;
+  }
+
+  #containerForm {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    top: 15%;
+  }
+
+  #containerForm {
+    border: none;
+  }
+}
+
+/* ------------------- MOHAMED ----------------------*/
+
+/* styles dans main.css */
+
+.brolyDBZ,
+.venomSP,
+.spiderMan,
+.chunLiTK,
+.captainAmerica,
+.goku,
+.gohan {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  justify-content: center;
+}
+
+
+/* demo page & game page */
+
+#container-alert-winner {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left: 0;
+  background-color: #090909c8;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+#alert-winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px; /* Valeur arbitraire, assurez-vous qu'elle est plus élevée que les autres éléments */
+  display: none; /* Vous pouvez le rendre visible au besoin */
+  justify-content: center;
+  width: 70vh;
+}
+
+#name-winner {
+  font-size: 40px;
+  color: rgb(255, 255, 0); /* Couleur du texte */
+  text-shadow: 3px 3px 0 red, /* Contour rouge */ -3px 3px 0 red;
+}
+
+#loading {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000d7;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+#loading p {
+  color: rgb(255, 255, 0); /* Couleur du texte */
+  text-shadow: 3px 3px 0 red, /* Contour rouge */ -3px 3px 0 red;
+  font-size: 100px; /* Taille du texte */
+}
+#arene-demo {
+  padding: 50px;
+  height: 100vh;
+}
+
+#headGame {
+  display: flex;
+  justify-content: space-around;
+}
+.home {
+  position: absolute;
+  top: 6%;
+  left: 2%;
+}
+
+.home:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.lifeBarContainerLeft,
+.lifeBarContainerRight {
+  display: flex;
+  align-items: stretch;
+  width: 30%;
+  height: 25px;
+  background-color: #000000;
+  border: 8px solid #000000;
+  border-radius: 10px;
+  box-sizing: content-box;
+}
+
+.lifeBarLeftRed,
+.lifeBarRightRed {
+  background-color: red;
+}
+
+.lifeBarLeftGreen,
+.lifeBarRightGreen {
+  background-color: rgb(0, 255, 0);
+}
+
+.timeLeft::before,
+.timeRight::before {
+  content: '\1F550';
+}
+
+.timeLeft,
+.timeRight {
+  background-color: #0000007a;
+  border: 4px solid #ffffff;
+  color: white;
+  border-radius: 10px;
+  width: 10%;
+  top: 14%;
+  left: 26%;
+  font-size: 1.3em;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.timeRight {
+  left: 64%;
+}
+
+
+
+.lifeBarLeftRed, .lifeBarLeftGreen, .lifeBarRightRed, .lifeBarRightGreen{
+  transition: 0.5;
+}
+
+.lifeBarLeftRed {
+  flex: 0%; /* Les points de vie restant ceux- en dessous du vert */
+  background-color: red;
+}
+
+.lifeBarLeftGreen {
+  flex: 100%; /* sert à controler les points de vie perdues */
+  background-color: rgb(0, 255, 0);
+}
+
+.timeLeft::before,
+.timeRight::before {
+  content: '\1F550';
+}
+.timeLeft,
+.timeRight {
+  background-color: #0000007a;
+  border: 4px solid #ffffff;
+  color: white;
+  border-radius: 10px;
+  width: 10%;
+  top: 14%;
+  left: 26%;
+  font-size: 1.3em;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.timeRight {
+  left: 64%;
+}
+
+
+.lifeBarRightRed {
+  flex: 0%; /* Les points de vie restant ceux- en dessous du vert */
+  background-color: red;
+}
+
+.lifeBarRightGreen {
+  flex: 100%; /* sert à controler les points de vie perdues */
+  background-color: rgb(0, 255, 0);
+}
+
+.vs {
+  position: relative;
+  top: -30%;
+  width: 125px;
+}
+
+.green {
+  color: green;
+}
+
+#menu {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #090909c8;
+  backdrop-filter: blur(15px);
+  color: white;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -100%;
+}
+
+#menuGame {
+  width: 30%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  line-height: 100px;
+}
+
+#menuGame p {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#menuGame ul {
+  padding: 0px;
+  background: rgb(124, 1, 1);
+  background-image: linear-gradient(45deg, transparent 50%, #000000 80%);
+  border-radius: 10px;
+}
+
+#menuGame ul li:hover {
+  background: rgba(79, 1, 1, 0.429);
+  border-radius: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 15%, #000000 50%);
+}
+
+#menuGame ul li {
+  padding-left: 10px;
+}
+#menuGame a {
+  color: rgb(246, 243, 243);
+  width: 100%;
+}
+
+.titreMenu {
+  font-size: 2em;
+}
+
+.fa-times {
+  position: absolute;
+  top: 20%;
+  left: 60%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  #menu {
+    background-color: #00000095;
+  }
+  #menuGame {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  #menuGame ul {
+    background-color: 0;
+  }
+}
+
+/* Fighters Select */
+#loadingGame{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000091;
+  backdrop-filter: blur(25px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.loadingLogo{
+  width: 15%;
+  position: absolute;
+}
+
+.circle{
+  width: 225px;
+  height: 225px;
+  background-color: rgba(255, 255, 255, 0);
+  border-top: 4px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  animation: rotateAround 2s linear infinite;
+}
+
+@keyframes rotateAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+#titleOfFigtersSelect{
+    color: white;
+    font-size: 3em;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#fightersSelect{
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+#choixJ{
+  display: flex;
+  justify-content: space-between;
+}
+
+.wichJ1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background:linear-gradient(to right,white,red,black);
+  transform: skewX(-20deg);
+}
+
+.wichJ2{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background:linear-gradient(to right,white,red,black);
+  transform: skewX(-20deg);
+}
+
+.nomCombattant1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+.main-container{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  justify-content: center;
+}
+
+#phrase-game, #phrase-demo {
+  background-color: #000000a3;
+  padding: 25px 25px 25px 25px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: inline;
+  font-family: 'Calisto MT', sans-serif;
+  color: white;
+  font-size: 24px;
+}
+
+#player1 {
+  width: 246px;
+  height: 280px;
+  background-image: url(../assets/Broly/sprite1_Broly.png);
+  animation: sprite-animation-4 0.8s steps(4) infinite;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+  border: 5px solid black;
+}
+
+#player1_attack {
+  width: 267px;
+  height: 280px;
+  background-image: url(../assets/Broly/sprite1_Broly.png);
+  animation: sprite-animation-3 1.5s steps(9) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_blesse {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/Broly/sprite1_Broly.png);
+  animation: sprite-animation-5 1.2s steps(4) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_seReleve {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/Broly/sprite1_Broly.png);
+  animation: sprite-animation-6 1.2s steps(7) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player1_mort {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/Broly/sprite1_Broly.png);
+  animation: sprite-animation-7 1.2s steps(4) 0.99 forwards;
+  position: absolute;
+  right: 300px;
+  top: 300px;
+}
+
+#player2 {
+  width: 246px;
+  height: 280px;
+  background-image: url(../assets/Venom/sprite1_venom.png);
+  animation: sprite-animation-4 0.8s steps(4) infinite;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+  border: 5px solid black;
+}
+
+#player2_attack {
+  width: 267px;
+  height: 280px;
+  background-image: url(../assets/Venom/sprite1_venom.png);
+  animation: sprite-animation-3 1.5s steps(9) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_blesse {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/Venom/sprite1_venom.png);
+  animation: sprite-animation-5 1.2s steps(4) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_seReleve {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/Venom/sprite1_venom.png);
+  animation: sprite-animation-6 1.2s steps(7) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+#player2_mort {
+  width: 300px;
+  height: 280px;
+  background-image: url(../assets/Venom/sprite1_venom.png);
+  animation: sprite-animation-7 1.2s steps(6) 0.99 forwards;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  transform: scaleX(-1);
+}
+
+@keyframes transform {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2125px;
+  }
+}
+
+@keyframes sprite-animation-4 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1004px 0;
+  }
+}
+
+@keyframes sprite-animation-3 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2678px 0;
+  }
+}
+
+@keyframes sprite-animation-5 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1190px 0;
+  }
+}
+
+@keyframes sprite-animation-6 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2389px 0;
+  }
+}
+
+@keyframes sprite-animation-7 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2389px 0;
+  }
+}
+
+/* style for popover of driver.js  */
+.driver-popover.driverjs-theme {
+  background-color: rgba(124, 1, 1, 0.558);
+  color: white;
+}
+
+.driver-popover.driverjs-theme button {
+  border: none;
+  border-radius: 5px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: white;
+}
+
+#container-add-suggested-phrase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+
+}
+
+#container-form-add-suggested-phrase {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  width: 60%;
+}
+
+#container-form-add-suggested-phrase h3 {
+  text-align: center;
+  color: #ffffff;
+}
+
+#container-suggested-phrases-table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+
+#suggested-phrases-table {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.558); /* Couleur du fond avec une certaine opacité */
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  width: 60%;
+}
+/* Style général du tableau */
+#suggested-phrases-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style des en-têtes de colonnes */
+#suggested-phrases-table th {
+  background-color: rgb(124, 1, 1);
+  color: white;
+  text-align: center;
+  padding: 8px;
+}
+
+  /* Style des cellules du tableau */
+  #suggested-phrases-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    color: #ddd;
+}
+
+#container-phrases-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+#phrases-table {
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.558);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 100%; /* Ensure the table does not exceed the container width */
+    overflow-y: scroll; /* Add vertical scrollbar */
+    height: 80vh;
+}
+
+/* Style général du tableau */
+#phrases-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style des en-têtes de colonnes */
+#phrases-table th {
+    background-color: rgb(124, 1, 1);
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Style des cellules du tableau */
+#phrases-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    color: #ddd;
+}
+
+#valider {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom:20px; /* Ajuste la distance entre le bouton et le bas de la page */
+  width: 100%; /* Assure que le bouton occupe toute la largeur de la page */
+}
+
+
+.carousel-item img {
+  width: 100vh; /* Largeur souhaitée pour toutes les images des arènes */
+  height: 100vh; /* Ajuste la hauteur en fonction de la largeur pour ne pas déformer les images */
+  object-fit: cover; /* Remplit le conteneur sans déformer l'image */
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: -550%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+/*DEBUT POUR ANIMER les personnages */
+#charactere-player-1-demo, #fighter1{
+  position: absolute;
+  bottom: 0;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  left: 0;
+}
+
+#charactere-player-2-demo, #fighter2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5%;
+  margin-right: 20%;
+}
+
+.baseB{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/Broly/sprite1_Broly.png);
+}
+
+
+.baseV{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/Venom/sprite1_venom.png);
+}
+
+.baseS{
+  height: 240px;
+  width: 297px;
+  background: url(../assets/Spider-Man/spider1_.spiderman.png);
+}
+
+.baseCl{
+  height: 240px;
+  width: 221px;
+  background: url(../assets/Chun-Li/sprite1_ChunLi.png);
+}
+
+.baseCA{
+  height: 240px;
+  width: 208.1px;
+  background: url(../assets/Captain/sprite1_CaptainAmerica.png);
+}
+
+.baseGk{
+  height: 240px;
+  width: 226.5px;
+  background: url(../assets/Goku/sprite1_Goku.png);
+}
+
+.baseGh{
+  height: 240px;
+  width: 104px;
+  background: url(../assets/Gohan/sprite1_Gohan.png);
+}
+
+.transformVenom{
+  height: 280px;
+  width: 231px;
+  background: url(../assets/Venom/sprite1_venom.png);
+  animation: transform1 1.5s steps(17) 0.99 forwards;
+}
+
+@keyframes transform1 {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -3940px;
+  }
+}
+
+.transformBroly{
+  height: 280px;
+  width: 206px;
+  background: url(../assets/Broly/sprite1_Broly.png);
+  animation: transform2 1.5s steps(10) 0.99 forwards;
+}
+
+@keyframes transform2 {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2006px;
+  }
+}
+
+.onTheSpotVenom {
+  height: 280px;
+  width: 299.25px;
+  background: url(../assets/Venom/spriteVenomSurPlace.png);
+  animation: onTheSpotV 1.5s steps(12) infinite;
+}
+
+
+@keyframes onTheSpotV {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -3591px;
+  }
+}
+
+.onTheSpotBroly{
+  height: 280px;
+  width: 164.5px;
+  background: url(../assets/Broly/spriteBrolySurPlace.png);  
+  animation: onTheSpotB 1.5s steps(8) infinite;
+}
+
+@keyframes onTheSpotB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1316px;
+  }
+}
+
+.onTheSpotSpider{
+  height: 200px;
+  width: 247.5px;
+  background: url(../assets/Spider-Man/spider1_.spiderman.png);
+  animation: ontheSpotS 0.9s steps(10) infinite;
+}
+
+@keyframes ontheSpotS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2475px;
+  }
+}
+
+.onTheSpotChun{
+  height: 260px;
+  width: 235px;
+  background: url(../assets/Chun-Li/sprite1_ChunLi.png);
+  animation: onTheSpotCh 1.5s steps(9) infinite;
+}
+
+@keyframes onTheSpotCh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2154px;
+  }
+}
+
+.onTheSpotCapt{
+  height: 240px;
+  width: 208.1px;
+  background: url(../assets/Captain/sprite1_CaptainAmerica.png);
+  animation: onTheSpotCa 1.5s steps(9) infinite;
+}
+
+@keyframes onTheSpotCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1873px;
+  }
+}
+
+.onTheSpotGk{
+  height: 240px;
+  width: 226.5px;
+  background: url(../assets/Goku/sprite1_Goku.png);
+  animation: onTheSpotGok 0.7s steps(4) infinite;
+}
+
+@keyframes onTheSpotGok {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -906px;
+  }
+}
+
+.onTheSpotGh{
+  height: 240px;
+  width: 104px;
+  background: url(../assets/Gohan/sprite1_Gohan.png);
+  animation: onTheSpotGoh 0.7s steps(4) infinite;
+}
+
+@keyframes onTheSpotGoh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -416px;
+  }
+}
+
+.sufferAttackV{
+  height: 240px;
+  width: 267.6px;
+  background: url(../assets/Venom/spriteVenomSubitAttaque.png);
+  animation: sufferV 1s steps(3) forwards ;
+}
+
+@keyframes sufferV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -803px;
+  }
+}
+
+.sufferAttackB{
+  height: 280px;
+  width: 196.75px;
+  background: url(../assets/Broly/spriteBrolySubitAttaque.png);
+  animation: sufferB 1s steps(4) 0.99 forwards;
+}
+
+@keyframes sufferB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -787px;
+  }
+}
+
+.sufferAttackS{
+  height: 200px;
+  width: 209.4px;
+  background: url(../assets/Spider-Man/spriteSpiderSubitAttaque.png);
+  animation: sufferS 1s steps(5) 0.99 forwards;
+}
+
+@keyframes sufferS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1047px;
+  }
+}
+
+.sufferAttackCh{
+  height: 220px;
+  width: 248px;
+  background: url(../assets/Chun-Li/spriteChunSubitAttaque.png);
+  animation: sufferCh 1s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferCh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -744px;
+  }
+}
+
+.sufferAttackCa{
+  height: 280px;
+  width: 269px;
+  background: url(../assets/Captain/spriteCaptSubitAttaque.png);
+  animation: sufferCa 1s steps(2) 0.99 forwards;
+}
+
+@keyframes sufferCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -538px;
+  }
+}
+
+.sufferAttackGk{
+  height: 300px;
+  width: 246.6px;
+  background: url(../assets/Goku/spriteGokuSubitAttaque.png);
+  animation: sufferGk 1s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferGk {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -740px;
+  }
+}
+
+.sufferAttackGh{
+  height: 280px;
+  width: 142.3px;
+  background: url(../assets/Gohan/spriteGohanSubitAttaque.png);
+  animation: sufferGh 1s steps(3) 0.99 forwards;
+}
+
+@keyframes sufferGh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -427px;
+  }
+}
+
+.attackVenom{
+  height: 300px;
+  width: 340.4px;
+  background: url(../assets/Venom/spriteVenomAttaque.png);
+  animation: attackV 1.5s steps(15) 0.99 forwards;
+}
+
+@keyframes attackV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -5106px;
+  }  
+}
+
+.attackBroly{
+  height: 280px;
+  width: 492px;
+  background: url(../assets/Broly/spriteBrolyAttaque.png);
+  animation: attackB 1.5s steps(11) forwards;
+}
+
+@keyframes attackB {
+  0%{
+    background-position: -5413px;
+  }
+  100%{
+    background-position: 0px;
+  }
+}
+
+.attackSpider{
+  height: 300px;
+  width: 300px;
+  background: url(../assets/Spider-Man/spriteSpiderAttaque.png);
+  animation: attackS 1.5s steps(18) 0.99 forwards;
+}
+
+@keyframes attackS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -5400px;
+  }
+}
+
+.attackChun{
+  height: 300px;
+  width: 354.3px;
+  background: url(../assets/Chun-Li/spriteChunAttaque.png);
+  animation: attackCh 1.5s steps(11) 0.99 forwards; 
+}
+
+@keyframes attackCh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -3898px;
+  }
+}
+
+.attackCapt{
+  height: 300px;
+  width: 517.6px;
+  background: url(../assets/Captain/spriteCaptAttaque.png);
+  animation: attackCa 1.5s steps(6) 0.99 forwards;
+}
+
+@keyframes attackCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -3106px;
+  }
+}
+
+.attackGoku{
+  height: 320px;
+  width: 384.5px;
+  background: url(../assets/Goku/spriteGokuAttaque.png);
+  animation: attackGo 1.5s steps(9) 0.99 forwards;
+}
+
+@keyframes attackGo {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -3461px;
+  }
+}
+
+.attackGohan{
+  height: 250px;
+  width: 349.2px;
+  background: url(../assets/Gohan/spriteGohanAttaque.png);
+  animation: attackGh 1.5s steps(8) 0.99 forwards;
+}
+
+@keyframes attackGh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2794px;
+  }
+}
+
+.deadBroly{
+  height: 200px;
+  width: 211.7px;
+  background: url(../assets/Broly/spriteBrolyMeurt.png);
+  animation: deadB 1.5s steps(4) 0.99 forwards;
+}
+
+@keyframes deadB {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -847px;
+  }
+}
+
+.deadVenom{
+  height: 100px;
+  width: 316px;
+  background: url(../assets/Venom/spriteVenomMeurt.png);
+  animation: deadV 1.5s steps(3) 0.99 forwards;
+}
+
+@keyframes deadV {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -948px;
+  }
+}
+
+.deadSpider{
+  height: 180px;
+  width: 305.1px;
+  background: url(../assets/Spider-Man/spriteSpiderMeurt.png);
+  animation: deadS 1.5s steps(9) 0.99 forwards;
+}
+
+@keyframes deadS {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -2746px;
+  }
+}
+
+.deadChun{
+  height: 170px;
+  width: 321px;
+  background: url(../assets/Chun-Li/spriteChunMeurt.png);
+  animation: deadCh 1.5s steps(4) 0.99 forwards;
+}
+
+@keyframes deadCh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1284px;
+  }
+}
+
+.deadCapt{
+  height: 250px;
+  width: 335.3px;
+  background: url(../assets/Captain/spriteCaptMeurt.png);
+  animation: deadCa 1.5s steps(3) 0.99 forwards;
+}
+
+@keyframes deadCa {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1006px;
+  }
+}
+
+.deadGoku{
+  height: 200px;
+  width: 277px;
+  background: url(../assets/Goku/spriteGokuMeurt.png);
+  animation: deadGk 1.5s steps(4) 0.99 forwards;
+}
+
+@keyframes deadGk {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1108px;
+  }
+}
+
+.deadGohan{
+  height: 280px;
+  width: 196.8px;
+  background: url(../assets/Gohan/spriteGohanMeurt.png);
+  animation: deadGh 1.5s steps(6) 0.99 forwards;
+}
+
+@keyframes deadGh {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: -1181px;
+  }
+}
