@@ -35,6 +35,7 @@ const FightersSelect  = () =>{
     main.style.backgroundImage = `url(${background})`;
     main.style.backgroundSize = 'cover';
     main.style. backgroundRepeat = 'no-repeat';
+    main.style.height = '100vh'
     main.innerHTML = `
     <section id="loadingGame">
         <img src="${loadingLogo}" class="loadingLogo">
